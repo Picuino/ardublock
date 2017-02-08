@@ -253,7 +253,7 @@
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="scoop_task" kind="command" color="26 97 218" initlabel="bg.program" is-starter="yes" is-terminator="yes" label-unique="yes">
+		<BlockGenus name="scoop_task" kind="command" color="26 97 218" initlabel="bg.scoop_task" is-starter="yes" is-terminator="yes" label-unique="yes">
 			<description>
 				<text>this is the loop of the arduino</text>
 			</description>
@@ -263,7 +263,7 @@
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="scoop_loop" kind="command" color="26 97 218" initlabel="bg.loop" is-starter="yes" is-terminator="yes" label-unique="yes">
+		<BlockGenus name="scoop_loop" kind="command" color="26 97 218" initlabel="bg.scoop_loop" is-starter="yes" is-terminator="yes" label-unique="yes">
 			<description>
 				<text>this is the loop of the arduino</text>
 			</description>
@@ -1973,7 +1973,7 @@
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="serial_write" kind="command" color="245 245 245" initlabel="serial_write">
+		<BlockGenus name="serial_write" kind="command" color="245 245 245" initlabel="bg.serial_write">
 			<description>
 				<text>send message via Serial port</text>
 			</description>
@@ -3046,7 +3046,7 @@
 			</BlockDrawer>
 
 			<BlockDrawer button-color="26 97 218" name="bd.scoop">
-			    				<BlockGenusMember>scoop_task</BlockGenusMember>
+			   <BlockGenusMember>scoop_task</BlockGenusMember>
 				<BlockGenusMember>scoop_loop</BlockGenusMember>
 				<BlockGenusMember>scoop_sleep</BlockGenusMember>
 				<BlockGenusMember>scoop_pin_event</BlockGenusMember>
