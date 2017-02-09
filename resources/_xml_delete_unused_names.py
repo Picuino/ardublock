@@ -1,11 +1,11 @@
 import os
 import re
 
-input_path = 'classes/com/ardublock/block'
-input_file = 'ardublock([_a-zA-Z]{3,6})?\.properties'
+input_path = '../target/classes/com/ardublock/block'
+input_file = 'ardublock.properties'
 
 output_path = 'new_properties'
-output_names = 'properties_names.xml'
+output_names = 'xml_names.xml'
 
 name_pattern = 'b[cdg]\.[0-9a-zA-Z_-]*'
 
@@ -28,10 +28,17 @@ def process(input_path, filename, xml_names):
       if name and not (name[0] in xml_names):
         continue
       code.append(li)
-
     fi.close()
-    fo = open(os.path.join(output_path, filename), 'wt')
-    fo.write(''.join(code))
-    fo.close()
 
+    write_list(code, output_path, filename)
+
+
+def write_list(lines, output_path, output_file):
+  if not os.path.exists(output_path):
+    os.mkdir(output_path)
+  fo = open(os.path.join(output_path, output_file), 'wt')
+  fo.write('\n'.join(lines))
+  fo.close()
+
+	
 main()
