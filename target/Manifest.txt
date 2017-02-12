@@ -1,4 +1,0 @@
-Name: Ardublock
-Builder: Picuino
-Version: development 01
-Main-Class: com.ardublock.Main

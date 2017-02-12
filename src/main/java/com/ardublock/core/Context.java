@@ -178,10 +178,10 @@ public class Context
 		
 		FactoryManager manager = workspace.getFactoryManager();
 		Block newBlock;
-        newBlock = new Block(workspace, "loop", false);
+        newBlock = new Block(workspace, "program", false);
         FactoryRenderableBlock factoryRenderableBlock = new FactoryRenderableBlock(workspace, manager, newBlock.getBlockID());
         RenderableBlock renderableBlock = factoryRenderableBlock.createNewInstance();
-        renderableBlock.setLocation(100, 100);
+        renderableBlock.setLocation(40, 40);
         page.addBlock(renderableBlock);
         
         

@@ -131,7 +131,6 @@
 		</repository>
 	</repositories>
 	<dependencies>
-	<!-- 
 		<dependency>
 			<groupId>edu.mit</groupId>
 			<artifactId>openblocks</artifactId>
@@ -149,7 +148,6 @@
 			<scope>provided</scope>
 			<version>1.6.12</version>
 		</dependency>
-	 -->
 		<dependency>
 			<groupId>org.apache.poi</groupId>
 			<artifactId>poi</artifactId>
