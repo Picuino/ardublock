@@ -17,6 +17,7 @@ def main():
   for filename in files:
       process(input_path, filename, names)
 
+
 def process(input_path, filename, xml_names):
     print filename
     all_filename = os.path.join(input_path, filename)
@@ -27,7 +28,7 @@ def process(input_path, filename, xml_names):
       name = re.findall(name_pattern, li)
       if name and not (name[0] in xml_names):
         continue
-      code.append(li)
+      code.append(li.strip())
     fi.close()
 
     write_list(code, output_path, filename)
