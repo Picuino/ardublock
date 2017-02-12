@@ -1,13 +1,13 @@
 import os
 import re
 
-input_path = '../target/classes/com/ardublock/block'
+input_path = '../../target/classes/com/ardublock/block'
 input_file = 'ardublock.xml'
 
-output_path = 'new_properties'
-output_file = 'xml_names.xml'
+output_path = './'
+output_file = 'xml_colors.xml'
 
-name_pattern = 'b[cdg]\.[0-9a-zA-Z_-]*'
+name_pattern = 'color="[0-9 ]+"'
 
 def main():
   # Extract names 

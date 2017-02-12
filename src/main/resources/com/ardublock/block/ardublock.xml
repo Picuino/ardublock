@@ -1637,7 +1637,7 @@
 			</description>
 			<BlockConnectors>
 			  <BlockConnector connector-type="string" connector-kind="socket" label="bc.variable">
-				 <DefaultArg genus-name="variable_String" label="STRING" />
+				 <DefaultArg genus-name="variable_String" label="String" />
 			  </BlockConnector>
 			  <BlockConnector connector-type="string" connector-kind="socket" label="bc.value">
 				 <DefaultArg genus-name="message" label="message" />
@@ -1661,7 +1661,7 @@
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="servo_sg90" kind="command" color="205 133 63"  initlabel="bg.servo">
+		<BlockGenus name="servo_sg90" kind="command" color="74 108 212"  initlabel="bg.servo">
 			<description>
 				<text>SG90</text>
 			</description>
@@ -1675,7 +1675,7 @@
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="servo_mg996r" kind="command" color="205 133 63"  initlabel="bg.servo">
+		<BlockGenus name="servo_mg996r" kind="command" color="74 108 212"  initlabel="bg.servo">
 			<description>
 				<text>Servo MG996R</text>
 			</description>
@@ -2198,7 +2198,7 @@
 
 		<!-- ******************** Especial Menu *************** -->
 
-		<BlockGenus name="code_loop" kind="command" color="125 125 125" initlabel="bg.code_loop">
+		<BlockGenus name="code_loop" kind="command" color="128 128 128" initlabel="bg.code_loop">
 			<description>
 				<text>send message via Serial port</text>
 			</description>
@@ -2209,7 +2209,7 @@
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="code_head" kind="command" color="125 125 125" initlabel="bg.code_head">
+		<BlockGenus name="code_head" kind="command" color="128 128 128" initlabel="bg.code_head">
 			<description>
 				<text>send message via Serial port</text>
 			</description>
@@ -2220,7 +2220,7 @@
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="code_setup" kind="command" color="125 125 125" initlabel="bg.code_setup">
+		<BlockGenus name="code_setup" kind="command" color="128 128 128" initlabel="bg.code_setup">
 			<description>
 				<text>send message via Serial port</text>
 			</description>
@@ -2242,7 +2242,7 @@
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="variable_fake" kind="data" initlabel="bg.fake" editable-label="yes" is-label-value="yes" color="204 51 0">
+		<BlockGenus name="variable_fake" kind="data" color="238 125 22" initlabel="bg.fake" editable-label="yes" is-label-value="yes">
 			<description>
 				<text>Digital Var</text>
 			</description>
@@ -2251,13 +2251,13 @@
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="digital-on" kind="data" color="204 153 255" initlabel="bg.digital-on">
+		<BlockGenus name="digital-on" kind="data" color="238 125 22" initlabel="bg.digital-on">
 			<BlockConnectors>
 				<BlockConnector connector-type="boolean" connector-kind="plug" position-type="mirror" />
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="digital-off" kind="data" color="204 153 255" initlabel="bg.digital-off">
+		<BlockGenus name="digital-off" kind="data" color="238 125 22" initlabel="bg.digital-off">
 			<BlockConnectors>
 				<BlockConnector connector-type="boolean" connector-kind="plug" position-type="mirror" />
 			</BlockConnectors>
@@ -2296,7 +2296,7 @@
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="bluno_println" kind="command" color="255 102 0" initlabel="bg.serial_println">
+		<BlockGenus name="bluno_println" kind="command" color="187 66 195" initlabel="bg.serial_println">
 			<description>
 				<text>send message via Serial port</text>
 			</description>
@@ -2307,7 +2307,7 @@
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="bluno_println_number" kind="command" color="255 102 0" initlabel="bg.bluno_println_number">
+		<BlockGenus name="bluno_println_number" kind="command" color="187 66 195" initlabel="bg.bluno_println_number">
 			<description>
 				<text>send message via Serial port</text>
 			</description>
@@ -2318,76 +2318,10 @@
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="bluno_println_clear" kind="command" color="255 102 0" initlabel="bg.bluno_println_number">
+		<BlockGenus name="bluno_println_clear" kind="command" color="187 66 195" initlabel="bg.bluno_println_number">
 			<description>
 				<text>send message via Serial port</text>
 			</description>
-		</BlockGenus>
-
-		<!-- Xinchejian -->
-
-		<BlockGenus name="xcj_motor_forward" kind="command" color="0 255 0" initlabel="bg.xcj_motor_forward">
-			<description>
-				<text>forward</text>
-			</description>
-			<BlockConnectors>
-				<BlockConnector connector-type="number" connector-kind="socket" label="M#">
-					<DefaultArg genus-name="number" label="1" />
-				</BlockConnector>
-				<BlockConnector connector-type="number" connector-kind="socket" label="speed">
-					<DefaultArg genus-name="number" label="255" />
-				</BlockConnector>
-			</BlockConnectors>
-			<Images>
-				<Image>
-					<FileLocation>com/ardublock/block/motor.jpg</FileLocation>
-				</Image>
-			</Images>
-		</BlockGenus>
-
-		<BlockGenus name="xcj_motor_backward" kind="command" color="0 255 0" initlabel="bg.xcj_motor_backward">
-			<description>
-				<text>Moving the car backward</text>
-			</description>
-			<BlockConnectors>
-				<BlockConnector connector-type="number" connector-kind="socket" label="M#">
-					<DefaultArg genus-name="number" label="1" />
-				</BlockConnector>
-				<BlockConnector connector-type="number" connector-kind="socket" label="speed">
-					<DefaultArg genus-name="number" label="255" />
-				</BlockConnector>
-			</BlockConnectors>
-			<Images>
-				<Image>
-					<FileLocation>com/ardublock/block/motor.jpg</FileLocation>
-				</Image>
-			</Images>
-		</BlockGenus>
-
-		<BlockGenus name="xcj_ms_digital_write" kind="command" color="0 255 0" initlabel="bg.xcj_ms_digital_write">
-			<description>
-				<text>Write ditial singal to Socket</text>
-			</description>
-			<BlockConnectors>
-				<BlockConnector connector-type="number" connector-kind="socket" label="S#">
-					<DefaultArg genus-name="number" label="1" />
-				</BlockConnector>
-				<BlockConnector connector-type="boolean" connector-kind="socket" label="bc.status">
-					<DefaultArg genus-name="digital-high" label="HIGH" />
-				</BlockConnector>
-			</BlockConnectors>
-		</BlockGenus>
-
-		<BlockGenus name="xcj_ms_digital_read" kind="data" color="0 255 0" initlabel="bg.xcj_ms_digital_read">
-			<description>
-				<text>Read digital status from socket</text>
-			</description>
-			<BlockConnectors>
-				<BlockConnector connector-type="boolean" connector-kind="plug" />
-				<BlockConnector connector-type="number" connector-kind="socket" label="S#">
-					<DefaultArg genus-name="number" label="1" />
-				</BlockConnector>
-			</BlockConnectors>
 		</BlockGenus>
 
 
@@ -2611,7 +2545,7 @@
 
 
 		<!-- Picuino -->
-		<BlockGenus name="pc_ledWrite" kind="command" color="128 0 0" initlabel="bg.pc_ledWrite">
+		<BlockGenus name="pc_ledWrite" kind="command" color="160 0 0" initlabel="bg.pc_ledWrite">
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="socket" label="bc.picuino_led">
 					<DefaultArg genus-name="number" label="1" />
@@ -2622,7 +2556,7 @@
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="pc_ledBlink" kind="command" color="128 0 0" initlabel="bg.pc_ledBlink">
+		<BlockGenus name="pc_ledBlink" kind="command" color="160 0 0" initlabel="bg.pc_ledBlink">
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="socket" label="bc.picuino_led">
 					<DefaultArg genus-name="number" label="1" />
@@ -2636,7 +2570,7 @@
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="pc_keyPressed" kind="data" color="128 0 0" initlabel="bg.pc_keyPressed">
+		<BlockGenus name="pc_keyPressed" kind="data" color="160 0 0" initlabel="bg.pc_keyPressed">
 			<BlockConnectors>
 				<BlockConnector connector-type="boolean" connector-kind="plug" />
 				<BlockConnector connector-type="number" connector-kind="socket" label="bc.picuino_key">
@@ -2645,7 +2579,7 @@
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="pc_keyValue" kind="data" color="128 0 0" initlabel="bg.pc_keyValue">
+		<BlockGenus name="pc_keyValue" kind="data" color="160 0 0" initlabel="bg.pc_keyValue">
 			<BlockConnectors>
 				<BlockConnector connector-type="boolean" connector-kind="plug" />
 				<BlockConnector connector-type="number" connector-kind="socket" label="bc.picuino_key">
@@ -2654,19 +2588,19 @@
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="pc_keyEvents" kind="data" color="128 0 0" initlabel="bg.pc_keyEvents">
+		<BlockGenus name="pc_keyEvents" kind="data" color="160 0 0" initlabel="bg.pc_keyEvents">
 			<BlockConnectors>
 				<BlockConnector connector-type="boolean" connector-kind="plug" />
 				<BlockConnector connector-type="number" connector-kind="socket" label="bc.picuino_key">
 					<DefaultArg genus-name="number" label="1" />
 				</BlockConnector>
 				<BlockConnector connector-type="number" connector-kind="socket" label="bc.picuino_event">
-					<DefaultArg genus-name="key_pressed_time1" label="KEY_PRESSED_TIME1" />
+					<DefaultArg genus-name="KEY_PRESSED_TIME1" label="KEY_PRESSED_TIME1" />
 				</BlockConnector>
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="pc_keyCount" kind="data" color="128 0 0" initlabel="bg.pc_keyCount">
+		<BlockGenus name="pc_keyCount" kind="data" color="160 0 0" initlabel="bg.pc_keyCount">
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="plug" />
 				<BlockConnector connector-type="number" connector-kind="socket" label="bc.picuino_key">
@@ -2675,7 +2609,7 @@
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="pc_keyTimeOn" kind="data" color="128 0 0" initlabel="bg.pc_keyTimeOn">
+		<BlockGenus name="pc_keyTimeOn" kind="data" color="160 0 0" initlabel="bg.pc_keyTimeOn">
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="plug" />
 				<BlockConnector connector-type="number" connector-kind="socket" label="bc.picuino_key">
@@ -2684,7 +2618,7 @@
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="pc_keyTimeOff" kind="data" color="128 0 0" initlabel="bg.pc_keyTimeOff">
+		<BlockGenus name="pc_keyTimeOff" kind="data" color="160 0 0" initlabel="bg.pc_keyTimeOff">
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="plug" />
 				<BlockConnector connector-type="number" connector-kind="socket" label="bc.picuino_key">
@@ -2693,7 +2627,7 @@
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="pc_dispNum" kind="command" color="128 0 0" initlabel="bg.pc_dispNum">
+		<BlockGenus name="pc_dispNum" kind="command" color="160 0 0" initlabel="bg.pc_dispNum">
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="socket" label="bc.picuino_integer">
 					<DefaultArg genus-name="number" label="123" />
@@ -2701,35 +2635,35 @@
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="pc_dispWrite" kind="command" color="128 0 0" initlabel="bg.pc_dispWrite">
+		<BlockGenus name="pc_dispWrite" kind="command" color="160 0 0" initlabel="bg.pc_dispWrite">
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="socket" label="bc.picuino_position">
 					<DefaultArg genus-name="number" label="1" />
 				</BlockConnector>
 				<BlockConnector connector-type="number" connector-kind="socket" label="bc.picuino_segments">
-					<DefaultArg genus-name="number" label="1" />
+					<DefaultArg genus-name="DD_A" label="DD_A" />
 				</BlockConnector>
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="pc_dispWrite4" kind="command" color="128 0 0" initlabel="bg.pc_dispWrite4">
+		<BlockGenus name="pc_dispWrite4" kind="command" color="160 0 0" initlabel="bg.pc_dispWrite4">
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="socket" label="bc.picuino_digit">
-					<DefaultArg genus-name="number" label="0" />
+					<DefaultArg genus-name="DD_H" label="DD_H" />
 				</BlockConnector>
 				<BlockConnector connector-type="number" connector-kind="socket" label="bc.picuino_digit">
-					<DefaultArg genus-name="number" label="0" />
+					<DefaultArg genus-name="DD_O" label="DD_O" />
 				</BlockConnector>
 				<BlockConnector connector-type="number" connector-kind="socket" label="bc.picuino_digit">
-					<DefaultArg genus-name="number" label="0" />
+					<DefaultArg genus-name="DD_L" label="DD_L" />
 				</BlockConnector>
 				<BlockConnector connector-type="number" connector-kind="socket" label="bc.picuino_digit">
-					<DefaultArg genus-name="number" label="0" />
+					<DefaultArg genus-name="DD_A" label="DD_A" />
 				</BlockConnector>
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="pc_buzzFreq" kind="command" color="128 0 0" initlabel="bg.pc_buzzFreq">
+		<BlockGenus name="pc_buzzFreq" kind="command" color="160 0 0" initlabel="bg.pc_buzzFreq">
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="socket" label="bc.picuino_frequency">
 					<DefaultArg genus-name="number" label="1000" />
@@ -2737,575 +2671,575 @@
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="pc_buzzTone" kind="command" color="128 0 0" initlabel="bg.pc_buzzTone">
+		<BlockGenus name="pc_buzzTone" kind="command" color="160 0 0" initlabel="bg.pc_buzzTone">
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="socket" label="bc.picuino_tone">
-					<DefaultArg genus-name="number" label="Do4" />
+					<DefaultArg genus-name="Do4" label="Do4" />
 				</BlockConnector>
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="pc_buzzPlay" kind="command" color="128 0 0" initlabel="bg.pc_buzzPlay">
+		<BlockGenus name="pc_buzzPlay" kind="command" color="160 0 0" initlabel="bg.pc_buzzPlay">
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="socket" label="bc.picuino_tone">
 					<DefaultArg genus-name="number" label="Do4" />
 				</BlockConnector>
 				<BlockConnector connector-type="number" connector-kind="socket" label="bc.picuino_time">
-					<DefaultArg genus-name="number" label="500" />
+					<DefaultArg genus-name="Do4" label="Do4" />
 				</BlockConnector>
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="pc_buzzPlayLen" kind="data" color="128 0 0" initlabel="bg.pc_buzzPlayLen">
+		<BlockGenus name="pc_buzzPlayLen" kind="data" color="160 0 0" initlabel="bg.pc_buzzPlayLen">
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="plug" />
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="pc_buzzOn" kind="command" color="128 0 0" initlabel="bg.pc_buzzOn">
+		<BlockGenus name="pc_buzzOn" kind="command" color="160 0 0" initlabel="bg.pc_buzzOn">
 		</BlockGenus>
 
-		<BlockGenus name="pc_buzzOff" kind="command" color="128 0 0" initlabel="bg.pc_buzzOff">
+		<BlockGenus name="pc_buzzOff" kind="command" color="160 0 0" initlabel="bg.pc_buzzOff">
 		</BlockGenus>
 
-		<BlockGenus name="pc_begin" kind="command" color="128 0 0" initlabel="bg.pc_begin">
+		<BlockGenus name="pc_begin" kind="command" color="160 0 0" initlabel="bg.pc_begin">
 		</BlockGenus>
 
-		<BlockGenus name="pc_ledBegin" kind="command" color="128 0 0" initlabel="bg.pc_ledBegin">
+		<BlockGenus name="pc_ledBegin" kind="command" color="160 0 0" initlabel="bg.pc_ledBegin">
 		</BlockGenus>
 
-		<BlockGenus name="pc_buzzBegin" kind="command" color="128 0 0" initlabel="bg.pc_buzzBegin">
+		<BlockGenus name="pc_buzzBegin" kind="command" color="160 0 0" initlabel="bg.pc_buzzBegin">
 		</BlockGenus>
 
-		<BlockGenus name="KEY_PRESSED_TIME1" kind="data" color="128 0 0" initlabel="bg.KEY_PRESSED_TIME1" editable-label="no">
+		<BlockGenus name="KEY_PRESSED_TIME1" kind="data" color="160 0 0" initlabel="bg.KEY_PRESSED_TIME1" editable-label="no">
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="KEY_PRESSED_TIME2" kind="data" color="128 0 0" initlabel="bg.KEY_PRESSED_TIME2" editable-label="no">
+		<BlockGenus name="KEY_PRESSED_TIME2" kind="data" color="160 0 0" initlabel="bg.KEY_PRESSED_TIME2" editable-label="no">
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="KEY_PRESSED_TIME3" kind="data" color="128 0 0" initlabel="bg.KEY_PRESSED_TIME3" editable-label="no">
+		<BlockGenus name="KEY_PRESSED_TIME3" kind="data" color="160 0 0" initlabel="bg.KEY_PRESSED_TIME3" editable-label="no">
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="KEY_RELEASED" kind="data" color="128 0 0" initlabel="bg.KEY_RELEASED" editable-label="no">
+		<BlockGenus name="KEY_RELEASED" kind="data" color="160 0 0" initlabel="bg.KEY_RELEASED" editable-label="no">
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="KEY_ALL" kind="data" color="128 0 0" initlabel="bg.KEY_ALL" editable-label="no">
+		<BlockGenus name="KEY_ALL" kind="data" color="160 0 0" initlabel="bg.KEY_ALL" editable-label="no">
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="KEY_LEFT" kind="data" color="128 0 0" initlabel="bg.KEY_LEFT" editable-label="no">
+		<BlockGenus name="KEY_LEFT" kind="data" color="160 0 0" initlabel="bg.KEY_LEFT" editable-label="no">
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="KEY_RIGHT" kind="data" color="128 0 0" initlabel="bg.KEY_RIGHT" editable-label="no">
+		<BlockGenus name="KEY_RIGHT" kind="data" color="160 0 0" initlabel="bg.KEY_RIGHT" editable-label="no">
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="KEY_UP" kind="data" color="128 0 0" initlabel="bg.KEY_UP" editable-label="no">
+		<BlockGenus name="KEY_UP" kind="data" color="160 0 0" initlabel="bg.KEY_UP" editable-label="no">
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="KEY_DOWN" kind="data" color="128 0 0" initlabel="bg.KEY_DOWN" editable-label="no">
+		<BlockGenus name="KEY_DOWN" kind="data" color="160 0 0" initlabel="bg.KEY_DOWN" editable-label="no">
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="KEY_ENTER" kind="data" color="128 0 0" initlabel="bg.KEY_ENTER" editable-label="no">
+		<BlockGenus name="KEY_ENTER" kind="data" color="160 0 0" initlabel="bg.KEY_ENTER" editable-label="no">
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="KEY_BACK" kind="data" color="128 0 0" initlabel="bg.KEY_BACK" editable-label="no">
+		<BlockGenus name="KEY_BACK" kind="data" color="160 0 0" initlabel="bg.KEY_BACK" editable-label="no">
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="DD_0" kind="data" color="128 0 0" initlabel="bg.DD_0" editable-label="no">
+		<BlockGenus name="DD_0" kind="data" color="160 0 0" initlabel="bg.DD_0" editable-label="no">
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="DD_1" kind="data" color="128 0 0" initlabel="bg.DD_1" editable-label="no">
+		<BlockGenus name="DD_1" kind="data" color="160 0 0" initlabel="bg.DD_1" editable-label="no">
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="DD_2" kind="data" color="128 0 0" initlabel="bg.DD_2" editable-label="no">
+		<BlockGenus name="DD_2" kind="data" color="160 0 0" initlabel="bg.DD_2" editable-label="no">
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="DD_3" kind="data" color="128 0 0" initlabel="bg.DD_3" editable-label="no">
+		<BlockGenus name="DD_3" kind="data" color="160 0 0" initlabel="bg.DD_3" editable-label="no">
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="DD_4" kind="data" color="128 0 0" initlabel="bg.DD_4" editable-label="no">
+		<BlockGenus name="DD_4" kind="data" color="160 0 0" initlabel="bg.DD_4" editable-label="no">
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="DD_5" kind="data" color="128 0 0" initlabel="bg.DD_5" editable-label="no">
+		<BlockGenus name="DD_5" kind="data" color="160 0 0" initlabel="bg.DD_5" editable-label="no">
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="DD_6" kind="data" color="128 0 0" initlabel="bg.DD_6" editable-label="no">
+		<BlockGenus name="DD_6" kind="data" color="160 0 0" initlabel="bg.DD_6" editable-label="no">
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="DD_7" kind="data" color="128 0 0" initlabel="bg.DD_7" editable-label="no">
+		<BlockGenus name="DD_7" kind="data" color="160 0 0" initlabel="bg.DD_7" editable-label="no">
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="DD_8" kind="data" color="128 0 0" initlabel="bg.DD_8" editable-label="no">
+		<BlockGenus name="DD_8" kind="data" color="160 0 0" initlabel="bg.DD_8" editable-label="no">
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="DD_9" kind="data" color="128 0 0" initlabel="bg.DD_9" editable-label="no">
+		<BlockGenus name="DD_9" kind="data" color="160 0 0" initlabel="bg.DD_9" editable-label="no">
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="DD_A" kind="data" color="128 0 0" initlabel="bg.DD_A" editable-label="no">
+		<BlockGenus name="DD_A" kind="data" color="160 0 0" initlabel="bg.DD_A" editable-label="no">
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="DD_b" kind="data" color="128 0 0" initlabel="bg.DD_b" editable-label="no">
+		<BlockGenus name="DD_b" kind="data" color="160 0 0" initlabel="bg.DD_b" editable-label="no">
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="DD_B" kind="data" color="128 0 0" initlabel="bg.DD_B" editable-label="no">
+		<BlockGenus name="DD_B" kind="data" color="160 0 0" initlabel="bg.DD_B" editable-label="no">
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="DD_C" kind="data" color="128 0 0" initlabel="bg.DD_C" editable-label="no">
+		<BlockGenus name="DD_C" kind="data" color="160 0 0" initlabel="bg.DD_C" editable-label="no">
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="DD_d" kind="data" color="128 0 0" initlabel="bg.DD_d" editable-label="no">
+		<BlockGenus name="DD_d" kind="data" color="160 0 0" initlabel="bg.DD_d" editable-label="no">
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="DD_E" kind="data" color="128 0 0" initlabel="bg.DD_E" editable-label="no">
+		<BlockGenus name="DD_E" kind="data" color="160 0 0" initlabel="bg.DD_E" editable-label="no">
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="DD_F" kind="data" color="128 0 0" initlabel="bg.DD_F" editable-label="no">
+		<BlockGenus name="DD_F" kind="data" color="160 0 0" initlabel="bg.DD_F" editable-label="no">
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="DD_G" kind="data" color="128 0 0" initlabel="bg.DD_G" editable-label="no">
+		<BlockGenus name="DD_G" kind="data" color="160 0 0" initlabel="bg.DD_G" editable-label="no">
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="DD_g" kind="data" color="128 0 0" initlabel="bg.DD_g" editable-label="no">
+		<BlockGenus name="DD_g" kind="data" color="160 0 0" initlabel="bg.DD_g" editable-label="no">
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="DD_H" kind="data" color="128 0 0" initlabel="bg.DD_H" editable-label="no">
+		<BlockGenus name="DD_H" kind="data" color="160 0 0" initlabel="bg.DD_H" editable-label="no">
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="DD_h" kind="data" color="128 0 0" initlabel="bg.DD_h" editable-label="no">
+		<BlockGenus name="DD_h" kind="data" color="160 0 0" initlabel="bg.DD_h" editable-label="no">
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="DD_I" kind="data" color="128 0 0" initlabel="bg.DD_I" editable-label="no">
+		<BlockGenus name="DD_I" kind="data" color="160 0 0" initlabel="bg.DD_I" editable-label="no">
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="DD_i" kind="data" color="128 0 0" initlabel="bg.DD_i" editable-label="no">
+		<BlockGenus name="DD_i" kind="data" color="160 0 0" initlabel="bg.DD_i" editable-label="no">
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="DD_J" kind="data" color="128 0 0" initlabel="bg.DD_J" editable-label="no">
+		<BlockGenus name="DD_J" kind="data" color="160 0 0" initlabel="bg.DD_J" editable-label="no">
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="DD_K" kind="data" color="128 0 0" initlabel="bg.DD_K" editable-label="no">
+		<BlockGenus name="DD_K" kind="data" color="160 0 0" initlabel="bg.DD_K" editable-label="no">
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="DD_L" kind="data" color="128 0 0" initlabel="bg.DD_L" editable-label="no">
+		<BlockGenus name="DD_L" kind="data" color="160 0 0" initlabel="bg.DD_L" editable-label="no">
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="DD_n" kind="data" color="128 0 0" initlabel="bg.DD_n" editable-label="no">
+		<BlockGenus name="DD_n" kind="data" color="160 0 0" initlabel="bg.DD_n" editable-label="no">
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="DD_ny" kind="data" color="128 0 0" initlabel="bg.DD_ny" editable-label="no">
+		<BlockGenus name="DD_ny" kind="data" color="160 0 0" initlabel="bg.DD_ny" editable-label="no">
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="DD_o" kind="data" color="128 0 0" initlabel="bg.DD_o" editable-label="no">
+		<BlockGenus name="DD_o" kind="data" color="160 0 0" initlabel="bg.DD_o" editable-label="no">
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="DD_O" kind="data" color="128 0 0" initlabel="bg.DD_O" editable-label="no">
+		<BlockGenus name="DD_O" kind="data" color="160 0 0" initlabel="bg.DD_O" editable-label="no">
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="DD_P" kind="data" color="128 0 0" initlabel="bg.DD_P" editable-label="no">
+		<BlockGenus name="DD_P" kind="data" color="160 0 0" initlabel="bg.DD_P" editable-label="no">
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="DD_q" kind="data" color="128 0 0" initlabel="bg.DD_q" editable-label="no">
+		<BlockGenus name="DD_q" kind="data" color="160 0 0" initlabel="bg.DD_q" editable-label="no">
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="DD_r" kind="data" color="128 0 0" initlabel="bg.DD_r" editable-label="no">
+		<BlockGenus name="DD_r" kind="data" color="160 0 0" initlabel="bg.DD_r" editable-label="no">
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="DD_S" kind="data" color="128 0 0" initlabel="bg.DD_S" editable-label="no">
+		<BlockGenus name="DD_S" kind="data" color="160 0 0" initlabel="bg.DD_S" editable-label="no">
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="DD_t" kind="data" color="128 0 0" initlabel="bg.DD_t" editable-label="no">
+		<BlockGenus name="DD_t" kind="data" color="160 0 0" initlabel="bg.DD_t" editable-label="no">
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="DD_u" kind="data" color="128 0 0" initlabel="bg.DD_u" editable-label="no">
+		<BlockGenus name="DD_u" kind="data" color="160 0 0" initlabel="bg.DD_u" editable-label="no">
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="DD_U" kind="data" color="128 0 0" initlabel="bg.DD_U" editable-label="no">
+		<BlockGenus name="DD_U" kind="data" color="160 0 0" initlabel="bg.DD_U" editable-label="no">
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="DD_y" kind="data" color="128 0 0" initlabel="bg.DD_y" editable-label="no">
+		<BlockGenus name="DD_y" kind="data" color="160 0 0" initlabel="bg.DD_y" editable-label="no">
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="DD_Y" kind="data" color="128 0 0" initlabel="bg.DD_Y" editable-label="no">
+		<BlockGenus name="DD_Y" kind="data" color="160 0 0" initlabel="bg.DD_Y" editable-label="no">
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="DD_Z" kind="data" color="128 0 0" initlabel="bg.DD_Z" editable-label="no">
+		<BlockGenus name="DD_Z" kind="data" color="160 0 0" initlabel="bg.DD_Z" editable-label="no">
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="DD_SP" kind="data" color="128 0 0" initlabel="bg.DD_SP" editable-label="no">
+		<BlockGenus name="DD_SP" kind="data" color="160 0 0" initlabel="bg.DD_SP" editable-label="no">
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="Silence" kind="data" color="128 0 0" initlabel="bg.Silence" editable-label="no">
+		<BlockGenus name="Silence" kind="data" color="160 0 0" initlabel="bg.Silence" editable-label="no">
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="Do3" kind="data" color="128 0 0" initlabel="bg.Do3" editable-label="no">
+		<BlockGenus name="Do3" kind="data" color="160 0 0" initlabel="bg.Do3" editable-label="no">
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="Do_3" kind="data" color="128 0 0" initlabel="bg.Do_3" editable-label="no">
+		<BlockGenus name="Do_3" kind="data" color="160 0 0" initlabel="bg.Do_3" editable-label="no">
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="Re3" kind="data" color="128 0 0" initlabel="bg.Re3" editable-label="no">
+		<BlockGenus name="Re3" kind="data" color="160 0 0" initlabel="bg.Re3" editable-label="no">
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="Re_3" kind="data" color="128 0 0" initlabel="bg.Re_3" editable-label="no">
+		<BlockGenus name="Re_3" kind="data" color="160 0 0" initlabel="bg.Re_3" editable-label="no">
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="Mi3" kind="data" color="128 0 0" initlabel="bg.Mi3" editable-label="no">
+		<BlockGenus name="Mi3" kind="data" color="160 0 0" initlabel="bg.Mi3" editable-label="no">
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="Fa3" kind="data" color="128 0 0" initlabel="bg.Fa3" editable-label="no">
+		<BlockGenus name="Fa3" kind="data" color="160 0 0" initlabel="bg.Fa3" editable-label="no">
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="Fa_3" kind="data" color="128 0 0" initlabel="bg.Fa_3" editable-label="no">
+		<BlockGenus name="Fa_3" kind="data" color="160 0 0" initlabel="bg.Fa_3" editable-label="no">
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="Sol3" kind="data" color="128 0 0" initlabel="bg.Sol3" editable-label="no">
+		<BlockGenus name="Sol3" kind="data" color="160 0 0" initlabel="bg.Sol3" editable-label="no">
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="Sol_3" kind="data" color="128 0 0" initlabel="bg.Sol_3" editable-label="no">
+		<BlockGenus name="Sol_3" kind="data" color="160 0 0" initlabel="bg.Sol_3" editable-label="no">
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="La3" kind="data" color="128 0 0" initlabel="bg.La3" editable-label="no">
+		<BlockGenus name="La3" kind="data" color="160 0 0" initlabel="bg.La3" editable-label="no">
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="La_3" kind="data" color="128 0 0" initlabel="bg.La_3" editable-label="no">
+		<BlockGenus name="La_3" kind="data" color="160 0 0" initlabel="bg.La_3" editable-label="no">
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="Si3" kind="data" color="128 0 0" initlabel="bg.Si3" editable-label="no">
+		<BlockGenus name="Si3" kind="data" color="160 0 0" initlabel="bg.Si3" editable-label="no">
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="Do4" kind="data" color="128 0 0" initlabel="bg.Do4" editable-label="no">
+		<BlockGenus name="Do4" kind="data" color="160 0 0" initlabel="bg.Do4" editable-label="no">
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="Do_4" kind="data" color="128 0 0" initlabel="bg.Do_4" editable-label="no">
+		<BlockGenus name="Do_4" kind="data" color="160 0 0" initlabel="bg.Do_4" editable-label="no">
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="Re4" kind="data" color="128 0 0" initlabel="bg.Re4" editable-label="no">
+		<BlockGenus name="Re4" kind="data" color="160 0 0" initlabel="bg.Re4" editable-label="no">
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="Re_4" kind="data" color="128 0 0" initlabel="bg.Re_4" editable-label="no">
+		<BlockGenus name="Re_4" kind="data" color="160 0 0" initlabel="bg.Re_4" editable-label="no">
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="Mi4" kind="data" color="128 0 0" initlabel="bg.Mi4" editable-label="no">
+		<BlockGenus name="Mi4" kind="data" color="160 0 0" initlabel="bg.Mi4" editable-label="no">
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="Fa4" kind="data" color="128 0 0" initlabel="bg.Fa4" editable-label="no">
+		<BlockGenus name="Fa4" kind="data" color="160 0 0" initlabel="bg.Fa4" editable-label="no">
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="Fa_4" kind="data" color="128 0 0" initlabel="bg.Fa_4" editable-label="no">
+		<BlockGenus name="Fa_4" kind="data" color="160 0 0" initlabel="bg.Fa_4" editable-label="no">
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="Sol4" kind="data" color="128 0 0" initlabel="bg.Sol4" editable-label="no">
+		<BlockGenus name="Sol4" kind="data" color="160 0 0" initlabel="bg.Sol4" editable-label="no">
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="Sol_4" kind="data" color="128 0 0" initlabel="bg.Sol_4" editable-label="no">
+		<BlockGenus name="Sol_4" kind="data" color="160 0 0" initlabel="bg.Sol_4" editable-label="no">
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="La4" kind="data" color="128 0 0" initlabel="bg.La4" editable-label="no">
+		<BlockGenus name="La4" kind="data" color="160 0 0" initlabel="bg.La4" editable-label="no">
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="La_4" kind="data" color="128 0 0" initlabel="bg.La_4" editable-label="no">
+		<BlockGenus name="La_4" kind="data" color="160 0 0" initlabel="bg.La_4" editable-label="no">
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="Si4" kind="data" color="128 0 0" initlabel="bg.Si4" editable-label="no">
+		<BlockGenus name="Si4" kind="data" color="160 0 0" initlabel="bg.Si4" editable-label="no">
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="Do5" kind="data" color="128 0 0" initlabel="bg.Do5" editable-label="no">
+		<BlockGenus name="Do5" kind="data" color="160 0 0" initlabel="bg.Do5" editable-label="no">
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="Do_5" kind="data" color="128 0 0" initlabel="bg.Do_5" editable-label="no">
+		<BlockGenus name="Do_5" kind="data" color="160 0 0" initlabel="bg.Do_5" editable-label="no">
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="Re5" kind="data" color="128 0 0" initlabel="bg.Re5" editable-label="no">
+		<BlockGenus name="Re5" kind="data" color="160 0 0" initlabel="bg.Re5" editable-label="no">
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="Re_5" kind="data" color="128 0 0" initlabel="bg.Re_5" editable-label="no">
+		<BlockGenus name="Re_5" kind="data" color="160 0 0" initlabel="bg.Re_5" editable-label="no">
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="Mi5" kind="data" color="128 0 0" initlabel="bg.Mi5" editable-label="no">
+		<BlockGenus name="Mi5" kind="data" color="160 0 0" initlabel="bg.Mi5" editable-label="no">
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="Fa5" kind="data" color="128 0 0" initlabel="bg.Fa5" editable-label="no">
+		<BlockGenus name="Fa5" kind="data" color="160 0 0" initlabel="bg.Fa5" editable-label="no">
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="Fa_5" kind="data" color="128 0 0" initlabel="bg.Fa_5" editable-label="no">
+		<BlockGenus name="Fa_5" kind="data" color="160 0 0" initlabel="bg.Fa_5" editable-label="no">
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="Sol5" kind="data" color="128 0 0" initlabel="bg.Sol5" editable-label="no">
+		<BlockGenus name="Sol5" kind="data" color="160 0 0" initlabel="bg.Sol5" editable-label="no">
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="Sol_5" kind="data" color="128 0 0" initlabel="bg.Sol_5" editable-label="no">
+		<BlockGenus name="Sol_5" kind="data" color="160 0 0" initlabel="bg.Sol_5" editable-label="no">
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="La5" kind="data" color="128 0 0" initlabel="bg.La5" editable-label="no">
+		<BlockGenus name="La5" kind="data" color="160 0 0" initlabel="bg.La5" editable-label="no">
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="La_5" kind="data" color="128 0 0" initlabel="bg.La_5" editable-label="no">
+		<BlockGenus name="La_5" kind="data" color="160 0 0" initlabel="bg.La_5" editable-label="no">
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="Si5" kind="data" color="128 0 0" initlabel="bg.Si5" editable-label="no">
+		<BlockGenus name="Si5" kind="data" color="160 0 0" initlabel="bg.Si5" editable-label="no">
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
 			</BlockConnectors>
@@ -3708,29 +3642,33 @@
 			</BlockDrawer>
 
 			<BlockDrawer button-color="238 125 22" name="bd.number" type="factory">
-				<BlockGenusMember>number</BlockGenusMember>
 				<BlockGenusMember>setter_variable_number</BlockGenusMember>
-				<BlockGenusMember>variable_number</BlockGenusMember>
-				<BlockGenusMember>setter_variable_number_unsigned_long</BlockGenusMember>
-				<BlockGenusMember>variable_number_unsigned_long</BlockGenusMember>
 				<BlockGenusMember>setter_variable_digital</BlockGenusMember>
-				<BlockGenusMember>variable_digital</BlockGenusMember>
-				<BlockGenusMember>digital-low</BlockGenusMember>
-				<BlockGenusMember>digital-high</BlockGenusMember>
-				<BlockGenusMember>true</BlockGenusMember>
-				<BlockGenusMember>false</BlockGenusMember>
-				<BlockGenusMember>setter_variable_number_double</BlockGenusMember>
-				<BlockGenusMember>variable_number_double</BlockGenusMember>
-				<BlockGenusMember>number_double</BlockGenusMember>
 				<BlockGenusMember>setter_variable_char</BlockGenusMember>
-				<BlockGenusMember>variable_poly</BlockGenusMember>
-				<BlockGenusMember>char</BlockGenusMember>
+				<BlockGenusMember>setter_variable_number_unsigned_long</BlockGenusMember>
+				<BlockGenusMember>setter_variable_number_double</BlockGenusMember>
 				<BlockGenusMember>setter_variable_String</BlockGenusMember>
-				<BlockGenusMember>variable_String</BlockGenusMember>
-				<BlockGenusMember>message</BlockGenusMember>
 				<BlockGenusMember>create_variable_vector</BlockGenusMember>
-				<BlockGenusMember>variable_vector</BlockGenusMember>
 				<BlockGenusMember>setter_variable_vector</BlockGenusMember>
+
+				<BlockGenusMember>number</BlockGenusMember>
+				<BlockGenusMember>true</BlockGenusMember>
+				<!--
+				<BlockGenusMember>false</BlockGenusMember>
+				<BlockGenusMember>digital-high</BlockGenusMember>
+				<BlockGenusMember>digital-low</BlockGenusMember>
+				-->
+				<BlockGenusMember>char</BlockGenusMember>
+				<BlockGenusMember>number_double</BlockGenusMember>
+				<BlockGenusMember>message</BlockGenusMember>
+
+				<BlockGenusMember>variable_number</BlockGenusMember>
+				<BlockGenusMember>variable_digital</BlockGenusMember>
+				<BlockGenusMember>variable_poly</BlockGenusMember>
+				<BlockGenusMember>variable_number_unsigned_long</BlockGenusMember>
+				<BlockGenusMember>variable_number_double</BlockGenusMember>
+				<BlockGenusMember>variable_String</BlockGenusMember>
+				<BlockGenusMember>variable_vector</BlockGenusMember>
 			</BlockDrawer>
 
 			<BlockDrawer button-color="238 125 22" name="bd.storage" type="factory">
@@ -3769,7 +3707,7 @@
 				<BlockGenusMember>Serialplus_receive_digital</BlockGenusMember>
 			</BlockDrawer>
 
-			<BlockDrawer button-color="128 0 0" name="bd.picuino">
+			<BlockDrawer button-color="160 0 0" name="bd.picuino">
 				<BlockGenusMember>pc_ledWrite</BlockGenusMember>
 				<BlockGenusMember>pc_ledBlink</BlockGenusMember>
 				<BlockGenusMember>pc_keyPressed</BlockGenusMember>
@@ -3796,7 +3734,7 @@
 				<BlockGenusMember>Do4</BlockGenusMember>
 			</BlockDrawer>
 
-			<BlockDrawer button-color="120 120 120" name="bd.especial" type="factory">
+			<BlockDrawer button-color="128 128 128" name="bd.especial" type="factory">
 				<BlockGenusMember>code_head</BlockGenusMember>
 				<BlockGenusMember>code_setup</BlockGenusMember>
 				<BlockGenusMember>code_loop</BlockGenusMember>
@@ -3806,7 +3744,7 @@
 	</BlockDrawerSets>
 
 	<Pages drawer-with-page="yes">
-		<Page page-name="Main" page-width="400" page-color="128 128 128"/>
+		<Page page-name="Main" page-width="400" page-color="222 222 222"/>
 	</Pages>
 
 	<TrashCan>

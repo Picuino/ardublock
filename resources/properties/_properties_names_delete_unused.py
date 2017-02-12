@@ -1,16 +1,15 @@
 import os
 import re
 
-input_path = '../target/classes/com/ardublock/block'
-input_file = 'ardublock.properties'
+input_path = '../../target/classes/com/ardublock/block'
+input_file = 'ardublock([_a-zA-Z]{3,6})?\.properties'
 
-output_path = 'new_properties'
-output_names = 'xml_names.xml'
+input_names = 'properties_names.xml'
 
 name_pattern = 'b[cdg]\.[0-9a-zA-Z_-]*'
 
 def main():
-  names = open(os.path.join(output_path, output_names), 'rt').read()
+  names = open(input_names , 'rt').read()
   names = names.split('\n')
   
   files = [f for f in os.listdir(input_path) if re.match(input_file, f)]
@@ -31,13 +30,11 @@ def process(input_path, filename, xml_names):
       code.append(li.strip())
     fi.close()
 
-    write_list(code, output_path, filename)
+    write_list(code, filename)
 
 
-def write_list(lines, output_path, output_file):
-  if not os.path.exists(output_path):
-    os.mkdir(output_path)
-  fo = open(os.path.join(output_path, output_file), 'wt')
+def write_list(lines, output_file):
+  fo = open(output_file, 'wt')
   fo.write('\n'.join(lines))
   fo.close()
 
