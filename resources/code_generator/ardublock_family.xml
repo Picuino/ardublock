@@ -1,0 +1,30 @@
+
+		<!-- Arduino Definitions -->
+		<BlockFamily>
+			<FamilyMember>Arduino_D2</FamilyMember>
+			<FamilyMember>Arduino_D3</FamilyMember>
+			<FamilyMember>Arduino_D4</FamilyMember>
+			<FamilyMember>Arduino_D5</FamilyMember>
+			<FamilyMember>Arduino_D6</FamilyMember>
+			<FamilyMember>Arduino_D7</FamilyMember>
+			<FamilyMember>Arduino_D8</FamilyMember>
+			<FamilyMember>Arduino_D9</FamilyMember>
+			<FamilyMember>Arduino_D10</FamilyMember>
+			<FamilyMember>Arduino_D11</FamilyMember>
+			<FamilyMember>Arduino_D12</FamilyMember>
+			<FamilyMember>Arduino_D13</FamilyMember>
+			<FamilyMember>Arduino_A0</FamilyMember>
+			<FamilyMember>Arduino_A1</FamilyMember>
+			<FamilyMember>Arduino_A2</FamilyMember>
+			<FamilyMember>Arduino_A3</FamilyMember>
+			<FamilyMember>Arduino_A4</FamilyMember>
+			<FamilyMember>Arduino_A5</FamilyMember>
+		</BlockFamily>
+		<BlockFamily>
+			<FamilyMember>Arduino_A0</FamilyMember>
+			<FamilyMember>Arduino_A1</FamilyMember>
+			<FamilyMember>Arduino_A2</FamilyMember>
+			<FamilyMember>Arduino_A3</FamilyMember>
+			<FamilyMember>Arduino_A4</FamilyMember>
+			<FamilyMember>Arduino_A5</FamilyMember>
+		</BlockFamily>

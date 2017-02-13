@@ -6,7 +6,7 @@ import com.ardublock.translator.block.exception.SubroutineNotDeclaredException;
 
 public class Toggle extends TranslatorBlock
 {
-	public static final String ARDUBLOCK_DIGITAL_WRITE_DEFINE = "void __ardublockDigitalWrite(int pinNumber, boolean status)\n{\npinMode(pinNumber, OUTPUT);\ndigitalWrite(pinNumber, status);\n}\n";
+	public static final String ARDUBLOCK_DIGITAL_WRITE_DEFINE = "void __ardublockDigitalWrite(int pinNumber, boolean status) {\npinMode(pinNumber, OUTPUT);\ndigitalWrite(pinNumber, status);\n}\n";
 	
 	public Toggle(Long blockId, Translator translator, String codePrefix, String codeSuffix, String label)
 	{

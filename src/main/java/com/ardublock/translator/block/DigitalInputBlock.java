@@ -6,7 +6,7 @@ import com.ardublock.translator.block.exception.SubroutineNotDeclaredException;
 
 public class DigitalInputBlock extends TranslatorBlock
 {
-	public static final String ARDUBLOCK_DIGITAL_READ_DEFINE = "boolean __ardublockDigitalRead(int pinNumber)\n{\npinMode(pinNumber, INPUT);\nreturn digitalRead(pinNumber);\n}\n\n";
+	public static final String ARDUBLOCK_DIGITAL_READ_DEFINE = "boolean __ardublockDigitalRead(int pinNumber) {\npinMode(pinNumber, INPUT);\nreturn digitalRead(pinNumber);\n}\n\n";
 	
 	public DigitalInputBlock(Long blockId, Translator translator, String codePrefix, String codeSuffix, String label)
 	{

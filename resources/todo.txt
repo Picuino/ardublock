@@ -1,0 +1,10 @@
+TO DO
+=====
+
+Improvement suggestions
+
+* Add Hexadecimal and Binary constants
+* Translate all blocks
+* Add Makeblock library
+* Add blocks for 'glue' or translate between number types
+* Test english names and properties

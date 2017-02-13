@@ -32,31 +32,12 @@
 		<BlockConnectorShape shape-type="cmd3" shape-number="17" />
 	</BlockConnectorShapes>
 
+
+
 	<BlockGenuses>
 		<BlockGenus name="dummy" kind="command" initlabel="" color="0 0 0" />
-		 <!-- ******************** NEW FOR LOOP **************** -->
-		<BlockGenus name="repeat_control" kind="command" color="225 169 26" initlabel="bg.repeat_control">
-			<description>
-				<text>repeat</text>
-			</description>
-			<BlockConnectors>
-				<BlockConnector connector-type="number" connector-kind="socket" label="bc.variable">
-					<DefaultArg genus-name="variable_number" label="variable name" />
-				</BlockConnector>
-				<BlockConnector connector-type="number" connector-kind="socket" label="bc.start">
-					<DefaultArg genus-name="number" label="1" />
-				</BlockConnector>
-				<BlockConnector connector-type="number" connector-kind="socket" label="bc.end">
-					<DefaultArg genus-name="number" label="5" />
-				</BlockConnector>
-				<BlockConnector connector-type="number" connector-kind="socket" label="bc.increment">
-					<DefaultArg genus-name="number" label="1" />
-				</BlockConnector>
-				<BlockConnector label="commands" connector-type="cmd" connector-kind="socket" />
-			</BlockConnectors>
-		</BlockGenus>
-
-		<!-- ******************** Controls Menu *************** -->
+		
+		<!-- Controls -->
 		<BlockGenus name="program" kind="command" color="225 169 26" initlabel="bg.program" is-starter="yes" is-terminator="yes" label-unique="no">
 			<description>
 				<text>this is the loop of the arduino</text>
@@ -87,7 +68,7 @@
 				<text>program delay in x milliseconds</text>
 			</description>
 			<BlockConnectors>
-				<BlockConnector connector-type="number" connector-kind="socket" label="bc.milliseconds">
+				<BlockConnector connector-type="number" connector-kind="socket">
 					<DefaultArg genus-name="number" label="1000" />
 				</BlockConnector>
 			</BlockConnectors>
@@ -146,7 +127,7 @@
 				<text>While Block</text>
 			</description>
 			<BlockConnectors>
-				<BlockConnector label="bc.condition" connector-kind="socket" connector-type="boolean" />
+				<BlockConnector label="bc.test" connector-kind="socket" connector-type="boolean" />
 				<BlockConnector label="bc.commands" connector-kind="socket" connector-type="cmd" />
 			</BlockConnectors>
 		</BlockGenus>
@@ -169,18 +150,6 @@
 			</description>
 		</BlockGenus>
 
-		<BlockGenus name="repeat_times" kind="command" color="225 169 26" initlabel="bg.repeat_times">
-			<description>
-				<text>Repeat the commands for "times"</text>
-			</description>
-			<BlockConnectors>
-				<BlockConnector connector-type="number" connector-kind="socket" label="bc.repeat_times">
-					<DefaultArg genus-name="number" label="5" />
-				</BlockConnector>
-				<BlockConnector label="bc.commands" connector-type="cmd" connector-kind="socket" />
-			</BlockConnectors>
-		</BlockGenus>
-
 		<BlockGenus name="repeat" kind="command" color="225 169 26" initlabel="bg.repeat">
 			<description>
 				<text>repeat</text>
@@ -193,6 +162,39 @@
 					<DefaultArg genus-name="number" label="5" />
 				</BlockConnector>
 				<BlockConnector label="bc.commands" connector-type="cmd" connector-kind="socket" />
+			</BlockConnectors>
+		</BlockGenus>
+
+		<BlockGenus name="repeat_times" kind="command" color="225 169 26" initlabel="bg.repeat_times">
+			<description>
+				<text>Repeat the commands for "times"</text>
+			</description>
+			<BlockConnectors>
+				<BlockConnector connector-type="number" connector-kind="socket" label="bc.repeat_times">
+					<DefaultArg genus-name="number" label="5" />
+				</BlockConnector>
+				<BlockConnector label="bc.commands" connector-type="cmd" connector-kind="socket" />
+			</BlockConnectors>
+		</BlockGenus>
+
+		<BlockGenus name="repeat_control" kind="command" color="225 169 26" initlabel="bg.repeat_control">
+			<description>
+				<text>repeat</text>
+			</description>
+			<BlockConnectors>
+				<BlockConnector connector-type="number" connector-kind="socket" label="bc.variable">
+					<DefaultArg genus-name="variable_number" label="variable name" />
+				</BlockConnector>
+				<BlockConnector connector-type="number" connector-kind="socket" label="bc.start">
+					<DefaultArg genus-name="number" label="1" />
+				</BlockConnector>
+				<BlockConnector connector-type="number" connector-kind="socket" label="bc.end">
+					<DefaultArg genus-name="number" label="5" />
+				</BlockConnector>
+				<BlockConnector connector-type="number" connector-kind="socket" label="bc.increment">
+					<DefaultArg genus-name="number" label="1" />
+				</BlockConnector>
+				<BlockConnector connector-type="cmd" connector-kind="socket" label="bc.commands" />
 			</BlockConnectors>
 		</BlockGenus>
 
@@ -235,6 +237,9 @@
 		</BlockGenus>
 
 		<BlockGenus name="ref_var" kind="data" color="238 125 22" initlabel="bg.ref_var" editable-label="yes">
+			<description>
+				<text>Subroutine Argument. Integer number</text>
+			</description>
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
 			</BlockConnectors>
@@ -245,7 +250,7 @@
 				<text>program delay in x milliseconds</text>
 			</description>
 			<BlockConnectors>
-				<BlockConnector connector-type="number" connector-kind="socket" label="bc.microseconds">
+				<BlockConnector connector-type="number" connector-kind="socket">
 					<DefaultArg genus-name="number" label="1000" />
 				</BlockConnector>
 			</BlockConnectors>
@@ -323,12 +328,12 @@
 			</description>
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="socket" label="bc.pin_number">
-					<DefaultArg genus-name="DuinoEDU_D2" label="D2" />
+					<DefaultArg genus-name="Arduino_D2" label="D2" />
 				</BlockConnector>
 				<BlockConnector connector-type="number" connector-kind="socket" label="bc.scoop_event_flag">
 					<DefaultArg genus-name="scoop_event_rising" label="Event: RISING" />
 				</BlockConnector>
-				<BlockConnector connector-type="cmd" connector-kind="socket" />
+				<BlockConnector connector-type="cmd" connector-kind="socket" label="bc.commands" />
 			</BlockConnectors>
 		</BlockGenus>
 
@@ -340,7 +345,7 @@
 			</description>
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="socket" label="bc.pin_number">
-					<DefaultArg genus-name="DuinoEDU_D2" label="D2" />
+					<DefaultArg genus-name="Arduino_D2" label="D2" />
 				</BlockConnector>
 				<BlockConnector connector-type="boolean" connector-kind="plug" />
 			</BlockConnectors>
@@ -352,7 +357,7 @@
 			</description>
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="socket" label="bc.pin_number">
-					<DefaultArg genus-name="DuinoEDU_D2" label="D2" />
+					<DefaultArg genus-name="Arduino_D2" label="D2" />
 				</BlockConnector>
 			</BlockConnectors>
 		</BlockGenus>
@@ -363,7 +368,7 @@
 			</description>
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="socket" label="bc.pin_number">
-					<DefaultArg genus-name="DuinoEDU_A0" label="A0" />
+					<DefaultArg genus-name="Arduino_A0" label="A0" />
 				</BlockConnector>
 				<BlockConnector connector-type="number" connector-kind="plug" />
 			</BlockConnectors>
@@ -375,10 +380,10 @@
 			</description>
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="socket" label="bc.pin_number">
-					<DefaultArg genus-name="DuinoEDU_D2" label="D2" />
+					<DefaultArg genus-name="Arduino_D2" label="D2" />
 				</BlockConnector>
-				<BlockConnector connector-type="boolean" connector-kind="socket">
-					<DefaultArg genus-name="digital-high" label="HIGH" />
+				<BlockConnector connector-type="boolean" connector-kind="socket" label="bc.value">
+					<DefaultArg genus-name="digital-on" label="ON" />
 				</BlockConnector>
 			</BlockConnectors>
 		</BlockGenus>
@@ -389,9 +394,9 @@
 			</description>
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="socket" label="bc.pin_number">
-					<DefaultArg genus-name="DuinoEDU_D2" label="D2" />
+					<DefaultArg genus-name="Arduino_D2" label="D2" />
 				</BlockConnector>
-				<BlockConnector connector-type="number" connector-kind="socket">
+				<BlockConnector connector-type="number" connector-kind="socket" label="bc.value">
 					<DefaultArg genus-name="number" label="255" />
 				</BlockConnector>
 			</BlockConnectors>
@@ -403,7 +408,7 @@
 			</description>
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="socket" label="bc.pin_number">
-					<DefaultArg genus-name="DuinoEDU_D2" label="D2" />
+					<DefaultArg genus-name="Arduino_D2" label="D2" />
 				</BlockConnector>
 			</BlockConnectors>
 		</BlockGenus>
@@ -414,7 +419,7 @@
 			</description>
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="socket" label="bc.pin_number">
-					<DefaultArg genus-name="DuinoEDU_D8" label="D8" />
+					<DefaultArg genus-name="Arduino_D8" label="D8" />
 				</BlockConnector>
 				<BlockConnector connector-type="number" connector-kind="socket" label="bc.frequency">
 					<DefaultArg genus-name="number" label="440" />
@@ -429,7 +434,7 @@
 			</description>
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="socket" label="bc.pin_number">
-					<DefaultArg genus-name="DuinoEDU_D8" label="D8" />
+					<DefaultArg genus-name="Arduino_D8" label="D8" />
 				</BlockConnector>
 				<BlockConnector connector-type="number" connector-kind="socket" label="bc.frequency">
 					<DefaultArg genus-name="number" label="440" />
@@ -446,12 +451,12 @@
 			</description>
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="socket" label="bc.pin_number">
-					<DefaultArg genus-name="DuinoEDU_D8" label="D8" />
+					<DefaultArg genus-name="Arduino_D8" label="D8" />
 				</BlockConnector>
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="DDRA" kind="command" color="238 125 22" initlabel="bg.DDRA">
+		<BlockGenus name="DDRA" kind="command" color="74 108 212" initlabel="bg.DDRA">
 			<description>
 				<text>DDRA</text>
 			</description>
@@ -462,7 +467,7 @@
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="DDRB" kind="command" color="238 125 22" initlabel="bg.DDRB">
+		<BlockGenus name="DDRB" kind="command" color="74 108 212" initlabel="bg.DDRB">
 			<description>
 				<text>DDRB</text>
 			</description>
@@ -473,7 +478,7 @@
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="DDRC" kind="command" color="238 125 22" initlabel="bg.DDRC">
+		<BlockGenus name="DDRC" kind="command" color="74 108 212" initlabel="bg.DDRC">
 			<description>
 				<text>DDRC</text>
 			</description>
@@ -484,7 +489,7 @@
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="DDRD" kind="command" color="238 125 22" initlabel="bg.DDRD">
+		<BlockGenus name="DDRD" kind="command" color="74 108 212" initlabel="bg.DDRD">
 			<description>
 				<text>DDRD</text>
 			</description>
@@ -495,7 +500,7 @@
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="DDRH" kind="command" color="238 125 22" initlabel="bg.DDRH">
+		<BlockGenus name="DDRH" kind="command" color="74 108 212" initlabel="bg.DDRH">
 			<description>
 				<text>DDRH</text>
 			</description>
@@ -506,7 +511,7 @@
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="DDRL" kind="command" color="238 125 22" initlabel="bg.DDRL">
+		<BlockGenus name="DDRL" kind="command" color="74 108 212" initlabel="bg.DDRL">
 			<description>
 				<text>DDRL</text>
 			</description>
@@ -517,7 +522,7 @@
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="PORTA" kind="command" color="238 125 22" initlabel="bg.PORTA">
+		<BlockGenus name="PORTA" kind="command" color="74 108 212" initlabel="bg.PORTA">
 			<description>
 				<text>PORTA</text>
 			</description>
@@ -528,7 +533,7 @@
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="PORTB" kind="command" color="238 125 22" initlabel="bg.PORTB">
+		<BlockGenus name="PORTB" kind="command" color="74 108 212" initlabel="bg.PORTB">
 			<description>
 				<text>PORTB</text>
 			</description>
@@ -539,7 +544,7 @@
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="PORTC" kind="command" color="238 125 22" initlabel="bg.PORTC">
+		<BlockGenus name="PORTC" kind="command" color="74 108 212" initlabel="bg.PORTC">
 			<description>
 				<text>PORTC</text>
 			</description>
@@ -550,7 +555,7 @@
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="PORTD" kind="command" color="238 125 22" initlabel="bg.PORTD">
+		<BlockGenus name="PORTD" kind="command" color="74 108 212" initlabel="bg.PORTD">
 			<description>
 				<text>PORTD</text>
 			</description>
@@ -561,7 +566,7 @@
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="PORTH" kind="command" color="238 125 22" initlabel="bg.PORTH">
+		<BlockGenus name="PORTH" kind="command" color="74 108 212" initlabel="bg.PORTH">
 			<description>
 				<text>PORTH</text>
 			</description>
@@ -572,7 +577,7 @@
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="PORTL" kind="command" color="238 125 22" initlabel="bg.PORTL">
+		<BlockGenus name="PORTL" kind="command" color="74 108 212" initlabel="bg.PORTL">
 			<description>
 				<text>PORTL</text>
 			</description>
@@ -583,108 +588,25 @@
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="PORT_FIX" kind="command" color="74 108 212" initlabel="bg.PORT_FIX">
-			<description>
-				<text>PORTL</text>
-			</description>
-			<BlockConnectors>
-				<BlockConnector connector-type="number" connector-kind="socket" label="bc.pin_number" >
-					<DefaultArg genus-name="PORTA2" label="PORTA" />
-				</BlockConnector>
-				<BlockConnector connector-type="boolean" connector-kind="socket" label="0">
-					<DefaultArg genus-name="LEVEL1" label="ON" />
-				</BlockConnector>
-				<BlockConnector connector-type="boolean" connector-kind="socket" label="1">
-					<DefaultArg genus-name="LEVEL1" label="ON" />
-				</BlockConnector>
-				<BlockConnector connector-type="boolean" connector-kind="socket" label="2">
-					<DefaultArg genus-name="LEVEL1" label="ON" />
-				</BlockConnector>
-				<BlockConnector connector-type="boolean" connector-kind="socket" label="3">
-					<DefaultArg genus-name="LEVEL1" label="ON" />
-				</BlockConnector>
-				<BlockConnector connector-type="boolean" connector-kind="socket" label="4">
-					<DefaultArg genus-name="LEVEL1" label="ON" />
-				</BlockConnector>
-				<BlockConnector connector-type="boolean" connector-kind="socket" label="5">
-					<DefaultArg genus-name="LEVEL1" label="ON" />
-				</BlockConnector>
-				<BlockConnector connector-type="boolean" connector-kind="socket" label="6">
-					<DefaultArg genus-name="LEVEL1" label="ON" />
-				</BlockConnector>
-				<BlockConnector connector-type="boolean" connector-kind="socket" label="7">
-					<DefaultArg genus-name="LEVEL1" label="ON" />
-				</BlockConnector>
-			</BlockConnectors>
-		</BlockGenus>
-
-		<BlockGenus name="LEVEL1" kind="data" color="238 125 22" initlabel="bg.LEVEL1" editable-label="no">
-			<BlockConnectors>
-				<BlockConnector connector-type="boolean" connector-kind="plug"/>
-			</BlockConnectors>
-		</BlockGenus>
-
-		<BlockGenus name="LEVEL0" kind="data" color="238 125 22" initlabel="bg.LEVEL0" editable-label="no">
-			<BlockConnectors>
-				<BlockConnector connector-type="boolean" connector-kind="plug"/>
-			</BlockConnectors>
-		</BlockGenus>
-
-		<BlockGenus name="PORTA2" kind="data" color="238 125 22" initlabel="bg.PORTA2" editable-label="no">
-			<BlockConnectors>
-				<BlockConnector connector-type="number" connector-kind="plug"/>
-			</BlockConnectors>
-		</BlockGenus>
-
-		<BlockGenus name="PORTB2" kind="data" color="238 125 22" initlabel="bg.PORTB2" editable-label="no">
-			<BlockConnectors>
-				<BlockConnector connector-type="number" connector-kind="plug"/>
-			</BlockConnectors>
-		</BlockGenus>
-
-		<BlockGenus name="PORTC2" kind="data" color="238 125 22" initlabel="bg.PORTC2" editable-label="no">
-			<BlockConnectors>
-				<BlockConnector connector-type="number" connector-kind="plug"/>
-			</BlockConnectors>
-		</BlockGenus>
-
-		<BlockGenus name="PORTD2" kind="data" color="238 125 22" initlabel="bg.PORTD2" editable-label="no">
-			<BlockConnectors>
-				<BlockConnector connector-type="number" connector-kind="plug"/>
-			</BlockConnectors>
-		</BlockGenus>
-
-		<BlockGenus name="PORTH2" kind="data" color="238 125 22" initlabel="bg.PORTH2" editable-label="no">
-			<BlockConnectors>
-				<BlockConnector connector-type="number" connector-kind="plug"/>
-			</BlockConnectors>
-		</BlockGenus>
-
-		<BlockGenus name="PORTL2" kind="data" color="238 125 22" initlabel="bg.PORTL2" editable-label="no">
-			<BlockConnectors>
-				<BlockConnector connector-type="number" connector-kind="plug"/>
-			</BlockConnectors>
-		</BlockGenus>
-
-		<BlockGenus name="PINA" kind="data" color="238 125 22" initlabel="bg.PINA">
+		<BlockGenus name="PINA" kind="data" color="44 165 226" initlabel="bg.PINA">
 			<description>
 				<text>PINA</text>
 			</description>
 			<BlockConnectors>
-				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror"/>
+				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="PINB" kind="data" color="238 125 22" initlabel="bg.PINB">
+		<BlockGenus name="PINB" kind="data" color="44 165 226" initlabel="bg.PINB">
 			<description>
 				<text>PINB</text>
 			</description>
 			<BlockConnectors>
-				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror"/>
+				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="PINC" kind="data" color="238 125 22" initlabel="bg.PINC">
+		<BlockGenus name="PINC" kind="data" color="44 165 226" initlabel="bg.PINC">
 			<description>
 				<text>PINC</text>
 			</description>
@@ -693,30 +615,30 @@
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="PIND" kind="data" color="238 125 22" initlabel="bg.PIND">
+		<BlockGenus name="PIND" kind="data" color="44 165 226" initlabel="bg.PIND">
 			<description>
 				<text>PIND</text>
 			</description>
 			<BlockConnectors>
-				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror"/>
+				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="PINH" kind="data" color="238 125 22" initlabel="bg.PINH">
+		<BlockGenus name="PINH" kind="data" color="44 165 226" initlabel="bg.PINH">
 			<description>
 				<text>PINH</text>
 			</description>
 			<BlockConnectors>
-				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror"/>
+				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="PINL" kind="data" color="238 125 22" initlabel="bg.PINL">
+		<BlockGenus name="PINL" kind="data" color="44 165 226" initlabel="bg.PINL">
 			<description>
 				<text>PINL</text>
 			</description>
 			<BlockConnectors>
-				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror"/>
+				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
 			</BlockConnectors>
 		</BlockGenus>
 
@@ -933,14 +855,27 @@
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="toint" kind="function" color="92 183 18" initlabel="bg.toint">
+		<BlockGenus name="string_to_int" kind="function" color="92 183 18" initlabel="bg.string_to_int">
 			<description>
-				<text>to int</text>
+				<text>Convert a numeric string to integer number</text>
 			</description>
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="plug" />
-				<BlockConnector connector-type="poly" connector-kind="socket" label="bc.value" />
+				<BlockConnector connector-type="string" connector-kind="socket" label="" >
+					<DefaultArg genus-name="message" label="123" />
+				</BlockConnector>
+			</BlockConnectors>
+		</BlockGenus>
 
+		<BlockGenus name="char_to_int" kind="function" color="92 183 18" initlabel="bg.char_to_int">
+			<description>
+				<text>Char to Integer</text>
+			</description>
+			<BlockConnectors>
+				<BlockConnector connector-type="number" connector-kind="plug" />
+				<BlockConnector connector-type="poly" connector-kind="socket" label="" >
+					<DefaultArg genus-name="char" label="A" />
+				</BlockConnector>
 			</BlockConnectors>
 		</BlockGenus>
 
@@ -1081,10 +1016,10 @@
 			<BlockConnectors>
 				<BlockConnector connector-kind="plug" connector-type="boolean" />
 				<BlockConnector connector-type="string" connector-kind="socket" >
-					<DefaultArg genus-name="message" label="message"/>
+					<DefaultArg genus-name="message" label="message" />
 				</BlockConnector>
 				<BlockConnector connector-type="string" connector-kind="socket" >
-					<DefaultArg genus-name="message" label="message"/>
+					<DefaultArg genus-name="message" label="message" />
 				</BlockConnector>
 			</BlockConnectors>
 		</BlockGenus>
@@ -1096,10 +1031,10 @@
 			<BlockConnectors>
 				<BlockConnector connector-kind="plug" connector-type="boolean" />
 				<BlockConnector connector-type="string" connector-kind="socket" >
-					<DefaultArg genus-name="message" label="message"/>
+					<DefaultArg genus-name="message" label="message" />
 				</BlockConnector>
 				<BlockConnector connector-type="string" connector-kind="socket" >
-					<DefaultArg genus-name="message" label="message"/>
+					<DefaultArg genus-name="message" label="message" />
 				</BlockConnector>
 			</BlockConnectors>
 		</BlockGenus>
@@ -1111,10 +1046,10 @@
 			<BlockConnectors>
 				<BlockConnector connector-kind="plug" connector-type="boolean" />
 				<BlockConnector connector-type="string" connector-kind="socket" >
-					<DefaultArg genus-name="message" label="message"/>
+					<DefaultArg genus-name="message" label="message" />
 				</BlockConnector>
 				<BlockConnector connector-type="string" connector-kind="socket" >
-					<DefaultArg genus-name="message" label="message"/>
+					<DefaultArg genus-name="message" label="message" />
 				</BlockConnector>
 			</BlockConnectors>
 		</BlockGenus>
@@ -1126,10 +1061,10 @@
 			<BlockConnectors>
 				<BlockConnector connector-kind="plug" connector-type="boolean" />
 				<BlockConnector connector-type="string" connector-kind="socket" >
-					<DefaultArg genus-name="message" label="message"/>
+					<DefaultArg genus-name="message" label="message" />
 				</BlockConnector>
 				<BlockConnector connector-type="string" connector-kind="socket" >
-					<DefaultArg genus-name="message" label="message"/>
+					<DefaultArg genus-name="message" label="message" />
 				</BlockConnector>
 			</BlockConnectors>
 		</BlockGenus>
@@ -1141,10 +1076,10 @@
 			<BlockConnectors>
 				<BlockConnector connector-kind="plug" connector-type="boolean" />
 				<BlockConnector connector-type="string" connector-kind="socket" >
-					<DefaultArg genus-name="message" label="message"/>
+					<DefaultArg genus-name="message" label="message" />
 				</BlockConnector>
 				<BlockConnector connector-type="string" connector-kind="socket" >
-					<DefaultArg genus-name="message" label="message"/>
+					<DefaultArg genus-name="message" label="message" />
 				</BlockConnector>
 			</BlockConnectors>
 		</BlockGenus>
@@ -1156,10 +1091,10 @@
 			<BlockConnectors>
 				<BlockConnector connector-kind="plug" connector-type="boolean" />
 				<BlockConnector connector-type="string" connector-kind="socket" >
-					<DefaultArg genus-name="message" label="message"/>
+					<DefaultArg genus-name="message" label="message" />
 				</BlockConnector>
 				<BlockConnector connector-type="string" connector-kind="socket" >
-					<DefaultArg genus-name="message" label="message"/>
+					<DefaultArg genus-name="message" label="message" />
 				</BlockConnector>
 			</BlockConnectors>
 		</BlockGenus>
@@ -1171,10 +1106,10 @@
 			<BlockConnectors>
 				<BlockConnector connector-kind="plug" connector-type="boolean" />
 				<BlockConnector connector-type="string" connector-kind="socket" >
-					<DefaultArg genus-name="message" label="message"/>
+					<DefaultArg genus-name="message" label="message" />
 				</BlockConnector>
 				<BlockConnector connector-type="string" connector-kind="socket" >
-					<DefaultArg genus-name="message" label="message"/>
+					<DefaultArg genus-name="message" label="message" />
 				</BlockConnector>
 			</BlockConnectors>
 		</BlockGenus>
@@ -1186,10 +1121,10 @@
 			<BlockConnectors>
 				<BlockConnector connector-kind="plug" connector-type="boolean" />
 				<BlockConnector connector-type="string" connector-kind="socket" >
-					<DefaultArg genus-name="message" label="message"/>
+					<DefaultArg genus-name="message" label="message" />
 				</BlockConnector>
 				<BlockConnector connector-type="string" connector-kind="socket" >
-					<DefaultArg genus-name="message" label="message"/>
+					<DefaultArg genus-name="message" label="message" />
 				</BlockConnector>
 			</BlockConnectors>
 		</BlockGenus>
@@ -1201,25 +1136,10 @@
 			<BlockConnectors>
 				<BlockConnector connector-kind="plug" connector-type="boolean" />
 				<BlockConnector connector-type="string" connector-kind="socket" >
-					<DefaultArg genus-name="message" label="message"/>
+					<DefaultArg genus-name="message" label="message" />
 				</BlockConnector>
 				<BlockConnector connector-type="string" connector-kind="socket" >
-					<DefaultArg genus-name="message" label="message"/>
-				</BlockConnector>
-			</BlockConnectors>
-		</BlockGenus>
-
-		<BlockGenus name="string_toInt" kind="data" color="92 183 18" initlabel="bg.string_toInt">
-			<description>
-				<text>is a numeric string compared to the number it represents</text>
-			</description>
-			<BlockConnectors>
-				<BlockConnector connector-kind="plug" connector-type="boolean" />
-				<BlockConnector connector-type="string" connector-kind="socket" >
-					<DefaultArg genus-name="message" label="message"/>
-				</BlockConnector>
-				<BlockConnector connector-type="number" connector-kind="socket" >
-					<DefaultArg genus-name="number" label="1"/>
+					<DefaultArg genus-name="message" label="message" />
 				</BlockConnector>
 			</BlockConnectors>
 		</BlockGenus>
@@ -1351,6 +1271,24 @@
 			</BlockConnectors>
 		</BlockGenus>
 
+		<BlockGenus name="number-bin" kind="data" color="238 125 22" initlabel="bg.number" editable-label="yes">
+			<description>
+				<text>Standard integer constant in Binary notation</text>
+			</description>
+			<BlockConnectors>
+				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
+			</BlockConnectors>
+		</BlockGenus>
+
+		<BlockGenus name="number-hex" kind="data" color="238 125 22" initlabel="bg.number" editable-label="yes" is-label-value="yes">
+			<description>
+				<text>Standard integer constant in Hexadecimal notation</text>
+			</description>
+			<BlockConnectors>
+				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
+			</BlockConnectors>
+		</BlockGenus>
+
 		<BlockGenus name="number_long" kind="data" color="238 125 22" initlabel="bg.number_long" editable-label="yes">
 			<description>
 				<text>'Unsigned Long' constant</text>
@@ -1378,8 +1316,6 @@
 				<BlockConnector connector-type="string" connector-kind="socket" />
 			</BlockConnectors>
 		</BlockGenus>
-
-
 
 		<BlockGenus name="digital-high" kind="data" color="238 125 22" initlabel="bg.digital-high">
 			<description>
@@ -1444,12 +1380,24 @@
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="variable_digital" kind="data" color="238 125 22" initlabel="bg.variable_digital" editable-label="yes" is-label-value="yes">
+		<BlockGenus name="variable_vector" kind="data" color="238 125 22" initlabel="bg.variable_vector" editable-label="yes" is-label-value="yes">
 			<description>
-				<text>Digital Var</text>
+				<text>Array member value</text>
 			</description>
 			<BlockConnectors>
-				<BlockConnector connector-type="boolean" connector-kind="plug" position-type="mirror" />
+				<BlockConnector connector-type="number" connector-kind="plug" />
+				<BlockConnector connector-type="number" connector-kind="socket" label="bc.num">
+					<DefaultArg genus-name="number" label="1" />
+				</BlockConnector>
+			</BlockConnectors>
+		</BlockGenus>
+
+		<BlockGenus name="char" kind="data" color="238 125 22" initlabel="bg.char" editable-label="yes">
+			<description>
+				<text>character</text>
+			</description>
+			<BlockConnectors>
+				<BlockConnector connector-type="poly" connector-kind="plug" position-type="mirror" />
 			</BlockConnectors>
 		</BlockGenus>
 
@@ -1459,6 +1407,24 @@
 			</description>
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
+			</BlockConnectors>
+		</BlockGenus>
+
+		<BlockGenus name="variable_digital" kind="data" color="238 125 22" initlabel="bg.variable_digital" editable-label="yes" is-label-value="yes">
+			<description>
+				<text>Digital Var</text>
+			</description>
+			<BlockConnectors>
+				<BlockConnector connector-type="boolean" connector-kind="plug" position-type="mirror" />
+			</BlockConnectors>
+		</BlockGenus>
+
+		<BlockGenus name="variable_poly" kind="data" color="238 125 22" initlabel="bg.variable_poly" editable-label="yes" is-label-value="yes">
+			<description>
+				<text>character variable</text>
+			</description>
+			<BlockConnectors>
+				<BlockConnector connector-type="poly" connector-kind="plug" position-type="mirror" />
 			</BlockConnectors>
 		</BlockGenus>
 
@@ -1477,6 +1443,15 @@
 			</description>
 			<BlockConnectors>
 			  <BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
+			</BlockConnectors>
+		</BlockGenus>
+
+		<BlockGenus name="variable_String" kind="data" color="238 125 22" initlabel="bg.variable_String" editable-label="yes" is-label-value="yes">
+			<description>
+			  <text>Variable String</text>
+			</description>
+			<BlockConnectors>
+			  <BlockConnector connector-type="string" connector-kind="plug" position-type="mirror" />
 			</BlockConnectors>
 		</BlockGenus>
 
@@ -1499,6 +1474,34 @@
 				</BlockConnector>
 				<BlockConnector connector-type="number" connector-kind="socket" label="bc.value">
 					<DefaultArg genus-name="number" label="0" />
+				</BlockConnector>
+			</BlockConnectors>
+		</BlockGenus>
+
+		<BlockGenus name="setter_variable_digital" kind="command" color="238 125 22" initlabel="bg.setter_variable_digital">
+			<description>
+				<text>write digital to pin</text>
+			</description>
+			<BlockConnectors>
+				<BlockConnector connector-type="boolean" connector-kind="socket" label="bc.variable">
+					<DefaultArg genus-name="variable_digital" label="Bool" />
+				</BlockConnector>
+				<BlockConnector connector-type="boolean" connector-kind="socket" label="bc.value">
+					<DefaultArg genus-name="digital-on" label="ON" />
+				</BlockConnector>
+			</BlockConnectors>
+		</BlockGenus>
+
+		<BlockGenus name="setter_variable_char" kind="command" color="238 125 22" initlabel="bg.setter_variable_char">
+			<description>
+				<text>create a vector of numbers</text>
+			</description>
+			<BlockConnectors>
+				<BlockConnector connector-type="poly" connector-kind="socket" label="bc.variable">
+					<DefaultArg genus-name="variable_poly" label="Char" />
+				</BlockConnector>
+				<BlockConnector connector-type="poly" connector-kind="socket" label="char">
+					<DefaultArg genus-name="char" label="A" />
 				</BlockConnector>
 			</BlockConnectors>
 		</BlockGenus>
@@ -1531,29 +1534,17 @@
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="setter_variable_digital" kind="command" color="238 125 22" initlabel="bg.setter_variable_digital">
+		<BlockGenus name="setter_variable_String" kind="command" color="238 125 22" initlabel="bg.setter_variable_String">
 			<description>
-				<text>write digital to pin</text>
+			  <text>set String variable</text>
 			</description>
 			<BlockConnectors>
-				<BlockConnector connector-type="boolean" connector-kind="socket" label="bc.variable">
-					<DefaultArg genus-name="variable_digital" label="Bool" />
-				</BlockConnector>
-				<BlockConnector connector-type="boolean" connector-kind="socket" label="bc.value">
-					<DefaultArg genus-name="digital-high" label="HIGH" />
-				</BlockConnector>
-			</BlockConnectors>
-		</BlockGenus>
-
-		<BlockGenus name="variable_vector" kind="data" color="238 125 22" initlabel="bg.variable_vector" editable-label="yes" is-label-value="yes">
-			<description>
-				<text>Array member value</text>
-			</description>
-			<BlockConnectors>
-				<BlockConnector connector-type="number" connector-kind="plug" />
-				<BlockConnector connector-type="number" connector-kind="socket" label="bc.num">
-					<DefaultArg genus-name="number" label="1" />
-				</BlockConnector>
+			  <BlockConnector connector-type="string" connector-kind="socket" label="bc.variable">
+				 <DefaultArg genus-name="variable_String" label="String" />
+			  </BlockConnector>
+			  <BlockConnector connector-type="string" connector-kind="socket" label="bc.value">
+				 <DefaultArg genus-name="message" label="message" />
+			  </BlockConnector>
 			</BlockConnectors>
 		</BlockGenus>
 
@@ -1589,62 +1580,6 @@
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="setter_variable_char" kind="command" color="238 125 22" initlabel="bg.setter_variable_char">
-			<description>
-				<text>create a vector of numbers</text>
-			</description>
-			<BlockConnectors>
-				<BlockConnector connector-type="poly" connector-kind="socket" label="bc.variable">
-					<DefaultArg genus-name="variable_poly" label="Char" />
-				</BlockConnector>
-				<BlockConnector connector-type="poly" connector-kind="socket" label="char">
-					<DefaultArg genus-name="char" label="A" />
-				</BlockConnector>
-
-			</BlockConnectors>
-		</BlockGenus>
-
-		<BlockGenus name="variable_poly" kind="data" color="238 125 22" initlabel="bg.variable_poly" editable-label="yes" is-label-value="yes">
-			<description>
-				<text>character variable</text>
-			</description>
-			<BlockConnectors>
-				<BlockConnector connector-type="poly" connector-kind="plug" position-type="mirror" />
-			</BlockConnectors>
-		</BlockGenus>
-
-		<BlockGenus name="char" kind="data" color="238 125 22" initlabel="bg.char" editable-label="yes">
-			<description>
-				<text>character</text>
-			</description>
-			<BlockConnectors>
-				<BlockConnector connector-type="poly" connector-kind="plug" position-type="mirror" />
-			</BlockConnectors>
-		</BlockGenus>
-
-		<BlockGenus name="variable_String" kind="data" color="238 125 22" initlabel="bg.variable_String" editable-label="yes" is-label-value="yes">
-			<description>
-			  <text>Variable String</text>
-			</description>
-			<BlockConnectors>
-			  <BlockConnector connector-type="string" connector-kind="plug" position-type="mirror" />
-			</BlockConnectors>
-		</BlockGenus>
-
-		<BlockGenus name="setter_variable_String" kind="command" color="238 125 22" initlabel="bg.setter_variable_String">
-			<description>
-			  <text>set String variable</text>
-			</description>
-			<BlockConnectors>
-			  <BlockConnector connector-type="string" connector-kind="socket" label="bc.variable">
-				 <DefaultArg genus-name="variable_String" label="String" />
-			  </BlockConnector>
-			  <BlockConnector connector-type="string" connector-kind="socket" label="bc.value">
-				 <DefaultArg genus-name="message" label="message" />
-			  </BlockConnector>
-			</BlockConnectors>
-		</BlockGenus>
-
 
 		<!--****************** Utilities *************** -->
 		<BlockGenus name="servo_default" kind="command" color="74 108 212"  initlabel="bg.servo">
@@ -1653,7 +1588,7 @@
 			</description>
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="socket" label="bc.pin_number">
-					<DefaultArg genus-name="DuinoEDU_D5" label="D5" />
+					<DefaultArg genus-name="Arduino_D5" label="D5" />
 				</BlockConnector>
 				<BlockConnector connector-type="number" connector-kind="socket" label="bc.angle">
 					<DefaultArg genus-name="number" label="90" />
@@ -1667,7 +1602,7 @@
 			</description>
 			<BlockConnectors>
 				<BlockConnector connector-type="number-list" connector-kind="socket" label="bc.pin_number">
-					<DefaultArg genus-name="DuinoEDU_D5" label="D5" />
+					<DefaultArg genus-name="Arduino_D5" label="D5" />
 				</BlockConnector>
 				<BlockConnector connector-type="number" connector-kind="socket" label="bc.angle">
 					<DefaultArg genus-name="number" label="90" />
@@ -1681,7 +1616,7 @@
 			</description>
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="socket" label="bc.pin_number">
-					<DefaultArg genus-name="DuinoEDU_D5" label="D5" />
+					<DefaultArg genus-name="Arduino_D5" label="D5" />
 				</BlockConnector>
 				<BlockConnector connector-type="number" connector-kind="socket" label="bc.angle">
 					<DefaultArg genus-name="number" label="90" />
@@ -1696,10 +1631,10 @@
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="plug" label="cm" />
 				<BlockConnector connector-type="number" connector-kind="socket" label="trigger #">
-					<DefaultArg genus-name="DuinoEDU_D2" label="D2" />
+					<DefaultArg genus-name="Arduino_D2" label="D2" />
 				</BlockConnector>
 				<BlockConnector connector-type="number" connector-kind="socket" label="echo #">
-					<DefaultArg genus-name="DuinoEDU_D3" label="D3" />
+					<DefaultArg genus-name="Arduino_D3" label="D3" />
 				</BlockConnector>
 			</BlockConnectors>
 		</BlockGenus>
@@ -1710,7 +1645,7 @@
 			</description>
 			<BlockConnectors>
 				<BlockConnector connector-type="string" connector-kind="socket" label="bc.print">
-					<DefaultArg genus-name="message" label="Sainsmart LCD. I2C"/>
+					<DefaultArg genus-name="message" label="Sainsmart LCD. I2C" />
 				</BlockConnector>
 				<BlockConnector connector-type="number" connector-kind="socket" label="bc.line_number">
 					<DefaultArg genus-name="number" label="1" />
@@ -1719,7 +1654,7 @@
 					<DefaultArg genus-name="number" label="1" />
 				</BlockConnector>
 				<BlockConnector connector-type="number-list" connector-kind="socket" label="bc.device_address_I2C">
-					<DefaultArg genus-name="number-single" label="3F"/>
+					<DefaultArg genus-name="number-single" label="3F" />
 				</BlockConnector>
 			</BlockConnectors>
 		</BlockGenus>
@@ -1730,7 +1665,7 @@
 			</description>
 			<BlockConnectors>
 				<BlockConnector connector-type="string" connector-kind="socket" label="bc.print">
-					<DefaultArg genus-name="message" label="Sainsmart LCD. I2C"/>
+					<DefaultArg genus-name="message" label="Sainsmart LCD. I2C" />
 				</BlockConnector>
 				<BlockConnector connector-type="number" connector-kind="socket" label="bc.line_number">
 					<DefaultArg genus-name="number" label="1" />
@@ -1739,7 +1674,7 @@
 					<DefaultArg genus-name="number" label="1" />
 				</BlockConnector>
 				<BlockConnector connector-type="number-list" connector-kind="socket" label="bc.device_address_I2C">
-					<DefaultArg genus-name="number-single" label="3F"/>
+					<DefaultArg genus-name="number-single" label="3F" />
 				</BlockConnector>
 			</BlockConnectors>
 		</BlockGenus>
@@ -1750,7 +1685,7 @@
 			</description>
 			<BlockConnectors>
 				<BlockConnector connector-type="string" connector-kind="socket" label="bc.print">
-					<DefaultArg genus-name="message" label="SainsmartLCD Parallel"/>
+					<DefaultArg genus-name="message" label="SainsmartLCD Parallel" />
 				</BlockConnector>
 				<BlockConnector connector-type="number" connector-kind="socket" label="bc.line_number">
 					<DefaultArg genus-name="number" label="1" />
@@ -1759,7 +1694,7 @@
 					<DefaultArg genus-name="number" label="1" />
 				</BlockConnector>
 				<BlockConnector connector-type="number-list" connector-kind="socket" label="bc.device_address_I2C">
-					<DefaultArg genus-name="number-single-fixed-parallel" label="Parallel"/>
+					<DefaultArg genus-name="number-single-fixed-parallel" label="Parallel" />
 				</BlockConnector>
 			</BlockConnectors>
 		</BlockGenus>
@@ -1770,7 +1705,7 @@
 			</description>
 			<BlockConnectors>
 				<BlockConnector connector-type="number-list" connector-kind="socket" label="bc.device_address_I2C">
-					<DefaultArg genus-name="number-single" label="3F"/>
+					<DefaultArg genus-name="number-single" label="3F" />
 				</BlockConnector>
 			</BlockConnectors>
 		</BlockGenus>
@@ -1781,7 +1716,7 @@
 			</description>
 			<BlockConnectors>
 				<BlockConnector connector-type="number-list" connector-kind="socket" label="bc.device_address_I2C">
-					<DefaultArg genus-name="number-single" label="3F"/>
+					<DefaultArg genus-name="number-single" label="3F" />
 				</BlockConnector>
 			</BlockConnectors>
 		</BlockGenus>
@@ -1792,7 +1727,7 @@
 			</description>
 			<BlockConnectors>
 				<BlockConnector connector-type="number-list" connector-kind="socket" label="bc.device_address_I2C">
-					<DefaultArg genus-name="number-single" label="3F"/>
+					<DefaultArg genus-name="number-single" label="3F" />
 				</BlockConnector>
 			</BlockConnectors>
 		</BlockGenus>
@@ -1803,7 +1738,7 @@
 			</description>
 			<BlockConnectors>
 				<BlockConnector connector-type="number-list" connector-kind="socket" label="bc.device_address_I2C">
-					<DefaultArg genus-name="number-single" label="3F"/>
+					<DefaultArg genus-name="number-single" label="3F" />
 				</BlockConnector>
 			</BlockConnectors>
 		</BlockGenus>
@@ -1814,7 +1749,7 @@
 			</description>
 			<BlockConnectors>
 				<BlockConnector connector-type="number-list" connector-kind="socket" label="bc.device_address_I2C">
-					<DefaultArg genus-name="number-single" label="3F"/>
+					<DefaultArg genus-name="number-single" label="3F" />
 				</BlockConnector>
 			</BlockConnectors>
 		</BlockGenus>
@@ -1825,7 +1760,7 @@
 			</description>
 			<BlockConnectors>
 				<BlockConnector connector-type="number-list" connector-kind="socket" label="bc.device_address_I2C">
-					<DefaultArg genus-name="number-single" label="3F"/>
+					<DefaultArg genus-name="number-single" label="3F" />
 				</BlockConnector>
 			</BlockConnectors>
 		</BlockGenus>
@@ -1836,7 +1771,7 @@
 			</description>
 			<BlockConnectors>
 				<BlockConnector connector-type="number-list" connector-kind="socket" label="bc.device_address_I2C">
-					<DefaultArg genus-name="number-single" label="3F"/>
+					<DefaultArg genus-name="number-single" label="3F" />
 				</BlockConnector>
 			</BlockConnectors>
 		</BlockGenus>
@@ -1847,7 +1782,7 @@
 			</description>
 			<BlockConnectors>
 				<BlockConnector connector-type="number-list" connector-kind="socket" label="bc.device_address_I2C">
-					<DefaultArg genus-name="number-single" label="3F"/>
+					<DefaultArg genus-name="number-single" label="3F" />
 				</BlockConnector>
 			</BlockConnectors>
 		</BlockGenus>
@@ -1874,12 +1809,6 @@
 
 		<BlockGenus name="serial_available" kind="data" color="187 66 195" initlabel="bg.serial_available">
 			<BlockConnectors>
-				<BlockConnector connector-type="boolean" connector-kind="plug" position-type="mirror" />
-			</BlockConnectors>
-		</BlockGenus>
-
-		<BlockGenus name="serial_available2" kind="data" color="187 66 195" initlabel="bg.serial_available2">
-			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
 			</BlockConnectors>
 		</BlockGenus>
@@ -1889,8 +1818,8 @@
 				<text>send message via Serial port</text>
 			</description>
 			<BlockConnectors>
-				<BlockConnector connector-type="string" connector-kind="socket" >
-					<DefaultArg genus-name="message" label="message" />
+				<BlockConnector connector-type="number" connector-kind="socket">
+					<DefaultArg genus-name="number" label="65" />
 				</BlockConnector>
 			</BlockConnectors>
 		</BlockGenus>
@@ -1900,45 +1829,23 @@
 				<text>send message via Serial port</text>
 			</description>
 			<BlockConnectors>
-				<BlockConnector connector-type="string" connector-kind="socket" label="bc.message">
+				<BlockConnector connector-type="string" connector-kind="socket">
 					<DefaultArg genus-name="message" label="message" />
 				</BlockConnector>
-				<BlockConnector connector-type="boolean" connector-kind="socket" label="bc.ln">
-					<DefaultArg genus-name="true" label="true" />
+			</BlockConnectors>
+		</BlockGenus>
+
+		<BlockGenus name="serial_println" kind="command" color="187 66 195" initlabel="bg.serial_println">
+			<description>
+				<text>send message and newline via Serial port</text>
+			</description>
+			<BlockConnectors>
+				<BlockConnector connector-type="string" connector-kind="socket">
+					<DefaultArg genus-name="message" label="message" />
 				</BlockConnector>
 			</BlockConnectors>
 		</BlockGenus>
-
-		<BlockGenus name="glue_sn" kind="data" color="187 66 195" initlabel="bg.glue_sn">
-			<description>
-				<text>glue number to string</text>
-			</description>
-			<BlockConnectors>
-				<BlockConnector connector-type="string" connector-kind="plug" />
-				<BlockConnector connector-type="number" connector-kind="socket" />
-			</BlockConnectors>
-		</BlockGenus>
-
-		<BlockGenus name="glue_sb" kind="data" color="187 66 195" initlabel="bg.glue_sb">
-			<description>
-				<text>glue boolean to string</text>
-			</description>
-			<BlockConnectors>
-				<BlockConnector connector-type="string" connector-kind="plug" />
-				<BlockConnector connector-type="boolean" connector-kind="socket" />
-			</BlockConnectors>
-		</BlockGenus>
-
-		<BlockGenus name="glue_poly" kind="data" color="187 66 195" initlabel="bg.glue_poly" editable-label="no">
-			<description>
-				<text></text>
-			</description>
-			<BlockConnectors>
-				<BlockConnector connector-type="string" connector-kind="plug" />
-				<BlockConnector connector-type="poly" connector-kind="socket" />
-			</BlockConnectors>
-		</BlockGenus>
-
+		
 		<BlockGenus name="wire_write" kind="command" color="187 66 195" initlabel="bg.wire_write">
 			<description>
 				<text>write data via I2C</text>
@@ -1980,70 +1887,35 @@
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="Serialplus_send_variable_number" kind="command" color="187 66 195" initlabel="bg.Serialplus_send_variable_number">
+		<BlockGenus name="glue_sn" kind="data" color="187 66 195" initlabel="bg.glue_sn">
 			<description>
-				<text>Send integer variable</text>
+				<text>glue number to string</text>
 			</description>
 			<BlockConnectors>
-				<BlockConnector connector-type="number" connector-kind="socket" label="bc.value">
-					<DefaultArg genus-name="number" label="0" />
-				</BlockConnector>
-				<BlockConnector connector-type="number" connector-kind="socket" label="bc.channel">
-					<DefaultArg genus-name="number" label="0" />
-				</BlockConnector>
-				<BlockConnector connector-type="string" connector-kind="socket">
-					<DefaultArg genus-name="message" label="Serial" />
-				</BlockConnector>
-				<BlockConnector connector-type="number" connector-kind="socket" label="bc.interval">
-					<DefaultArg genus-name="number" label="100" />
-				</BlockConnector>
+				<BlockConnector connector-type="string" connector-kind="plug" />
+				<BlockConnector connector-type="number" connector-kind="socket" />
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="Serialplus_send_variable_digital" kind="command" color="187 66 195" initlabel="bg.Serialplus_send_variable_digital">
+		<BlockGenus name="glue_sb" kind="data" color="187 66 195" initlabel="bg.glue_sb">
 			<description>
-				<text>Send digital</text>
+				<text>glue boolean to string</text>
 			</description>
 			<BlockConnectors>
-				<BlockConnector connector-type="boolean" connector-kind="socket" label="bc.value">
-					<DefaultArg genus-name="digital-high" label="HIGH" />
-				</BlockConnector>
-				<BlockConnector connector-type="number" connector-kind="socket" label="bc.channel">
-					<DefaultArg genus-name="number" label="0" />
-				</BlockConnector>
-				<BlockConnector connector-type="string" connector-kind="socket">
-					<DefaultArg genus-name="message" label="Serial" />
-				</BlockConnector>
-				<BlockConnector connector-type="number" connector-kind="socket" label="bc.interval">
-					<DefaultArg genus-name="number" label="100" />
-				</BlockConnector>
+				<BlockConnector connector-type="string" connector-kind="plug" />
+				<BlockConnector connector-type="boolean" connector-kind="socket" />
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="Serialplus_receive_number" kind="data" color="187 66 195" initlabel="bg.Serialplus_receive_number">
+		<BlockGenus name="glue_poly" kind="data" color="187 66 195" initlabel="bg.glue_poly" editable-label="no">
+			<description>
+				<text></text>
+			</description>
 			<BlockConnectors>
-				<BlockConnector connector-type="number" connector-kind="plug"/>
-				<BlockConnector connector-type="number" connector-kind="socket" label="bc.channel">
-					<DefaultArg genus-name="number" label="0" />
-				</BlockConnector>
-				<BlockConnector connector-type="string" connector-kind="socket">
-					<DefaultArg genus-name="message" label="Serial" />
-				</BlockConnector>
+				<BlockConnector connector-type="string" connector-kind="plug" />
+				<BlockConnector connector-type="poly" connector-kind="socket" />
 			</BlockConnectors>
 		</BlockGenus>
-
-		<BlockGenus name="Serialplus_receive_digital" kind="data" color="187 66 195" initlabel="bg.Serialplus_receive_digital">
-			<BlockConnectors>
-				<BlockConnector connector-type="boolean" connector-kind="plug"/>
-				<BlockConnector connector-type="number" connector-kind="socket" label="bc.channel">
-					<DefaultArg genus-name="number" label="0" />
-				</BlockConnector>
-				<BlockConnector connector-type="string" connector-kind="socket">
-					<DefaultArg genus-name="message" label="Serial" />
-				</BlockConnector>
-			</BlockConnectors>
-		</BlockGenus>
-
 
 		<!-- ******************** Storage *************** -->
 		<BlockGenus name="eeprom_read_int" kind="data" color="238 125 22" initlabel="bg.eeprom_read_int">
@@ -2136,7 +2008,7 @@
 					<DefaultArg genus-name="message" label="Message" />
 				</BlockConnector>
 				<BlockConnector connector-type="boolean" connector-kind="socket" label="bc.ln">
-					<DefaultArg genus-name="true" label="True" />
+					<DefaultArg genus-name="digital-on" label="ON" />
 				</BlockConnector>
 				<BlockConnector connector-type="number" connector-kind="socket" label="CS">
 					<DefaultArg genus-name="number" label="10" />
@@ -2198,23 +2070,12 @@
 
 		<!-- ******************** Especial Menu *************** -->
 
-		<BlockGenus name="code_loop" kind="command" color="128 128 128" initlabel="bg.code_loop">
-			<description>
-				<text>send message via Serial port</text>
-			</description>
-			<BlockConnectors>
-				<BlockConnector connector-type="string" connector-kind="socket">
-					<DefaultArg genus-name="glue_msg" label="Code" />
-				</BlockConnector>
-			</BlockConnectors>
-		</BlockGenus>
-
 		<BlockGenus name="code_head" kind="command" color="128 128 128" initlabel="bg.code_head">
 			<description>
 				<text>send message via Serial port</text>
 			</description>
 			<BlockConnectors>
-				<BlockConnector connector-type="string" connector-kind="socket">
+				<BlockConnector connector-type="string" connector-kind="socket" label="Code">
 					<DefaultArg genus-name="glue_msg" label="Code" />
 				</BlockConnector>
 			</BlockConnectors>
@@ -2225,7 +2086,18 @@
 				<text>send message via Serial port</text>
 			</description>
 			<BlockConnectors>
-				<BlockConnector connector-type="string" connector-kind="socket">
+				<BlockConnector connector-type="string" connector-kind="socket" label="Code">
+					<DefaultArg genus-name="glue_msg" label="Code" />
+				</BlockConnector>
+			</BlockConnectors>
+		</BlockGenus>
+
+		<BlockGenus name="code_loop" kind="command" color="128 128 128" initlabel="bg.code_loop">
+			<description>
+				<text>send message via Serial port</text>
+			</description>
+			<BlockConnectors>
+				<BlockConnector connector-type="string" connector-kind="socket" label="Code">
 					<DefaultArg genus-name="glue_msg" label="Code" />
 				</BlockConnector>
 			</BlockConnectors>
@@ -2263,17 +2135,6 @@
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="serial_println" kind="command" color="187 66 195" initlabel="bg.serial_println">
-			<description>
-				<text>send message via Serial port</text>
-			</description>
-			<BlockConnectors>
-				<BlockConnector connector-type="string" connector-kind="socket">
-					<DefaultArg genus-name="message" label="message" />
-				</BlockConnector>
-			</BlockConnectors>
-		</BlockGenus>
-
 		<BlockGenus name="ir_setport" kind="command" color="187 66 195" initlabel="bg.ir_setport">
 			<description>
 				<text></text>
@@ -2296,253 +2157,114 @@
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="bluno_println" kind="command" color="187 66 195" initlabel="bg.serial_println">
-			<description>
-				<text>send message via Serial port</text>
-			</description>
+		<!-- Arduino Definitions -->
+		<BlockGenus name="Arduino_D2" kind="data" color="238 125 22" initlabel="bg.Arduino_D2" editable-label="no">
 			<BlockConnectors>
-				<BlockConnector connector-type="string" connector-kind="socket">
-					<DefaultArg genus-name="message" label="message" />
-				</BlockConnector>
+				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="bluno_println_number" kind="command" color="187 66 195" initlabel="bg.bluno_println_number">
-			<description>
-				<text>send message via Serial port</text>
-			</description>
+		<BlockGenus name="Arduino_D3" kind="data" color="238 125 22" initlabel="bg.Arduino_D3" editable-label="no">
 			<BlockConnectors>
-				<BlockConnector connector-type="number" connector-kind="socket">
-
-				</BlockConnector>
+				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="bluno_println_clear" kind="command" color="187 66 195" initlabel="bg.bluno_println_number">
-			<description>
-				<text>send message via Serial port</text>
-			</description>
-		</BlockGenus>
-
-
-		<!-- Arduino definitions -->
-		<BlockGenus name="DuinoEDU_D2" kind="data" color="238 125 22" initlabel="bg.DuinoEDU_D2" editable-label="no">
+		<BlockGenus name="Arduino_D4" kind="data" color="238 125 22" initlabel="bg.Arduino_D4" editable-label="no">
 			<BlockConnectors>
-				<BlockConnector connector-type="number" connector-kind="plug"/>
+				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="DuinoEDU_D3" kind="data" color="238 125 22" initlabel="bg.DuinoEDU_D3" editable-label="no">
+		<BlockGenus name="Arduino_D5" kind="data" color="238 125 22" initlabel="bg.Arduino_D5" editable-label="no">
 			<BlockConnectors>
-				<BlockConnector connector-type="number" connector-kind="plug"/>
+				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="DuinoEDU_D4" kind="data" color="238 125 22" initlabel="bg.DuinoEDU_D4" editable-label="no">
+		<BlockGenus name="Arduino_D6" kind="data" color="238 125 22" initlabel="bg.Arduino_D6" editable-label="no">
 			<BlockConnectors>
-				<BlockConnector connector-type="number" connector-kind="plug"/>
+				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="DuinoEDU_D5" kind="data" color="238 125 22" initlabel="bg.DuinoEDU_D5" editable-label="no">
+		<BlockGenus name="Arduino_D7" kind="data" color="238 125 22" initlabel="bg.Arduino_D7" editable-label="no">
 			<BlockConnectors>
-				<BlockConnector connector-type="number" connector-kind="plug"/>
+				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="DuinoEDU_D6" kind="data" color="238 125 22" initlabel="bg.DuinoEDU_D6" editable-label="no">
+		<BlockGenus name="Arduino_D8" kind="data" color="238 125 22" initlabel="bg.Arduino_D8" editable-label="no">
 			<BlockConnectors>
-				<BlockConnector connector-type="number" connector-kind="plug"/>
+				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="DuinoEDU_D7" kind="data" color="238 125 22" initlabel="bg.DuinoEDU_D7" editable-label="no">
+		<BlockGenus name="Arduino_D9" kind="data" color="238 125 22" initlabel="bg.Arduino_D9" editable-label="no">
 			<BlockConnectors>
-				<BlockConnector connector-type="number" connector-kind="plug"/>
+				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="DuinoEDU_D8" kind="data" color="238 125 22" initlabel="bg.DuinoEDU_D8" editable-label="no">
+		<BlockGenus name="Arduino_D10" kind="data" color="238 125 22" initlabel="bg.Arduino_D10" editable-label="no">
 			<BlockConnectors>
-				<BlockConnector connector-type="number" connector-kind="plug"/>
+				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="DuinoEDU_D9" kind="data" color="238 125 22" initlabel="bg.DuinoEDU_D9" editable-label="no">
+		<BlockGenus name="Arduino_D11" kind="data" color="238 125 22" initlabel="bg.Arduino_D11" editable-label="no">
 			<BlockConnectors>
-				<BlockConnector connector-type="number" connector-kind="plug"/>
+				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="DuinoEDU_D10" kind="data" color="238 125 22" initlabel="bg.DuinoEDU_D10" editable-label="no">
+		<BlockGenus name="Arduino_D12" kind="data" color="238 125 22" initlabel="bg.Arduino_D12" editable-label="no">
 			<BlockConnectors>
-				<BlockConnector connector-type="number" connector-kind="plug"/>
+				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="DuinoEDU_D11" kind="data" color="238 125 22" initlabel="bg.DuinoEDU_D11" editable-label="no">
+		<BlockGenus name="Arduino_D13" kind="data" color="238 125 22" initlabel="bg.Arduino_D13" editable-label="no">
 			<BlockConnectors>
-				<BlockConnector connector-type="number" connector-kind="plug"/>
+				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="DuinoEDU_D12" kind="data" color="238 125 22" initlabel="bg.DuinoEDU_D12" editable-label="no">
+		<BlockGenus name="Arduino_A0" kind="data" color="238 125 22" initlabel="bg.Arduino_A0" editable-label="no">
 			<BlockConnectors>
-				<BlockConnector connector-type="number" connector-kind="plug"/>
+				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="DuinoEDU_D13" kind="data" color="238 125 22" initlabel="bg.DuinoEDU_D13" editable-label="no">
+		<BlockGenus name="Arduino_A1" kind="data" color="238 125 22" initlabel="bg.Arduino_A1" editable-label="no">
 			<BlockConnectors>
-				<BlockConnector connector-type="number" connector-kind="plug"/>
+				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="DuinoEDU_D14" kind="data" color="238 125 22" initlabel="bg.DuinoEDU_D14" editable-label="no">
+		<BlockGenus name="Arduino_A2" kind="data" color="238 125 22" initlabel="bg.Arduino_A2" editable-label="no">
 			<BlockConnectors>
-				<BlockConnector connector-type="number" connector-kind="plug"/>
+				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="DuinoEDU_D15" kind="data" color="238 125 22" initlabel="bg.DuinoEDU_D15" editable-label="no">
+		<BlockGenus name="Arduino_A3" kind="data" color="238 125 22" initlabel="bg.Arduino_A3" editable-label="no">
 			<BlockConnectors>
-				<BlockConnector connector-type="number" connector-kind="plug"/>
+				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="DuinoEDU_D16" kind="data" color="238 125 22" initlabel="bg.DuinoEDU_D16" editable-label="no">
+		<BlockGenus name="Arduino_A4" kind="data" color="238 125 22" initlabel="bg.Arduino_A4" editable-label="no">
 			<BlockConnectors>
-				<BlockConnector connector-type="number" connector-kind="plug"/>
+				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="DuinoEDU_D17" kind="data" color="238 125 22" initlabel="bg.DuinoEDU_D17" editable-label="no">
+		<BlockGenus name="Arduino_A5" kind="data" color="238 125 22" initlabel="bg.Arduino_A5" editable-label="no">
 			<BlockConnectors>
-				<BlockConnector connector-type="number" connector-kind="plug"/>
+				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
 			</BlockConnectors>
 		</BlockGenus>
-
-		<BlockGenus name="DuinoEDU_D18" kind="data" color="238 125 22" initlabel="bg.DuinoEDU_D18" editable-label="no">
-			<BlockConnectors>
-				<BlockConnector connector-type="number" connector-kind="plug"/>
-			</BlockConnectors>
-		</BlockGenus>
-
-		<BlockGenus name="DuinoEDU_D19" kind="data" color="238 125 22" initlabel="bg.DuinoEDU_D19" editable-label="no">
-			<BlockConnectors>
-				<BlockConnector connector-type="number" connector-kind="plug"/>
-			</BlockConnectors>
-		</BlockGenus>
-
-		<BlockGenus name="DuinoEDU_D20" kind="data" color="238 125 22" initlabel="bg.DuinoEDU_D20" editable-label="no">
-			<BlockConnectors>
-				<BlockConnector connector-type="number" connector-kind="plug"/>
-			</BlockConnectors>
-		</BlockGenus>
-
-		<BlockGenus name="DuinoEDU_D21" kind="data" color="238 125 22" initlabel="bg.DuinoEDU_D21" editable-label="no">
-			<BlockConnectors>
-				<BlockConnector connector-type="number" connector-kind="plug"/>
-			</BlockConnectors>
-		</BlockGenus>
-
-		<BlockGenus name="DuinoEDU_A0" kind="data" color="238 125 22" initlabel="bg.DuinoEDU_A0" editable-label="no">
-			<BlockConnectors>
-				<BlockConnector connector-type="number" connector-kind="plug"/>
-			</BlockConnectors>
-		</BlockGenus>
-
-		<BlockGenus name="DuinoEDU_A1" kind="data" color="238 125 22" initlabel="bg.DuinoEDU_A1" editable-label="no">
-			<BlockConnectors>
-				<BlockConnector connector-type="number" connector-kind="plug"/>
-			</BlockConnectors>
-		</BlockGenus>
-
-		<BlockGenus name="DuinoEDU_A2" kind="data" color="238 125 22" initlabel="bg.DuinoEDU_A2" editable-label="no">
-			<BlockConnectors>
-				<BlockConnector connector-type="number" connector-kind="plug"/>
-			</BlockConnectors>
-		</BlockGenus>
-
-		<BlockGenus name="DuinoEDU_A3" kind="data" color="238 125 22" initlabel="bg.DuinoEDU_A3" editable-label="no">
-			<BlockConnectors>
-				<BlockConnector connector-type="number" connector-kind="plug"/>
-			</BlockConnectors>
-		</BlockGenus>
-
-		<BlockGenus name="DuinoEDU_A4" kind="data" color="238 125 22" initlabel="bg.DuinoEDU_A4" editable-label="no">
-			<BlockConnectors>
-				<BlockConnector connector-type="number" connector-kind="plug"/>
-			</BlockConnectors>
-		</BlockGenus>
-
-		<BlockGenus name="DuinoEDU_A5" kind="data" color="238 125 22" initlabel="bg.DuinoEDU_A5" editable-label="no">
-			<BlockConnectors>
-				<BlockConnector connector-type="number" connector-kind="plug"/>
-			</BlockConnectors>
-		</BlockGenus>
-
-		<BlockGenus name="DuinoEDU_A6" kind="data" color="238 125 22" initlabel="bg.DuinoEDU_A6" editable-label="no">
-			<BlockConnectors>
-				<BlockConnector connector-type="number" connector-kind="plug"/>
-			</BlockConnectors>
-		</BlockGenus>
-
-		<BlockGenus name="DuinoEDU_A7" kind="data" color="238 125 22" initlabel="bg.DuinoEDU_A7" editable-label="no">
-			<BlockConnectors>
-				<BlockConnector connector-type="number" connector-kind="plug"/>
-			</BlockConnectors>
-		</BlockGenus>
-
-		<BlockGenus name="DuinoEDU_A8" kind="data" color="238 125 22" initlabel="bg.DuinoEDU_A8" editable-label="no">
-			<BlockConnectors>
-				<BlockConnector connector-type="number" connector-kind="plug"/>
-			</BlockConnectors>
-		</BlockGenus>
-
-		<BlockGenus name="DuinoEDU_A9" kind="data" color="238 125 22" initlabel="bg.DuinoEDU_A9" editable-label="no">
-			<BlockConnectors>
-				<BlockConnector connector-type="number" connector-kind="plug"/>
-			</BlockConnectors>
-		</BlockGenus>
-
-		<BlockGenus name="DuinoEDU_A10" kind="data" color="238 125 22" initlabel="bg.DuinoEDU_A10" editable-label="no">
-			<BlockConnectors>
-				<BlockConnector connector-type="number" connector-kind="plug"/>
-			</BlockConnectors>
-		</BlockGenus>
-
-		<BlockGenus name="DuinoEDU_A11" kind="data" color="238 125 22" initlabel="bg.DuinoEDU_A11" editable-label="no">
-			<BlockConnectors>
-				<BlockConnector connector-type="number" connector-kind="plug"/>
-			</BlockConnectors>
-		</BlockGenus>
-
-		<BlockGenus name="DuinoEDU_A12" kind="data" color="238 125 22" initlabel="bg.DuinoEDU_A12" editable-label="no">
-			<BlockConnectors>
-				<BlockConnector connector-type="number" connector-kind="plug"/>
-			</BlockConnectors>
-		</BlockGenus>
-
-		<BlockGenus name="DuinoEDU_A13" kind="data" color="238 125 22" initlabel="bg.DuinoEDU_A13" editable-label="no">
-			<BlockConnectors>
-				<BlockConnector connector-type="number" connector-kind="plug"/>
-			</BlockConnectors>
-		</BlockGenus>
-
-		<BlockGenus name="DuinoEDU_A14" kind="data" color="238 125 22" initlabel="bg.DuinoEDU_A14" editable-label="no">
-			<BlockConnectors>
-				<BlockConnector connector-type="number" connector-kind="plug"/>
-			</BlockConnectors>
-		</BlockGenus>
-
-		<BlockGenus name="DuinoEDU_A15" kind="data" color="238 125 22" initlabel="bg.DuinoEDU_A15" editable-label="no">
-			<BlockConnectors>
-				<BlockConnector connector-type="number" connector-kind="plug"/>
-			</BlockConnectors>
-		</BlockGenus>
-		<!-- end of Arduino definitions -->
-
 
 		<!-- Picuino -->
 		<BlockGenus name="pc_ledWrite" kind="command" color="160 0 0" initlabel="bg.pc_ledWrite">
@@ -2551,7 +2273,7 @@
 					<DefaultArg genus-name="number" label="1" />
 				</BlockConnector>
 				<BlockConnector connector-type="boolean" connector-kind="socket" label="bc.picuino_state">
-					<DefaultArg genus-name="digital-high" label="HIGH" />
+					<DefaultArg genus-name="digital-on" label="ON" />
 				</BlockConnector>
 			</BlockConnectors>
 		</BlockGenus>
@@ -3251,6 +2973,8 @@
 
 	<BlockFamilies>
 		<BlockFamily>
+			<FamilyMember>digital-on</FamilyMember>
+			<FamilyMember>digital-off</FamilyMember>
 			<FamilyMember>digital-high</FamilyMember>
 			<FamilyMember>digital-low</FamilyMember>
 		</BlockFamily>
@@ -3300,7 +3024,7 @@
 			<FamilyMember>string_equalsIgnoreCase</FamilyMember>
 			<FamilyMember>string_compareTo</FamilyMember>
 		</BlockFamily>
-				<BlockFamily>
+		<BlockFamily>
 			<FamilyMember>equal_string</FamilyMember>
 			<FamilyMember>not_equal_string</FamilyMember>
 		</BlockFamily>
@@ -3313,10 +3037,6 @@
 			<FamilyMember>code_head</FamilyMember>
 			<FamilyMember>code_setup</FamilyMember>
 			<FamilyMember>code_loop</FamilyMember>
-		</BlockFamily>
-		<BlockFamily>
-			<FamilyMember>digital-on</FamilyMember>
-			<FamilyMember>digital-off</FamilyMember>
 		</BlockFamily>
 		<BlockFamily>
 			<FamilyMember>LCD_I2C_Sainsmart_20by4</FamilyMember>
@@ -3361,18 +3081,6 @@
 			<FamilyMember>PORTL</FamilyMember>
 		</BlockFamily>
 		<BlockFamily>
-			<FamilyMember>PORTA2</FamilyMember>
-			<FamilyMember>PORTB2</FamilyMember>
-			<FamilyMember>PORTC2</FamilyMember>
-			<FamilyMember>PORTD2</FamilyMember>
-			<FamilyMember>PORTH2</FamilyMember>
-			<FamilyMember>PORTL2</FamilyMember>
-		</BlockFamily>
-		<BlockFamily>
-			<FamilyMember>LEVEL1</FamilyMember>
-			<FamilyMember>LEVEL0</FamilyMember>
-		</BlockFamily>
-		<BlockFamily>
 			<FamilyMember>PINA</FamilyMember>
 			<FamilyMember>PINB</FamilyMember>
 			<FamilyMember>PINC</FamilyMember>
@@ -3380,62 +3088,37 @@
 			<FamilyMember>PINH</FamilyMember>
 			<FamilyMember>PINL</FamilyMember>
 		</BlockFamily>
+		
+		<!-- Arduino Definitions -->
 		<BlockFamily>
-			<FamilyMember>DuinoEDU_D2</FamilyMember>
-			<FamilyMember>DuinoEDU_D3</FamilyMember>
-			<FamilyMember>DuinoEDU_D4</FamilyMember>
-			<FamilyMember>DuinoEDU_D5</FamilyMember>
-			<FamilyMember>DuinoEDU_D6</FamilyMember>
-			<FamilyMember>DuinoEDU_D7</FamilyMember>
-			<FamilyMember>DuinoEDU_D8</FamilyMember>
-			<FamilyMember>DuinoEDU_D9</FamilyMember>
-			<FamilyMember>DuinoEDU_D10</FamilyMember>
-			<FamilyMember>DuinoEDU_D11</FamilyMember>
-			<FamilyMember>DuinoEDU_D12</FamilyMember>
-			<FamilyMember>DuinoEDU_D13</FamilyMember>
-			<FamilyMember>DuinoEDU_D14</FamilyMember>
-			<FamilyMember>DuinoEDU_D15</FamilyMember>
-			<FamilyMember>DuinoEDU_D16</FamilyMember>
-			<FamilyMember>DuinoEDU_D17</FamilyMember>
-			<FamilyMember>DuinoEDU_D18</FamilyMember>
-			<FamilyMember>DuinoEDU_D19</FamilyMember>
-			<FamilyMember>DuinoEDU_D20</FamilyMember>
-			<FamilyMember>DuinoEDU_D21</FamilyMember>
-			<FamilyMember>DuinoEDU_A0</FamilyMember>
-			<FamilyMember>DuinoEDU_A1</FamilyMember>
-			<FamilyMember>DuinoEDU_A2</FamilyMember>
-			<FamilyMember>DuinoEDU_A3</FamilyMember>
-			<FamilyMember>DuinoEDU_A4</FamilyMember>
-			<FamilyMember>DuinoEDU_A5</FamilyMember>
-			<FamilyMember>DuinoEDU_A6</FamilyMember>
-			<FamilyMember>DuinoEDU_A7</FamilyMember>
-			<FamilyMember>DuinoEDU_A8</FamilyMember>
-			<FamilyMember>DuinoEDU_A9</FamilyMember>
-			<FamilyMember>DuinoEDU_A10</FamilyMember>
-			<FamilyMember>DuinoEDU_A11</FamilyMember>
-			<FamilyMember>DuinoEDU_A12</FamilyMember>
-			<FamilyMember>DuinoEDU_A13</FamilyMember>
-			<FamilyMember>DuinoEDU_A14</FamilyMember>
-			<FamilyMember>DuinoEDU_A15</FamilyMember>
+			<FamilyMember>Arduino_D2</FamilyMember>
+			<FamilyMember>Arduino_D3</FamilyMember>
+			<FamilyMember>Arduino_D4</FamilyMember>
+			<FamilyMember>Arduino_D5</FamilyMember>
+			<FamilyMember>Arduino_D6</FamilyMember>
+			<FamilyMember>Arduino_D7</FamilyMember>
+			<FamilyMember>Arduino_D8</FamilyMember>
+			<FamilyMember>Arduino_D9</FamilyMember>
+			<FamilyMember>Arduino_D10</FamilyMember>
+			<FamilyMember>Arduino_D11</FamilyMember>
+			<FamilyMember>Arduino_D12</FamilyMember>
+			<FamilyMember>Arduino_D13</FamilyMember>
+			<FamilyMember>Arduino_A0</FamilyMember>
+			<FamilyMember>Arduino_A1</FamilyMember>
+			<FamilyMember>Arduino_A2</FamilyMember>
+			<FamilyMember>Arduino_A3</FamilyMember>
+			<FamilyMember>Arduino_A4</FamilyMember>
+			<FamilyMember>Arduino_A5</FamilyMember>
 		</BlockFamily>
 		<BlockFamily>
-			<FamilyMember>DuinoEDU_A0</FamilyMember>
-			<FamilyMember>DuinoEDU_A1</FamilyMember>
-			<FamilyMember>DuinoEDU_A2</FamilyMember>
-			<FamilyMember>DuinoEDU_A3</FamilyMember>
-			<FamilyMember>DuinoEDU_A4</FamilyMember>
-			<FamilyMember>DuinoEDU_A5</FamilyMember>
-			<FamilyMember>DuinoEDU_A6</FamilyMember>
-			<FamilyMember>DuinoEDU_A7</FamilyMember>
-			<FamilyMember>DuinoEDU_A8</FamilyMember>
-			<FamilyMember>DuinoEDU_A9</FamilyMember>
-			<FamilyMember>DuinoEDU_A10</FamilyMember>
-			<FamilyMember>DuinoEDU_A11</FamilyMember>
-			<FamilyMember>DuinoEDU_A12</FamilyMember>
-			<FamilyMember>DuinoEDU_A13</FamilyMember>
-			<FamilyMember>DuinoEDU_A14</FamilyMember>
-			<FamilyMember>DuinoEDU_A15</FamilyMember>
+			<FamilyMember>Arduino_A0</FamilyMember>
+			<FamilyMember>Arduino_A1</FamilyMember>
+			<FamilyMember>Arduino_A2</FamilyMember>
+			<FamilyMember>Arduino_A3</FamilyMember>
+			<FamilyMember>Arduino_A4</FamilyMember>
+			<FamilyMember>Arduino_A5</FamilyMember>
 		</BlockFamily>
+
 		<BlockFamily>
 			<FamilyMember>GROVE_CS</FamilyMember>
 			<FamilyMember>DUPONT_CS</FamilyMember>
@@ -3543,7 +3226,6 @@
 	</BlockFamilies>
 
 
-
 	<BlockDrawerSets>
 		<BlockDrawerSet name="factory" type="stack" location="southwest" window-per-drawer="no" drawer-draggable="no">
 
@@ -3555,9 +3237,9 @@
 				<!--
 				<BlockGenusMember>loop</BlockGenusMember>
 				<BlockGenusMember>do_while</BlockGenusMember>
-				<BlockGenusMember>repeat_times</BlockGenusMember>
 				<BlockGenusMember>repeat</BlockGenusMember>
 				-->
+				<BlockGenusMember>repeat_times</BlockGenusMember>
 				<BlockGenusMember>repeat_control</BlockGenusMember>
 				<BlockGenusMember>break</BlockGenusMember>
 				<BlockGenusMember>delay</BlockGenusMember>
@@ -3587,12 +3269,8 @@
 				<BlockGenusMember>LCD_I2C_Sainsmart_20by4</BlockGenusMember>
 				<BlockGenusMember>LCD_command_lightOff</BlockGenusMember>
 				<BlockGenusMember>LCD_PLL_Sainsmart_16by2</BlockGenusMember>
-				<BlockGenusMember>PORT_FIX</BlockGenusMember>
-				<BlockGenusMember>number-single-I2C-address</BlockGenusMember>
-				<BlockGenusMember>number-single-fixed-parallel</BlockGenusMember>
-				<BlockGenusMember>DDRA</BlockGenusMember>
-				<BlockGenusMember>PORTA</BlockGenusMember>
-				<BlockGenusMember>PINA</BlockGenusMember>
+				<BlockGenusMember>PORTB</BlockGenusMember>
+				<BlockGenusMember>DDRB</BlockGenusMember>
 			</BlockDrawer>
 
 			<BlockDrawer button-color="44 165 226" name="bd.inputs" type="factory">
@@ -3600,6 +3278,7 @@
 				<BlockGenusMember>pin-read-digital-pullup</BlockGenusMember>
 				<BlockGenusMember>pin-read-analog</BlockGenusMember>
 				<BlockGenusMember>ultrasonic</BlockGenusMember>
+				<BlockGenusMember>PINB</BlockGenusMember>
 			</BlockDrawer>
 
 			<BlockDrawer button-color="92 183 18" name="bd.logic" type="factory">
@@ -3620,7 +3299,6 @@
 				<BlockGenusMember>not</BlockGenusMember>
 				<BlockGenusMember>string_equal</BlockGenusMember>
 				<BlockGenusMember>string_empty</BlockGenusMember>
-				<BlockGenusMember>string_toInt</BlockGenusMember>
 			</BlockDrawer>
 
 			<BlockDrawer button-color="92 183 18" name="bd.operators" type="factory">
@@ -3630,15 +3308,16 @@
 				<BlockGenusMember>division</BlockGenusMember>
 				<BlockGenusMember>modulo</BlockGenusMember>
 				<BlockGenusMember>abs</BlockGenusMember>
-				<BlockGenusMember>pow</BlockGenusMember>
 				<BlockGenusMember>sqrt</BlockGenusMember>
 				<BlockGenusMember>sin</BlockGenusMember>
 				<BlockGenusMember>cos</BlockGenusMember>
 				<BlockGenusMember>tan</BlockGenusMember>
+				<BlockGenusMember>pow</BlockGenusMember>
 				<BlockGenusMember>random_range</BlockGenusMember>
 				<BlockGenusMember>map</BlockGenusMember>
-				<BlockGenusMember>toint</BlockGenusMember>
 				<BlockGenusMember>constrain</BlockGenusMember>
+				<BlockGenusMember>string_to_int</BlockGenusMember>
+				<BlockGenusMember>char_to_int</BlockGenusMember>
 			</BlockDrawer>
 
 			<BlockDrawer button-color="238 125 22" name="bd.number" type="factory">
@@ -3652,11 +3331,10 @@
 				<BlockGenusMember>setter_variable_vector</BlockGenusMember>
 
 				<BlockGenusMember>number</BlockGenusMember>
-				<BlockGenusMember>true</BlockGenusMember>
+				<BlockGenusMember>digital-on</BlockGenusMember>
 				<!--
-				<BlockGenusMember>false</BlockGenusMember>
 				<BlockGenusMember>digital-high</BlockGenusMember>
-				<BlockGenusMember>digital-low</BlockGenusMember>
+				<BlockGenusMember>digital-true</BlockGenusMember>
 				-->
 				<BlockGenusMember>char</BlockGenusMember>
 				<BlockGenusMember>number_double</BlockGenusMember>
@@ -3687,24 +3365,20 @@
 			</BlockDrawer>
 
 			<BlockDrawer button-color="187 66 195" name="bd.communication" type="factory">
-				<BlockGenusMember>serial_available</BlockGenusMember>
-				<BlockGenusMember>serial_available2</BlockGenusMember>
-				<BlockGenusMember>serial_read</BlockGenusMember>
-				<BlockGenusMember>serial_parseInt</BlockGenusMember>
 				<BlockGenusMember>serial_write</BlockGenusMember>
 				<BlockGenusMember>serial_print</BlockGenusMember>
-				<BlockGenusMember>glue_sn</BlockGenusMember>
-				<BlockGenusMember>glue_sb</BlockGenusMember>
-				<BlockGenusMember>glue_poly</BlockGenusMember>
+				<BlockGenusMember>serial_println</BlockGenusMember>
+				<BlockGenusMember>serial_available</BlockGenusMember>
+				<BlockGenusMember>serial_read</BlockGenusMember>
+				<BlockGenusMember>serial_parseInt</BlockGenusMember>
 				<BlockGenusMember>ir_setport</BlockGenusMember>
 				<BlockGenusMember>ir_getcode</BlockGenusMember>
 				<BlockGenusMember>wire_write</BlockGenusMember>
 				<BlockGenusMember>wire_read</BlockGenusMember>
 				<BlockGenusMember>wire_isread</BlockGenusMember>
-				<BlockGenusMember>Serialplus_send_variable_number</BlockGenusMember>
-				<BlockGenusMember>Serialplus_send_variable_digital</BlockGenusMember>
-				<BlockGenusMember>Serialplus_receive_number</BlockGenusMember>
-				<BlockGenusMember>Serialplus_receive_digital</BlockGenusMember>
+				<BlockGenusMember>glue_sn</BlockGenusMember>
+				<BlockGenusMember>glue_sb</BlockGenusMember>
+				<BlockGenusMember>glue_poly</BlockGenusMember>
 			</BlockDrawer>
 
 			<BlockDrawer button-color="160 0 0" name="bd.picuino">
@@ -3744,7 +3418,7 @@
 	</BlockDrawerSets>
 
 	<Pages drawer-with-page="yes">
-		<Page page-name="Main" page-width="400" page-color="222 222 222"/>
+		<Page page-name="Main" page-width="400" page-color="222 222 222" />
 	</Pages>
 
 	<TrashCan>

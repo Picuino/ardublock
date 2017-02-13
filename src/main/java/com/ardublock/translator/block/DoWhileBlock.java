@@ -15,7 +15,7 @@ public class DoWhileBlock extends TranslatorBlock
   @Override
   public String toCode() throws SocketNullException, SubroutineNotDeclaredException
   {
-    String ret = "do\n{\n ";
+    String ret = "do {\n ";
     TranslatorBlock translatorBlock = this.getRequiredTranslatorBlockAtSocket(0);
     translatorBlock = getTranslatorBlockAtSocket(0);
     while (translatorBlock != null)

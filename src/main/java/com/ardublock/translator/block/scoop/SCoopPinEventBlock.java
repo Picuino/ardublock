@@ -10,34 +10,20 @@ public class SCoopPinEventBlock extends SCoopTaskBlock
 {
 
 	public static final String FUNCTION_IS_EVENT_TRIGGERED = 
-			"bool isABEventTriggered(int trigFlag, int lastStatus, int currentStatus)\n" + 
-			"{\n" + 
-			"  switch (trigFlag)\n" + 
-			"  {\n" + 
+			"bool isABEventTriggered(int trigFlag, int lastStatus, int currentStatus) {\n" + 
+			"  switch (trigFlag) {\n" + 
 			"    case (0):  //LOW\n" + 
-			"    {\n" + 
 			"      return !currentStatus;\n" + 
-			"    }\n" + 
 			"    case (1):  //HIGH\n" + 
-			"    {\n" + 
 			"      return (bool)currentStatus;\n" + 
-			"    }\n" + 
 			"    case (2):  //FALLING\n" + 
-			"    {\n" + 
 			"      return (lastStatus!=currentStatus && LOW==currentStatus);\n" + 
-			"    }\n" + 
 			"    case (3):  //RISING\n" + 
-			"    {\n" + 
 			"      return (lastStatus!=currentStatus && HIGH==currentStatus);\n" + 
-			"    }\n" + 
 			"    case (4):  //CHANGE\n" + 
-			"    {\n" + 
 			"      return (lastStatus != currentStatus);\n" + 
-			"    }\n" + 
 			"    default:\n" + 
-			"    {\n" + 
 			"      return false;\n" + 
-			"    }\n" + 
 			"  }\n" + 
 			"}\n\n";
 	
@@ -82,8 +68,7 @@ public class SCoopPinEventBlock extends SCoopTaskBlock
 		translatorBlock = this.getRequiredTranslatorBlockAtSocket(1);
 		String trigFlag = translatorBlock.toCode();
 		
-		taskLoopCommandBuffer.append(String.format("if (isABEventTriggered(%s, %s, %s))\n", trigFlag, lastStatusVariableName, "abvarCurrentStatus"));
-		taskLoopCommandBuffer.append("{\n");
+		taskLoopCommandBuffer.append(String.format("if (isABEventTriggered(%s, %s, %s)) {\n", trigFlag, lastStatusVariableName, "abvarCurrentStatus"));
 
 		//insert event action body
 		translatorBlock = getTranslatorBlockAtSocket(2);

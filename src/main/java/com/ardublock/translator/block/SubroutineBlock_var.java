@@ -23,7 +23,7 @@ public class SubroutineBlock_var extends TranslatorBlock
 		var = translatorBlock.toCode();
 		translatorBlock = this.getRequiredTranslatorBlockAtSocket(1);
 		
-		ret = "void " + subroutineName + "(int "+var+")\n{\n";
+		ret = "void " + subroutineName + "(int "+var+") {\n";
 		while (translatorBlock != null)
 		{
 			ret = ret + translatorBlock.toCode();

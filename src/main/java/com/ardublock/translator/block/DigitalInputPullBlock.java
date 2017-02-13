@@ -7,12 +7,10 @@ import com.ardublock.translator.block.exception.SubroutineNotDeclaredException;
 public class DigitalInputPullBlock extends DigitalInputBlock
 {
 	public static final String ARDUBLOCK_DIGITAL_READ_INPUT_PULLUP_DEFINE = 
-"void __ardublockDigitalInputPullup(int pinNumber)\n" +
-"{\n" +
-"pinMode(pinNumber, INPUT);\n" +
-"digitalWrite(pinNumber, HIGH);\n" +
-"}\n" +
-"\n";
+"void __ardublockDigitalInputPullup(int pinNumber) {\n" +
+"  pinMode(pinNumber, INPUT_PULLUP);\n" +
+"  digitalWrite(pinNumber, HIGH);\n" +
+"}\n\n";
 	
 	public DigitalInputPullBlock(Long blockId, Translator translator, String codePrefix, String codeSuffix, String label)
 	{

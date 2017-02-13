@@ -17,7 +17,7 @@ public class SubroutineBlock extends TranslatorBlock
 	{
 		String subroutineName = label.trim();
 		String ret;
-		ret = "void " + subroutineName + "()\n{\n";
+		ret = "void " + subroutineName + "() {\n";
 		TranslatorBlock translatorBlock = getTranslatorBlockAtSocket(0);
 		while (translatorBlock != null)
 		{

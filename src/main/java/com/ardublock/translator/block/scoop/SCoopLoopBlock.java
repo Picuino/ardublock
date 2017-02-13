@@ -22,8 +22,7 @@ public class SCoopLoopBlock extends TranslatorBlock
 		translator.addSetupCommand("mySCoop.start();");
 		
 		String taskName = SCoopTaskBlock.createScoopTaskName();
-		ret = "defineTaskLoop(" + taskName + ")\n"
-				+ "{\n";
+		ret = "defineTaskLoop(" + taskName + ") {\n";
 		TranslatorBlock translatorBlock = getTranslatorBlockAtSocket(0);
 		while (translatorBlock != null)
 		{

@@ -20,7 +20,7 @@ public class RepeatTimesBlock extends TranslatorBlock
 		String ret = "for (" + varName + "a=1; " + varName + "a<= ( ";
 		TranslatorBlock translatorBlock = this.getRequiredTranslatorBlockAtSocket(0);
 		ret = ret + translatorBlock.toCode();
-		ret = ret + " ); ++" + varName + "a )\n{\n";
+		ret = ret + " ); ++" + varName + "a ) {\n";
 		
 		
 		translatorBlock = getTranslatorBlockAtSocket(1);

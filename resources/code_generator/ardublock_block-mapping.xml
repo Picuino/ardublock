@@ -1,0 +1,21 @@
+
+# Arduino Definitions
+
+Arduino_D2=com.ardublock.translator.block.LabelLeftBlock
+Arduino_D3=com.ardublock.translator.block.LabelLeftBlock
+Arduino_D4=com.ardublock.translator.block.LabelLeftBlock
+Arduino_D5=com.ardublock.translator.block.LabelLeftBlock
+Arduino_D6=com.ardublock.translator.block.LabelLeftBlock
+Arduino_D7=com.ardublock.translator.block.LabelLeftBlock
+Arduino_D8=com.ardublock.translator.block.LabelLeftBlock
+Arduino_D9=com.ardublock.translator.block.LabelLeftBlock
+Arduino_D10=com.ardublock.translator.block.LabelLeftBlock
+Arduino_D11=com.ardublock.translator.block.LabelLeftBlock
+Arduino_D12=com.ardublock.translator.block.LabelLeftBlock
+Arduino_D13=com.ardublock.translator.block.LabelLeftBlock
+Arduino_A0=com.ardublock.translator.block.LabelBlock
+Arduino_A1=com.ardublock.translator.block.LabelBlock
+Arduino_A2=com.ardublock.translator.block.LabelBlock
+Arduino_A3=com.ardublock.translator.block.LabelBlock
+Arduino_A4=com.ardublock.translator.block.LabelBlock
+Arduino_A5=com.ardublock.translator.block.LabelBlock

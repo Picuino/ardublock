@@ -30,7 +30,7 @@ public class RepeatBlock extends TranslatorBlock
 		String ret = "for (" + varName + "= 1; " + varName + "<= ( ";
 		TranslatorBlock translatorBlock = this.getRequiredTranslatorBlockAtSocket(1);
 		ret = ret + translatorBlock.toCode();
-		ret = ret + " ); " + varName + "++ )\n{\n";
+		ret = ret + " ); " + varName + "++ ) {\n";
 		
 		
 		translatorBlock = getTranslatorBlockAtSocket(2);

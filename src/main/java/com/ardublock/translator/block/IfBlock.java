@@ -17,7 +17,7 @@ public class IfBlock extends TranslatorBlock
 		String ret = "if (";
 		TranslatorBlock translatorBlock = this.getRequiredTranslatorBlockAtSocket(0);
 		ret = ret + translatorBlock.toCode();
-		ret = ret + ")\n{\n";
+		ret = ret + ") {\n";
 		translatorBlock = getTranslatorBlockAtSocket(1);
 		while (translatorBlock != null)
 		{
