@@ -394,7 +394,7 @@
 			</description>
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="socket" label="bc.pin_number">
-					<DefaultArg genus-name="Arduino_D2" label="D2" />
+					<DefaultArg genus-name="Arduino_A0" label="A0" />
 				</BlockConnector>
 				<BlockConnector connector-type="number" connector-kind="socket" label="bc.value">
 					<DefaultArg genus-name="number" label="255" />
@@ -1553,13 +1553,12 @@
 				<text>create a vector of numbers</text>
 			</description>
 			<BlockConnectors>
-				<BlockConnector connector-type="number" connector-kind="socket" label="bc.array">
-					<DefaultArg genus-name="variable_fake" label="Table" />
+				<BlockConnector connector-type="number" connector-kind="socket" label="bc.variable">
+					<DefaultArg genus-name="variable_fake" label="Vector" />
 				</BlockConnector>
 				<BlockConnector connector-type="number" connector-kind="socket" label="bc.vecsize">
 					<DefaultArg genus-name="number" label="1" />
 				</BlockConnector>
-
 			</BlockConnectors>
 		</BlockGenus>
 
@@ -1568,8 +1567,8 @@
 				<text>Set a vector number</text>
 			</description>
 			<BlockConnectors>
-				<BlockConnector connector-type="number" connector-kind="socket" label="bc.array">
-					<DefaultArg genus-name="variable_fake" label="Table" />
+				<BlockConnector connector-type="number" connector-kind="socket" label="bc.variable">
+					<DefaultArg genus-name="variable_fake" label="Vector" />
 				</BlockConnector>
 				<BlockConnector connector-type="number" connector-kind="socket" label="bc.position">
 					<DefaultArg genus-name="number" label="1" />
@@ -2104,7 +2103,7 @@
 		</BlockGenus>
 
 		<!-- ******************** Unused/Obsoletes *************** -->
-		<BlockGenus name="glue_msg" kind="data" color="187 66 195" initlabel="bg.glue_msg" editable-label="yes">
+		<BlockGenus name="glue_msg" kind="data" color="238 125 22" initlabel="bg.glue_msg" editable-label="yes">
 			<description>
 				<text></text>
 			</description>
@@ -2404,10 +2403,10 @@
 		<BlockGenus name="pc_buzzPlay" kind="command" color="160 0 0" initlabel="bg.pc_buzzPlay">
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="socket" label="bc.picuino_tone">
-					<DefaultArg genus-name="number" label="Do4" />
+					<DefaultArg genus-name="Do4" label="Do4" />
 				</BlockConnector>
 				<BlockConnector connector-type="number" connector-kind="socket" label="bc.picuino_time">
-					<DefaultArg genus-name="Do4" label="Do4" />
+					<DefaultArg genus-name="number" label="500" />
 				</BlockConnector>
 			</BlockConnectors>
 		</BlockGenus>
@@ -3282,6 +3281,9 @@
 			</BlockDrawer>
 
 			<BlockDrawer button-color="92 183 18" name="bd.logic" type="factory">
+				<BlockGenusMember>and</BlockGenusMember>
+				<BlockGenusMember>or</BlockGenusMember>
+				<BlockGenusMember>not</BlockGenusMember>
 				<BlockGenusMember>greater</BlockGenusMember>
 				<BlockGenusMember>less</BlockGenusMember>
 				<BlockGenusMember>equal</BlockGenusMember>
@@ -3294,9 +3296,6 @@
 				<BlockGenusMember>not_equal_poly</BlockGenusMember>
 				<BlockGenusMember>equal_string</BlockGenusMember>
 				<BlockGenusMember>not_equal_string</BlockGenusMember>
-				<BlockGenusMember>and</BlockGenusMember>
-				<BlockGenusMember>or</BlockGenusMember>
-				<BlockGenusMember>not</BlockGenusMember>
 				<BlockGenusMember>string_equal</BlockGenusMember>
 				<BlockGenusMember>string_empty</BlockGenusMember>
 			</BlockDrawer>
@@ -3350,16 +3349,16 @@
 			</BlockDrawer>
 
 			<BlockDrawer button-color="238 125 22" name="bd.storage" type="factory">
-				<BlockGenusMember>eeprom_read_int</BlockGenusMember>
+				<BlockGenusMember>eeprom_write</BlockGenusMember>
 				<BlockGenusMember>eeprom_write_int</BlockGenusMember>
-				<BlockGenusMember>eeprom_read_long</BlockGenusMember>
 				<BlockGenusMember>eeprom_write_long</BlockGenusMember>
 				<BlockGenusMember>eeprom_read</BlockGenusMember>
-				<BlockGenusMember>eeprom_write</BlockGenusMember>
+				<BlockGenusMember>eeprom_read_int</BlockGenusMember>
+				<BlockGenusMember>eeprom_read_long</BlockGenusMember>
 				<BlockGenusMember>sd_write2</BlockGenusMember>
+				<BlockGenusMember>MaSD_Write</BlockGenusMember>
 				<BlockGenusMember>MaSD_Connect</BlockGenusMember>
 				<BlockGenusMember>MaSD_file</BlockGenusMember>
-				<BlockGenusMember>MaSD_Write</BlockGenusMember>
 				<BlockGenusMember>MaSD_NewLine</BlockGenusMember>
 				<BlockGenusMember>MaSD_separator</BlockGenusMember>
 			</BlockDrawer>

@@ -1,10 +1,15 @@
 TO DO
 =====
 
-Improvement suggestions
+* Test all blocks with Arduino
+* Test menu: Add xor
+* Data menu: Add len(string), 
 
+Improvement suggestions
 * Add Hexadecimal and Binary constants
-* Translate all blocks
+* Translate all names and properties
+* Test english names and properties
 * Add Makeblock library
 * Add blocks for 'glue' or translate between number types
-* Test english names and properties
+* Group Picuino commands and simplify menu
+* Add Picuino reset commands

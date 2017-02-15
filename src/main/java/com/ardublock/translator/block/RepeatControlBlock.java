@@ -40,8 +40,8 @@ public class RepeatControlBlock extends TranslatorBlock
 		String ret = "";
 
 		ret = ret + "for(" + varName + " = " + startVal + "; \n" + 
-				    startVal + "<=" + stopVal + "?" + varName + " <= " + stopVal + ":" + varName + " >= " + stopVal + "; \n" + 
-				    startVal + "<=" + stopVal + "?" + varName + " = "  + varName + " + " + incVal + ":" +  varName + " = " + varName + " - " + incVal + ") {"; 
+				"\t\t" + startVal + "<=" + stopVal + "?" + varName + " <= " + stopVal + ":" + varName + " >= " + stopVal + "; \n" + 
+				"\t\t" + startVal + "<=" + stopVal + "?" + varName + " = "  + varName + " + " + incVal + ":" +  varName + " = " + varName + " - " + incVal + ") {"; 
 
 		TranslatorBlock translatorBlock = getTranslatorBlockAtSocket(4);
 		while (translatorBlock != null)
