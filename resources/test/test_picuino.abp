@@ -3,45 +3,17 @@
 <Pages collapsible-pages="yes" drawer-with-page="yes">
 <Page page-color="222 222 222" page-drawer="Main" page-infullview="yes" page-name="Main" page-width="1920">
 <PageBlocks>
-<Block genus-name="KEY_LEFT" id="639">
-<Location>
-<X>512</X>
-<Y>246</Y>
-</Location>
-<Plug>
-<BlockConnector con-block-id="587" connector-kind="plug" connector-type="number" init-type="number" label="" position-type="mirror"/>
-</Plug>
-</Block>
-<Block genus-name="pc_buzzBegin" id="638">
+<Block genus-name="setter_variable_number" id="631">
 <Location>
 <X>180</X>
-<Y>913</Y>
+<Y>763</Y>
 </Location>
-<BeforeBlockId>637</BeforeBlockId>
-</Block>
-<Block genus-name="pc_ledBegin" id="637">
-<Location>
-<X>180</X>
-<Y>889</Y>
-</Location>
-<BeforeBlockId>636</BeforeBlockId>
-<AfterBlockId>638</AfterBlockId>
-</Block>
-<Block genus-name="pc_begin" id="636">
-<Location>
-<X>180</X>
-<Y>865</Y>
-</Location>
-<BeforeBlockId>635</BeforeBlockId>
-<AfterBlockId>637</AfterBlockId>
-</Block>
-<Block genus-name="pc_buzzOff" id="635">
-<Location>
-<X>180</X>
-<Y>841</Y>
-</Location>
-<BeforeBlockId>634</BeforeBlockId>
-<AfterBlockId>636</AfterBlockId>
+<BeforeBlockId>780</BeforeBlockId>
+<AfterBlockId>634</AfterBlockId>
+<Sockets num-sockets="2">
+<BlockConnector con-block-id="632" connector-kind="socket" connector-type="number" init-type="number" label="Variable" position-type="single"/>
+<BlockConnector con-block-id="630" connector-kind="socket" connector-type="number" init-type="number" label="Valor" position-type="single"/>
+</Sockets>
 </Block>
 <Block genus-name="pc_buzzOn" id="634">
 <Location>
@@ -51,6 +23,37 @@
 <BeforeBlockId>631</BeforeBlockId>
 <AfterBlockId>635</AfterBlockId>
 </Block>
+<Block genus-name="pc_buzzOff" id="635">
+<Location>
+<X>180</X>
+<Y>841</Y>
+</Location>
+<BeforeBlockId>634</BeforeBlockId>
+<AfterBlockId>636</AfterBlockId>
+</Block>
+<Block genus-name="pc_begin" id="636">
+<Location>
+<X>180</X>
+<Y>865</Y>
+</Location>
+<BeforeBlockId>635</BeforeBlockId>
+<AfterBlockId>637</AfterBlockId>
+</Block>
+<Block genus-name="pc_ledBegin" id="637">
+<Location>
+<X>180</X>
+<Y>889</Y>
+</Location>
+<BeforeBlockId>636</BeforeBlockId>
+<AfterBlockId>638</AfterBlockId>
+</Block>
+<Block genus-name="pc_buzzBegin" id="638">
+<Location>
+<X>180</X>
+<Y>913</Y>
+</Location>
+<BeforeBlockId>637</BeforeBlockId>
+</Block>
 <Block genus-name="pc_buzzPlayLen" id="630">
 <Location>
 <X>314</X>
@@ -59,18 +62,6 @@
 <Plug>
 <BlockConnector con-block-id="631" connector-kind="plug" connector-type="number" init-type="number" label="" position-type="single"/>
 </Plug>
-</Block>
-<Block genus-name="setter_variable_number" id="631">
-<Location>
-<X>180</X>
-<Y>763</Y>
-</Location>
-<BeforeBlockId>626</BeforeBlockId>
-<AfterBlockId>634</AfterBlockId>
-<Sockets num-sockets="2">
-<BlockConnector con-block-id="632" connector-kind="socket" connector-type="number" init-type="number" label="Variable" position-type="single"/>
-<BlockConnector con-block-id="630" connector-kind="socket" connector-type="number" init-type="number" label="Valor" position-type="single"/>
-</Sockets>
 </Block>
 <Block genus-name="variable_number" id="632">
 <Label>Integer</Label>
@@ -82,26 +73,7 @@
 <BlockConnector con-block-id="631" connector-kind="plug" connector-type="number" init-type="number" label="" position-type="mirror"/>
 </Plug>
 </Block>
-<Block genus-name="number" id="629">
-<Label>500</Label>
-<Location>
-<X>312</X>
-<Y>736</Y>
-</Location>
-<Plug>
-<BlockConnector con-block-id="626" connector-kind="plug" connector-type="number" init-type="number" label="" position-type="mirror"/>
-</Plug>
-</Block>
-<Block genus-name="Do4" id="628">
-<Location>
-<X>312</X>
-<Y>712</Y>
-</Location>
-<Plug>
-<BlockConnector con-block-id="626" connector-kind="plug" connector-type="number" init-type="number" label="" position-type="mirror"/>
-</Plug>
-</Block>
-<Block genus-name="pc_buzzPlay" id="626">
+<Block genus-name="pc_buzzPlay" id="780">
 <Location>
 <X>180</X>
 <Y>709</Y>
@@ -109,9 +81,37 @@
 <BeforeBlockId>624</BeforeBlockId>
 <AfterBlockId>631</AfterBlockId>
 <Sockets num-sockets="2">
-<BlockConnector con-block-id="628" connector-kind="socket" connector-type="number" init-type="number" label="Tone" position-type="single"/>
-<BlockConnector con-block-id="629" connector-kind="socket" connector-type="number" init-type="number" label="Time" position-type="single"/>
+<BlockConnector con-block-id="781" connector-kind="socket" connector-type="number" init-type="number" label="Tone" position-type="single"/>
+<BlockConnector con-block-id="782" connector-kind="socket" connector-type="number" init-type="number" label="Time" position-type="single"/>
 </Sockets>
+</Block>
+<Block genus-name="number" id="782">
+<Label>500</Label>
+<Location>
+<X>312</X>
+<Y>736</Y>
+</Location>
+<Plug>
+<BlockConnector con-block-id="780" connector-kind="plug" connector-type="number" init-type="number" label="" position-type="mirror"/>
+</Plug>
+</Block>
+<Block genus-name="Do4" id="781">
+<Location>
+<X>312</X>
+<Y>712</Y>
+</Location>
+<Plug>
+<BlockConnector con-block-id="780" connector-kind="plug" connector-type="number" init-type="number" label="" position-type="mirror"/>
+</Plug>
+</Block>
+<Block genus-name="KEY_LEFT" id="639">
+<Location>
+<X>512</X>
+<Y>246</Y>
+</Location>
+<Plug>
+<BlockConnector con-block-id="587" connector-kind="plug" connector-type="number" init-type="number" label="" position-type="mirror"/>
+</Plug>
 </Block>
 <Block genus-name="pc_buzzTone" id="624">
 <Location>
@@ -119,7 +119,7 @@
 <Y>679</Y>
 </Location>
 <BeforeBlockId>622</BeforeBlockId>
-<AfterBlockId>626</AfterBlockId>
+<AfterBlockId>780</AfterBlockId>
 <Sockets num-sockets="1">
 <BlockConnector con-block-id="625" connector-kind="socket" connector-type="number" init-type="number" label="Tone" position-type="single"/>
 </Sockets>

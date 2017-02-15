@@ -2075,7 +2075,7 @@
 			</description>
 			<BlockConnectors>
 				<BlockConnector connector-type="string" connector-kind="socket" label="Code">
-					<DefaultArg genus-name="glue_msg" label="Code" />
+					<DefaultArg genus-name="glue_msg" label="// Text code. Defines" />
 				</BlockConnector>
 			</BlockConnectors>
 		</BlockGenus>
@@ -2086,7 +2086,7 @@
 			</description>
 			<BlockConnectors>
 				<BlockConnector connector-type="string" connector-kind="socket" label="Code">
-					<DefaultArg genus-name="glue_msg" label="Code" />
+					<DefaultArg genus-name="glue_msg" label="// Text code. Setup" />
 				</BlockConnector>
 			</BlockConnectors>
 		</BlockGenus>
@@ -2097,7 +2097,7 @@
 			</description>
 			<BlockConnectors>
 				<BlockConnector connector-type="string" connector-kind="socket" label="Code">
-					<DefaultArg genus-name="glue_msg" label="Code" />
+					<DefaultArg genus-name="glue_msg" label="// Text code. Loop" />
 				</BlockConnector>
 			</BlockConnectors>
 		</BlockGenus>
