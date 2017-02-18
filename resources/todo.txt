@@ -6,7 +6,8 @@ TO DO
 * Translate all names and properties to spanish
 * Test all blocks with Arduino
 * Test menu: Add xor
-* Data menu: Add len(string), 
+* Data menu: Add len(string)
+* Declare all data as volatile (compatible with scoop multitask)
 
 Improvement suggestions
 * Add Hexadecimal and Binary constants

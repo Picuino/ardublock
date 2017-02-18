@@ -2,4 +2,4 @@
 .project
 target/
 resources/ardublock-all.jar
-resources/arduino-library/*.zip
+resources/arduino-libraries/*.zip

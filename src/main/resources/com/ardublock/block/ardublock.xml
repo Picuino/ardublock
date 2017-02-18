@@ -2426,10 +2426,16 @@
 		<BlockGenus name="pc_begin" kind="command" color="160 0 0" initlabel="bg.pc_begin">
 		</BlockGenus>
 
-		<BlockGenus name="pc_ledBegin" kind="command" color="160 0 0" initlabel="bg.pc_ledBegin">
+		<BlockGenus name="pc_dispBegin" kind="command" color="160 0 0" initlabel="bg.pc_dispBegin">
 		</BlockGenus>
 
 		<BlockGenus name="pc_buzzBegin" kind="command" color="160 0 0" initlabel="bg.pc_buzzBegin">
+		</BlockGenus>
+
+		<BlockGenus name="pc_ledBegin" kind="command" color="160 0 0" initlabel="bg.pc_ledBegin">
+		</BlockGenus>
+
+		<BlockGenus name="pc_keyBegin" kind="command" color="160 0 0" initlabel="bg.pc_keyBegin">
 		</BlockGenus>
 
 		<BlockGenus name="KEY_PRESSED_TIME1" kind="data" color="160 0 0" initlabel="bg.KEY_PRESSED_TIME1" editable-label="no">
@@ -3140,6 +3146,13 @@
 			<FamilyMember>KEY_ALL</FamilyMember>
 		</BlockFamily>
 		<BlockFamily>
+			<FamilyMember>pc_begin</FamilyMember>
+			<FamilyMember>pc_dispBegin</FamilyMember>
+			<FamilyMember>pc_buzzBegin</FamilyMember>
+			<FamilyMember>pc_ledBegin</FamilyMember>
+			<FamilyMember>pc_keyBegin</FamilyMember>
+		</BlockFamily>
+		<BlockFamily>
 			<FamilyMember>DD_0</FamilyMember>
 			<FamilyMember>DD_1</FamilyMember>
 			<FamilyMember>DD_2</FamilyMember>
@@ -3399,8 +3412,6 @@
 				<BlockGenusMember>pc_buzzOn</BlockGenusMember>
 				<BlockGenusMember>pc_buzzOff</BlockGenusMember>
 				<BlockGenusMember>pc_begin</BlockGenusMember>
-				<BlockGenusMember>pc_ledBegin</BlockGenusMember>
-				<BlockGenusMember>pc_buzzBegin</BlockGenusMember>
 				<BlockGenusMember>KEY_LEFT</BlockGenusMember>
 				<BlockGenusMember>KEY_PRESSED_TIME1</BlockGenusMember>
 				<BlockGenusMember>DD_A</BlockGenusMember>
