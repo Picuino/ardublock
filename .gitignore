@@ -1,5 +1,4 @@
 .DS_Store
 .project
 target/
-resources/ardublock-all.jar
-resources/arduino-libraries/*.zip
+build/

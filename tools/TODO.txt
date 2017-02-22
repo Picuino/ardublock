@@ -1,0 +1,17 @@
+TO DO
+=====
+* Add Makeblock library
+* Test english names and properties
+* Translate all names and properties to spanish
+* Test menu: Add xor
+* Data menu: Add len(string)
+* Declare all data as volatile (compatible with scoop multitask)
+* Add Hexadecimal and Binary constants
+* Add blocks for 'glue' or translate between number types
+
+
+FINISHED
+========
+* Test all blocks with Arduino
+* Group Picuino commands and simplify menu
+* Add Picuino reset commands
