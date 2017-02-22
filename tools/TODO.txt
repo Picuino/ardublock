@@ -1,5 +1,6 @@
 TO DO
 =====
+* Add open picuino web
 * Add Makeblock library
 * Test english names and properties
 * Translate all names and properties to spanish
@@ -15,3 +16,4 @@ FINISHED
 * Test all blocks with Arduino
 * Group Picuino commands and simplify menu
 * Add Picuino reset commands
+* Save image.. with more size (5120x5120 pixel)

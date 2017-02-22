@@ -123,7 +123,7 @@ public class OpenblocksFrame extends JFrame
 			public void actionPerformed(ActionEvent e) {
 				Dimension size = workspace.getCanvasSize();
 				System.out.println("size: " + size);
-				BufferedImage bi = new BufferedImage(2560, 2560, BufferedImage.TYPE_INT_RGB);
+				BufferedImage bi = new BufferedImage(5120, 5120, BufferedImage.TYPE_INT_RGB);
 				Graphics2D g = (Graphics2D)bi.createGraphics();
 				double theScaleFactor = (300d/72d);  
 				g.scale(theScaleFactor,theScaleFactor);
@@ -153,14 +153,29 @@ public class OpenblocksFrame extends JFrame
 		buttons.add(serialMonitorButton);
 
 		JPanel bottomPanel = new JPanel();
-		JButton websiteButton = new JButton(uiMessageBundle.getString("ardublock.ui.website"));
+		JButton websiteButton = new JButton(uiMessageBundle.getString("ardublock.ui.website1"));
 		websiteButton.addActionListener(new ActionListener () {
 			public void actionPerformed(ActionEvent e) {
 			    Desktop desktop = Desktop.isDesktopSupported() ? Desktop.getDesktop() : null;
 			    URL url;
 			    if (desktop != null && desktop.isSupported(Desktop.Action.BROWSE)) {
 			        try {
-						url = new URL("http://ardublock.com");
+						url = new URL(uiMessageBundle.getString("ardublock.ui.website1.url"));
+			            desktop.browse(url.toURI());
+			        } catch (Exception e1) {
+			            e1.printStackTrace();
+			        }
+			    }
+			}
+		});
+		JButton website2Button = new JButton(uiMessageBundle.getString("ardublock.ui.website2"));
+		website2Button.addActionListener(new ActionListener () {
+			public void actionPerformed(ActionEvent e) {
+			    Desktop desktop = Desktop.isDesktopSupported() ? Desktop.getDesktop() : null;
+			    URL url;
+			    if (desktop != null && desktop.isSupported(Desktop.Action.BROWSE)) {
+			        try {
+						url = new URL(uiMessageBundle.getString("ardublock.ui.website2.url"));
 			            desktop.browse(url.toURI());
 			        } catch (Exception e1) {
 			            e1.printStackTrace();
@@ -172,6 +187,7 @@ public class OpenblocksFrame extends JFrame
 		
 		bottomPanel.add(saveImageButton);
 		bottomPanel.add(websiteButton);
+		bottomPanel.add(website2Button);
 		bottomPanel.add(versionLabel);
 
 		
