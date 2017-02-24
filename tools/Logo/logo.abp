@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<cb:CODEBLOCKS xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://education.mit.edu/openblocks/ns http://education.mit.edu/openblocks/codeblocks.xsd" xmlns:cb="http://education.mit.edu/openblocks/ns">
+<Pages collapsible-pages="yes" drawer-with-page="yes">
+<Page page-color="222 222 222" page-drawer="Main" page-infullview="yes" page-name="Main" page-width="1920">
+<PageBlocks>
+<Block genus-name="logo_repite" id="146">
+<Location>
+<X>20</X>
+<Y>20</Y>
+</Location>
+<Sockets num-sockets="1">
+<BlockConnector con-block-id="147" connector-kind="socket" connector-type="cmd" init-type="cmd" label="" position-type="single"/>
+</Sockets>
+</Block>
+<Block genus-name="logo_imagina" id="147">
+<Location>
+<X>123</X>
+<Y>28</Y>
+</Location>
+<BeforeBlockId>146</BeforeBlockId>
+<AfterBlockId>148</AfterBlockId>
+</Block>
+<Block genus-name="logo_construye" id="148">
+<Location>
+<X>123</X>
+<Y>52</Y>
+</Location>
+<BeforeBlockId>147</BeforeBlockId>
+<AfterBlockId>149</AfterBlockId>
+</Block>
+<Block genus-name="logo_aprende" id="149">
+<Location>
+<X>123</X>
+<Y>76</Y>
+</Location>
+<BeforeBlockId>148</BeforeBlockId>
+</Block>
+</PageBlocks>
+</Page>
+</Pages>
+</cb:CODEBLOCKS>

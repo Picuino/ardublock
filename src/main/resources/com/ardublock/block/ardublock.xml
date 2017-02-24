@@ -2972,6 +2972,22 @@
 			</BlockConnectors>
 		</BlockGenus>
 
+		<!-- Logotipo -->
+		<BlockGenus name="logo_repite" kind="command" color="225 169 26" initlabel="bg.logo_repite">
+			<BlockConnectors>
+				<BlockConnector label="" connector-kind="socket" connector-type="cmd" />
+			</BlockConnectors>
+		</BlockGenus> 
+
+		<BlockGenus name="logo_imagina" kind="command" color="74 108 212" initlabel="bg.logo_imagina">
+		</BlockGenus>
+
+		<BlockGenus name="logo_construye" kind="command" color="187 66 195" initlabel="bg.logo_construye">
+		</BlockGenus>
+
+		<BlockGenus name="logo_aprende" kind="command" color="92 183 18" initlabel="bg.logo_aprende">
+		</BlockGenus>
+
 	</BlockGenuses>
 
 
@@ -3422,6 +3438,13 @@
 				<BlockGenusMember>code_head</BlockGenusMember>
 				<BlockGenusMember>code_setup</BlockGenusMember>
 				<BlockGenusMember>code_loop</BlockGenusMember>
+			</BlockDrawer>
+
+			<BlockDrawer button-color="128 128 128" name="bd.logo" type="factory">
+				<BlockGenusMember>logo_repite</BlockGenusMember>
+				<BlockGenusMember>logo_imagina</BlockGenusMember>
+				<BlockGenusMember>logo_construye</BlockGenusMember>
+				<BlockGenusMember>logo_aprende</BlockGenusMember>
 			</BlockDrawer>
 
 		</BlockDrawerSet>
