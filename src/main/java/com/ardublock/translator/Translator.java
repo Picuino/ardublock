@@ -100,14 +100,14 @@ public class Translator
 		{
 			for (String pinNumber:inputPinSet)
 			{
-				setupFunction.append("pinMode( " + pinNumber + " , INPUT);\n");
+				setupFunction.append("pinMode(" + pinNumber + ", INPUT);\n");
 			}
 		}
 		if (!outputPinSet.isEmpty())
 		{
 			for (String pinNumber:outputPinSet)
 			{
-				setupFunction.append("pinMode( " + pinNumber + " , OUTPUT);\n");
+				setupFunction.append("pinMode(" + pinNumber + ", OUTPUT);\n");
 			}
 		}
 		
@@ -119,7 +119,6 @@ public class Translator
 			}
 			
 		}
-
 		
 		setupFunction.append("}\n\n");
 		

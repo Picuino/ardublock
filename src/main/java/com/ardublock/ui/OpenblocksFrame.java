@@ -123,9 +123,13 @@ public class OpenblocksFrame extends JFrame
 			public void actionPerformed(ActionEvent e) {
 				Dimension size = workspace.getCanvasSize();
 				System.out.println("size: " + size);
-				BufferedImage bi = new BufferedImage(5120, 5120, BufferedImage.TYPE_INT_RGB);
+				int image_resolution = Integer.parseInt(uiMessageBundle.getString("ardublock.ui.image_resolution"));
+				if (image_resolution > 300) image_resolution = 300;
+				if (image_resolution < 72) image_resolution = 72;
+				int image_width = 25 * image_resolution;
+				BufferedImage bi = new BufferedImage(image_width, image_width, BufferedImage.TYPE_INT_RGB);
 				Graphics2D g = (Graphics2D)bi.createGraphics();
-				double theScaleFactor = (300d/72d);  
+				double theScaleFactor = image_resolution/72d;
 				g.scale(theScaleFactor,theScaleFactor);
 				
 				workspace.getBlockCanvas().getPageAt(0).getJComponent().paint(g);
@@ -358,13 +362,12 @@ public class OpenblocksFrame extends JFrame
 			}
 		}
 		this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
-		context.resetWorksapce();
+		context.resetWorkspace();
 		context.setWorkspaceChanged(false);
 		this.setTitle(this.makeFrameTitle());
 		this.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
 	}
-	
-	
+
 	
 	private File checkFileSuffix(File saveFile)
 	{

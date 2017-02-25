@@ -3439,7 +3439,7 @@
 	</BlockDrawerSets>
 
 	<Pages drawer-with-page="yes">
-		<Page page-name="Main" page-width="400" page-color="222 222 222" />
+		<Page page-name="Main" page-width="1800" page-color="222 222 222" />
 	</Pages>
 
 	<TrashCan>

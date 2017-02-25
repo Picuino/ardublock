@@ -89,7 +89,7 @@ public class Context
 	private Context()
 	{
 		workspaceController = new WorkspaceController();
-		resetWorksapce();
+		resetWorkspace();
 		workspace = workspaceController.getWorkspace();
 		workspaceChanged = false;
 		highlightBlockSet = new HashSet<RenderableBlock>();
@@ -101,7 +101,7 @@ public class Context
 		osType = determineOsType();
 	}
 	
-	public void resetWorksapce()
+	public void resetWorkspace()
 	{
 		/*
 		 * workspace = new Workspace(); workspace.reset(); workspace.setl
@@ -183,8 +183,6 @@ public class Context
         RenderableBlock renderableBlock = factoryRenderableBlock.createNewInstance();
         renderableBlock.setLocation(40, 40);
         page.addBlock(renderableBlock);
-        
-        
 	}
 	
 	//determine OS
