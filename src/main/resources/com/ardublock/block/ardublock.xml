@@ -879,6 +879,18 @@
 			</BlockConnectors>
 		</BlockGenus>
 
+		<BlockGenus name="bool_to_int" kind="function" color="92 183 18" initlabel="bg.bool_to_int">
+			<description>
+				<text>Boolean to Integer</text>
+			</description>
+			<BlockConnectors>
+				<BlockConnector connector-type="number" connector-kind="plug" />
+				<BlockConnector connector-type="boolean" connector-kind="socket" label="">
+					<DefaultArg genus-name="digital-on" label="ON" />
+				</BlockConnector>
+			</BlockConnectors>
+		</BlockGenus>
+
 		<BlockGenus name="constrain" kind="function" color="92 183 18" initlabel="bg.constrain">
 			<description>
 				<text>Constrain a number between two values</text>
@@ -3319,17 +3331,20 @@
 				<BlockGenusMember>multiplication</BlockGenusMember>
 				<BlockGenusMember>division</BlockGenusMember>
 				<BlockGenusMember>modulo</BlockGenusMember>
+				<BlockGenusMember>random_range</BlockGenusMember>
+
+				<BlockGenusMember>string_to_int</BlockGenusMember>
+				<BlockGenusMember>char_to_int</BlockGenusMember>
+				<BlockGenusMember>bool_to_int</BlockGenusMember>
+
 				<BlockGenusMember>abs</BlockGenusMember>
 				<BlockGenusMember>sqrt</BlockGenusMember>
 				<BlockGenusMember>sin</BlockGenusMember>
 				<BlockGenusMember>cos</BlockGenusMember>
 				<BlockGenusMember>tan</BlockGenusMember>
 				<BlockGenusMember>pow</BlockGenusMember>
-				<BlockGenusMember>random_range</BlockGenusMember>
 				<BlockGenusMember>map</BlockGenusMember>
 				<BlockGenusMember>constrain</BlockGenusMember>
-				<BlockGenusMember>string_to_int</BlockGenusMember>
-				<BlockGenusMember>char_to_int</BlockGenusMember>
 			</BlockDrawer>
 
 			<BlockDrawer button-color="238 125 22" name="bd.number" type="factory">
@@ -3344,10 +3359,6 @@
 
 				<BlockGenusMember>number</BlockGenusMember>
 				<BlockGenusMember>digital-on</BlockGenusMember>
-				<!--
-				<BlockGenusMember>digital-high</BlockGenusMember>
-				<BlockGenusMember>digital-true</BlockGenusMember>
-				-->
 				<BlockGenusMember>char</BlockGenusMember>
 				<BlockGenusMember>number_double</BlockGenusMember>
 				<BlockGenusMember>message</BlockGenusMember>
