@@ -12,7 +12,7 @@ set zip=/Bin/7-zip/7z.exe
 %copy% -rf arduino-libraries/*  ../build/%ardu_lib_path%
 cd ../build
 %mkdir% -p %ardu_lib_path%
-%remove% -p %TARGET%
+%remove% -f %TARGET%
 %zip% a -r %TARGET% %ardu_lib_path%/*
 
 pause
