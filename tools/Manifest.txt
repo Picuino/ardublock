@@ -1,4 +1,4 @@
 Name: Ardublock
 Builder: Picuino
-Version: 2017-03
+Version: Original + Picuino 1.0
 Main-Class: com.ardublock.Main
