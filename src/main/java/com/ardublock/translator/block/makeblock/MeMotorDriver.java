@@ -27,14 +27,14 @@ public class MeMotorDriver extends TranslatorBlock {
 		block = this.getRequiredTranslatorBlockAtSocket(1);
 		if(block instanceof NumberBlock) {
 			int speed = Integer.parseInt(block.toCode());
-			speed = speed>255 ? 255:(speed<-255 ? -255:speed);
-			if(speed==0){
-				return motor + ".stop();\n";
-			}else{
-				return motor + ".run(" + speed + ");\n";
+			speed = speed > 255 ? 255 : (speed < -255 ? -255 : speed);
+			if (speed == 0) {
+				return "dcMotor" + motor + ".stop();\n";
+			} else {
+				return "dcMotor" + motor + ".run(" + speed + ");\n";
 			}
 		} else {
-			return motor + ".run(" + block.toCode() + ");\n";
+			return "dcMotor" + motor + ".run(" + block.toCode() + ");\n";
 		}		
 	}
 
