@@ -3,6 +3,7 @@ TO DO
 
 * Declare all data as volatile (compatible with scoop multitask)
 * Delete spaces before sentences in *.java Picuino sourcecode
+* Communications menu: move Write after Println
 
 * Add open picuino web
 * Add Makeblock library

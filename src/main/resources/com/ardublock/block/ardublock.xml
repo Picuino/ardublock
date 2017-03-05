@@ -3046,9 +3046,9 @@
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="me_linefinder" kind="data" color="10 134 152" initlabel="bg.me_linefinder">
+		<BlockGenus name="me_linefollower" kind="data" color="10 134 152" initlabel="bg.me_linefollower">
 			<description>
-				<text>Makeblock LineFinder</text>
+				<text>Makeblock LineFollower</text>
 			</description>
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="socket" label="bc.me_port_number">
@@ -3827,8 +3827,11 @@
 				<BlockGenusMember>me_move_mbot</BlockGenusMember>
 				<BlockGenusMember>me_motordriver</BlockGenusMember>
 				<BlockGenusMember>me_led_rgb</BlockGenusMember>
-				<BlockGenusMember>me_servodriver</BlockGenusMember>
+
 				<BlockGenusMember>me_ultrasonic_sensor</BlockGenusMember>
+				<BlockGenusMember>me_linefollower</BlockGenusMember>
+
+				<BlockGenusMember>me_servodriver</BlockGenusMember>
 				<BlockGenusMember>me_limitswitch</BlockGenusMember>
 				<BlockGenusMember>me_shutter</BlockGenusMember>
 
@@ -3842,7 +3845,6 @@
 				<BlockGenusMember>me_bluetooth_write</BlockGenusMember>
 				<BlockGenusMember>me_bluetooth_commands</BlockGenusMember>
 				<BlockGenusMember>me_bluetooth_command</BlockGenusMember>
-				<BlockGenusMember>me_linefinder</BlockGenusMember>
 				<!--
 				<BlockGenusMember>me_stepper_motor</BlockGenusMember>				
 				-->
