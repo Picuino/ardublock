@@ -2988,7 +2988,7 @@
 		<!-- Makeblock BlockGenus -->
 		<BlockGenus name="me_move_mbot" kind="command" color="10 134 152" initlabel="bg.me_move_mbot">
 			<description>
-				<text>Move Makeblock mBot</text>
+				<text>Makeblock move mBot</text>
 			</description>
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="socket" label="bc.me_moveTo_number">
@@ -3016,7 +3016,7 @@
 
 		<BlockGenus name="me_led_rgb" kind="command" color="10 134 152" initlabel="bg.me_led_rgb">
 			<description>
-				<text>Makeblock mBot leds RGB</text>
+				<text>Makeblock mCore leds RGB</text>
 			</description>
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="socket" label="bc.me_led_num">
@@ -3032,6 +3032,33 @@
 					<DefaultArg genus-name="number" label="255" />
 				</BlockConnector>
 			</BlockConnectors>
+		</BlockGenus>
+
+		<BlockGenus name="me_mbot_switch" kind="data" color="10 134 152" initlabel="bg.me_mbot_switch">
+			<description>
+				<text>Makeblock mBot pushbutton switch</text>
+			</description>
+			<BlockConnectors>
+				<BlockConnector connector-type="number" connector-kind="plug" />
+			</BlockConnectors>
+		</BlockGenus>
+
+		<BlockGenus name="me_mbot_tone" kind="command" color="10 134 152" initlabel="bg.me_mbot_tone">
+			<description>
+				<text>Makeblock mBot buzzer tone</text>
+			</description>
+			<BlockConnectors>
+				<BlockConnector connector-type="number" connector-kind="socket" label="bc.me_buzzer_freq">
+					<DefaultArg genus-name="number" label="400" />
+				</BlockConnector>
+				<BlockConnector connector-type="number" connector-kind="socket" label="bc.me_buzzer_time">
+					<DefaultArg genus-name="number" label="16" />
+				</BlockConnector>
+			</BlockConnectors>
+		</BlockGenus>
+
+		<BlockGenus name="me_mbot_notone" kind="command" color="10 134 152" initlabel="bg.me_mbot_notone">
+			<description> <text>Makeblock mBot buzzer off</text> </description>
 		</BlockGenus>
 
 		<BlockGenus name="me_ultrasonic_sensor" kind="data" color="10 134 152" initlabel="bg.me_ultrasonic_sensor">
@@ -3825,12 +3852,15 @@
 
 			<BlockDrawer button-color="10 134 152" name="bd.makeblock" type="factory">
 				<BlockGenusMember>me_move_mbot</BlockGenusMember>
-				<BlockGenusMember>me_motordriver</BlockGenusMember>
 				<BlockGenusMember>me_led_rgb</BlockGenusMember>
+				<BlockGenusMember>me_mbot_tone</BlockGenusMember>
+				<BlockGenusMember>me_mbot_notone</BlockGenusMember>
 
+				<BlockGenusMember>me_mbot_switch</BlockGenusMember>
 				<BlockGenusMember>me_ultrasonic_sensor</BlockGenusMember>
 				<BlockGenusMember>me_linefollower</BlockGenusMember>
 
+				<BlockGenusMember>me_motordriver</BlockGenusMember>
 				<BlockGenusMember>me_servodriver</BlockGenusMember>
 				<BlockGenusMember>me_limitswitch</BlockGenusMember>
 				<BlockGenusMember>me_shutter</BlockGenusMember>
