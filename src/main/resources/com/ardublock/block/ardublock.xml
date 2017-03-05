@@ -3648,7 +3648,7 @@
 			<FamilyMember>me_port_5</FamilyMember>
 			<FamilyMember>me_port_6</FamilyMember>
 			<FamilyMember>me_port_7</FamilyMember>
-			<FamilyMember>me_port_8</FamilyMember>			
+			<FamilyMember>me_port_8</FamilyMember>
 		</BlockFamily>
 		<BlockFamily>
 			<FamilyMember>me_motor_1</FamilyMember>
@@ -3876,10 +3876,10 @@
 				<BlockGenusMember>me_bluetooth_commands</BlockGenusMember>
 				<BlockGenusMember>me_bluetooth_command</BlockGenusMember>
 				<!--
-				<BlockGenusMember>me_stepper_motor</BlockGenusMember>				
+				<BlockGenusMember>me_stepper_motor</BlockGenusMember>
 				-->
 			</BlockDrawer>
-			
+
 			<BlockDrawer button-color="128 128 128" name="bd.especial" type="factory">
 				<BlockGenusMember>code_head</BlockGenusMember>
 				<BlockGenusMember>code_setup</BlockGenusMember>
