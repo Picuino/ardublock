@@ -3005,16 +3005,16 @@
 				<text>Makeblock mBot leds RGB</text>
 			</description>
 			<BlockConnectors>
-				<BlockConnector connector-type="number" connector-kind="socket" label="bc.me_lednum">
+				<BlockConnector connector-type="number" connector-kind="socket" label="bc.me_led_num">
 					<DefaultArg genus-name="number" label="1" />
 				</BlockConnector>
 				<BlockConnector connector-type="number" connector-kind="socket" label="bc.me_led_red">
 					<DefaultArg genus-name="number" label="255" />
 				</BlockConnector>
-				<BlockConnector connector-type="number" connector-kind="socket" label="bc.me_led_red">
+				<BlockConnector connector-type="number" connector-kind="socket" label="bc.me_led_green">
 					<DefaultArg genus-name="number" label="255" />
 				</BlockConnector>
-				<BlockConnector connector-type="number" connector-kind="socket" label="bc.me_led_red">
+				<BlockConnector connector-type="number" connector-kind="socket" label="bc.me_led_blue">
 					<DefaultArg genus-name="number" label="255" />
 				</BlockConnector>
 			</BlockConnectors>
