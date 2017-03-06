@@ -6,9 +6,9 @@ import com.ardublock.translator.block.TranslatorBlock;
 import com.ardublock.translator.block.exception.SocketNullException;
 import com.ardublock.translator.block.exception.SubroutineNotDeclaredException;
 
-public class MeMoveMbot extends TranslatorBlock {
+public class MeMbotMove extends TranslatorBlock {
 
-	public MeMoveMbot(Long blockId, Translator translator, String codePrefix, String codeSuffix, String label) {
+	public MeMbotMove(Long blockId, Translator translator, String codePrefix, String codeSuffix, String label) {
 		super(blockId, translator, codePrefix, codeSuffix, label);
 	}
 

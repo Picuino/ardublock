@@ -4,9 +4,9 @@ import com.ardublock.translator.block.TranslatorBlock;
 import com.ardublock.translator.block.exception.SocketNullException;
 import com.ardublock.translator.block.exception.SubroutineNotDeclaredException;
 
-public class MeMbotLightSensor extends TranslatorBlock {
+public class MeMbotIRGetcode extends TranslatorBlock {
 
-	public MeMbotLightSensor(Long blockId, Translator translator, String codePrefix, String codeSuffix, String label) {
+	public MeMbotIRGetcode(Long blockId, Translator translator, String codePrefix, String codeSuffix, String label) {
 		super(blockId, translator, codePrefix, codeSuffix, label);
 	}
 
@@ -14,10 +14,9 @@ public class MeMbotLightSensor extends TranslatorBlock {
 	public String toCode() throws SocketNullException, SubroutineNotDeclaredException {
 		translator.addHeaderFile("MeMCore.h");
 
-		String ret = "MeLightSensor mBotLightSensor(6);";
-		translator.addDefinitionCommand(ret);
+		translator.addDefinitionCommand("MeIR mBotIR;");
 
-		return "mBotLightSensor.read()";
+		return "mBotIR.getCode()";
 	}
 
 }

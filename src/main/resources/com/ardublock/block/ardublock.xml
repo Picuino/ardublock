@@ -2986,7 +2986,7 @@
 		<!-- Picuino BlockGenus End -->
 
 		<!-- Makeblock BlockGenus -->
-		<BlockGenus name="me_move_mbot" kind="command" color="10 134 152" initlabel="bg.me_move_mbot">
+		<BlockGenus name="me_mbot_move" kind="command" color="10 134 152" initlabel="bg.me_mbot_move">
 			<description>
 				<text>Makeblock move mBot</text>
 			</description>
@@ -3037,6 +3037,15 @@
 		<BlockGenus name="me_mbot_lightsensor" kind="data" color="10 134 152" initlabel="bg.me_mbot_lightsensor">
 			<description>
 				<text>Makeblock mBot Light Sensor</text>
+			</description>
+			<BlockConnectors>
+				<BlockConnector connector-type="number" connector-kind="plug" />
+			</BlockConnectors>
+		</BlockGenus>
+
+		<BlockGenus name="me_mbot_ir_getcode" kind="data" color="10 134 152" initlabel="bg.me_mbot_ir_getcode">
+			<description>
+				<text>Makeblock mBot InfraRed Receiver</text>
 			</description>
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="plug" />
@@ -3155,22 +3164,6 @@
 					<DefaultArg genus-name="number" label="3000" />
 				</BlockConnector>
 				<BlockConnector label="bc.me_stepper_finish" connector-kind="socket" connector-type="cmd"/>
-			</BlockConnectors>
-		</BlockGenus>
-
-		<BlockGenus name="me_infraredreceiver" kind="command" color="10 134 152" initlabel="bg.me_infraredreceiver">
-			<description>
-				<text>Makeblock Infrared Receiver</text>
-			</description>
-			<BlockConnectors>
-				<BlockConnector connector-type="number" connector-kind="socket" label="bc.me_port_number">
-					<DefaultArg genus-name="me_port_7" label="Port 7" />
-				</BlockConnector>
-				<BlockConnector connector-type="number" connector-kind="socket" label="bc.me_input_data">
-					<DefaultArg genus-name="variable_number" label="irRead" />
-				</BlockConnector>
-				<BlockConnector label="bc.me_key_down" connector-kind="socket" connector-type="cmd"/>
-				<BlockConnector label="bc.me_key_up" connector-kind="socket" connector-type="cmd"/>
 			</BlockConnectors>
 		</BlockGenus>
 
@@ -3860,13 +3853,15 @@
 			</BlockDrawer>
 
 			<BlockDrawer button-color="10 134 152" name="bd.makeblock" type="factory">
-				<BlockGenusMember>me_move_mbot</BlockGenusMember>
+				<BlockGenusMember>me_mbot_move</BlockGenusMember>
 				<BlockGenusMember>me_led_rgb</BlockGenusMember>
 				<BlockGenusMember>me_mbot_tone</BlockGenusMember>
 				<BlockGenusMember>me_mbot_notone</BlockGenusMember>
 
 				<BlockGenusMember>me_mbot_switch</BlockGenusMember>
 				<BlockGenusMember>me_mbot_lightsensor</BlockGenusMember>
+				<BlockGenusMember>me_mbot_ir_getcode</BlockGenusMember>
+				
 				<BlockGenusMember>me_ultrasonic_sensor</BlockGenusMember>
 				<BlockGenusMember>me_linefollower</BlockGenusMember>
 
@@ -3880,7 +3875,6 @@
 				<BlockGenusMember>me_port_1</BlockGenusMember>
 				<BlockGenusMember>me_shutter_1</BlockGenusMember>
 
-				<BlockGenusMember>me_infraredreceiver</BlockGenusMember>
 				<BlockGenusMember>me_bluetooth_read</BlockGenusMember>
 				<BlockGenusMember>me_bluetooth_write</BlockGenusMember>
 				<BlockGenusMember>me_bluetooth_commands</BlockGenusMember>
