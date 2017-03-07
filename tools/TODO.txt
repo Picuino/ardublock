@@ -1,6 +1,7 @@
 TO DO
 =====
 
+* Simplify data: boolean, long int, double.
 * Declare all data as volatile (compatible with scoop multitask)
 * Delete spaces before sentences in *.java Picuino sourcecode
 * Communications menu: move Write after Println

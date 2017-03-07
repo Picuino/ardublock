@@ -16,11 +16,13 @@ public class MeMbotIRSendcode extends TranslatorBlock {
 		translator.addDefinitionCommand("MeIR mBotIR;");
 		translator.addDefinitionCommand(
 			"\nvoid _mBot_IRSendByte(uint8_t data) {\n" +
-			"  union { struct { byte b3; byte b2; byte b1; byte b0; }; long l; } ldata;\n" +
-			"  ldata.b3 = ~data;\n" +
-			"  ldata.b2 = data;\n" +
-			"  ldata.b1 = 0x00;\n" +
-			"  ldata.b0 = 0xff;\n" +
+			"  union {\n" +
+			"    struct {\n" +
+			"      byte b3; byte b2; byte b1; byte b0;\n" +
+			"    };\n" +
+			"    long l;\n" +
+			"  } ldata;\n" +
+			"  ldata.b3 = ~data; ldata.b2 = data; ldata.b1 = 0x00; ldata.b0 = 0xff;\n" +
 			"  mBotIR.sendNEC(ldata.l, 32);\n" +
 			"  delay(20);\n" +
 			"};\n" );
