@@ -3034,6 +3034,17 @@
 			</BlockConnectors>
 		</BlockGenus>
 
+		<BlockGenus name="me_mbot_ir_sendcode" kind="command" color="10 134 152" initlabel="bg.me_mbot_ir_sendcode">
+			<description>
+				<text>mBot Send data to Infrared emitter</text>
+			</description>
+			<BlockConnectors>
+				<BlockConnector connector-type="number" connector-kind="socket" label="bc.me_output_data">
+					<DefaultArg genus-name="number" label="60" />
+				</BlockConnector>
+			</BlockConnectors>
+		</BlockGenus>
+
 		<BlockGenus name="me_mbot_lightsensor" kind="data" color="10 134 152" initlabel="bg.me_mbot_lightsensor">
 			<description>
 				<text>Makeblock mBot Light Sensor</text>
@@ -3860,8 +3871,9 @@
 
 				<BlockGenusMember>me_mbot_switch</BlockGenusMember>
 				<BlockGenusMember>me_mbot_lightsensor</BlockGenusMember>
+				<BlockGenusMember>me_mbot_ir_sendcode</BlockGenusMember>
 				<BlockGenusMember>me_mbot_ir_getcode</BlockGenusMember>
-				
+
 				<BlockGenusMember>me_ultrasonic_sensor</BlockGenusMember>
 				<BlockGenusMember>me_linefollower</BlockGenusMember>
 
