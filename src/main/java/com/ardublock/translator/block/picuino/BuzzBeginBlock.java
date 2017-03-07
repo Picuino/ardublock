@@ -19,9 +19,9 @@ public class BuzzBeginBlock extends TranslatorBlock {
 		
 		translator.addHeaderFile("PC42.h");
 		translator.addHeaderFile("Wire.h");
-		translator.addSetupCommand("  pc.begin();");
+		translator.addSetupCommand("pc.begin();");
 		
-		String ret = "  pc.buzzBegin();\n";
+		String ret = "pc.buzzBegin();\n";
 		return ret;
 	}
 
