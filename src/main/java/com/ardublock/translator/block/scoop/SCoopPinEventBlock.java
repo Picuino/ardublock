@@ -57,12 +57,12 @@ public class SCoopPinEventBlock extends SCoopTaskBlock
 		String lastStatusVariableName = translator.buildVariableName("pin_event_" + pinNumber);
 		
 		//setup setup command
-		translator.addDefinitionCommand(String.format("int %s = 0;", lastStatusVariableName));
+		translator.addDefinitionCommand(String.format("volatile int %s = 0;", lastStatusVariableName));
 		taskSetupCommandBuffer.append(String.format("%s = digitalRead(%s);\n", lastStatusVariableName, pinNumber));
 		
 		
 		//setup loop command
-		taskLoopCommandBuffer.append(String.format("int abvarCurrentStatus = digitalRead(%s);\n", pinNumber));
+		taskLoopCommandBuffer.append(String.format("volatile int abvarCurrentStatus = digitalRead(%s);\n", pinNumber));
 
 		//read trig flag
 		translatorBlock = this.getRequiredTranslatorBlockAtSocket(1);

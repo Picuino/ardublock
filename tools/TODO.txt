@@ -1,13 +1,7 @@
 TO DO
 =====
 
-* Simplify data: boolean, long int, double.
-* Declare all data as volatile (compatible with scoop multitask)
 * Delete spaces before sentences in *.java Picuino sourcecode
-* Communications menu: move Write after Println
-
-* Add open picuino web
-* Add Makeblock library
 * Test english names and properties
 * Translate all names and properties to spanish
 * Test menu: Add xor
@@ -18,6 +12,11 @@ TO DO
 
 FINISHED
 ========
+* Add Makeblock library
+* Add open picuino web
+* Communications menu: move Write after Println
+* Declare all data as volatile (compatible with scoop multitask)
+* Simplify data: boolean, long int, double. char and string
 * Test all blocks with Arduino
 * Group Picuino commands and simplify menu
 * Add Picuino reset commands

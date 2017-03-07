@@ -25,7 +25,7 @@ import edu.mit.blocks.workspace.Workspace;
 
 public class Translator
 {
-	private static final String variablePrefix = "_ABVAR_";
+	private static final String variablePrefix = "_VAR_";
 
 	private Set<String> headerFileSet;
 	private Set<String> definitionSet;

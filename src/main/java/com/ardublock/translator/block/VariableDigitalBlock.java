@@ -17,10 +17,8 @@ public class VariableDigitalBlock extends TranslatorBlock
 		{
 			internalVariableName = translator.buildVariableName(label);
 			translator.addBooleanVariable(label, internalVariableName);
-			translator.addDefinitionCommand("bool " + internalVariableName + "= false ;");
-//			translator.addSetupCommand(internalVariableName + " = false;");
+			translator.addDefinitionCommand("volatile bool " + internalVariableName + "= false ;");
 		}
-		//String ret = " ( " + internalVariableName + " ? true : false )";
 		String ret = internalVariableName;
 		return codePrefix + ret + codeSuffix;
 	}

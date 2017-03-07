@@ -19,7 +19,7 @@ public class VariableStringBlock extends TranslatorBlock
 		{
 			internalVariableName = translator.buildVariableName(label);
 			translator.addNumberVariable(label, internalVariableName);
-			translator.addDefinitionCommand("char " + internalVariableName + "[64] = \"\";");
+			translator.addDefinitionCommand("volatile char " + internalVariableName + "[64] = \"\";");
 //			translator.addSetupCommand(internalVariableName + " = 0;");
 		}
 		return codePrefix + internalVariableName + codeSuffix;

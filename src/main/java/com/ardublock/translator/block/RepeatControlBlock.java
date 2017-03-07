@@ -22,7 +22,7 @@ public class RepeatControlBlock extends TranslatorBlock
 	{
 
 		TranslatorBlock tb = this.getRequiredTranslatorBlockAtSocket(0);
-		if (!(tb instanceof VariableNumberBlock || tb instanceof VariableNumberUnsignedLongBlock || tb instanceof VariableNumberDoubleBlock)) {
+		if (!(tb instanceof VariableNumberBlock || tb instanceof VariableNumberDoubleBlock)) {
 			throw new BlockException(blockId, uiMessageBundle.getString("ardublock.error_msg.number_var_slot"));
 		}
 
@@ -39,7 +39,7 @@ public class RepeatControlBlock extends TranslatorBlock
 
 		String ret = "";
 
-		ret = ret + "for(" + varName + " = " + startVal + "; \n" + 
+		ret = ret + "for (" + varName + " = " + startVal + "; \n" + 
 				"\t\t" + startVal + "<=" + stopVal + "?" + varName + " <= " + stopVal + ":" + varName + " >= " + stopVal + "; \n" + 
 				"\t\t" + startVal + "<=" + stopVal + "?" + varName + " = "  + varName + " + " + incVal + ":" +  varName + " = " + varName + " - " + incVal + ") {"; 
 

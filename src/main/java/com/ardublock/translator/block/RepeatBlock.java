@@ -22,11 +22,11 @@ public class RepeatBlock extends TranslatorBlock
 	{
 		String varName="";//this.getRequiredTranslatorBlockAtSocket(0);
 		TranslatorBlock teste = this.getRequiredTranslatorBlockAtSocket(0);
-		if (!(teste instanceof VariableNumberBlock || teste instanceof VariableNumberUnsignedLongBlock || teste instanceof VariableNumberDoubleBlock)) {
+		if (!(teste instanceof VariableNumberBlock || teste instanceof VariableNumberDoubleBlock)) {
 			throw new BlockException(blockId, uiMessageBundle.getString("ardublock.error_msg.number_var_slot"));
 		}
-		varName=varName+teste.toCode();
-		//translator.addDefinitionCommand("int " + varName + "; //teste");
+		varName= varName + teste.toCode();
+
 		String ret = "for (" + varName + "= 1; " + varName + "<= ( ";
 		TranslatorBlock translatorBlock = this.getRequiredTranslatorBlockAtSocket(1);
 		ret = ret + translatorBlock.toCode();

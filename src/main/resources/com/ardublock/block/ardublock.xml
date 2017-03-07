@@ -1301,15 +1301,6 @@
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="number_long" kind="data" color="238 125 22" initlabel="bg.number_long" editable-label="yes">
-			<description>
-				<text>'Unsigned Long' constant</text>
-			</description>
-			<BlockConnectors>
-				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
-			</BlockConnectors>
-		</BlockGenus>
-
 		<BlockGenus name="number_double" kind="data" color="238 125 22" initlabel="bg.number_double" editable-label="yes">
 			<description>
 				<text>'Double' constant</text>
@@ -1440,15 +1431,6 @@
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="variable_number_unsigned_long" kind="data" color="238 125 22" initlabel="bg.variable_number_unsigned_long" editable-label="yes" is-label-value="yes">
-			<description>
-			  <text>Unsigned Long Var</text>
-			</description>
-			<BlockConnectors>
-			  <BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
-			</BlockConnectors>
-		</BlockGenus>
-
 		<BlockGenus name="variable_number_double" kind="data" color="238 125 22" initlabel="bg.variable_number_double" editable-label="yes" is-label-value="yes">
 			<description>
 			  <text>Double</text>
@@ -1515,20 +1497,6 @@
 				<BlockConnector connector-type="poly" connector-kind="socket" label="char">
 					<DefaultArg genus-name="char" label="A" />
 				</BlockConnector>
-			</BlockConnectors>
-		</BlockGenus>
-
-		<BlockGenus name="setter_variable_number_unsigned_long" kind="command" color="238 125 22" initlabel="bg.setter_variable_number_unsigned_long">
-			<description>
-			  <text>set a large integer variable</text>
-			</description>
-			<BlockConnectors>
-			  <BlockConnector connector-type="number" connector-kind="socket" label="bc.variable">
-				 <DefaultArg genus-name="variable_number_unsigned_long" label="Unsigned_long" />
-			  </BlockConnector>
-			  <BlockConnector connector-type="number" connector-kind="socket" label="bc.value">
-				 <DefaultArg genus-name="number_long" label="1000000" />
-			  </BlockConnector>
 			</BlockConnectors>
 		</BlockGenus>
 
@@ -1957,7 +1925,7 @@
 
 		<BlockGenus name="eeprom_read_long" kind="data" color="238 125 22" initlabel="bg.eeprom_read_long">
 			<description>
-				<text>EEPROM Read 'unsigned long'</text>
+				<text>EEPROM Read 'long integer'</text>
 			</description>
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="plug" />
@@ -1969,7 +1937,7 @@
 
 		<BlockGenus name="eeprom_write_long" kind="command" color="238 125 22" initlabel="bg.eeprom_write_long">
 			<description>
-				<text>EEPROM Write 'unsigned long'</text>
+				<text>EEPROM Write 'long integer'</text>
 			</description>
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="socket" label="bc.eeprom_address">
@@ -3785,7 +3753,6 @@
 				<BlockGenusMember>setter_variable_number</BlockGenusMember>
 				<BlockGenusMember>setter_variable_digital</BlockGenusMember>
 				<BlockGenusMember>setter_variable_char</BlockGenusMember>
-				<BlockGenusMember>setter_variable_number_unsigned_long</BlockGenusMember>
 				<BlockGenusMember>setter_variable_number_double</BlockGenusMember>
 				<BlockGenusMember>setter_variable_String</BlockGenusMember>
 				<BlockGenusMember>create_variable_vector</BlockGenusMember>
@@ -3800,7 +3767,6 @@
 				<BlockGenusMember>variable_number</BlockGenusMember>
 				<BlockGenusMember>variable_digital</BlockGenusMember>
 				<BlockGenusMember>variable_poly</BlockGenusMember>
-				<BlockGenusMember>variable_number_unsigned_long</BlockGenusMember>
 				<BlockGenusMember>variable_number_double</BlockGenusMember>
 				<BlockGenusMember>variable_String</BlockGenusMember>
 				<BlockGenusMember>variable_vector</BlockGenusMember>
@@ -3822,9 +3788,9 @@
 			</BlockDrawer>
 
 			<BlockDrawer button-color="187 66 195" name="bd.communication" type="factory">
-				<BlockGenusMember>serial_write</BlockGenusMember>
-				<BlockGenusMember>serial_print</BlockGenusMember>
 				<BlockGenusMember>serial_println</BlockGenusMember>
+				<BlockGenusMember>serial_print</BlockGenusMember>
+				<BlockGenusMember>serial_write</BlockGenusMember>
 				<BlockGenusMember>serial_available</BlockGenusMember>
 				<BlockGenusMember>serial_read</BlockGenusMember>
 				<BlockGenusMember>serial_parseInt</BlockGenusMember>
