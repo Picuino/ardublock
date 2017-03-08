@@ -10,7 +10,7 @@ public class DigitalInputBlock extends TranslatorBlock
 		"boolean __ardublockDigitalRead(int pinNumber) {\n" +
 		"  pinMode(pinNumber, INPUT);\n" +
 		"  return digitalRead(pinNumber);\n" +
-		"}\n\n";
+		"};\n";
 
 
    public DigitalInputBlock(Long blockId, Translator translator, String codePrefix, String codeSuffix, String label)

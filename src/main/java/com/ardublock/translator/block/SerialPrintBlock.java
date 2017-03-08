@@ -21,7 +21,7 @@ public class SerialPrintBlock extends TranslatorBlock
 
 		String ret = translatorBlock.toCode();
 
-		ret="Serial.print(" + ret + ");\n";
+		ret="Serial.print(" + ret + ");";
 		return ret;
 	}
 }

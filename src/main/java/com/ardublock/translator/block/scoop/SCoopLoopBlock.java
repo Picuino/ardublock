@@ -29,7 +29,7 @@ public class SCoopLoopBlock extends TranslatorBlock
 			ret = ret + translatorBlock.toCode();
 			translatorBlock = translatorBlock.nextTranslatorBlock();
 		}
-		ret = ret + "}\n\n";
+		ret = ret + "};\n\n";
 		return ret;
 	}
 

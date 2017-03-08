@@ -23,7 +23,7 @@ public class SubroutineRefBlock_var extends TranslatorBlock
 		{
 			throw new SubroutineNotDeclaredException(blockId);
 		}
-		return "\t"+subroutineName + "("+var+");\n";
+		return "\t" + subroutineName + "(" + var + ");";
 	}
 
 }

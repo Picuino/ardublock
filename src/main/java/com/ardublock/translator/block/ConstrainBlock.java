@@ -14,16 +14,12 @@ public class ConstrainBlock extends TranslatorBlock
 	@Override
 	public String toCode() throws SocketNullException, SubroutineNotDeclaredException
 	{
-		String ret = "constrain( ";
 		TranslatorBlock tb = this.getRequiredTranslatorBlockAtSocket(0);
-		ret = ret + tb.toCode();
-		ret = ret + " , ";
+		String ret = "constrain(" + tb.toCode() + ", ";
 		tb = this.getRequiredTranslatorBlockAtSocket(1);
-		ret = ret + tb.toCode();
-		ret = ret + " , ";
+		ret = ret + tb.toCode() + ", ";
 		tb = this.getRequiredTranslatorBlockAtSocket(2);
-		ret = ret + tb.toCode();
-		ret = ret + " ) ";
+		ret = ret + tb.toCode() + ")";
 		return codePrefix + ret + codeSuffix;
 	}
 	

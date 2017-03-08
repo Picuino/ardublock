@@ -35,13 +35,9 @@ public class SDWriteBlock extends TranslatorBlock
 		//Switch was not used for compatibility with java 1.6
 
 		if (b2.equals("Return")) {
-
 			ret += "__ardublockWriteStringSDln ( ";
-			
-        } else {
-
-        	ret += "__ardublockWriteStringSD ( ";
-
+		} else {
+			ret += "__ardublockWriteStringSD ( ";
 		}		
 			ret = ret + b1;
 			ret = ret +",";
@@ -50,8 +46,5 @@ public class SDWriteBlock extends TranslatorBlock
 
 		return codePrefix + ret + codeSuffix;
 	}
-	
 
-
-	
 }

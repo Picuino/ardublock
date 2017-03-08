@@ -120,7 +120,7 @@ public class Translator
 			
 		}
 		
-		setupFunction.append("}\n\n");
+		setupFunction.append("};\n\n");
 		
 		return setupFunction.toString();
 	}
@@ -137,7 +137,7 @@ public class Translator
 			{
 				guinoFunction.append(command + "\n");
 			}
-			guinoFunction.append("}\n\n");
+			guinoFunction.append("};\n\n");
 		}
 		
 		

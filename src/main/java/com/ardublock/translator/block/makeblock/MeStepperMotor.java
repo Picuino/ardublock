@@ -30,10 +30,10 @@ public class MeStepperMotor extends TranslatorBlock {
 		String exec = "";
 		while (execBlock != null)
 		{
-			exec += "\t"+ execBlock.toCode()+"\n";
+			exec += execBlock.toCode()+ "\n";
 			execBlock = execBlock.nextTranslatorBlock();
 		}
-		ret += exec+"\n}";
+		ret += exec + "\n};";
 		    
 		return ret;
 	}

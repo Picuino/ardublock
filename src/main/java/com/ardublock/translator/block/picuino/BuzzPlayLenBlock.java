@@ -18,7 +18,7 @@ public class BuzzPlayLenBlock extends TranslatorBlock {
 	public String toCode() throws SocketNullException, SubroutineNotDeclaredException {
 		translator.addHeaderFile("PC42.h");
 		translator.addHeaderFile("Wire.h");
-		translator.addSetupCommand("  pc.begin();");
+		translator.addSetupCommand("pc.begin();");
 		
 		String ret = "pc.buzzPlay()";
 		return codePrefix + ret + codeSuffix;

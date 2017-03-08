@@ -21,7 +21,7 @@ public class MeBluetoothWrite extends TranslatorBlock {
 		translator.addDefinitionCommand(ret);
 		translator.addSetupCommand("bluetooth"+block.toCode()+".begin(9600);");
 		TranslatorBlock dataBlock = this.getRequiredTranslatorBlockAtSocket(1);
-		return "bluetooth"+block.toCode()+".write("+dataBlock.toCode()+");\n";
+		return "bluetooth"+block.toCode()+".write("+dataBlock.toCode()+");";
 	}
 
 }

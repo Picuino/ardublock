@@ -24,8 +24,8 @@ public class SCoopPinEventBlock extends SCoopTaskBlock
 			"      return (lastStatus != currentStatus);\n" + 
 			"    default:\n" + 
 			"      return false;\n" + 
-			"  }\n" + 
-			"}\n\n";
+			"  };\n" + 
+			"};\n";
 	
 	public SCoopPinEventBlock(Long blockId, Translator translator, String codePrefix, String codeSuffix, String label)
 	{
@@ -79,7 +79,7 @@ public class SCoopPinEventBlock extends SCoopTaskBlock
 		}
 		
 		//add enclosing bracket
-		taskLoopCommandBuffer.append("}\n");
+		taskLoopCommandBuffer.append("};\n");
 		taskLoopCommandBuffer.append(String.format("%s = %s;\n", lastStatusVariableName, "abvarCurrentStatus"));
 		
 		String ret = super.generateScoopTask(taskSetupCommandBuffer.toString(), taskLoopCommandBuffer.toString());

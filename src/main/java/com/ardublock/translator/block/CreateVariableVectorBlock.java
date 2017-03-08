@@ -31,9 +31,8 @@ public class CreateVariableVectorBlock extends TranslatorBlock
 		
 		varName += name.toCode();
 		int foo = Integer.parseInt(size.toCode());
-		varName += "[" ;
-		translator.addDefinitionCommand("volatile long " + varName + foo + "];\n");
-		translator.addSetupCommand("\tfor (int i=0; i<" + foo + "; i++) " + varName + "i] = 0;\n" );
+		translator.addDefinitionCommand("volatile long " + varName + "[" + foo + "];");
+		translator.addSetupCommand("for (int i=0; i<" + foo + "; i++) " + varName + "[i] = 0;" );
 		return "";
 	}
 

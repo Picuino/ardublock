@@ -51,7 +51,7 @@ public class ProgramBlock extends TranslatorBlock
 			ret += "yield();\n";
 		}
 		
-		ret = ret + "}\n\n";
+		ret = ret + "};\n\n";
 		return ret;
 	}
 	

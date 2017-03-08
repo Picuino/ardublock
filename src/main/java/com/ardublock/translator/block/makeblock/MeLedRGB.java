@@ -28,7 +28,7 @@ public class MeLedRGB extends TranslatorBlock {
 		TranslatorBlock blue = this.getTranslatorBlockAtSocket(3);
 		
 		ret = "rgbled.setColor(" + lednum.toCode() + ", " + red.toCode() + ", " + green.toCode() + ", " + blue.toCode() + ");\n";
-		ret = ret + "rgbled.show();\n";
+		ret = ret + "rgbled.show();";
 		return ret;
 	}
 }

@@ -26,11 +26,11 @@ public class MeBluetoothRead extends TranslatorBlock {
 		if(execBlock!=null){
 			while (execBlock != null)
 			{
-				exec += "\t"+ execBlock.toCode()+"\n";
+				exec += execBlock.toCode()+"\n";
 				execBlock = execBlock.nextTranslatorBlock();
 			}
 		}
-		return dataBlock.toCode()+"= bluetooth"+block.toCode()+".read();\nif("+dataBlock.toCode()+">-1){\n\t"+exec+"\n}\n";
+		return dataBlock.toCode() + "= bluetooth" + block.toCode() + ".read();\nif(" + dataBlock.toCode() + ">-1){\n" + exec + "\n};\n";
 	}
 
 }

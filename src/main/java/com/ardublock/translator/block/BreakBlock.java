@@ -15,7 +15,7 @@ public class BreakBlock extends TranslatorBlock
 	@Override
 	public String toCode() throws SocketNullException, SubroutineNotDeclaredException
 	{
-		return "break;\n";
+		return "break;";
 	}
 
 }

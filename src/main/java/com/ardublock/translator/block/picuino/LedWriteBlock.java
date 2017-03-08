@@ -23,9 +23,9 @@ public class LedWriteBlock extends TranslatorBlock {
 		
 		translator.addHeaderFile("PC42.h");
 		translator.addHeaderFile("Wire.h");
-		translator.addSetupCommand("  pc.begin();");
+		translator.addSetupCommand("pc.begin();");
 		
-		String ret = "  pc.ledWrite(" + ledNumber + ", " + status + ");\n";
+		String ret = "pc.ledWrite(" + ledNumber + ", " + status + ");";
 		return ret;
 	}
 

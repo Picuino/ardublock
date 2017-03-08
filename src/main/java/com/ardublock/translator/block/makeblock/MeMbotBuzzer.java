@@ -17,6 +17,6 @@ public class MeMbotBuzzer extends TranslatorBlock {
 		TranslatorBlock freq = this.getTranslatorBlockAtSocket(0);
 		TranslatorBlock timing = this.getTranslatorBlockAtSocket(1);
 
-		return "tone(8, " + freq.toCode() + ", " + timing.toCode() + ");\n";
+		return "tone(8, " + freq.toCode() + ", " + timing.toCode() + ");";
 	}
 }

@@ -1537,7 +1537,7 @@
 					<DefaultArg genus-name="variable_fake" label="Vector" />
 				</BlockConnector>
 				<BlockConnector connector-type="number" connector-kind="socket" label="bc.vecsize">
-					<DefaultArg genus-name="number" label="1" />
+					<DefaultArg genus-name="number" label="5" />
 				</BlockConnector>
 			</BlockConnectors>
 		</BlockGenus>
@@ -3108,23 +3108,6 @@
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="me_servodriver" kind="command" color="10 134 152" initlabel="bg.me_servodriver">
-			<description>
-				<text>Makeblock Servo</text>
-			</description>
-			<BlockConnectors>
-				<BlockConnector connector-type="number" connector-kind="socket" label="bc.me_port_number">
-					<DefaultArg genus-name="me_port_1" label="Port 1" />
-				</BlockConnector>
-				<BlockConnector connector-type="number" connector-kind="socket" label="bc.me_device_number">
-					<DefaultArg genus-name="number" label="1" />
-				</BlockConnector>
-				<BlockConnector connector-type="number" connector-kind="socket" label="bc.me_angle_number">
-					<DefaultArg genus-name="number" label="90" />
-				</BlockConnector>
-			</BlockConnectors>
-		</BlockGenus>
-
 		<BlockGenus name="me_stepper_motor" kind="command" color="10 134 152" initlabel="bg.me_stepper_motor">
 			<description>
 				<text>Makeblock Stepper Motor</text>
@@ -3752,22 +3735,22 @@
 			<BlockDrawer button-color="238 125 22" name="bd.number" type="factory">
 				<BlockGenusMember>setter_variable_number</BlockGenusMember>
 				<BlockGenusMember>setter_variable_digital</BlockGenusMember>
-				<BlockGenusMember>setter_variable_char</BlockGenusMember>
 				<BlockGenusMember>setter_variable_number_double</BlockGenusMember>
+				<BlockGenusMember>setter_variable_char</BlockGenusMember>
 				<BlockGenusMember>setter_variable_String</BlockGenusMember>
 				<BlockGenusMember>create_variable_vector</BlockGenusMember>
 				<BlockGenusMember>setter_variable_vector</BlockGenusMember>
 
 				<BlockGenusMember>number</BlockGenusMember>
 				<BlockGenusMember>digital-on</BlockGenusMember>
-				<BlockGenusMember>char</BlockGenusMember>
 				<BlockGenusMember>number_double</BlockGenusMember>
+				<BlockGenusMember>char</BlockGenusMember>
 				<BlockGenusMember>message</BlockGenusMember>
 
 				<BlockGenusMember>variable_number</BlockGenusMember>
 				<BlockGenusMember>variable_digital</BlockGenusMember>
-				<BlockGenusMember>variable_poly</BlockGenusMember>
 				<BlockGenusMember>variable_number_double</BlockGenusMember>
+				<BlockGenusMember>variable_poly</BlockGenusMember>
 				<BlockGenusMember>variable_String</BlockGenusMember>
 				<BlockGenusMember>variable_vector</BlockGenusMember>
 			</BlockDrawer>
@@ -3844,7 +3827,6 @@
 				<BlockGenusMember>me_linefollower</BlockGenusMember>
 
 				<BlockGenusMember>me_motordriver</BlockGenusMember>
-				<BlockGenusMember>me_servodriver</BlockGenusMember>
 				<BlockGenusMember>me_limitswitch</BlockGenusMember>
 				<BlockGenusMember>me_shutter</BlockGenusMember>
 

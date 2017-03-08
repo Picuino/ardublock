@@ -26,10 +26,10 @@ public class MeBluetoothCommands extends TranslatorBlock {
 		String exec = "";
 		while (execBlock != null)
 		{
-			exec += "\t"+ execBlock.toCode()+"\n";
+			exec += "\t" + execBlock.toCode() + "\n";
 			execBlock = execBlock.nextTranslatorBlock();
 		}
-		ret += "\n"+exec+"\n};\n";
+		ret += "\n" + exec + "\n};\n";
 		    
 		return ret;
 	}

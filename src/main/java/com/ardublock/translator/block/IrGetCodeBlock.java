@@ -21,15 +21,15 @@ public class IrGetCodeBlock extends TranslatorBlock
 			"void __ab_setupIrReceiver() {\n" + 
 			"  __ab_irrecv.enableIRIn();\n" + 
 			"  __ab_irrecv.resume();\n" + 
-			"}\n" +
+			"};\n" +
 			"\n" +
 			"void charsToUpper(char *str) {\n" + 
 			"  int p=0;\n" + 
 			"  while(str[p] != 0) {\n" + 
 			"    str[p] = toupper(str[p]);\n" + 
 			"    ++p;\n" + 
-			"  }\n" + 
-			"}\n" + 
+			"  };\n" + 
+			"};\n" + 
 			"\n" +
 			"void __ab_getIrCommand(char *receivedCommand) {\n" + 
 			"  decode_results result;\n" + 
@@ -40,8 +40,8 @@ public class IrGetCodeBlock extends TranslatorBlock
 			"  }\n" + 
 			"  else {\n" + 
 			"    receivedCommand[0] = '\\0';\n" + 
-			"  }\n" + 
-			"}\n" +
+			"  };\n" + 
+			"};\n" +
 			"\n";
 	
 	

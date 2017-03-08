@@ -31,10 +31,10 @@ public class MeMotorDriver extends TranslatorBlock {
 			if (speed == 0) {
 				return "dcMotor" + motor + ".stop();\n";
 			} else {
-				return "dcMotor" + motor + ".run(" + speed + ");\n";
+				return "dcMotor" + motor + ".run(" + speed + ");";
 			}
 		} else {
-			return "dcMotor" + motor + ".run(" + block.toCode() + ");\n";
+			return "dcMotor" + motor + ".run(" + block.toCode() + ");";
 		}		
 	}
 

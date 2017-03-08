@@ -14,10 +14,10 @@ public class NotBlock extends TranslatorBlock
 	@Override
 	public String toCode() throws SocketNullException, SubroutineNotDeclaredException
 	{
-		String ret = "!( ";
+		String ret = "!(";
 		TranslatorBlock translatorBlock = this.getRequiredTranslatorBlockAtSocket(0);
 		ret = ret + translatorBlock.toCode();
-		ret = ret + " )";
+		ret = ret + ")";
 		return codePrefix + ret + codeSuffix;
 	}
 

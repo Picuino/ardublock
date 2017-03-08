@@ -21,9 +21,9 @@ public class BuzzFreqBlock extends TranslatorBlock {
 		
 		translator.addHeaderFile("PC42.h");
 		translator.addHeaderFile("Wire.h");
-		translator.addSetupCommand("  pc.begin();");
+		translator.addSetupCommand("pc.begin();");
 		
-		String ret = "  pc.buzzFreq(" + frequency + ");\n";
+		String ret = "pc.buzzFreq(" + frequency + ");";
 		return ret;
 	}
 

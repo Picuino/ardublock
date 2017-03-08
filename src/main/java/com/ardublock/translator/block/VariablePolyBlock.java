@@ -17,8 +17,7 @@ public class VariablePolyBlock extends TranslatorBlock
 		{
 			internalVariableName = translator.buildVariableName(label);
 			translator.addNumberVariable(label, internalVariableName);
-			translator.addDefinitionCommand("char " + internalVariableName + " = \' \' ;");
-//			translator.addSetupCommand(internalVariableName + " = 0;");
+			translator.addDefinitionCommand("volatile char " + internalVariableName + " = \' \';");
 		}
 		return codePrefix + internalVariableName + codeSuffix;
 	}

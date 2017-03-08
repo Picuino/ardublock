@@ -19,9 +19,9 @@ public class KeyBeginBlock extends TranslatorBlock {
 		
 		translator.addHeaderFile("PC42.h");
 		translator.addHeaderFile("Wire.h");
-		translator.addSetupCommand("  pc.begin();");
+		translator.addSetupCommand("pc.begin();");
 		
-		String ret = "  pc.keyBegin();\n";
+		String ret = "pc.keyBegin();\n";
 		return ret;
 	}
 

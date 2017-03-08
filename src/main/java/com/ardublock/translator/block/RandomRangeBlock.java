@@ -15,13 +15,13 @@ public class RandomRangeBlock extends TranslatorBlock
 	@Override
 	public String toCode() throws SocketNullException, SubroutineNotDeclaredException
 	{
-		String ret = "\trandom( ";
+		String ret = "random(";
 		TranslatorBlock translatorBlock = this.getRequiredTranslatorBlockAtSocket(0);
 		ret = ret + translatorBlock.toCode();
 		translatorBlock = this.getRequiredTranslatorBlockAtSocket(1);
-		ret = ret + " , ";
+		ret = ret + ", ";
 		ret = ret + translatorBlock.toCode();
-		ret = ret + " )";
+		ret = ret + ")";
 		return codePrefix + ret + codeSuffix;
 	}
 	

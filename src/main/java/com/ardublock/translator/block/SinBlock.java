@@ -15,10 +15,10 @@ public class SinBlock extends TranslatorBlock
 	@Override
 	public String toCode() throws SocketNullException, SubroutineNotDeclaredException
 	{
-		String ret = "sin( ";
+		String ret = "sin(";
 		TranslatorBlock translatorBlock = this.getRequiredTranslatorBlockAtSocket(0);
 		ret = ret + translatorBlock.toCode();
-		ret = ret + " )";
+		ret = ret + ")";
 		return codePrefix + ret + codeSuffix;
 	}
 	

@@ -31,7 +31,7 @@ public class IfelseBlock extends TranslatorBlock
 			ret = ret + translatorBlock.toCode();
 			translatorBlock = translatorBlock.nextTranslatorBlock();
 		}
-		ret = ret + "}\n";
+		ret = ret + "};\n";
 		return ret;
 	}
 

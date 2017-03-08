@@ -19,9 +19,9 @@ public class LedBeginBlock extends TranslatorBlock {
 		
 		translator.addHeaderFile("PC42.h");
 		translator.addHeaderFile("Wire.h");
-		translator.addSetupCommand("  pc.begin();");
+		translator.addSetupCommand("pc.begin();");
 		
-		String ret = "  pc.ledBegin();\n";
+		String ret = "pc.ledBegin();\n";
 		return ret;
 	}
 

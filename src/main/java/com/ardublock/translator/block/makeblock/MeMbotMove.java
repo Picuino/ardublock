@@ -30,7 +30,7 @@ public class MeMbotMove extends TranslatorBlock {
 			"    dcMotor_left.stop();\n" +
 			"    dcMotor_right.stop();\n" +
 			"    return;\n" +
-			"  }\n" +
+			"  };\n" +
 			"  if (dir == 1) {        // Forward\n" +
 			"    dcMotor_left.run(-speed);\n" +
 			"    dcMotor_right.run(speed);\n" +
@@ -43,12 +43,12 @@ public class MeMbotMove extends TranslatorBlock {
 			"  } else {               // Right\n" +
 			"    dcMotor_left.run(-speed);\n" +
 			"    dcMotor_right.run(-speed);\n" +
-			"  }\n" +
-			"}\n";
+			"  };\n" +
+			"};\n";
 		translator.addDefinitionCommand(ret);
 
 		TranslatorBlock moveto = this.getTranslatorBlockAtSocket(0);
 		TranslatorBlock speed = this.getRequiredTranslatorBlockAtSocket(1);
-		return "__ab_mBlock_moveto(" + moveto.toCode() + ", " + speed.toCode() + ");\n";
+		return "__ab_mBlock_moveto(" + moveto.toCode() + ", " + speed.toCode() + ");";
 	}
 }

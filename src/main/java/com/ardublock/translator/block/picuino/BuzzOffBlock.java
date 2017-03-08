@@ -19,9 +19,9 @@ public class BuzzOffBlock extends TranslatorBlock {
 		
 		translator.addHeaderFile("PC42.h");
 		translator.addHeaderFile("Wire.h");
-		translator.addSetupCommand("  pc.begin();");
+		translator.addSetupCommand("pc.begin();");
 		
-		String ret = "  pc.buzzOff();\n";
+		String ret = "pc.buzzOff();\n";
 		return ret;
 	}
 

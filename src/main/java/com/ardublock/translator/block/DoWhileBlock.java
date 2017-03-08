@@ -24,12 +24,12 @@ public class DoWhileBlock extends TranslatorBlock
       translatorBlock = translatorBlock.nextTranslatorBlock();
     }
 
-    ret = ret + "}\nwhile(";
+    ret = ret + "} while(";
     translatorBlock = getTranslatorBlockAtSocket(1);
     if (translatorBlock == null) throw new SocketNullException(blockId);
     ret = ret + translatorBlock.toCode();
 
-    ret = ret + ");\n";
+    ret = ret + ");";
     return ret;
   }
 }

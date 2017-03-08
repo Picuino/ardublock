@@ -23,9 +23,9 @@ public class BuzzPlayBlock extends TranslatorBlock {
 		
 		translator.addHeaderFile("PC42.h");
 		translator.addHeaderFile("Wire.h");
-		translator.addSetupCommand("  pc.begin();");
+		translator.addSetupCommand("pc.begin();");
 		
-		String ret = "  pc.buzzPlay(" + tone + ", " + time + ");\n";
+		String ret = "pc.buzzPlay(" + tone + ", " + time + ");";
 		return ret;
 	}
 

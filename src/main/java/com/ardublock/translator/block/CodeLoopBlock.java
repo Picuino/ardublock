@@ -16,10 +16,8 @@ public class CodeLoopBlock extends TranslatorBlock
 	{
 		
 		TranslatorBlock translatorBlock = this.getRequiredTranslatorBlockAtSocket(0);
-		String ret = "\t"+translatorBlock.toCode();
-		//ret=ret.substring(1);
-		//ret=ret.replace(ret.substring(ret.length()),";");
-		ret=ret+"\n";
+		String ret = "\t" + translatorBlock.toCode();
+		ret=ret + "\n";
 		return ret;
 	}
 }

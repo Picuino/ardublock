@@ -17,9 +17,7 @@ public class CodeSetupBlock extends TranslatorBlock
 		
 		TranslatorBlock translatorBlock = this.getRequiredTranslatorBlockAtSocket(0);
 		String ret = translatorBlock.toCode();
-		//ret=ret.substring(1);
-		//ret=ret.replace(ret.substring(ret.length()-1),"");
-		ret=ret+"\n";
+		ret=ret + "\n";
 		translator.addSetupCommandForced(ret);
 		return "";
 	}

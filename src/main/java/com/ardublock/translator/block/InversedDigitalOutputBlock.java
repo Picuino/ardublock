@@ -21,12 +21,12 @@ public class InversedDigitalOutputBlock extends DigitalOutputBlock
 			String number = translatorBlock.toCode();
 			translator.addOutputPin(number.trim());
 			
-			String ret = "digitalWrite( ";
+			String ret = "digitalWrite(";
 			ret = ret + number;
-			ret = ret + " , ";
+			ret = ret + ", ";
 			translatorBlock = this.getRequiredTranslatorBlockAtSocket(1);
 			ret = ret + translatorBlock.toCode();
-			ret = ret + " );\n";
+			ret = ret + ");";
 			return ret;
 		}
 		else

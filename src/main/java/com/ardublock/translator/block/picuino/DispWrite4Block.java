@@ -27,9 +27,9 @@ public class DispWrite4Block extends TranslatorBlock {
 		
 		translator.addHeaderFile("PC42.h");
 		translator.addHeaderFile("Wire.h");
-		translator.addSetupCommand("  pc.begin();");
+		translator.addSetupCommand("pc.begin();");
 		
-		String ret = "  pc.dispWrite(" + digit1 + ", " +  digit2 + ", " +  digit3 + ", " +  digit4 + ");\n";
+		String ret = "pc.dispWrite(" + digit1 + ", " +  digit2 + ", " +  digit3 + ", " +  digit4 + ");";
 		return ret;
 	}
 

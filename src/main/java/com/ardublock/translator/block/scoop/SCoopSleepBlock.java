@@ -22,11 +22,11 @@ public class SCoopSleepBlock extends TranslatorBlock
 		String rootBlockName = translator.getRootBlockName().toLowerCase().trim();
 		if (rootBlockName.startsWith("scoop"))
 		{
-			return "sleep(" + value + ");\n";
+			return "sleep(" + value + ");";
 		}
 		else
 		{
-			return "mySCoop.sleep(" + value + ");\n";
+			return "mySCoop.sleep(" + value + ");";
 		}
 	}
 

@@ -16,21 +16,20 @@ public class RepeatTimesBlock extends TranslatorBlock
 	public String toCode() throws SocketNullException, SubroutineNotDeclaredException
 	{
 		String varName = translator.buildVariableName();
-		translator.addDefinitionCommand("volatile long " + varName + "a;");
-		String ret = "for (" + varName + "a=1; " + varName + "a<= ( ";
+		translator.addDefinitionCommand("volatile long " + varName + ";");
+		String ret = "for (" + varName + " = 1; " + varName + " <= (";
 		TranslatorBlock translatorBlock = this.getRequiredTranslatorBlockAtSocket(0);
 		ret = ret + translatorBlock.toCode();
-		ret = ret + " ); ++" + varName + "a ) {\n";
-		
-		
+		ret = ret + "); " + varName + "++) {\n";
+
 		translatorBlock = getTranslatorBlockAtSocket(1);
 		while (translatorBlock != null)
 		{
 			ret = ret + translatorBlock.toCode();
 			translatorBlock = translatorBlock.nextTranslatorBlock();
 		}
-		
-		ret = ret + "}\n";
+
+		ret = ret + "};\n";
 		return ret;
 	}
 

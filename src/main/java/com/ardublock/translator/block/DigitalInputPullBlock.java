@@ -11,7 +11,7 @@ public class DigitalInputPullBlock extends DigitalInputBlock
 		"void __ardublockDigitalInputPullup(int pinNumber) {\n" +
 		"  pinMode(pinNumber, INPUT_PULLUP);\n" +
 		"  digitalWrite(pinNumber, HIGH);\n" +
-		"}\n\n";
+		"};\n";
 	
 	public DigitalInputPullBlock(Long blockId, Translator translator, String codePrefix, String codeSuffix, String label)
 	{

@@ -19,7 +19,7 @@ public class BoolToInt extends TranslatorBlock
 		TranslatorBlock translatorBlock = this.getRequiredTranslatorBlockAtSocket(0);
 		value = translatorBlock.toCode();
 
-		String ret = "(int)(" + value + ")";
+		String ret = "(long)(" + value + ")";
 		return codePrefix + ret + codeSuffix;
 	}	
 }

@@ -18,16 +18,13 @@ public class ServoBlock extends TranslatorBlock
 	public String toCode() throws SocketNullException, SubroutineNotDeclaredException
 	{
 		TranslatorBlock translatorBlock = this.getRequiredTranslatorBlockAtSocket(0);
-		
-		
-		
-		
+
 		String pinNumber = translatorBlock.toCode();
 		String servoName = "servo_pin_" + pinNumber;
 		
 		translatorBlock = this.getRequiredTranslatorBlockAtSocket(1);
 		
-		String ret = servoName + ".write( " + translatorBlock.toCode() + " );\n";
+		String ret = servoName + ".write(" + translatorBlock.toCode() + ");\n";
 		translator.addHeaderFile("Servo.h");
 		translator.addDefinitionCommand("Servo " + servoName + ";");
 		translator.addSetupCommand(servoName + ".attach(" + pinNumber + ");");

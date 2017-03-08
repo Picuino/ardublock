@@ -21,9 +21,9 @@ public class DispNumBlock extends TranslatorBlock {
 		
 		translator.addHeaderFile("PC42.h");
 		translator.addHeaderFile("Wire.h");
-		translator.addSetupCommand("  pc.begin();");
+		translator.addSetupCommand("pc.begin();");
 		
-		String ret = "  pc.dispNum(" + number + ");\n";
+		String ret = "pc.dispNum(" + number + ");";
 		return ret;
 	}
 

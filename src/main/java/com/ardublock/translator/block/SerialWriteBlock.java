@@ -21,7 +21,7 @@ public class SerialWriteBlock extends TranslatorBlock
 
 		String ret = translatorBlock.toCode();
 
-		ret= "Serial.write(" + ret + ");\n";
+		ret= "Serial.write(" + ret + ");";
 		return ret;
 	}
 }

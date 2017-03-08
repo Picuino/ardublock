@@ -33,7 +33,7 @@ public class LoopBlock extends TranslatorBlock
 			ret += "yield();\n";
 		}
 		
-		ret = ret + "}\n\n";
+		ret = ret + "};\n\n";
 		return ret;
 	}
 }

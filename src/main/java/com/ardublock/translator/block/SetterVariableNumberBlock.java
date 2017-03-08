@@ -26,7 +26,7 @@ public class SetterVariableNumberBlock extends TranslatorBlock
 		
 		String ret = tb.toCode();
 		tb = this.getRequiredTranslatorBlockAtSocket(1);
-		ret = ret + " = (long) " + tb.toCode() + " ;\n";
+		ret = ret + " = (long)" + tb.toCode() + ";";
 		return ret;
 	}
 

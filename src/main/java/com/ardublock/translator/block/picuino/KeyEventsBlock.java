@@ -23,7 +23,7 @@ public class KeyEventsBlock extends TranslatorBlock {
 		
 		translator.addHeaderFile("PC42.h");
 		translator.addHeaderFile("Wire.h");
-		translator.addSetupCommand("  pc.begin();");
+		translator.addSetupCommand("pc.begin();");
 		
 		String ret = "pc.keyEvents(" + keyNumber + ", " + keyEvent + ")";
 		return codePrefix + ret + codeSuffix;

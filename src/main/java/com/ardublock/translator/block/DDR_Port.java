@@ -15,7 +15,7 @@ public class DDR_Port extends TranslatorBlock
 	public String toCode() throws SocketNullException, SubroutineNotDeclaredException
 	{
 		TranslatorBlock pinBlock = this.getRequiredTranslatorBlockAtSocket(0);
-		String ret = label + " = B" + pinBlock.toCode() + ";\n";
+		String ret = label + " = B" + pinBlock.toCode() + ";";
 		return ret;
 	}
 }

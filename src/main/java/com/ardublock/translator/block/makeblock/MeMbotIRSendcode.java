@@ -25,7 +25,7 @@ public class MeMbotIRSendcode extends TranslatorBlock {
 			"  ldata.b3 = ~data; ldata.b2 = data; ldata.b1 = 0x00; ldata.b0 = 0xff;\n" +
 			"  mBotIR.sendNEC(ldata.l, 32);\n" +
 			"  delay(20);\n" +
-			"};\n" );
+			"};\n");
 
 		TranslatorBlock code = this.getTranslatorBlockAtSocket(0);
 		return "_mBot_IRSendByte((uint8_t)(" + code.toCode() + "));\n";

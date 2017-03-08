@@ -39,9 +39,9 @@ public class RepeatControlBlock extends TranslatorBlock
 
 		String ret = "";
 
-		ret = ret + "for (" + varName + " = " + startVal + "; \n" + 
-				"\t\t" + startVal + "<=" + stopVal + "?" + varName + " <= " + stopVal + ":" + varName + " >= " + stopVal + "; \n" + 
-				"\t\t" + startVal + "<=" + stopVal + "?" + varName + " = "  + varName + " + " + incVal + ":" +  varName + " = " + varName + " - " + incVal + ") {"; 
+		ret = ret + "for (" + varName + " = " + startVal + ";\n" + 
+				"\t\t" + startVal + " <= " + stopVal + " ? " + varName + " <= " + stopVal + " : " + varName + " >= " + stopVal + ";\n" + 
+				"\t\t" + startVal + " <= " + stopVal + " ? " + varName + " = "  + varName + " + " + incVal + " : " +  varName + " = " + varName + " - " + incVal + ") {";
 
 		TranslatorBlock translatorBlock = getTranslatorBlockAtSocket(4);
 		while (translatorBlock != null)
@@ -50,7 +50,7 @@ public class RepeatControlBlock extends TranslatorBlock
 			translatorBlock = translatorBlock.nextTranslatorBlock();
 		}
 		
-		ret = ret + "}\n";
+		ret = ret + "};\n";
 		return ret;
 	}
 

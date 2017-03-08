@@ -42,7 +42,7 @@ public class PORT_FIX extends TranslatorBlock
 		Level6 = translatorBlock.toCode();
 		translatorBlock = this.getRequiredTranslatorBlockAtSocket(1);
 		Level7 = translatorBlock.toCode();
-		String ret = Pin + " = B" + Level0 +Level1 +Level2 +Level3 +Level4 +Level5 +Level6 +Level7 + ";\n";
+		String ret = Pin + " = B" + Level0 +Level1 +Level2 +Level3 +Level4 +Level5 +Level6 +Level7 + ";";
 		return ret;
 	}
 }
