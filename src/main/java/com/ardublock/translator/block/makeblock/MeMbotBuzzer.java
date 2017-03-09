@@ -14,9 +14,10 @@ public class MeMbotBuzzer extends TranslatorBlock {
 
 	@Override
 	public String toCode() throws SocketNullException, SubroutineNotDeclaredException {
+		translator.addDefinitionCommand("MeBuzzer buzzer;");
+
 		TranslatorBlock freq = this.getTranslatorBlockAtSocket(0);
 		TranslatorBlock timing = this.getTranslatorBlockAtSocket(1);
-
-		return "tone(8, " + freq.toCode() + ", " + timing.toCode() + ");";
+		return "buzzer.tone(" + freq.toCode() + ", " + timing.toCode() + ");";
 	}
 }

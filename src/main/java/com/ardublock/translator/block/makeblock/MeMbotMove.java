@@ -18,31 +18,29 @@ public class MeMbotMove extends TranslatorBlock {
 		translator.addHeaderFile("Wire.h");
 		translator.addHeaderFile("MeMCore.h");
 
-		String ret = "MeDCMotor dcMotor_left(M1);";
+		String ret = "MeDCMotor dcMotor1(M1);";
 		translator.addDefinitionCommand(ret);
-		ret = "MeDCMotor dcMotor_right(M2);";
+		ret = "MeDCMotor dcMotor2(M2);";
 		translator.addDefinitionCommand(ret);
 		ret =
 			"\nvoid __ab_mBlock_moveto(int dir, int speed) {\n" +
-			"  dir = (dir > 4) ? 1 : ((dir < 1) ? 1 : dir);\n" +
 			"  speed = (speed > 255) ? 255 : ((speed < -255) ? -255 : speed);\n" +
-			"  if (speed == 0) {\n" +
-			"    dcMotor_left.stop();\n" +
-			"    dcMotor_right.stop();\n" +
-			"    return;\n" +
-			"  };\n" +
+			"  if (speed == 0) dir = 0;\n" +
 			"  if (dir == 1) {        // Forward\n" +
-			"    dcMotor_left.run(-speed);\n" +
-			"    dcMotor_right.run(speed);\n" +
+			"    dcMotor1.run(-speed);\n" +
+			"    dcMotor2.run(speed);\n" +
 			"  } else if (dir == 2) { // Backward\n" +
-			"    dcMotor_left.run(speed);\n" +
-			"    dcMotor_right.run(-speed);\n" +
+			"    dcMotor1.run(speed);\n" +
+			"    dcMotor2.run(-speed);\n" +
 			"  } else if (dir == 3) { // Left\n" +
-			"    dcMotor_left.run(speed);\n" +
-			"    dcMotor_right.run(speed);\n" +
-			"  } else {               // Right\n" +
-			"    dcMotor_left.run(-speed);\n" +
-			"    dcMotor_right.run(-speed);\n" +
+			"    dcMotor1.run(speed);\n" +
+			"    dcMotor2.run(speed);\n" +
+			"  } else if (dir == 4) { // Right\n" +
+			"    dcMotor1.run(-speed);\n" +
+			"    dcMotor2.run(-speed);\n" +
+			"  } else {               // Stop\n" +
+			"    dcMotor1.stop();\n" +
+			"    dcMotor2.stop();\n" +
 			"  };\n" +
 			"};\n";
 		translator.addDefinitionCommand(ret);

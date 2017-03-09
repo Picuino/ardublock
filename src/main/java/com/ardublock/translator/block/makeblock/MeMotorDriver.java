@@ -19,7 +19,7 @@ public class MeMotorDriver extends TranslatorBlock {
 		translator.addHeaderFile("MeMCore.h");
 
 		TranslatorBlock block = this.getTranslatorBlockAtSocket(0);
-		
+
 		String motor = block.toCode();
 		String ret = "MeDCMotor dcMotor" + motor + "(M" + motor + ");";
 		translator.addDefinitionCommand(ret);
@@ -28,14 +28,21 @@ public class MeMotorDriver extends TranslatorBlock {
 		if(block instanceof NumberBlock) {
 			int speed = Integer.parseInt(block.toCode());
 			speed = speed > 255 ? 255 : (speed < -255 ? -255 : speed);
+			if (Integer.parseInt(motor) == 2) speed = -speed;
 			if (speed == 0) {
-				return "dcMotor" + motor + ".stop();\n";
+				return "dcMotor" + motor + ".stop();";
 			} else {
 				return "dcMotor" + motor + ".run(" + speed + ");";
 			}
 		} else {
-			return "dcMotor" + motor + ".run(" + block.toCode() + ");";
-		}		
+			ret = "dcMotor" + motor;
+			if (Integer.parseInt(motor) == 2) {
+				return ret + ".run(-(" + block.toCode() + "));";
+			}
+			else {
+				return ret + ".run(" + block.toCode() + ");";
+			}
+		}
 	}
 
 }

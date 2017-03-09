@@ -1,108 +1,126 @@
 
-		<!-- Arduino Definitions -->
-		<BlockGenus name="Arduino_D2" kind="data" color="238 125 22" initlabel="bg.Arduino_D2" editable-label="no">
+
+		<BlockGenus name="me_ircontrol_a" kind="data" color="10 134 152" initlabel="bg.me_ircontrol_a" editable-label="no">
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="Arduino_D3" kind="data" color="238 125 22" initlabel="bg.Arduino_D3" editable-label="no">
+		<BlockGenus name="me_ircontrol_b" kind="data" color="10 134 152" initlabel="bg.me_ircontrol_b" editable-label="no">
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="Arduino_D4" kind="data" color="238 125 22" initlabel="bg.Arduino_D4" editable-label="no">
+		<BlockGenus name="me_ircontrol_c" kind="data" color="10 134 152" initlabel="bg.me_ircontrol_c" editable-label="no">
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="Arduino_D5" kind="data" color="238 125 22" initlabel="bg.Arduino_D5" editable-label="no">
+		<BlockGenus name="me_ircontrol_d" kind="data" color="10 134 152" initlabel="bg.me_ircontrol_d" editable-label="no">
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="Arduino_D6" kind="data" color="238 125 22" initlabel="bg.Arduino_D6" editable-label="no">
+		<BlockGenus name="me_ircontrol_e" kind="data" color="10 134 152" initlabel="bg.me_ircontrol_e" editable-label="no">
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="Arduino_D7" kind="data" color="238 125 22" initlabel="bg.Arduino_D7" editable-label="no">
+		<BlockGenus name="me_ircontrol_f" kind="data" color="10 134 152" initlabel="bg.me_ircontrol_f" editable-label="no">
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="Arduino_D8" kind="data" color="238 125 22" initlabel="bg.Arduino_D8" editable-label="no">
+		<BlockGenus name="me_ircontrol_0" kind="data" color="10 134 152" initlabel="bg.me_ircontrol_0" editable-label="no">
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="Arduino_D9" kind="data" color="238 125 22" initlabel="bg.Arduino_D9" editable-label="no">
+		<BlockGenus name="me_ircontrol_1" kind="data" color="10 134 152" initlabel="bg.me_ircontrol_1" editable-label="no">
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="Arduino_D10" kind="data" color="238 125 22" initlabel="bg.Arduino_D10" editable-label="no">
+		<BlockGenus name="me_ircontrol_2" kind="data" color="10 134 152" initlabel="bg.me_ircontrol_2" editable-label="no">
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="Arduino_D11" kind="data" color="238 125 22" initlabel="bg.Arduino_D11" editable-label="no">
+		<BlockGenus name="me_ircontrol_3" kind="data" color="10 134 152" initlabel="bg.me_ircontrol_3" editable-label="no">
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="Arduino_D12" kind="data" color="238 125 22" initlabel="bg.Arduino_D12" editable-label="no">
+		<BlockGenus name="me_ircontrol_4" kind="data" color="10 134 152" initlabel="bg.me_ircontrol_4" editable-label="no">
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="Arduino_D13" kind="data" color="238 125 22" initlabel="bg.Arduino_D13" editable-label="no">
+		<BlockGenus name="me_ircontrol_5" kind="data" color="10 134 152" initlabel="bg.me_ircontrol_5" editable-label="no">
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="Arduino_A0" kind="data" color="238 125 22" initlabel="bg.Arduino_A0" editable-label="no">
+		<BlockGenus name="me_ircontrol_6" kind="data" color="10 134 152" initlabel="bg.me_ircontrol_6" editable-label="no">
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="Arduino_A1" kind="data" color="238 125 22" initlabel="bg.Arduino_A1" editable-label="no">
+		<BlockGenus name="me_ircontrol_7" kind="data" color="10 134 152" initlabel="bg.me_ircontrol_7" editable-label="no">
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="Arduino_A2" kind="data" color="238 125 22" initlabel="bg.Arduino_A2" editable-label="no">
+		<BlockGenus name="me_ircontrol_8" kind="data" color="10 134 152" initlabel="bg.me_ircontrol_8" editable-label="no">
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="Arduino_A3" kind="data" color="238 125 22" initlabel="bg.Arduino_A3" editable-label="no">
+		<BlockGenus name="me_ircontrol_9" kind="data" color="10 134 152" initlabel="bg.me_ircontrol_9" editable-label="no">
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="Arduino_A4" kind="data" color="238 125 22" initlabel="bg.Arduino_A4" editable-label="no">
+		<BlockGenus name="me_ircontrol_up" kind="data" color="10 134 152" initlabel="bg.me_ircontrol_up" editable-label="no">
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="Arduino_A5" kind="data" color="238 125 22" initlabel="bg.Arduino_A5" editable-label="no">
+		<BlockGenus name="me_ircontrol_down" kind="data" color="10 134 152" initlabel="bg.me_ircontrol_down" editable-label="no">
+			<BlockConnectors>
+				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
+			</BlockConnectors>
+		</BlockGenus>
+
+		<BlockGenus name="me_ircontrol_left" kind="data" color="10 134 152" initlabel="bg.me_ircontrol_left" editable-label="no">
+			<BlockConnectors>
+				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
+			</BlockConnectors>
+		</BlockGenus>
+
+		<BlockGenus name="me_ircontrol_right" kind="data" color="10 134 152" initlabel="bg.me_ircontrol_right" editable-label="no">
+			<BlockConnectors>
+				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
+			</BlockConnectors>
+		</BlockGenus>
+
+		<BlockGenus name="me_ircontrol_ctrl" kind="data" color="10 134 152" initlabel="bg.me_ircontrol_ctrl" editable-label="no">
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
 			</BlockConnectors>
