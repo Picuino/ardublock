@@ -3046,10 +3046,10 @@
 			</description>
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="socket" label="bc.me_buzzer_freq">
-					<DefaultArg genus-name="number" label="400" />
+					<DefaultArg genus-name="number" label="440" />
 				</BlockConnector>
 				<BlockConnector connector-type="number" connector-kind="socket" label="bc.me_buzzer_time">
-					<DefaultArg genus-name="number" label="16" />
+					<DefaultArg genus-name="number" label="100" />
 				</BlockConnector>
 			</BlockConnectors>
 		</BlockGenus>

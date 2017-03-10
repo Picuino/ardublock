@@ -14,6 +14,10 @@ public class MeMbotBuzzerOff extends TranslatorBlock {
 
 	@Override
 	public String toCode() throws SocketNullException, SubroutineNotDeclaredException {
-		return "noTone(8);\n";
+		translator.addHeaderFile("MeMCore.h");
+
+		translator.addDefinitionCommand("MeBuzzer buzzer;");
+				
+		return "buzzer.noTone();\n";
 	}
 }
