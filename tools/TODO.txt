@@ -1,7 +1,8 @@
 TO DO
 =====
-* Delete unused java modules
 * Make Templates for automatic code generation
+* Simplify name of ultrasonic function and return mm on integer number.
+* Delete unused java modules
 * Makeblock: change mBot Infrared to receive message sended by itself
 * Test english names and properties
 * Translate all names and properties to spanish
