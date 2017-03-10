@@ -24,13 +24,13 @@ public class WireWriteOneByteBlock extends TranslatorBlock
 			ret += "//Unable to detect your Arduino version, using 1.0 in default\n";
 		}
 		
-		ret += "__ardublockI2cWriteDataOne( ";
+		ret += "__ardublockI2cWriteDataOne(";
 		TranslatorBlock tb = getRequiredTranslatorBlockAtSocket(0);
 		ret = ret + tb.toCode();
-		ret = ret + " , ";
+		ret = ret + ", ";
 		tb = getRequiredTranslatorBlockAtSocket(1);
 		ret = ret + tb.toCode();
-		ret = ret + " );\n";
+		ret = ret + ");";
 		return ret;
 	}
 

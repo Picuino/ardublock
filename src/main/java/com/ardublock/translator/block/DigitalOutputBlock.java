@@ -6,7 +6,7 @@ import com.ardublock.translator.block.exception.SubroutineNotDeclaredException;
 
 public class DigitalOutputBlock extends TranslatorBlock
 {
-	public static final String ARDUBLOCK_DIGITAL_WRITE_DEFINE = "void __ardublockDigitalWrite(int pinNumber, boolean status)\n{\npinMode(pinNumber, OUTPUT);\ndigitalWrite(pinNumber, status);\n}\n";
+	public static final String ARDUBLOCK_DIGITAL_WRITE_DEFINE = "void __ardublockDigitalWrite(int pinNumber, boolean status) {\npinMode(pinNumber, OUTPUT);\ndigitalWrite(pinNumber, status);\n};\n\n";
 	
 	public DigitalOutputBlock(Long blockId, Translator translator, String codePrefix, String codeSuffix, String label)
 	{
@@ -26,13 +26,13 @@ public class DigitalOutputBlock extends TranslatorBlock
 		}
 		else
 		{
-			String setupCode = "pinMode( " + portNum + " , OUTPUT);";
+			String setupCode = "pinMode(" + portNum + ", OUTPUT);";
 			translator.addSetupCommand(setupCode);
 		}
 		translatorBlock = this.getRequiredTranslatorBlockAtSocket(1);
 		String value = translatorBlock.toCode();
 		
-		String ret = "digitalWrite(" + portNum + " , " + value + ");\n";
+		String ret = "digitalWrite(" + portNum + ", " + value + ");";
 		return ret;
 	}
 

@@ -26,20 +26,20 @@ public class bleshield_compare extends TranslatorBlock {
 		translatorBlock = this.getRequiredTranslatorBlockAtSocket(3);
 		Touche = translatorBlock.toCode();
 		translator.addHeaderFile("SoftwareSerial.h");
-		translator.addDefinitionCommand("SoftwareSerial bleShield("+DataPin+","+ IRQpin+");");
+		translator.addDefinitionCommand("SoftwareSerial bleShield(" + DataPin + "," + IRQpin + ");");
 		translator.addDefinitionCommand(bleshieldFunctions);
 		translator.addSetupCommand("bleShield.begin(19200);");
 		
-		return codePrefix + "(word)"+Touche+Compare+"w"+ codeSuffix;
+		return codePrefix + "(word)" + Touche + Compare + "w" + codeSuffix;
 
 	}
 
 	private static final String bleshieldFunctions = 
-			"word w;"+
-			"void recevoir(){\n" + 
-			"	 if (bleShield.available()) {\n" + 
-			"w=bleShield.read();" + 
-			"}\n\n"+
-			"}\n\n";	
+			"word w;\n" +
+			"void recevoir() {\n" + 
+			"	if (bleShield.available()) {\n" + 
+			"    w = bleShield.read();\n" + 
+			"  };\n" +
+			"};\n\n";
 	
 }

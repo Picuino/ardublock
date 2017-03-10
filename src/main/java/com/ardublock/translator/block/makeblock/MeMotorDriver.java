@@ -14,30 +14,35 @@ public class MeMotorDriver extends TranslatorBlock {
 
 	@Override
 	public String toCode() throws SocketNullException, SubroutineNotDeclaredException {
-		translator.addHeaderFile("Makeblock.h");
 		translator.addHeaderFile("SoftwareSerial.h");
 		translator.addHeaderFile("Wire.h");
-		TranslatorBlock port = this.getTranslatorBlockAtSocket(0);
-		TranslatorBlock me = this.getTranslatorBlockAtSocket(1);
-		
-		int portNum = port==null?0:Integer.parseInt(port.toCode());
-		TranslatorBlock block = portNum>0?port:me;
-		String motor = "dcMotor"+block.toCode();
-		String ret = "MeDCMotor "+motor+(portNum>0?"(PORT_":"(M")+block.toCode()+");";
+		translator.addHeaderFile("MeMCore.h");
+
+		TranslatorBlock block = this.getTranslatorBlockAtSocket(0);
+
+		String motor = block.toCode();
+		String ret = "MeDCMotor dcMotor" + motor + "(M" + motor + ");";
 		translator.addDefinitionCommand(ret);
-		block = this.getRequiredTranslatorBlockAtSocket(2);
-		if(block instanceof NumberBlock){
-			int speed = Integer.parseInt(block.toCode());
-			speed = speed>255?255:(speed<-255?-255:speed);
-			if(speed==0){
-				return motor+".stop();\n";
-			}else{
-				return motor+".run("+speed+");\n";
-			}
-		}else{
-			return motor+".run("+block.toCode()+");\n";
-		}
 		
+		block = this.getRequiredTranslatorBlockAtSocket(1);
+		if(block instanceof NumberBlock) {
+			int speed = Integer.parseInt(block.toCode());
+			speed = speed > 255 ? 255 : (speed < -255 ? -255 : speed);
+			if (Integer.parseInt(motor) == 2) speed = -speed;
+			if (speed == 0) {
+				return "dcMotor" + motor + ".stop();";
+			} else {
+				return "dcMotor" + motor + ".run(" + speed + ");";
+			}
+		} else {
+			ret = "dcMotor" + motor;
+			if (Integer.parseInt(motor) == 2) {
+				return ret + ".run(-(" + block.toCode() + "));";
+			}
+			else {
+				return ret + ".run(" + block.toCode() + ");";
+			}
+		}
 	}
 
 }

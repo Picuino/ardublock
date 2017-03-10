@@ -15,9 +15,10 @@ public class MeServoDriver extends TranslatorBlock {
 
 	@Override
 	public String toCode() throws SocketNullException, SubroutineNotDeclaredException {
-		translator.addHeaderFile("Makeblock.h");
 		translator.addHeaderFile("SoftwareSerial.h");
 		translator.addHeaderFile("Wire.h");
+		translator.addHeaderFile("MeMCore.h");
+
 		TranslatorBlock block = this.getRequiredTranslatorBlockAtSocket(0);
 		String servo = "servoDriver"+block.toCode();
 		
@@ -33,19 +34,19 @@ public class MeServoDriver extends TranslatorBlock {
 		}else{
 			device = "1";
 		}
-		String ret = "MeServo "+servo+"(PORT_"+block.toCode()+","+device+");";
+		String ret = "MeServo " + servo + "(PORT_" + block.toCode() + "," + device + ");";
 		translator.addDefinitionCommand(ret);
 		String output = "";
 		block = this.getRequiredTranslatorBlockAtSocket(2);
-		if(block instanceof NumberBlock){
+		if(block instanceof NumberBlock) {
 			int angle = Integer.parseInt(block.toCode());
 			if(angle>180||angle<0){
 				throw new BlockException(this.blockId, "the angle of Servo must be in Range(0,180)");
 			}
 			angle = angle>180?180:(angle<0?0:angle);
-			output+= servo+".write("+angle+");\n";
-		}else{
-			output+= servo+".write("+block.toCode()+");\n";
+			output += servo + ".write(" + angle + ");";
+		} else {
+			output += servo + ".write(" + block.toCode() + ");";
 		}
 		return output;
 	}

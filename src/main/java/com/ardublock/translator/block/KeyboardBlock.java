@@ -22,15 +22,13 @@ public class KeyboardBlock  extends TranslatorBlock {
 		translator.addHeaderFile("PS2Keyboard.h");
 		translator.addSetupCommand("delay(1000);"
 				+ "keyboard.brancher(DataPin, IRQpin);"
-
 				+ "Serial.begin(9600);");
-		
 		translator.addDefinitionCommand("// Pin keyboard\n"
 				+ "const int DataPin = " + DataPin +";\n"
 				+ "const int IRQpin =  " + IRQpin + ";\n"
-				+ "PS2Keyboard keyboard;\n"	);
+				+ "PS2Keyboard keyboard;\n");
 		
-return "";
+		return "";
 	}
 	
 

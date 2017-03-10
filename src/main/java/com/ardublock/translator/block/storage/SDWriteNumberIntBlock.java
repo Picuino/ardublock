@@ -36,32 +36,15 @@ public class SDWriteNumberIntBlock extends TranslatorBlock
 
 		if (b2.equals("Return")) {
 
-			ret += "__ardublockWriteNumberIntSDln ( ";
+			ret += "__ardublockWriteNumberIntSDln(";
 			
         } else {
 
-        	ret += "__ardublockWriteNumberIntSD ( ";
-
+        	ret += "__ardublockWriteNumberIntSD(";
 		}		
-			//ret += "__ardublockWriteNumberSD( ";
-			ret = ret + b1;
-			ret = ret +",";
-			ret = ret + b3;
-			ret = ret + ");\n";
+		ret = ret + b1 + ", " + b3 + ");";
 
 		return codePrefix + ret + codeSuffix;
 	}
-	
 
-	//private static final String THERMOCOUPLE_DEFINITION = "#if ARDUINO < 100\nint SCK = 13;\nint MISO = 12;\n#endif\nint CS1 = 11;\nMAX31855 temperature(SCK, CS1, MISO);\n";
-	//private static final String SD_DEFINITION = "void __ardublockWriteStringSD (String file_name,String text)\n{\nchar Filename[12];\nfile_name.toCharArray(Filename, 12);\nFile dataFile = SD.open(Filename, FILE_WRITE);\n\nif (dataFile)\n{\ndataFile.print(text);\ndataFile.close();\n}\n}\n\nvoid __ardublockWriteNumberSD (String file_name,double number)\n{\nchar Filename[12];\nfile_name.toCharArray(Filename, 12);\nFile dataFile = SD.open(Filename, FILE_WRITE);\n\nif (dataFile)\n{\ndataFile.print(number);\ndataFile.close();\n}\n\n}\n\nvoid __ardublockWriteStringSDln (String file_name,String text)\n{\nchar Filename[12];\nfile_name.toCharArray(Filename, 12);\nFile dataFile = SD.open(Filename, FILE_WRITE);\n\nif (dataFile)\n{\ndataFile.println(text);\ndataFile.close();\n}\n}\n\nvoid __ardublockWriteNumberSDln (String file_name,double number)\n{\nchar Filename[12];\nfile_name.toCharArray(Filename, 12);\nFile dataFile = SD.open(Filename, FILE_WRITE);\n\nif (dataFile)\n{\ndataFile.println(number);\ndataFile.close();\n}\n\n}\n\n";
-	//private static final String SD_SETUP_DEFINITION = "const int chipSelect = 10;\nSD.begin(chipSelect);\n";	
-	
-	/*public static void setupSDEnvironment(Translator t)
-	{
-		t.addHeaderFile("SD.h");
-		t.addDefinitionCommand(SD_DEFINITION);
-		t.addSetupCommand(SD_SETUP_DEFINITION);
-	}*/
-	
 }

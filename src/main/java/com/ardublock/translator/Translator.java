@@ -25,7 +25,7 @@ import edu.mit.blocks.workspace.Workspace;
 
 public class Translator
 {
-	private static final String variablePrefix = "_ABVAR_";
+	private static final String variablePrefix = "_VAR_";
 
 	private Set<String> headerFileSet;
 	private Set<String> definitionSet;
@@ -94,20 +94,20 @@ public class Translator
 	public String generateSetupFunction()
 	{
 		StringBuilder setupFunction = new StringBuilder();
-		setupFunction.append("void setup()\n{\n");
+		setupFunction.append("void setup() {\n");
 		
 		if (!inputPinSet.isEmpty())
 		{
 			for (String pinNumber:inputPinSet)
 			{
-				setupFunction.append("pinMode( " + pinNumber + " , INPUT);\n");
+				setupFunction.append("pinMode(" + pinNumber + ", INPUT);\n");
 			}
 		}
 		if (!outputPinSet.isEmpty())
 		{
 			for (String pinNumber:outputPinSet)
 			{
-				setupFunction.append("pinMode( " + pinNumber + " , OUTPUT);\n");
+				setupFunction.append("pinMode(" + pinNumber + ", OUTPUT);\n");
 			}
 		}
 		
@@ -119,9 +119,8 @@ public class Translator
 			}
 			
 		}
-
 		
-		setupFunction.append("}\n\n");
+		setupFunction.append("};\n\n");
 		
 		return setupFunction.toString();
 	}
@@ -133,12 +132,12 @@ public class Translator
 		
 		if (!guinoCommand.isEmpty())
 		{
-			guinoFunction.append("void GUINO_DEFINIR_INTERFACE()\n{\n");
+			guinoFunction.append("void GUINO_DEFINIR_INTERFACE() {\n");
 			for (String command:guinoCommand)
 			{
 				guinoFunction.append(command + "\n");
 			}
-			guinoFunction.append("}\n\n");
+			guinoFunction.append("};\n\n");
 		}
 		
 		

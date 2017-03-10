@@ -14,10 +14,10 @@ public class MapCommonBlock extends TranslatorBlock
 	@Override
 	public String toCode() throws SocketNullException, SubroutineNotDeclaredException
 	{
-		String ret = "map( ";
+		String ret = "map(";
 		TranslatorBlock tb = this.getRequiredTranslatorBlockAtSocket(0);
 		ret = ret + tb.toCode();
-		ret = ret + " , 0, 1023, 0, 255)";
+		ret = ret + ", 0, 1023, 0, 255)";
 		return codePrefix + ret + codeSuffix;
 	}
 	

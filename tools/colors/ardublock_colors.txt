@@ -1,0 +1,11 @@
+color="0 0 0"        DUMMY
+color="128 128 128"  SOURCE CODE  
+color="160 0 0"      PICUINO
+color="187 66 195"   COMUNICACIONES
+color="222 222 222"  PAGE BACKGROUND
+color="225 169 26"   CONTROL
+color="238 125 22"   DATOS
+color="44 165 226"   ENTRADAS
+color="74 108 212"   SALIDAS
+color="92 183 18"    OPERADORES
+color="99 45 153"    SUBRUTINAS

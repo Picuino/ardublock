@@ -1,0 +1,37 @@
+#######################################
+# Syntax Coloring Map SCoop
+#######################################
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+vui8_t  KEYWORD1
+vui16_t KEYWORD1
+vui32_t KEYWORD1
+vi8_t   KEYWORD1
+vi16_t  KEYWORD1
+vi32_t  KEYWORD1
+vbool   KEYWORD1
+
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+SCoop	KEYWORD2
+mySCoop	KEYWORD2
+defineTask	KEYWORD2
+defineTaskLoop	KEYWORD2
+SCoopTask	KEYWORD2
+defineSCoopTask KEYWORD2
+sleep	KEYWORD2
+yield	KEYWORD2
+
+
+#######################################
+# Bold (KEYWORD3)
+#######################################
+
+
+#######################################
+# Constants (LITERAL1)
+#######################################

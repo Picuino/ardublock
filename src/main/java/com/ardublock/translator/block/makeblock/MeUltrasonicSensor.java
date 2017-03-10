@@ -12,12 +12,13 @@ public class MeUltrasonicSensor extends TranslatorBlock {
 
 	@Override
 	public String toCode() throws SocketNullException, SubroutineNotDeclaredException {
-		translator.addHeaderFile("Makeblock.h");
 		translator.addHeaderFile("SoftwareSerial.h");
 		translator.addHeaderFile("Wire.h");
+		translator.addHeaderFile("MeMCore.h");
+
 		TranslatorBlock translatorBlock = this.getRequiredTranslatorBlockAtSocket(0);
 		String ret = "MeUltrasonicSensor ultraSensor"+translatorBlock.toCode()+"(PORT_"+translatorBlock.toCode()+");";
 		translator.addDefinitionCommand(ret);
-		return codePrefix + "ultraSensor"+translatorBlock.toCode()+".distanceCm()" + codeSuffix;
+		return codePrefix + "(int)(10*ultraSensor"+translatorBlock.toCode()+".distanceCm())" + codeSuffix;
 	}
 }

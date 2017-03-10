@@ -29,9 +29,7 @@ public class Keyboard_Compare  extends TranslatorBlock {
 		translator.addHeaderFile("PS2Keyboard.h");
 		translator.addSetupCommand("delay(1000);"
 				+ "keyboard_pin"+DataPin+IRQpin+".brancher(DataPin, IRQpin);"
-
 				+ "Serial.begin(9600);");
-		
 		translator.addDefinitionCommand("// Pin keyboard\n"
 				+ "const int DataPin = " + DataPin +";\n"
 				+ "const int IRQpin =  " + IRQpin + ";\n"

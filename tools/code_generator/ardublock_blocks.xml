@@ -1,0 +1,127 @@
+
+
+		<BlockGenus name="me_ircontrol_a" kind="data" color="10 134 152" initlabel="bg.me_ircontrol_a" editable-label="no">
+			<BlockConnectors>
+				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
+			</BlockConnectors>
+		</BlockGenus>
+
+		<BlockGenus name="me_ircontrol_b" kind="data" color="10 134 152" initlabel="bg.me_ircontrol_b" editable-label="no">
+			<BlockConnectors>
+				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
+			</BlockConnectors>
+		</BlockGenus>
+
+		<BlockGenus name="me_ircontrol_c" kind="data" color="10 134 152" initlabel="bg.me_ircontrol_c" editable-label="no">
+			<BlockConnectors>
+				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
+			</BlockConnectors>
+		</BlockGenus>
+
+		<BlockGenus name="me_ircontrol_d" kind="data" color="10 134 152" initlabel="bg.me_ircontrol_d" editable-label="no">
+			<BlockConnectors>
+				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
+			</BlockConnectors>
+		</BlockGenus>
+
+		<BlockGenus name="me_ircontrol_e" kind="data" color="10 134 152" initlabel="bg.me_ircontrol_e" editable-label="no">
+			<BlockConnectors>
+				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
+			</BlockConnectors>
+		</BlockGenus>
+
+		<BlockGenus name="me_ircontrol_f" kind="data" color="10 134 152" initlabel="bg.me_ircontrol_f" editable-label="no">
+			<BlockConnectors>
+				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
+			</BlockConnectors>
+		</BlockGenus>
+
+		<BlockGenus name="me_ircontrol_0" kind="data" color="10 134 152" initlabel="bg.me_ircontrol_0" editable-label="no">
+			<BlockConnectors>
+				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
+			</BlockConnectors>
+		</BlockGenus>
+
+		<BlockGenus name="me_ircontrol_1" kind="data" color="10 134 152" initlabel="bg.me_ircontrol_1" editable-label="no">
+			<BlockConnectors>
+				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
+			</BlockConnectors>
+		</BlockGenus>
+
+		<BlockGenus name="me_ircontrol_2" kind="data" color="10 134 152" initlabel="bg.me_ircontrol_2" editable-label="no">
+			<BlockConnectors>
+				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
+			</BlockConnectors>
+		</BlockGenus>
+
+		<BlockGenus name="me_ircontrol_3" kind="data" color="10 134 152" initlabel="bg.me_ircontrol_3" editable-label="no">
+			<BlockConnectors>
+				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
+			</BlockConnectors>
+		</BlockGenus>
+
+		<BlockGenus name="me_ircontrol_4" kind="data" color="10 134 152" initlabel="bg.me_ircontrol_4" editable-label="no">
+			<BlockConnectors>
+				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
+			</BlockConnectors>
+		</BlockGenus>
+
+		<BlockGenus name="me_ircontrol_5" kind="data" color="10 134 152" initlabel="bg.me_ircontrol_5" editable-label="no">
+			<BlockConnectors>
+				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
+			</BlockConnectors>
+		</BlockGenus>
+
+		<BlockGenus name="me_ircontrol_6" kind="data" color="10 134 152" initlabel="bg.me_ircontrol_6" editable-label="no">
+			<BlockConnectors>
+				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
+			</BlockConnectors>
+		</BlockGenus>
+
+		<BlockGenus name="me_ircontrol_7" kind="data" color="10 134 152" initlabel="bg.me_ircontrol_7" editable-label="no">
+			<BlockConnectors>
+				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
+			</BlockConnectors>
+		</BlockGenus>
+
+		<BlockGenus name="me_ircontrol_8" kind="data" color="10 134 152" initlabel="bg.me_ircontrol_8" editable-label="no">
+			<BlockConnectors>
+				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
+			</BlockConnectors>
+		</BlockGenus>
+
+		<BlockGenus name="me_ircontrol_9" kind="data" color="10 134 152" initlabel="bg.me_ircontrol_9" editable-label="no">
+			<BlockConnectors>
+				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
+			</BlockConnectors>
+		</BlockGenus>
+
+		<BlockGenus name="me_ircontrol_up" kind="data" color="10 134 152" initlabel="bg.me_ircontrol_up" editable-label="no">
+			<BlockConnectors>
+				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
+			</BlockConnectors>
+		</BlockGenus>
+
+		<BlockGenus name="me_ircontrol_down" kind="data" color="10 134 152" initlabel="bg.me_ircontrol_down" editable-label="no">
+			<BlockConnectors>
+				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
+			</BlockConnectors>
+		</BlockGenus>
+
+		<BlockGenus name="me_ircontrol_left" kind="data" color="10 134 152" initlabel="bg.me_ircontrol_left" editable-label="no">
+			<BlockConnectors>
+				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
+			</BlockConnectors>
+		</BlockGenus>
+
+		<BlockGenus name="me_ircontrol_right" kind="data" color="10 134 152" initlabel="bg.me_ircontrol_right" editable-label="no">
+			<BlockConnectors>
+				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
+			</BlockConnectors>
+		</BlockGenus>
+
+		<BlockGenus name="me_ircontrol_ctrl" kind="data" color="10 134 152" initlabel="bg.me_ircontrol_ctrl" editable-label="no">
+			<BlockConnectors>
+				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
+			</BlockConnectors>
+		</BlockGenus>

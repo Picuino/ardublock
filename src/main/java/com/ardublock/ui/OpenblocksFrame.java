@@ -123,9 +123,13 @@ public class OpenblocksFrame extends JFrame
 			public void actionPerformed(ActionEvent e) {
 				Dimension size = workspace.getCanvasSize();
 				System.out.println("size: " + size);
-				BufferedImage bi = new BufferedImage(2560, 2560, BufferedImage.TYPE_INT_RGB);
+				int image_resolution = Integer.parseInt(uiMessageBundle.getString("ardublock.ui.image_resolution"));
+				if (image_resolution > 300) image_resolution = 300;
+				if (image_resolution < 72) image_resolution = 72;
+				int image_width = 25 * image_resolution;
+				BufferedImage bi = new BufferedImage(image_width, image_width, BufferedImage.TYPE_INT_RGB);
 				Graphics2D g = (Graphics2D)bi.createGraphics();
-				double theScaleFactor = (300d/72d);  
+				double theScaleFactor = image_resolution/72d;
 				g.scale(theScaleFactor,theScaleFactor);
 				
 				workspace.getBlockCanvas().getPageAt(0).getJComponent().paint(g);
@@ -153,14 +157,14 @@ public class OpenblocksFrame extends JFrame
 		buttons.add(serialMonitorButton);
 
 		JPanel bottomPanel = new JPanel();
-		JButton websiteButton = new JButton(uiMessageBundle.getString("ardublock.ui.website"));
+		JButton websiteButton = new JButton(uiMessageBundle.getString("ardublock.ui.website1"));
 		websiteButton.addActionListener(new ActionListener () {
 			public void actionPerformed(ActionEvent e) {
 			    Desktop desktop = Desktop.isDesktopSupported() ? Desktop.getDesktop() : null;
 			    URL url;
 			    if (desktop != null && desktop.isSupported(Desktop.Action.BROWSE)) {
 			        try {
-						url = new URL("http://ardublock.com");
+						url = new URL(uiMessageBundle.getString("ardublock.ui.website1.url"));
 			            desktop.browse(url.toURI());
 			        } catch (Exception e1) {
 			            e1.printStackTrace();
@@ -168,10 +172,26 @@ public class OpenblocksFrame extends JFrame
 			    }
 			}
 		});
-		JLabel versionLabel = new JLabel("v " + uiMessageBundle.getString("ardublock.ui.version"));
+		JButton website2Button = new JButton(uiMessageBundle.getString("ardublock.ui.website2"));
+		website2Button.addActionListener(new ActionListener () {
+			public void actionPerformed(ActionEvent e) {
+			    Desktop desktop = Desktop.isDesktopSupported() ? Desktop.getDesktop() : null;
+			    URL url;
+			    if (desktop != null && desktop.isSupported(Desktop.Action.BROWSE)) {
+			        try {
+						url = new URL(uiMessageBundle.getString("ardublock.ui.website2.url"));
+			            desktop.browse(url.toURI());
+			        } catch (Exception e1) {
+			            e1.printStackTrace();
+			        }
+			    }
+			}
+		});
+		JLabel versionLabel = new JLabel(" Version " + uiMessageBundle.getString("ardublock.ui.version"));
 		
 		bottomPanel.add(saveImageButton);
 		bottomPanel.add(websiteButton);
+		bottomPanel.add(website2Button);
 		bottomPanel.add(versionLabel);
 
 		
@@ -342,13 +362,12 @@ public class OpenblocksFrame extends JFrame
 			}
 		}
 		this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
-		context.resetWorksapce();
+		context.resetWorkspace();
 		context.setWorkspaceChanged(false);
 		this.setTitle(this.makeFrameTitle());
 		this.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
 	}
-	
-	
+
 	
 	private File checkFileSuffix(File saveFile)
 	{

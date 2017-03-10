@@ -42,23 +42,14 @@ public class SCoopTaskBlock extends TranslatorBlock
 		translator.addSetupCommand("mySCoop.start();");
 		
 		String ret;
-		
-		
 		String taskName = SCoopTaskBlock.createScoopTaskName();
-		ret = "defineTask(" + taskName + ")\n"
-				+ "void " + taskName + "::setup()\n"
-				+ "{\n";
-		
+		ret = "defineTask(" + taskName + ");\n\n"
+				+ "void " + taskName + "::setup() {\n";
 		ret = ret + setupCommand;
-		
-		ret = ret + "}\n\n"
-				+ "void " + taskName + "::loop()\n"
-				+ "{\n";
-		
+		ret = ret + "};\n\n"
+				+ "void " + taskName + "::loop() {\n";
 		ret = ret + loopCommand;
-		
-		ret = ret + "}\n\n";
-		
+		ret = ret + "};\n\n";
 		return ret;
 	}
 	

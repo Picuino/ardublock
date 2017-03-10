@@ -37,7 +37,7 @@ public class ProgramBlock extends TranslatorBlock
 		translator.registerBodyTranslateFinishCallback(this);
 //		return "";
 		ret="";
-		ret = "void loop()\n{\n";
+		ret = "void loop() {\n";
 		TranslatorBlock translatorBlock2 = getTranslatorBlockAtSocket(1);
 		while (translatorBlock2 != null)
 		{
@@ -51,7 +51,7 @@ public class ProgramBlock extends TranslatorBlock
 			ret += "yield();\n";
 		}
 		
-		ret = ret + "}\n\n";
+		ret = ret + "};\n\n";
 		return ret;
 	}
 	

@@ -12,15 +12,16 @@ public class MeShutter extends TranslatorBlock {
 
 	@Override
 	public String toCode() throws SocketNullException, SubroutineNotDeclaredException {
-		translator.addHeaderFile("Makeblock.h");
 		translator.addHeaderFile("SoftwareSerial.h");
 		translator.addHeaderFile("Wire.h");
+		translator.addHeaderFile("MeMCore.h");
+
 		TranslatorBlock translatorBlock = this.getRequiredTranslatorBlockAtSocket(0);
 		String ret = "MeShutter shutter"+translatorBlock.toCode()+"(PORT_"+translatorBlock.toCode()+");";
 		translator.addDefinitionCommand(ret);
 		TranslatorBlock state = this.getRequiredTranslatorBlockAtSocket(1);
 		int stateId = Integer.parseInt(state.toCode());
-		return "\tshutter"+translatorBlock.toCode()+(stateId==1?".shotOn()":(stateId==2?".shotOff()":(stateId==3?".focusOn()":".focusOff()")))+";\n";
+		return "shutter" + translatorBlock.toCode()+(stateId==1?".shotOn()":(stateId==2?".shotOff()":(stateId==3?".focusOn()":".focusOff()")))+";\n";
 	}
 
 }

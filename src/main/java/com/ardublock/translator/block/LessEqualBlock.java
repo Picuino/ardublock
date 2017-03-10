@@ -14,13 +14,13 @@ public class LessEqualBlock extends TranslatorBlock
 	@Override
 	public String toCode() throws SocketNullException, SubroutineNotDeclaredException
 	{
-		String ret = "( ( ";
+		String ret = "((";
 		TranslatorBlock tb = this.getRequiredTranslatorBlockAtSocket(0);
 		ret = ret + tb.toCode();
-		ret = ret + " ) <= ( ";
+		ret = ret + ") <= (";
 		tb = this.getRequiredTranslatorBlockAtSocket(1);
 		ret = ret + tb.toCode();
-		ret = ret + " ) )";
+		ret = ret + "))";
 		return codePrefix + ret + codeSuffix;
 	}
 }

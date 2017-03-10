@@ -18,14 +18,11 @@ public class EEPROMReadBlock extends TranslatorBlock
 	{
 		setupEEPROMEnvironment(translator);
 		
-		String ret = "EEPROM.read( ";
-		
+		String ret = "EEPROM.read(";
 		TranslatorBlock tb = this.getRequiredTranslatorBlockAtSocket(0);
-
-		ret += tb.toCode() + " ) ";
-		
-	return codePrefix + ret + codeSuffix;
-}
+		ret += tb.toCode() + ")";
+	   return codePrefix + ret + codeSuffix;
+   }
 	
 	public static void setupEEPROMEnvironment(Translator t)
 	{

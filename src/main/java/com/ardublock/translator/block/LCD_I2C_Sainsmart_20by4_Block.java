@@ -28,7 +28,7 @@ public class LCD_I2C_Sainsmart_20by4_Block extends TranslatorBlock {
 			ret = "lcd_I2C_" + I2C_addr + ".setCursor( (" + charNo + ") - 1, (" + lineNo + ") - 1 );";
 		}
 		
-		tb = this.getRequiredTranslatorBlockAtSocket(0, "lcd_I2C_"+ I2C_addr + ".print( ", " );\n");
+		tb = this.getRequiredTranslatorBlockAtSocket(0, "lcd_I2C_"+ I2C_addr + ".print(", ");\n");
 		ret += tb.toCode();
 		//Deal with line and character positioning
 		translator.addHeaderFile("Wire.h");

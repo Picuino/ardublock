@@ -16,7 +16,7 @@ public class LoopBlock extends TranslatorBlock
 	public String toCode() throws SocketNullException, SubroutineNotDeclaredException
 	{
 		String ret;
-		ret = "void loop()\n{\n";
+		ret = "void loop() {\n";
 		if (translator.isGuinoProgram())
 		{
 			ret += "GUINO_GERER_INTERFACE();\n";
@@ -33,7 +33,7 @@ public class LoopBlock extends TranslatorBlock
 			ret += "yield();\n";
 		}
 		
-		ret = ret + "}\n\n";
+		ret = ret + "};\n\n";
 		return ret;
 	}
 }

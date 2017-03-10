@@ -12,9 +12,10 @@ public class MeBluetoothCommands extends TranslatorBlock {
 
 	@Override
 	public String toCode() throws SocketNullException, SubroutineNotDeclaredException {
-		translator.addHeaderFile("Makeblock.h");
 		translator.addHeaderFile("SoftwareSerial.h");
 		translator.addHeaderFile("Wire.h");
+		translator.addHeaderFile("MeMCore.h");
+	
 		TranslatorBlock block = this.getRequiredTranslatorBlockAtSocket(0);
 		String ret = "MeBluetooth bluetooth"+block.toCode()+"(PORT_"+block.toCode()+");";
 		translator.addDefinitionCommand(ret);
@@ -25,10 +26,10 @@ public class MeBluetoothCommands extends TranslatorBlock {
 		String exec = "";
 		while (execBlock != null)
 		{
-			exec += "\t"+ execBlock.toCode()+"\n";
+			exec += "\t" + execBlock.toCode() + "\n";
 			execBlock = execBlock.nextTranslatorBlock();
 		}
-		ret += "\n"+exec+"\n};\n";
+		ret += "\n" + exec + "\n};\n";
 		    
 		return ret;
 	}

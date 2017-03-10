@@ -15,15 +15,14 @@ public class SerialPrintlnBlock extends TranslatorBlock
 	@Override
 	public String toCode() throws SocketNullException, SubroutineNotDeclaredException
 	{
+		TranslatorBlock translatorBlock = this.getRequiredTranslatorBlockAtSocket(0);
+
+		// translator.addHeaderFile("Serial.h");
 		translator.addSetupCommand("Serial.begin(9600);");
-		TranslatorBlock translatorBlock = this.getTranslatorBlockAtSocket(0, "Serial.print(", ");\n");
-		
-		String ret = "";
-		if (translatorBlock != null) {
-			ret = translatorBlock.toCode();
-		}
-		ret = ret + "Serial.println();\n";
-		
+
+		String ret = translatorBlock.toCode();
+
+		ret="Serial.println(" + ret + ");";
 		return ret;
 	}
 }

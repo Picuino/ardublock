@@ -24,13 +24,13 @@ public class AnalogOutputBlock extends TranslatorBlock
 		}
 		else
 		{
-			String setupCode = "pinMode( " + portNum + " , OUTPUT);";
+			String setupCode = "pinMode(" + portNum + ", OUTPUT);";
 			translator.addSetupCommand(setupCode);
 		}
 		translatorBlock = this.getRequiredTranslatorBlockAtSocket(1);
 		String value = translatorBlock.toCode();
 		
-		String ret = "analogWrite(" + portNum + " , " + value + ");\n";
+		String ret = "analogWrite(" + portNum + ", " + value + ");";
 		return ret;
 	}
 

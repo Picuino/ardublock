@@ -26,10 +26,9 @@ public class string_equals extends TranslatorBlock
 		{
 			internalVariableName = translator.buildVariableName(label);
 			translator.addNumberVariable(label, internalVariableName);
-			translator.addDefinitionCommand("String " + internalVariableName + " = "+first +" ;");
-//			translator.addSetupCommand(internalVariableName + " = \"\";");
+			translator.addDefinitionCommand("String " + internalVariableName + " = " + first + ";");
 		}
-		String ret= internalVariableName + ".equals("+second+")";
+		String ret= internalVariableName + ".equals(" + second + ")";
 		return codePrefix + ret + codeSuffix;
 	}
 

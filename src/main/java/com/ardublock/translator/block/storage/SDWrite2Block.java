@@ -17,24 +17,24 @@ public class SDWrite2Block extends TranslatorBlock
 	{
 		String Cs;
 		TranslatorBlock translatorBlock = this.getRequiredTranslatorBlockAtSocket(3);
-	    Cs = translatorBlock.toCode();
+		Cs = translatorBlock.toCode();
 		
 		translator.addHeaderFile("SD.h");
-	    translator.addSetupCommand("\tconst int chipSelect = "+Cs+";\n\tSD.begin(chipSelect);\n");
+		translator.addSetupCommand("const int chipSelect = " + Cs + ";\nSD.begin(chipSelect);");
 		TranslatorBlock data = this.getRequiredTranslatorBlockAtSocket(0);
-		String ret="\tFile datafile = SD.open(\""+data.toCode()+"\", FILE_WRITE);\n";
-		ret+="\tif(datafile){\n";
-        data=this.getRequiredTranslatorBlockAtSocket(1, "\t\tdatafile.print( ", " );\n\t\tdatafile.print(\" \");\n");
-        ret+=data.toCode();
-        data=this.getRequiredTranslatorBlockAtSocket(2);
-        String test=data.toCode();
-        
-        
+		String ret= "File datafile = SD.open(\""+data.toCode()+"\", FILE_WRITE);\n";
+		ret += "if (datafile) {\n";
+		data = this.getRequiredTranslatorBlockAtSocket(1, "datafile.print(", ");\ndatafile.print(\" \");\n");
+		ret += data.toCode();
+		data=this.getRequiredTranslatorBlockAtSocket(2);
+		String test=data.toCode();
+	 
+		  
 		if(test.equals("true")){
-		    ret+="\t\tdatafile.println(\"\");\n";
+			 ret+="datafile.println(\"\");";
 		}
-		ret+="\t\tdatafile.close();\n";
-        ret+="\t}\n";
+		ret += "datafile.close();\n";
+		ret += "};\n";
 		return  ret ;
 	}
 }

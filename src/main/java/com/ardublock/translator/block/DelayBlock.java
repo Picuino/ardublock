@@ -15,10 +15,10 @@ public class DelayBlock extends TranslatorBlock
 	@Override
 	public String toCode() throws SocketNullException, SubroutineNotDeclaredException
 	{
-		String ret = "\tdelay( ";
+		String ret = "delay(";
 		TranslatorBlock translatorBlock = this.getRequiredTranslatorBlockAtSocket(0);
 		ret = ret + translatorBlock.toCode();
-		ret = ret + " );\n";
+		ret = ret + ");";
 		return ret;
 	}
 

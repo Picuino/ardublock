@@ -35,9 +35,8 @@ public class EEPROMWriteBlock extends TranslatorBlock
 			
 			ret += tb.toCode();
 			tb = this.getRequiredTranslatorBlockAtSocket(1);
-			ret = "\t"+ret + " , " + tb.toCode() + " ) ;\n";
-			
-		return codePrefix + ret + codeSuffix;
+			ret = "\t" + ret + ", " + tb.toCode() + ");";
+			return codePrefix + ret + codeSuffix;
 	}
 	
 	private static void setupEEPROMEnvironment(Translator t)

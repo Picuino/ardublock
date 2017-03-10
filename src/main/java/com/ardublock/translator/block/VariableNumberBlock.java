@@ -17,8 +17,7 @@ public class VariableNumberBlock extends TranslatorBlock
 		{
 			internalVariableName = translator.buildVariableName(label);
 			translator.addNumberVariable(label, internalVariableName);
-			translator.addDefinitionCommand("int " + internalVariableName + " = 0 ;");
-//			translator.addSetupCommand(internalVariableName + " = 0;");
+			translator.addDefinitionCommand("volatile long " + internalVariableName + " = 0;");
 		}
 		return codePrefix + internalVariableName + codeSuffix;
 	}
