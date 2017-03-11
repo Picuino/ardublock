@@ -1,0 +1,38 @@
+### Blocks
+library: picuino
+
+blocks:
+- name: pc_ledWrite
+  description: ''
+  color: 6
+  kind: command
+  connector:
+  - {type: number,  label: bc_picuino_led,   default: [number, '1']}
+  - {type: boolean, label: bc_picuino_state, default: [digital-on, 'ON']}
+  translator: LedWriteBlock
+  code:
+    headers: ['PC42.h', 'Wire.h']
+    setup: ['pc.begin();']
+    return: 
+    - '// Return'
+    - '\t\treturn "pc.ledWrite(" + arg1 + ", " + arg2 + ");";'
+  properties:
+    pc_ledWrite: Led Write
+
+  
+### Menu
+Menu: [pc_ledWrite, pc_ledWrite]
+
+
+### Families
+Families:
+- [pc_begin, pc_dispBegin, pc_buzzBegin]
+- [DD_0, DD_0, DD_0, DD_0, DD_0,
+   DD_0, DD_0, DD_0, DD_0 ]
+
+
+### Common properties
+properties:
+- bc_picuino_led: Led
+- bc_picuino_state: State
+
