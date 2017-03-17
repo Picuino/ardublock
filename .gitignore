@@ -2,3 +2,4 @@
 .project
 target/
 build/
+tools/code_templates/build

@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE BlockLangDef SYSTEM "lang_def.dtd">
+<!--
+	This file describes in Starlogo-TNG every:
+		BlockGenus,
+		BlockDrawer,
+		BlockFamilies
+	Note: For BlockGenus, if genus A relies on another genus B, that genus B must be
+	specified in the xml file before genus A is specified. We impose this requirement
+	so that sanity checks can be made regarding the validity of a default argument
+	when the BlockGenuses are first loaded.
+-->
+<BlockLangDef>
+
+	<BlockConnectorShapes>
+		<BlockConnectorShape shape-type="number" shape-number="1" />
+		<BlockConnectorShape shape-type="number-list" shape-number="2" />
+		<BlockConnectorShape shape-type="number-inv" shape-number="3" />
+		<BlockConnectorShape shape-type="boolean" shape-number="4" />
+		<BlockConnectorShape shape-type="boolean-list" shape-number="5" />
+		<BlockConnectorShape shape-type="boolean-inv" shape-number="6" />
+		<BlockConnectorShape shape-type="string" shape-number="7" />
+		<BlockConnectorShape shape-type="string-list" shape-number="8" />
+		<BlockConnectorShape shape-type="string-inv" shape-number="9" />
+		<BlockConnectorShape shape-type="poly" shape-number="10" />
+		<BlockConnectorShape shape-type="poly-list" shape-number="11" />
+		<BlockConnectorShape shape-type="poly-inv" shape-number="12" />
+		<BlockConnectorShape shape-type="proc-param" shape-number="13" />
+		<BlockConnectorShape shape-type="cmd" shape-number="14" />
+		<BlockConnectorShape shape-type="cmd1" shape-number="15" />
+		<BlockConnectorShape shape-type="cmd2" shape-number="16" />
+		<BlockConnectorShape shape-type="cmd3" shape-number="17" />
+	</BlockConnectorShapes>
+
+
+	<BlockGenuses>
+{% for block in blocks %}{{block}}{% endfor %}
+	</BlockGenuses>
+
+
+	<BlockFamilies>
+{% for family in families %}{{family}}{% endfor %}
+	</BlockFamilies>
+
+
+	<BlockDrawerSets>
+		<BlockDrawerSet name="factory" type="stack" location="southwest" window-per-drawer="no" drawer-draggable="no">
+{% for menu in menus %}{{menu}}
+{% endfor %}
+		</BlockDrawerSet>
+	</BlockDrawerSets>
+
+
+	<Pages drawer-with-page="yes">
+		<Page page-name="Main" page-width="1800" page-color="222 222 222" />
+	</Pages>
+
+	<TrashCan>
+		<OpenTrashImage>com/ardublock/block/trash_open.png</OpenTrashImage>
+		<ClosedTrashImage>com/ardublock/block/trash.png</ClosedTrashImage>
+	</TrashCan>
+
+</BlockLangDef>

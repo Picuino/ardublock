@@ -1,38 +1,350 @@
-### Blocks
-library: picuino
+##########################################################################
+#  Library Picuino
+##########################################################################
 
-blocks:
+Library:
+  name: Picuino
+  description: Picuino Panel
+  color: 160 0 0
+  menu:
+  - pc_ledWrite
+  - pc_ledBlink
+  - pc_keyPressed
+  - pc_keyValue
+  - pc_keyEvents
+  - pc_keyCount
+  - pc_keyTimeOn
+  - pc_keyTimeOff
+  - pc_dispNum
+  - pc_dispWrite
+  - pc_dispWrite4
+  - pc_buzzFreq
+  - pc_buzzTone
+  - pc_buzzPlay
+  - pc_buzzPlayLen
+  - pc_buzzOn
+  - pc_buzzOff
+  - pc_begin
+  - KEY_LEFT
+  - KEY_PRESSED_TIME1
+  - DD_A
+  - Do4
+
+
+##########################################################################
+#  Definitions
+##########################################################################
+
+Definitions:
+- &PICUINO_LABEL_CODE
+  name: PcLabel
+  headers: ['PC42.h', 'Wire.h']
+  setup: ['pc.begin();']
+  code: ['return ']
+
+- pc1: &PICUINO_TONES [
+  Silence,
+  Do3, Do_3, Re3, Re_3, Mi3, Fa3, Fa_3, Sol3, Sol_3, La3, La_3, Si3,
+  Do4, Do_4, Re4, Re_4, Mi4, Fa4, Fa_4, Sol4, Sol_4, La4, La_4, Si4,
+  Do5, Do_5, Re5, Re_5, Mi5, Fa5, Fa_5, Sol5, Sol_5, La5, La_5, Si5 ]
+
+- pc2: &PICUINO_DISPLAY [
+  DD_0, DD_1, DD_2, DD_3, DD_4, DD_5, DD_6, DD_7, DD_8, DD_9,
+  DD_A, DD_b, DD_B, DD_C, DD_d, DD_E, DD_F, DD_G, DD_g, DD_H,
+  DD_h, DD_I, DD_i, DD_J, DD_K, DD_L, DD_n, DD_ny, DD_o, DD_O,
+  DD_P, DD_q, DD_r, DD_S, DD_t, DD_u, DD_U, DD_y, DD_Y, DD_Z, DD_SP ]
+
+- pc3: &PICUINO_BEGIN    [pc_begin, pc_dispBegin, pc_buzzBegin, pc_ledBegin, pc_keyBegin]
+
+- pc4: &PICUINO_KEY_TIME [KEY_PRESSED_TIME1, KEY_PRESSED_TIME2, KEY_PRESSED_TIME3, KEY_RELEASED]
+
+- pc5: &PICUINO_KEYS     [KEY_LEFT, KEY_RIGHT, KEY_UP, KEY_DOWN, KEY_ENTER, KEY_BACK, KEY_ALL]
+
+
+##########################################################################
+#  Blocks
+##########################################################################
+
+Blocks:
+- name: *PICUINO_KEY_TIME
+  parameter:
+  return:  {type: number, position: mirror}
+  translator:
+    << : *PICUINO_LABEL_CODE
+
+- name: *PICUINO_KEYS
+  parameter:
+  return:  {type: number, position: mirror}
+  translator:
+    << : *PICUINO_LABEL_CODE
+
+- name: *PICUINO_DISPLAY
+  parameter:
+  return:  {type: number, position: mirror}
+  translator:
+    << : *PICUINO_LABEL_CODE
+
+- name: *PICUINO_TONES
+  parameter:
+  return:  {type: number, position: mirror}
+  translator:
+    << : *PICUINO_LABEL_CODE
+
 - name: pc_ledWrite
-  description: ''
-  color: 6
-  kind: command
-  connector:
-  - {type: number,  label: bc_picuino_led,   default: [number, '1']}
-  - {type: boolean, label: bc_picuino_state, default: [digital-on, 'ON']}
-  translator: LedWriteBlock
-  code:
+  parameter:
+  - {type: number,  label: bc.pc_led,   default: [number, '1']}
+  - {type: boolean, label: bc.pc_state, default: [digital-on, 'ON']}
+  return:
+  translator:
+    name:  PcLedWrite
     headers: ['PC42.h', 'Wire.h']
     setup: ['pc.begin();']
-    return: 
-    - '// Return'
-    - '\t\treturn "pc.ledWrite(" + arg1 + ", " + arg2 + ");";'
+    code:
+    - 'return "pc.ledWrite(" + arg1 + ", " + arg2 + ");";'
   properties:
-    pc_ledWrite: Led Write
+    bg.pc_ledWrite: Led Write
+
+- name: pc_ledBlink
+  parameter:
+  - {type: number, label: bc.pc_led,      default: [number, '1']}
+  - {type: number, label: bc.pc_time_on,  default: [number, '500']}
+  - {type: number, label: bc.pc_time_off, default: [number, '500']}
+  return:
+  translator:
+    name:  PcLedBlink
+    headers: ['PC42.h', 'Wire.h']
+    setup: ['pc.begin();']
+    code:
+    - 'return "pc.ledBlink(" + arg1 + ", " + arg2 + ", " + arg3 + ");";'
+  properties:
+    bg.pc_ledBlink: Led Blink
+    bc.pc_time_on: Time On
+    bc.pc_time_off: Time Off
+
+- name: [ pc_keyPressed, pc_keyValue ]
+  parameter:
+  - {type: number, label: bc.pc_key, default: [number, '1']}
+  return: {type: boolean }
+  translator:
+    name:  PcKeyPressed
+    headers: ['PC42.h', 'Wire.h']
+    setup: ['pc.begin();']
+    code:
+    - 'String functionName = this.getTranslator().getBlock(blockId).getGenusName();'
+    - 'if (functionName == "pc_keyValue")'
+    - '	return "pc.keyValue(" + arg1 + ");";'
+    - 'return "pc.keyPressed(" + arg1 + ");";'
+  properties:
+    bg.pc_keyPressed: Key Pressed
+    bg.pc_keyValue: Key Value
+
+- name: pc_keyEvents
+  parameter:
+  - {type: number, label: bc.pc_key, default: [number, '1']}
+  - {type: number, label: bc.pc_event, default: [KEY_PRESSED_TIME1, 'KEY_PRESSED_TIME1']}
+  return: {type: boolean }
+  translator:
+    name:  PcKeyEvents
+    headers: ['PC42.h', 'Wire.h']
+    setup: ['pc.begin();']
+    code:
+    - 'return "pc.keyEvents(" + arg1 + ", " + arg2 + ");";'
+  properties:
+    bg.pc_keyEvents: Key Events
+
+- name: pc_keyCount
+  parameter:
+  - {type: number, label: bc.pc_key, default: [number, '1']}
+  return: {type: number }
+  translator:
+    name:  PcKeyCount
+    headers: ['PC42.h', 'Wire.h']
+    setup: ['pc.begin();']
+    code:
+    - 'return "pc.keyCount(" + arg1 + ");";'
+  properties:
+    bg.pc_keyCount: Key Count
+
+- name: [pc_keyTimeOn, pc_keyTimeOff]
+  parameter:
+  - {type: number, label: bc.pc_key, default: [number, '1']}
+  return: {type: number }
+  translator:
+    name:  PcKeyTime
+    headers: ['PC42.h', 'Wire.h']
+    setup: ['pc.begin();']
+    code:
+    - 'String functionName = this.getTranslator().getBlock(blockId).getGenusName();'
+    - 'if (functionName == "pc_keyTimeOn")'
+    - '	return "pc.keyTimeOn(" + arg1 + ");";'
+    - 'return "pc.keyTimeOff(" + arg1 + ");";'
+  properties:
+    bg.pc_keyTimeOn: Key Time On
+    bg.pc_keyTimeOff: Key Time Off    
+
+- name: pc_dispNum
+  parameter:
+  - {type: number, label: bc.pc_integer,  default: [number, '123']}
+  return:
+  translator:
+    name:  PcDispNum
+    headers: ['PC42.h', 'Wire.h']
+    setup: ['pc.begin();']
+    code:
+    - 'return "pc.dispNum(" + arg1 + ");";'
+  properties:
+    bg.pc_dispNum: Display Number
+
+- name: pc_dispWrite
+  parameter:
+  - {type: number, label: bc.pc_position,  default: [number, '1']}
+  - {type: number, label: bc.pc_segments,  default: [DD_A, DD_A]}
+  return:
+  translator:
+    name:  PcDispWrite
+    headers: ['PC42.h', 'Wire.h']
+    setup: ['pc.begin();']
+    code:
+    - 'return "pc.dispWrite(" + arg1 + ");";'
+  properties:
+    bg.pc_dispWrite: Display Write
+
+- name: pc_dispWrite4
+  parameter:
+  - {type: number, label: bc.pc_digit,  default: [DD_H, DD_H]}
+  - {type: number, label: bc.pc_digit,  default: [DD_O, DD_O]}
+  - {type: number, label: bc.pc_digit,  default: [DD_L, DD_L]}
+  - {type: number, label: bc.pc_digit,  default: [DD_A, DD_A]}
+  return:
+  translator:
+    name:  PcDispWrite4
+    headers: ['PC42.h', 'Wire.h']
+    setup: ['pc.begin();']
+    code:
+    - 'return "pc.dispWrite4(" + arg1 + ", " + arg2 + ", " + arg3 + ", " + arg4 + ");";'
+  properties:
+    bg.pc_dispWrite4: Display Write x4
+    
+- name: pc_buzzFreq
+  parameter:
+  - {type: number, label: bc.pc_frequency,  default: [number, '1000']}
+  return:
+  translator:
+    name:  PcBuzzFreq
+    headers: ['PC42.h', 'Wire.h']
+    setup: ['pc.begin();']
+    code:
+    - 'return "pc.buzzFreq(" + arg1 + ");";'
+  properties:
+    bg.pc_buzzFreq: Buzzer Frequency
+    
+- name: pc_buzzTone
+  parameter:
+  - {type: number, label: bc.pc_tone,  default: [Do4, Do4]}
+  return:
+  translator:
+    name:  PcBuzzTone
+    headers: ['PC42.h', 'Wire.h']
+    setup: ['pc.begin();']
+    code:
+    - 'return "pc.buzzTone(" + arg1 + ");";'
+  properties:
+    bg.pc_buzzTone: Buzzer Tone
+
+- name: pc_buzzPlay
+  parameter:
+  - {type: number, label: bc.pc_tone,  default: [Do4, Do4]}
+  - {type: number, label: bc.pc_time,  default: [number, '500']}
+  return:
+  translator:
+    name:  PcBuzzPlay
+    headers: ['PC42.h', 'Wire.h']
+    setup: ['pc.begin();']
+    code:
+    - 'return "pc.buzzPlay(" + arg1 + ", " + arg2 + ");";'
+  properties:
+    bg.pc_buzzPlay: Buzzer Play
+
+- name: pc_buzzPlayLen
+  parameter:
+  return: { type: number }
+  translator:
+    name:  PcBuzzPlayLen
+    headers: ['PC42.h', 'Wire.h']
+    setup: ['pc.begin();']
+    code:
+    - 'return "pc.buzzPlayLen();";'
+  properties:
+    bg.pc_buzzPlayLen: Buzzer Play Length
+
+- name: [pc_buzzOn, pc_buzzOff]
+  parameter:
+  return:
+  translator:
+    name: PcBuzzOnOff
+    headers: ['PC42.h', 'Wire.h']
+    setup: ['pc.begin();']
+    code:
+    - 'String functionName = this.getTranslator().getBlock(blockId).getGenusName();'
+    - 'if (functionName == "pc_buzzOn")'
+    - '	return "pc.buzzOn();";'
+    - 'return "pc.buzzOff();";'
+  properties:
+    bg.pc_buzzOn: Buzzer On
+    bg.pc_buzzOff: Buzzer Off
+
+- name: *PICUINO_BEGIN
+  parameter:
+  return:
+  translator:
+    name:  PcBegin
+    headers: ['PC42.h', 'Wire.h']
+    setup: ['pc.begin();']
+    code:
+    - 'String functionName = this.getTranslator().getBlock(blockId).getGenusName();'
+    - 'if (functionName == "pc_keyBegin")'
+    - '	return "pc.keyBegin();";'
+    - 'else if (functionName == "pc_ledBegin")'
+    - '	return "pc.ledBegin();";'
+    - 'else if (functionName == "pc_buzzBegin")'
+    - '	return "pc.buzzBegin();";'
+    - 'else if (functionName == "pc_dispBegin")'
+    - '	return "pc.dispBegin();";'
+    - 'else'
+    - '	return "pc.begin();";'
+  properties:
+    bg.pc_begin: Reset Panel
+    bg.pc_keyBegin: Reset Keys
+    bg.pc_ledBegin: Reset Leds
+    bg.pc_buzzBegin: Reset Buzzer
+    bg.pc_dispBegin: Reset Display
+
+
+##########################################################################
+#  Common Properties
+##########################################################################
+
+Properties:
+  bc.pc_integer: Integer
+  bc.pc_led: Led
+  bc.pc_key: Button
+  bc.pc_state: State
+  bc.pc_event: Event
+  bc.pc_segments: Segments
+  bc.pc_digit: Digit
+  bc.pc_position: Position
+  bc.pc_frequency: Frequency
+  bc.pc_tone: Tone
+  bc.pc_time: Time
 
   
-### Menu
-Menu: [pc_ledWrite, pc_ledWrite]
+##########################################################################
+#  Families
+##########################################################################
 
-
-### Families
 Families:
-- [pc_begin, pc_dispBegin, pc_buzzBegin]
-- [DD_0, DD_0, DD_0, DD_0, DD_0,
-   DD_0, DD_0, DD_0, DD_0 ]
-
-
-### Common properties
-properties:
-- bc_picuino_led: Led
-- bc_picuino_state: State
-
+- *PICUINO_KEY_TIME
+- *PICUINO_KEYS
+- *PICUINO_DISPLAY
+- *PICUINO_TONES
+- *PICUINO_BEGIN
