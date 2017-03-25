@@ -3,7 +3,7 @@
 ##########################################################################
 
 Library:
-  name: picuino
+  name: Picuino
   description: Picuino Panel
   color: 160 0 0
   menu:
