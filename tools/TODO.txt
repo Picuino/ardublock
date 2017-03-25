@@ -1,5 +1,7 @@
 TO DO
 =====
+* Error: try to save arduprog program and cancel
+* Error: expand options of a block and click over other point of the block
 * Make Templates for automatic code generation
 * Simplify name of ultrasonic function and return mm on integer number.
 * Delete unused java modules

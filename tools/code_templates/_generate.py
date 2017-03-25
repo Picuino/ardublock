@@ -16,6 +16,9 @@ templates = {
 {% for block in blocks %}
 \t\t<BlockGenus name="{{block.name}}" kind="{{block.kind}}" color="{{library.color}}" initlabel="bg.{{block.name}}"
     {%- if block.editable %} editable-label="{{block.editable}}"{% endif %}>
+  {% if block.description %}
+\t\t\t<description> <text>{{block.description}}</text> </description>
+  {% endif %}
   {% if block.parameter or block.return %}
 \t\t\t<BlockConnectors>
     {% if block.return %}
@@ -24,11 +27,13 @@ templates = {
     {% endif %}
     {% if block.parameter %}
       {% for parameter in block.parameter %}
-\t\t\t\t<BlockConnector connector-type="{{parameter.type}}" connector-kind="socket" label="{{parameter.label}}">
         {% if parameter.default %}
+\t\t\t\t<BlockConnector connector-type="{{parameter.type}}" connector-kind="socket" label="{{parameter.label}}">
 \t\t\t\t\t<DefaultArg genus-name="{{parameter.default[0]}}" label="{{parameter.default[1]}}" />
-        {% endif %}
 \t\t\t\t</BlockConnector>
+        {% else %}
+\t\t\t\t<BlockConnector connector-type="{{parameter.type}}" connector-kind="socket" label="{{parameter.label}}" />
+        {% endif %}
       {% endfor %}
     {% endif %}
 \t\t\t</BlockConnectors>
@@ -92,7 +97,7 @@ def main():
   source_tree = []
   for f in os.listdir('.'):
     if '.yaml' in f[-5:].lower():
-      print 'Process ' + f
+      print 'Read ' + f
       source_tree.append(read_yaml(f))
   print
   render_code(source_tree)
@@ -103,12 +108,15 @@ def render_code(source_tree):
   blocks, families, menus, properties, mapping = [], [], [], [], []
 
   for source in source_tree:
-    blocks.append(render(templates['blocks'], source))
+    print 'Process ' + source['Library']['name']
+    blocks.append(render(templates['blocks'], source, verbose=True))
     families.append(render(templates['families'], source))
     menus.append(render(templates['menus'], source))
     properties.append(render(templates['properties'], source))
     mapping.append(render(templates['mapping'], source))
     render_java(source)
+
+  return
 
   template_string = read('ardublock.xml.template')
   tmpl = Template(template_string, trim_blocks=True, lstrip_blocks=True)
@@ -118,10 +126,10 @@ def render_code(source_tree):
   write('build/block-mapping.properties', mapping)
 
 
-def render(template_string, source):
-  tmpl = Template(template_string, trim_blocks=True, lstrip_blocks=True)
+def render(template_string, source, verbose=False):
   blocks = expand_blocks(source)
-  properties = extract_properties(source)
+  properties = extract_properties(source, verbose)
+  tmpl = Template(template_string, trim_blocks=True, lstrip_blocks=True)
   return tmpl.render(library=source['Library'],
                      blocks=blocks,
                      families=source['Families'],
@@ -132,8 +140,10 @@ def expand_blocks(source):
   blocks = []
   for block in source['Blocks']:
     if not 'kind' in block:
-      if block['return']:  block['kind'] = 'data'
-      else:  block['kind'] = 'command'
+      if 'return' in block and block['return']:
+        block['kind'] = 'data'
+      else:
+        block['kind'] = 'command'
     if type(block['name']) is list:
       for name in block['name']:
         newblock = copy.copy(block)
@@ -141,38 +151,49 @@ def expand_blocks(source):
         blocks.append(newblock)
     else:
       blocks.append(block)
-  return blocks
+  return  blocks
 
 
-def extract_properties(source):
+def extract_properties(source, verbose=False):
   # Extract common properties
-  sort = []
-  _properties = {}
+  properties = []
   if 'Properties' in source:
     for _property, _description in source['Properties'].iteritems():
-      if not _property in _properties:
-        _properties[_property] = _description
-        sort.append([_property, _description])
-      else:
-        print 'library: %s, Duplicated property: %s' % (_property, source['Library']['name'])
+      property_append(properties, _property, _description)
 
   # Extract block properties
   for _block in source['Blocks']:
     if  'properties' in _block:
       for _property, _description in _block['properties'].iteritems():
-        if not _property in _properties:
-          _properties[_property] = _description
-          sort.append([_property, _description])
-        else:
-          print '  Warning. Library: %s, Duplicated property: %s' % (source['Library']['name'], _property)
-    if type(_block['name']) is list:
-      for name in _block['name']:
-        _property = 'bg.' + name
-        if not _property in _properties:
-          _properties[_property] = name
-          sort.append([_property, name])
+        property_append(properties, _property, _description)
+    if 'parameter' in _block and _block['parameter']:
+      for parameter in _block['parameter']:
+        if 'label' in parameter:
+          property_append(properties, parameter['label'], None)
 
-  return sort
+  # Print undefined properties
+  if verbose:
+    for _property in properties:
+      if not _property[1]:
+        print '  Undefined property: %s' % _property[0]
+
+  return properties
+
+
+def property_append(_properties, _property, _description):
+  # Search all saved properties
+  for i in range(len(_properties)):
+    if _properties[i][0] == _property:
+      if _description and _properties[i][1]:
+        print '  Duplicated property: %s = %s' % (_property, _description)
+        print _properties
+        print i
+        asdfasdf
+      elif _description and not _properties[i][1]:
+        _properties[i][1] = _description
+      return
+  # New property
+  _properties.append([_property, _description])
 
 
 def render_java(source):
@@ -200,19 +221,27 @@ public class {{block.translator.name}} extends TranslatorBlock {
 		  {% endfor %}
 
 		{% endif %}
-		{% if block.translator.setup %}
-		  {% for setup in block.translator.setup %}
-		translator.addSetupCommand("{{setup}}");
-		  {% endfor %}
-
-		{% endif %}
 		{% if block.parameter %}
 		  {% set count = 0 %}
 		TranslatorBlock translatorBlock;
 		  {% for input in block.parameter %}
+		    {% if input.type != 'cmd' %}
 		translatorBlock = this.getRequiredTranslatorBlockAtSocket({{count}});
-		  {% set count = count + 1 %}
+		      {% set count = count + 1 %}
 		String arg{{count}} = translatorBlock.toCode();
+		    {% endif %}
+		  {% endfor %}
+
+		{% endif %}
+		{% if block.translator.definitions %}
+		  {% for definition in block.translator.definitions %}
+		translator.addDefinitionCommand("{{definition}}");
+		  {% endfor %}
+
+		{% endif %}
+		{% if block.translator.setup %}
+		  {% for setup in block.translator.setup %}
+		translator.addSetupCommand("{{setup}}");
 		  {% endfor %}
 
 		{% endif %}
@@ -220,22 +249,36 @@ public class {{block.translator.name}} extends TranslatorBlock {
 		{{code}}
 		{% endfor %}
 	}
-
 }
 """
-  
+  functions = []
   tmpl = Template(java_template, trim_blocks=True, lstrip_blocks=True)
   for block in source['Blocks']:
-    if not 'translator' in block: continue
+    if not ('translator' in block and block['translator']):
+      continue
+    if not 'name' in block['translator']:
+      continue
     code = tmpl.render(block=block)
-    filename = 'build/block/' + block['translator']['name'] + '.java'
-    write(filename, code, BOM=False)
+    filename = block['translator']['name'] + '.java'
+    if not filename in functions:
+      functions.append(filename)
+      write('build/block/' + filename, code, BOM=False)
+    else:
+      block_name = block['name']
+      if isinstance(block_name, list):
+        block_name = '[' + block_name[0] + ', ...]'
+      print "  Warning!: Duplicated java function '%s' in block '%s'" % (filename, block_name)
+    
 
+
+##################################################
+#  Auxiliary functions.
+##################################################
 
 def write(filename, data, BOM=False):
   """Write data to disk"""
   with codecs.open(filename, 'w', encoding='utf-8') as fo:
-    print 'Writing: ', filename
+    print '  Writing: ', filename
     if BOM:
        fo.write(u'\uFEFF')
     if isinstance(data, list):

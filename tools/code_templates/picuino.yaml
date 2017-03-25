@@ -3,7 +3,7 @@
 ##########################################################################
 
 Library:
-  name: Picuino
+  name: picuino
   description: Picuino Panel
   color: 160 0 0
   menu:
@@ -38,9 +38,9 @@ Library:
 Definitions:
 - &PICUINO_LABEL_CODE
   name: PcLabel
-  headers: ['PC42.h', 'Wire.h']
-  setup: ['pc.begin();']
-  code: ['return ']
+  headers: ['PC42.h']
+  setup: []
+  code: ['return codePrefix + label + codeSuffix;']
 
 - pc1: &PICUINO_TONES [
   Silence,
