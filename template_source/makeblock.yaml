@@ -54,8 +54,8 @@ Definitions:
 
 - me6: &MAKEBLOCK_CONST_CODE
     name: MeConstant
-    definitions:
     headers: ['MeMCore.h' ]
+    definitions:
     setup:
     code:
     - 'String genusName = this.getTranslator().getBlock(blockId).getGenusName();'
@@ -140,32 +140,34 @@ Blocks:
   - {type: number, label: bc.me_speed_number,  default: [number, '100']}
   translator:
     name: MeMbotMove
-    definitions:
-    - 'MeDCMotor dcMotor1(M1);'
-    - 'MeDCMotor dcMotor2(M2);'
-    - "\nvoid _mBot_moveto(int dir, int speed) {\n\
-      \  speed = (speed > 255) ? 255 : ((speed < -255) ? -255 : speed);\n\
-      \  if (speed == 0) dir = 0;\n\
-      \  if (dir == 1) {        // Forward\n\
-      \    dcMotor1.run(-speed);\n\
-      \    dcMotor2.run(speed);\n\
-      \  } else if (dir == 2) { // Backward\n\
-      \    dcMotor1.run(speed);\n\
-      \    dcMotor2.run(-speed);\n\
-      \  } else if (dir == 3) { // Left\n\
-      \    dcMotor1.run(speed);\n\
-      \    dcMotor2.run(speed);\n\
-      \  } else if (dir == 4) { // Right\n\
-      \    dcMotor1.run(-speed);\n\
-      \    dcMotor2.run(-speed);\n\
-      \  } else {               // Stop\n\
-      \    dcMotor1.stop();\n\
-      \    dcMotor2.stop();\n\
-      \  };\n\
-      };\n"
     headers: ['MeMCore.h']
+    definitions:
+    - '"MeDCMotor dcMotor1(M1);"'
+    - '"MeDCMotor dcMotor2(M2);"'
     setup:
     code:
+    - 'translator.addDefinitionCommand("\n" + '
+    - '  "void _mBot_moveto(int dir, int speed) {\n" +'
+    - '  "  speed = (speed > 255) ? 255 : ((speed < -255) ? -255 : speed);\n" +'
+    - '  "  if (speed == 0) dir = 0;\n" +'
+    - '  "  if (dir == 1) {        // Forward\n" +'
+    - '  "    dcMotor1.run(-speed);\n" +'
+    - '  "    dcMotor2.run(speed);\n" +'
+    - '  "  } else if (dir == 2) { // Backward\n" +'
+    - '  "    dcMotor1.run(speed);\n" +'
+    - '  "    dcMotor2.run(-speed);\n" +'
+    - '  "  } else if (dir == 3) { // Left\n" +'
+    - '  "    dcMotor1.run(speed);\n" +'
+    - '  "    dcMotor2.run(speed);\n" +'
+    - '  "  } else if (dir == 4) { // Right\n" +'
+    - '  "    dcMotor1.run(-speed);\n" +'
+    - '  "    dcMotor2.run(-speed);\n" +'
+    - '  "  } else {               // Stop\n" +'
+    - '  "    dcMotor1.stop();\n" +'
+    - '  "    dcMotor2.stop();\n" +'
+    - '  "  };\n" +'
+    - '  "};\n" );'
+    - ''
     - 'return "_mBot_moveto(" + arg1 + ", " + arg2 + ");";'
 
 
@@ -179,9 +181,8 @@ Blocks:
   - {type: number, label: bc.me_speed_number, default: [number, '0']}
   translator:
     name: MeMotorDriver
-    definitions:
-    - '"MeDCMotor dcMotor" + arg1 + "(M" + arg1 + ");"'
     headers: ['MeMCore.h']
+    definitions: ['"MeDCMotor dcMotor" + arg1 + "(M" + arg1 + ");"']
     setup:
     code:
     - 'TranslatorBlock block = this.getRequiredTranslatorBlockAtSocket(1);'
@@ -195,12 +196,11 @@ Blocks:
     - '      return "dcMotor" + arg1 + ".run(" + speed + ");";'
     - '   }'
     - '} else {'
-    - '   ret = "dcMotor" + arg1;'
     - '   if (Integer.parseInt(arg1) == 2) {'
-    - '      return ret + ".run(-(" + block.toCode() + "));";'
+    - '      return "dcMotor" + arg1 + ".run(-(" + block.toCode() + "));";'
     - '   }'
     - '   else {'
-    - '      return ret + ".run(" + block.toCode() + ");";'
+    - '      return "dcMotor" + arg1 + ".run(" + block.toCode() + ");";'
     - '   }'
     - '}'
 
@@ -216,8 +216,8 @@ Blocks:
   - {type: number, label: bc.me_led_blue,  default: [number, '255']}
   translator:
     name: MeLedRGB
-    definitions: ['MeRGBLed rgbled(7, 2);']
     headers: ['MeMCore.h' ]
+    definitions: ['"MeRGBLed rgbled(7, 2);"']
     setup:
     code:
     - 'String ret = "rgbled.setColor(" + arg1 + ", " + arg1 + ", " + arg2 + ", " + arg3 + ");";'
@@ -233,7 +233,7 @@ Blocks:
   translator:
     name: MeMbotLightSensor
     headers: ['MeMCore.h' ]
-    definitions: ['MeLightSensor mBotLightSensor(6);']
+    definitions: ['"MeLightSensor mBotLightSensor(6);"']
     setup:
     code:
     - 'return codePrefix + "mBotLightSensor.read()" + codeSuffix;'
@@ -248,7 +248,7 @@ Blocks:
   translator:
     name: MeMbotIRGetcode
     headers: ['MeMCore.h' ]
-    definitions: ['MeIR mBotIR;' ]
+    definitions: ['"MeIR mBotIR;"']
     setup:
     code:
     - 'return codePrefix + "mBotIR.getCode()" + codeSuffix;'
@@ -264,21 +264,22 @@ Blocks:
   translator:
     name: MeMbotIRSendcode
     headers: ['MeMCore.h' ]
-    definitions: ['MeIR mBotIR;' ]
+    definitions: ['"MeIR mBotIR;"']
     setup:
     code:
-    - 'translator.addDefinitionCommand("\nvoid _mBot_IRSendByte(uint8_t data) {\n"'
-    - '  "  union {\n" +' 
-    - '  "    struct {\n" +' 
-    - '  "      byte b3; byte b2; byte b1; byte b0;\n" +' 
-    - '  "    };\n" +' 
-    - '  "    long l;\n" +' 
-    - '  "  } ldata;\n" +' 
-    - '  "  ldata.b3 = ~data; ldata.b2 = data; ldata.b1 = 0x00; ldata.b0 = 0xff;\n" +' 
-    - '  "  mBotIR.sendNEC(ldata.l, 32);\n" +' 
-    - '  "  delay(20);\n" +' 
-    - '  "};\n");' 
-    - '' 
+    - 'translator.addDefinitionCommand("\n" +'
+    - '  "void _mBot_IRSendByte(uint8_t data) {\n" +'
+    - '  "  union {\n" +'
+    - '  "    struct {\n" +'
+    - '  "      byte b3; byte b2; byte b1; byte b0;\n" +'
+    - '  "    };\n" +'
+    - '  "    long l;\n" +'
+    - '  "  } ldata;\n" +'
+    - '  "  ldata.b3 = ~data; ldata.b2 = data; ldata.b1 = 0x00; ldata.b0 = 0xff;\n" +'
+    - '  "  mBotIR.sendNEC(ldata.l, 32);\n" +'
+    - '  "  delay(20);\n" +'
+    - '  "};\n" );'
+    - ''
     - 'return "_mBot_IRSendByte((uint8_t)(" + arg1 + "));";'
 
 
@@ -292,9 +293,9 @@ Blocks:
     name: MeMbotSwitch
     headers: ['MeMCore.h' ]
     definitions:
-    setup: ['pinMode(A7, INPUT);' ]
+    setup: ['"pinMode(A7, INPUT);"' ]
     code:
-    - return codePrefix + "(analogRead(A7) < 512)" + codeSuffix;'
+    - 'return codePrefix + "(analogRead(A7) < 512)" + codeSuffix;'
 
 
 - name: me_mbot_tone
@@ -307,7 +308,7 @@ Blocks:
   translator:
     name: MeMbotTone
     headers: ['MeMCore.h' ]
-    definitions: ['MeBuzzer buzzer;' ]
+    definitions: ['"MeBuzzer buzzer;"' ]
     setup:
     code:
     - 'return "buzzer.tone(" + arg1 + ", " + arg2 + ");";'
@@ -322,7 +323,7 @@ Blocks:
   translator:
     name: MeMbotToneOff
     headers: ['MeMCore.h' ]
-    definitions: ['MeBuzzer buzzer;' ]
+    definitions: ['"MeBuzzer buzzer;"' ]
     setup:
     code:
     - 'return "buzzer.noTone();";'
@@ -339,7 +340,7 @@ Blocks:
   translator:
     name: MeUltrasonicSensor
     headers: ['MeMCore.h' ]
-    definitions: ['MeUltrasonicSensor ultraSensor" + arg1 + "(PORT_" + arg1 + ");";']
+    definitions: ['"MeUltrasonicSensor ultraSensor" + arg1 + "(PORT_" + arg1 + ");"']
     setup:
     code:
     - 'return codePrefix + "(int)(10 * ultraSensor" + arg1 + ".distanceCm())" + codeSuffix;'
@@ -356,7 +357,7 @@ Blocks:
   translator:
     name: MeLineFollower
     headers: ['MeMCore.h' ]
-    definitions: ['MeLineFollower lineFollower" + arg1 + "(PORT_" + translatorBlock.toCode() + ");' ]
+    definitions: ['"MeLineFollower lineFollower" + arg1 + "(PORT_" + arg1 + ");"']
     setup:
     code:
     - 'return codePrefix + "lineFollower" + arg1 + ".readSensors()" + codeSuffix;'
@@ -390,9 +391,16 @@ Blocks:
   translator:
     name: MeShutter
     headers: ['MeMCore.h' ]
-    definitions: []
+    definitions: ['"MeShutter shutter" + arg1 + "(PORT_" + arg1 + ");"']
     setup:
-    code: [ ]
+    code:
+    - 'int stateId = Integer.parseInt(arg2);'
+    - 'String ret;'
+    - 'if (stateId == 1) ret = ".shotOn()";'
+    - 'else if (stateId == 2) ret = ".shotOff()";'
+    - 'else if (stateId == 2) ret = ".focusOn()";'
+    - 'else ret = ".focusOff()";'
+    - 'return "shutter" + arg1 + ret + ";";'
 
 
 - name: me_stepper_motor
@@ -409,9 +417,20 @@ Blocks:
   translator:
     name: MeStepperMotor
     headers: ['MeMCore.h' ]
-    definitions: []
-    setup:
-    code: [ ]
+    definitions: ['"MeStepperMotor stepper" + arg1 + "(PORT_" + arg1 + ");"']
+    setup: ['"stepper" + arg1 + ".begin(STP_SIXTEENTH, " + arg2 + ", " + arg3 + ");"']
+    code:
+    - 'String ret = "stepper" + arg1 + ".moveTo(" + arg4 + ");\n";'
+    - 'ret += "int distance = stepper" + arg1 + ".distanceToGo();\n";'
+    - 'ret += "if (distance==0) {\n";'
+    - 'TranslatorBlock execBlock = this.getTranslatorBlockAtSocket(4);'
+    - 'String exec = "";'
+    - 'while (execBlock != null) {'
+    - '	exec += "\t" + execBlock.toCode() + "\n";'
+    - '	execBlock = execBlock.nextTranslatorBlock();'
+    - '}'
+    - 'ret += exec + "\n};";'
+    - 'return ret;'
 
 
 - name: me_bluetooth_read
@@ -426,9 +445,16 @@ Blocks:
   translator:
     name: MeBluetoothRead
     headers: ['MeMCore.h' ]
-    definitions: []
-    setup:
-    code: [ ]
+    definitions: ['"MeBluetooth bluetooth" + arg1 + "(PORT_" + arg1 + ");"']
+    setup: ['"bluetooth" + arg1 + ".begin(9600);"']
+    code:
+    - 'TranslatorBlock execBlock = this.getTranslatorBlockAtSocket(2);'
+    - 'String exec = "";'
+    - 'while (execBlock != null) {'
+    - '	exec += execBlock.toCode()+ "\n";'
+    - '	execBlock = execBlock.nextTranslatorBlock();'
+    - '}'
+    - 'return arg2 + "= bluetooth" + arg2 + ".read();\nif (" + arg2 + " > -1) {\n" + exec + "\n};";'
 
 
 - name: me_bluetooth_write
@@ -442,9 +468,10 @@ Blocks:
   translator:
     name: MeBluetoothWrite
     headers: ['MeMCore.h' ]
-    definitions: []
-    setup:
-    code: [ ]
+    definitions: ['"MeBluetooth bluetooth" + arg1 + "(PORT_" + arg2 + ");"']
+    setup: ['"bluetooth" + arg1 + ".begin(9600);"']
+    code:
+    - 'return "bluetooth" + arg1 + ".write(" + arg2 + ");";'
 
 
 - name: me_bluetooth_commands
@@ -461,14 +488,13 @@ Blocks:
     definitions: []
     setup:
     code:
-    - 'translatorBlock = getTranslatorBlockAtSocket(1);'
-    - 'String ret = "if (bluetooth" + arg1 + ".paramAvailable()) {";'
-    - 'while (translatorBlock != null) {'
-    - '\tret += "\t" + translatorBlock.toCode() + "\n";'
-    - '\texecBlock = translatorBlock.nextTranslatorBlock();'
+    - 'TranslatorBlock execBlock = this.getTranslatorBlockAtSocket(1);'
+    - 'String exec = "if (bluetooth" + arg1 + ".paramAvailable()) {\n";'
+    - 'while (execBlock != null) {'
+    - '	exec += "\t" + execBlock.toCode()+ "\n";'
+    - '	execBlock = execBlock.nextTranslatorBlock();'
     - '}'
-    - 'ret += "};\n";'
-    - 'return ret;'
+    - 'return exec + "};\n";'
 
 
 - name: me_bluetooth_command
@@ -483,9 +509,10 @@ Blocks:
   translator:
     name: MeBluetoothCommand
     headers: ['MeMCore.h' ]
-    definitions: []
-    setup:
-    code: [ ]
+    definitions: ['"MeBluetooth bluetooth" + arg1 + "(PORT_" + arg1 + ");"']
+    setup: ['"bluetooth" + arg1 + ".begin(9600);"']
+    code:
+    - 'return "bluetooth" + arg1 + ".getParamValue(\"" + arg2.replace("\"", "") + "\")";'
 
 
 ##########################################################################

@@ -36,13 +36,13 @@ public class {{block.translator.name}} extends TranslatorBlock {
 		{% endif %}
 		{% if block.translator.definitions %}
 		  {% for definition in block.translator.definitions %}
-		translator.addDefinitionCommand("{{definition}}");
+		translator.addDefinitionCommand({{definition}});
 		  {% endfor %}
 
 		{% endif %}
 		{% if block.translator.setup %}
 		  {% for setup in block.translator.setup %}
-		translator.addSetupCommand("{{setup}}");
+		translator.addSetupCommand({{setup}});
 		  {% endfor %}
 
 		{% endif %}

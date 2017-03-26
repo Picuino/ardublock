@@ -40,7 +40,8 @@ Definitions:
   name: PcLabel
   headers: ['PC42.h']
   setup: []
-  code: ['return codePrefix + label + codeSuffix;']
+  code:
+  - 'return codePrefix + label + codeSuffix;'
 
 - pc1: &PICUINO_TONES [
   Silence,
@@ -91,6 +92,8 @@ Blocks:
     << : *PICUINO_LABEL_CODE
 
 - name: pc_ledWrite
+  properties:
+    bg.pc_ledWrite: Led Write
   parameter:
   - {type: number,  label: bc.pc_led,   default: [number, '1']}
   - {type: boolean, label: bc.pc_state, default: [digital-on, 'ON']}
@@ -98,13 +101,15 @@ Blocks:
   translator:
     name:  PcLedWrite
     headers: ['PC42.h', 'Wire.h']
-    setup: ['pc.begin();']
+    setup: ['"pc.begin();"']
     code:
     - 'return "pc.ledWrite(" + arg1 + ", " + arg2 + ");";'
-  properties:
-    bg.pc_ledWrite: Led Write
 
 - name: pc_ledBlink
+  properties:
+    bg.pc_ledBlink: Led Blink
+    bc.pc_time_on: Time On
+    bc.pc_time_off: Time Off
   parameter:
   - {type: number, label: bc.pc_led,      default: [number, '1']}
   - {type: number, label: bc.pc_time_on,  default: [number, '500']}
@@ -113,32 +118,30 @@ Blocks:
   translator:
     name:  PcLedBlink
     headers: ['PC42.h', 'Wire.h']
-    setup: ['pc.begin();']
+    setup: ['"pc.begin();"']
     code:
     - 'return "pc.ledBlink(" + arg1 + ", " + arg2 + ", " + arg3 + ");";'
-  properties:
-    bg.pc_ledBlink: Led Blink
-    bc.pc_time_on: Time On
-    bc.pc_time_off: Time Off
 
 - name: [ pc_keyPressed, pc_keyValue ]
+  properties:
+    bg.pc_keyPressed: Key Pressed
+    bg.pc_keyValue: Key Value
   parameter:
   - {type: number, label: bc.pc_key, default: [number, '1']}
   return: {type: boolean }
   translator:
     name:  PcKeyPressed
     headers: ['PC42.h', 'Wire.h']
-    setup: ['pc.begin();']
+    setup: ['"pc.begin();"']
     code:
     - 'String functionName = this.getTranslator().getBlock(blockId).getGenusName();'
     - 'if (functionName == "pc_keyValue")'
     - '	return "pc.keyValue(" + arg1 + ");";'
     - 'return "pc.keyPressed(" + arg1 + ");";'
-  properties:
-    bg.pc_keyPressed: Key Pressed
-    bg.pc_keyValue: Key Value
 
 - name: pc_keyEvents
+  properties:
+    bg.pc_keyEvents: Key Events
   parameter:
   - {type: number, label: bc.pc_key, default: [number, '1']}
   - {type: number, label: bc.pc_event, default: [KEY_PRESSED_TIME1, 'KEY_PRESSED_TIME1']}
@@ -146,56 +149,56 @@ Blocks:
   translator:
     name:  PcKeyEvents
     headers: ['PC42.h', 'Wire.h']
-    setup: ['pc.begin();']
+    setup: ['"pc.begin();"']
     code:
     - 'return "pc.keyEvents(" + arg1 + ", " + arg2 + ");";'
-  properties:
-    bg.pc_keyEvents: Key Events
 
 - name: pc_keyCount
+  properties:
+    bg.pc_keyCount: Key Count
   parameter:
   - {type: number, label: bc.pc_key, default: [number, '1']}
   return: {type: number }
   translator:
     name:  PcKeyCount
     headers: ['PC42.h', 'Wire.h']
-    setup: ['pc.begin();']
+    setup: ['"pc.begin();"']
     code:
     - 'return "pc.keyCount(" + arg1 + ");";'
-  properties:
-    bg.pc_keyCount: Key Count
 
 - name: [pc_keyTimeOn, pc_keyTimeOff]
+  properties:
+    bg.pc_keyTimeOn: Key Time On
+    bg.pc_keyTimeOff: Key Time Off    
   parameter:
   - {type: number, label: bc.pc_key, default: [number, '1']}
   return: {type: number }
   translator:
     name:  PcKeyTime
     headers: ['PC42.h', 'Wire.h']
-    setup: ['pc.begin();']
+    setup: ['"pc.begin();"']
     code:
     - 'String functionName = this.getTranslator().getBlock(blockId).getGenusName();'
     - 'if (functionName == "pc_keyTimeOn")'
     - '	return "pc.keyTimeOn(" + arg1 + ");";'
     - 'return "pc.keyTimeOff(" + arg1 + ");";'
-  properties:
-    bg.pc_keyTimeOn: Key Time On
-    bg.pc_keyTimeOff: Key Time Off    
 
 - name: pc_dispNum
+  properties:
+    bg.pc_dispNum: Display Number
   parameter:
   - {type: number, label: bc.pc_integer,  default: [number, '123']}
   return:
   translator:
     name:  PcDispNum
     headers: ['PC42.h', 'Wire.h']
-    setup: ['pc.begin();']
+    setup: ['"pc.begin();"']
     code:
     - 'return "pc.dispNum(" + arg1 + ");";'
-  properties:
-    bg.pc_dispNum: Display Number
 
 - name: pc_dispWrite
+  properties:
+    bg.pc_dispWrite: Display Write
   parameter:
   - {type: number, label: bc.pc_position,  default: [number, '1']}
   - {type: number, label: bc.pc_segments,  default: [DD_A, DD_A]}
@@ -203,13 +206,13 @@ Blocks:
   translator:
     name:  PcDispWrite
     headers: ['PC42.h', 'Wire.h']
-    setup: ['pc.begin();']
+    setup: ['"pc.begin();"']
     code:
     - 'return "pc.dispWrite(" + arg1 + ");";'
-  properties:
-    bg.pc_dispWrite: Display Write
 
 - name: pc_dispWrite4
+  properties:
+    bg.pc_dispWrite4: Display Write x4
   parameter:
   - {type: number, label: bc.pc_digit,  default: [DD_H, DD_H]}
   - {type: number, label: bc.pc_digit,  default: [DD_O, DD_O]}
@@ -219,39 +222,40 @@ Blocks:
   translator:
     name:  PcDispWrite4
     headers: ['PC42.h', 'Wire.h']
-    setup: ['pc.begin();']
+    setup: ['"pc.begin();"']
     code:
     - 'return "pc.dispWrite4(" + arg1 + ", " + arg2 + ", " + arg3 + ", " + arg4 + ");";'
-  properties:
-    bg.pc_dispWrite4: Display Write x4
     
 - name: pc_buzzFreq
+  properties:
+    bg.pc_buzzFreq: Buzzer Frequency
   parameter:
   - {type: number, label: bc.pc_frequency,  default: [number, '1000']}
   return:
   translator:
     name:  PcBuzzFreq
     headers: ['PC42.h', 'Wire.h']
-    setup: ['pc.begin();']
+    setup: ['"pc.begin();"']
     code:
     - 'return "pc.buzzFreq(" + arg1 + ");";'
-  properties:
-    bg.pc_buzzFreq: Buzzer Frequency
     
 - name: pc_buzzTone
+  properties:
+    bg.pc_buzzTone: Buzzer Tone
   parameter:
   - {type: number, label: bc.pc_tone,  default: [Do4, Do4]}
   return:
   translator:
     name:  PcBuzzTone
     headers: ['PC42.h', 'Wire.h']
-    setup: ['pc.begin();']
+    setup: ['"pc.begin();"']
     code:
     - 'return "pc.buzzTone(" + arg1 + ");";'
-  properties:
-    bg.pc_buzzTone: Buzzer Tone
+
 
 - name: pc_buzzPlay
+  properties:
+    bg.pc_buzzPlay: Buzzer Play
   parameter:
   - {type: number, label: bc.pc_tone,  default: [Do4, Do4]}
   - {type: number, label: bc.pc_time,  default: [number, '500']}
@@ -259,47 +263,52 @@ Blocks:
   translator:
     name:  PcBuzzPlay
     headers: ['PC42.h', 'Wire.h']
-    setup: ['pc.begin();']
+    setup: ['"pc.begin();"']
     code:
     - 'return "pc.buzzPlay(" + arg1 + ", " + arg2 + ");";'
-  properties:
-    bg.pc_buzzPlay: Buzzer Play
 
 - name: pc_buzzPlayLen
+  properties:
+    bg.pc_buzzPlayLen: Buzzer Play Length
   parameter:
   return: { type: number }
   translator:
     name:  PcBuzzPlayLen
     headers: ['PC42.h', 'Wire.h']
-    setup: ['pc.begin();']
+    setup: ['"pc.begin();"']
     code:
     - 'return "pc.buzzPlayLen();";'
-  properties:
-    bg.pc_buzzPlayLen: Buzzer Play Length
 
 - name: [pc_buzzOn, pc_buzzOff]
+  properties:
+    bg.pc_buzzOn: Buzzer On
+    bg.pc_buzzOff: Buzzer Off
   parameter:
   return:
   translator:
     name: PcBuzzOnOff
     headers: ['PC42.h', 'Wire.h']
-    setup: ['pc.begin();']
+    setup: ['"pc.begin();"']
     code:
     - 'String functionName = this.getTranslator().getBlock(blockId).getGenusName();'
     - 'if (functionName == "pc_buzzOn")'
     - '	return "pc.buzzOn();";'
     - 'return "pc.buzzOff();";'
-  properties:
-    bg.pc_buzzOn: Buzzer On
-    bg.pc_buzzOff: Buzzer Off
+
 
 - name: *PICUINO_BEGIN
+  properties:
+    bg.pc_begin: Reset Panel
+    bg.pc_keyBegin: Reset Keys
+    bg.pc_ledBegin: Reset Leds
+    bg.pc_buzzBegin: Reset Buzzer
+    bg.pc_dispBegin: Reset Display
   parameter:
   return:
   translator:
     name:  PcBegin
     headers: ['PC42.h', 'Wire.h']
-    setup: ['pc.begin();']
+    setup: ['"pc.begin();"']
     code:
     - 'String functionName = this.getTranslator().getBlock(blockId).getGenusName();'
     - 'if (functionName == "pc_keyBegin")'
@@ -312,12 +321,6 @@ Blocks:
     - '	return "pc.dispBegin();";'
     - 'else'
     - '	return "pc.begin();";'
-  properties:
-    bg.pc_begin: Reset Panel
-    bg.pc_keyBegin: Reset Keys
-    bg.pc_ledBegin: Reset Leds
-    bg.pc_buzzBegin: Reset Buzzer
-    bg.pc_dispBegin: Reset Display
 
 
 ##########################################################################
