@@ -1,4 +1,4 @@
-package com.ardublock.translator.block;
+package com.ardublock.translator.block.{{library_name}};
 
 import com.ardublock.translator.Translator;
 import com.ardublock.translator.block.NumberBlock;

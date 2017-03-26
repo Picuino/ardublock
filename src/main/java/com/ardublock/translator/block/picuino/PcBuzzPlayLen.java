@@ -1,4 +1,4 @@
-package com.ardublock.translator.block;
+package com.ardublock.translator.block.picuino;
 
 import com.ardublock.translator.Translator;
 import com.ardublock.translator.block.NumberBlock;
@@ -7,9 +7,9 @@ import com.ardublock.translator.block.exception.BlockException;
 import com.ardublock.translator.block.exception.SocketNullException;
 import com.ardublock.translator.block.exception.SubroutineNotDeclaredException;
 
-public class PcLabel extends TranslatorBlock {
+public class PcBuzzPlayLen extends TranslatorBlock {
 
-	public PcLabel(Long blockId, Translator translator, String codePrefix, String codeSuffix, String label) {
+	public PcBuzzPlayLen(Long blockId, Translator translator, String codePrefix, String codeSuffix, String label) {
 		super(blockId, translator, codePrefix, codeSuffix, label);
 	}
 
@@ -17,7 +17,10 @@ public class PcLabel extends TranslatorBlock {
 	public String toCode() throws SocketNullException, SubroutineNotDeclaredException {
 
 		translator.addHeaderFile("PC42.h");
+		translator.addHeaderFile("Wire.h");
 
-		return codePrefix + label + codeSuffix;
+		translator.addSetupCommand("pc.begin();");
+
+		return "pc.buzzPlayLen();";
 	}
 }

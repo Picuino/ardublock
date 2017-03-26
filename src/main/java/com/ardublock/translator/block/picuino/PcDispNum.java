@@ -1,4 +1,4 @@
-package com.ardublock.translator.block;
+package com.ardublock.translator.block.picuino;
 
 import com.ardublock.translator.Translator;
 import com.ardublock.translator.block.NumberBlock;
@@ -7,19 +7,24 @@ import com.ardublock.translator.block.exception.BlockException;
 import com.ardublock.translator.block.exception.SocketNullException;
 import com.ardublock.translator.block.exception.SubroutineNotDeclaredException;
 
-public class MeMbotLightSensor extends TranslatorBlock {
+public class PcDispNum extends TranslatorBlock {
 
-	public MeMbotLightSensor(Long blockId, Translator translator, String codePrefix, String codeSuffix, String label) {
+	public PcDispNum(Long blockId, Translator translator, String codePrefix, String codeSuffix, String label) {
 		super(blockId, translator, codePrefix, codeSuffix, label);
 	}
 
 	@Override
 	public String toCode() throws SocketNullException, SubroutineNotDeclaredException {
 
-		translator.addHeaderFile("MeMCore.h");
+		translator.addHeaderFile("PC42.h");
+		translator.addHeaderFile("Wire.h");
 
-		translator.addDefinitionCommand("MeLightSensor mBotLightSensor(6);");
+		TranslatorBlock translatorBlock;
+		translatorBlock = this.getRequiredTranslatorBlockAtSocket(0);
+		String arg1 = translatorBlock.toCode();
 
-		return codePrefix + "mBotLightSensor.read()" + codeSuffix;
+		translator.addSetupCommand("pc.begin();");
+
+		return "pc.dispNum(" + arg1 + ");";
 	}
 }

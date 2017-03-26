@@ -1,4 +1,4 @@
-package com.ardublock.translator.block;
+package com.ardublock.translator.block.picuino;
 
 import com.ardublock.translator.Translator;
 import com.ardublock.translator.block.NumberBlock;
@@ -7,19 +7,23 @@ import com.ardublock.translator.block.exception.BlockException;
 import com.ardublock.translator.block.exception.SocketNullException;
 import com.ardublock.translator.block.exception.SubroutineNotDeclaredException;
 
-public class MeMbotToneOff extends TranslatorBlock {
+public class PcBuzzOnOff extends TranslatorBlock {
 
-	public MeMbotToneOff(Long blockId, Translator translator, String codePrefix, String codeSuffix, String label) {
+	public PcBuzzOnOff(Long blockId, Translator translator, String codePrefix, String codeSuffix, String label) {
 		super(blockId, translator, codePrefix, codeSuffix, label);
 	}
 
 	@Override
 	public String toCode() throws SocketNullException, SubroutineNotDeclaredException {
 
-		translator.addHeaderFile("MeMCore.h");
+		translator.addHeaderFile("PC42.h");
+		translator.addHeaderFile("Wire.h");
 
-		translator.addDefinitionCommand("MeBuzzer buzzer;");
+		translator.addSetupCommand("pc.begin();");
 
-		return "buzzer.noTone();";
+		String functionName = this.getTranslator().getBlock(blockId).getGenusName();
+		if (functionName == "pc_buzzOn")
+			return "pc.buzzOn();";
+		return "pc.buzzOff();";
 	}
 }

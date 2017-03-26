@@ -1,4 +1,4 @@
-package com.ardublock.translator.block;
+package com.ardublock.translator.block.picuino;
 
 import com.ardublock.translator.Translator;
 import com.ardublock.translator.block.NumberBlock;
@@ -7,9 +7,9 @@ import com.ardublock.translator.block.exception.BlockException;
 import com.ardublock.translator.block.exception.SocketNullException;
 import com.ardublock.translator.block.exception.SubroutineNotDeclaredException;
 
-public class PcBuzzFreq extends TranslatorBlock {
+public class PcLedBlink extends TranslatorBlock {
 
-	public PcBuzzFreq(Long blockId, Translator translator, String codePrefix, String codeSuffix, String label) {
+	public PcLedBlink(Long blockId, Translator translator, String codePrefix, String codeSuffix, String label) {
 		super(blockId, translator, codePrefix, codeSuffix, label);
 	}
 
@@ -22,9 +22,13 @@ public class PcBuzzFreq extends TranslatorBlock {
 		TranslatorBlock translatorBlock;
 		translatorBlock = this.getRequiredTranslatorBlockAtSocket(0);
 		String arg1 = translatorBlock.toCode();
+		translatorBlock = this.getRequiredTranslatorBlockAtSocket(1);
+		String arg2 = translatorBlock.toCode();
+		translatorBlock = this.getRequiredTranslatorBlockAtSocket(2);
+		String arg3 = translatorBlock.toCode();
 
 		translator.addSetupCommand("pc.begin();");
 
-		return "pc.buzzFreq(" + arg1 + ");";
+		return "pc.ledBlink(" + arg1 + ", " + arg2 + ", " + arg3 + ");";
 	}
 }

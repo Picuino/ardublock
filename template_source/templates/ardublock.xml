@@ -2611,6 +2611,13 @@
 			</BlockDrawer>
 			<!-- End BlockDrawer {{library.name}} -->
 {% endfor %}
+
+			<BlockDrawer button-color="128 128 128" name="bd.especial" type="factory">
+				<BlockGenusMember>code_head</BlockGenusMember>
+				<BlockGenusMember>code_setup</BlockGenusMember>
+				<BlockGenusMember>code_loop</BlockGenusMember>
+			</BlockDrawer>
+
 		</BlockDrawerSet>
 	</BlockDrawerSets>
 

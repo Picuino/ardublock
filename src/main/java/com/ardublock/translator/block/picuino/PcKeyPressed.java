@@ -1,4 +1,4 @@
-package com.ardublock.translator.block;
+package com.ardublock.translator.block.picuino;
 
 import com.ardublock.translator.Translator;
 import com.ardublock.translator.block.NumberBlock;
@@ -7,9 +7,9 @@ import com.ardublock.translator.block.exception.BlockException;
 import com.ardublock.translator.block.exception.SocketNullException;
 import com.ardublock.translator.block.exception.SubroutineNotDeclaredException;
 
-public class PcBegin extends TranslatorBlock {
+public class PcKeyPressed extends TranslatorBlock {
 
-	public PcBegin(Long blockId, Translator translator, String codePrefix, String codeSuffix, String label) {
+	public PcKeyPressed(Long blockId, Translator translator, String codePrefix, String codeSuffix, String label) {
 		super(blockId, translator, codePrefix, codeSuffix, label);
 	}
 
@@ -19,18 +19,15 @@ public class PcBegin extends TranslatorBlock {
 		translator.addHeaderFile("PC42.h");
 		translator.addHeaderFile("Wire.h");
 
+		TranslatorBlock translatorBlock;
+		translatorBlock = this.getRequiredTranslatorBlockAtSocket(0);
+		String arg1 = translatorBlock.toCode();
+
 		translator.addSetupCommand("pc.begin();");
 
 		String functionName = this.getTranslator().getBlock(blockId).getGenusName();
-		if (functionName == "pc_keyBegin")
-			return "pc.keyBegin();";
-		else if (functionName == "pc_ledBegin")
-			return "pc.ledBegin();";
-		else if (functionName == "pc_buzzBegin")
-			return "pc.buzzBegin();";
-		else if (functionName == "pc_dispBegin")
-			return "pc.dispBegin();";
-		else
-			return "pc.begin();";
+		if (functionName == "pc_keyValue")
+			return "pc.keyValue(" + arg1 + ");";
+		return "pc.keyPressed(" + arg1 + ");";
 	}
 }

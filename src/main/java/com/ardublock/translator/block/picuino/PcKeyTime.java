@@ -1,4 +1,4 @@
-package com.ardublock.translator.block;
+package com.ardublock.translator.block.picuino;
 
 import com.ardublock.translator.Translator;
 import com.ardublock.translator.block.NumberBlock;
@@ -7,9 +7,9 @@ import com.ardublock.translator.block.exception.BlockException;
 import com.ardublock.translator.block.exception.SocketNullException;
 import com.ardublock.translator.block.exception.SubroutineNotDeclaredException;
 
-public class PcKeyEvents extends TranslatorBlock {
+public class PcKeyTime extends TranslatorBlock {
 
-	public PcKeyEvents(Long blockId, Translator translator, String codePrefix, String codeSuffix, String label) {
+	public PcKeyTime(Long blockId, Translator translator, String codePrefix, String codeSuffix, String label) {
 		super(blockId, translator, codePrefix, codeSuffix, label);
 	}
 
@@ -22,11 +22,12 @@ public class PcKeyEvents extends TranslatorBlock {
 		TranslatorBlock translatorBlock;
 		translatorBlock = this.getRequiredTranslatorBlockAtSocket(0);
 		String arg1 = translatorBlock.toCode();
-		translatorBlock = this.getRequiredTranslatorBlockAtSocket(1);
-		String arg2 = translatorBlock.toCode();
 
 		translator.addSetupCommand("pc.begin();");
 
-		return "pc.keyEvents(" + arg1 + ", " + arg2 + ");";
+		String functionName = this.getTranslator().getBlock(blockId).getGenusName();
+		if (functionName == "pc_keyTimeOn")
+			return "pc.keyTimeOn(" + arg1 + ");";
+		return "pc.keyTimeOff(" + arg1 + ");";
 	}
 }
