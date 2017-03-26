@@ -2953,6 +2953,446 @@
 
 		<!-- End BlockGenus Picuino -->
 
+		<!-- BlockGenus Makeblock -->
+		<BlockGenus name="me_port_1" kind="data" color="10 134 152" initlabel="bg.me_port_1">
+			<BlockConnectors>
+				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
+			</BlockConnectors>
+		</BlockGenus>
+
+		<BlockGenus name="me_port_2" kind="data" color="10 134 152" initlabel="bg.me_port_2">
+			<BlockConnectors>
+				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
+			</BlockConnectors>
+		</BlockGenus>
+
+		<BlockGenus name="me_port_3" kind="data" color="10 134 152" initlabel="bg.me_port_3">
+			<BlockConnectors>
+				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
+			</BlockConnectors>
+		</BlockGenus>
+
+		<BlockGenus name="me_port_4" kind="data" color="10 134 152" initlabel="bg.me_port_4">
+			<BlockConnectors>
+				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
+			</BlockConnectors>
+		</BlockGenus>
+
+		<BlockGenus name="me_port_5" kind="data" color="10 134 152" initlabel="bg.me_port_5">
+			<BlockConnectors>
+				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
+			</BlockConnectors>
+		</BlockGenus>
+
+		<BlockGenus name="me_port_6" kind="data" color="10 134 152" initlabel="bg.me_port_6">
+			<BlockConnectors>
+				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
+			</BlockConnectors>
+		</BlockGenus>
+
+		<BlockGenus name="me_port_7" kind="data" color="10 134 152" initlabel="bg.me_port_7">
+			<BlockConnectors>
+				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
+			</BlockConnectors>
+		</BlockGenus>
+
+		<BlockGenus name="me_port_8" kind="data" color="10 134 152" initlabel="bg.me_port_8">
+			<BlockConnectors>
+				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
+			</BlockConnectors>
+		</BlockGenus>
+
+		<BlockGenus name="me_motor_1" kind="data" color="10 134 152" initlabel="bg.me_motor_1">
+			<BlockConnectors>
+				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
+			</BlockConnectors>
+		</BlockGenus>
+
+		<BlockGenus name="me_motor_2" kind="data" color="10 134 152" initlabel="bg.me_motor_2">
+			<BlockConnectors>
+				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
+			</BlockConnectors>
+		</BlockGenus>
+
+		<BlockGenus name="me_movestop_0" kind="data" color="10 134 152" initlabel="bg.me_movestop_0">
+			<BlockConnectors>
+				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
+			</BlockConnectors>
+		</BlockGenus>
+
+		<BlockGenus name="me_moveforward_1" kind="data" color="10 134 152" initlabel="bg.me_moveforward_1">
+			<BlockConnectors>
+				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
+			</BlockConnectors>
+		</BlockGenus>
+
+		<BlockGenus name="me_movebackward_2" kind="data" color="10 134 152" initlabel="bg.me_movebackward_2">
+			<BlockConnectors>
+				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
+			</BlockConnectors>
+		</BlockGenus>
+
+		<BlockGenus name="me_moveleft_3" kind="data" color="10 134 152" initlabel="bg.me_moveleft_3">
+			<BlockConnectors>
+				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
+			</BlockConnectors>
+		</BlockGenus>
+
+		<BlockGenus name="me_moveright_4" kind="data" color="10 134 152" initlabel="bg.me_moveright_4">
+			<BlockConnectors>
+				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
+			</BlockConnectors>
+		</BlockGenus>
+
+		<BlockGenus name="me_shutter_1" kind="data" color="10 134 152" initlabel="bg.me_shutter_1">
+			<BlockConnectors>
+				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
+			</BlockConnectors>
+		</BlockGenus>
+
+		<BlockGenus name="me_shutter_2" kind="data" color="10 134 152" initlabel="bg.me_shutter_2">
+			<BlockConnectors>
+				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
+			</BlockConnectors>
+		</BlockGenus>
+
+		<BlockGenus name="me_shutter_3" kind="data" color="10 134 152" initlabel="bg.me_shutter_3">
+			<BlockConnectors>
+				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
+			</BlockConnectors>
+		</BlockGenus>
+
+		<BlockGenus name="me_shutter_4" kind="data" color="10 134 152" initlabel="bg.me_shutter_4">
+			<BlockConnectors>
+				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
+			</BlockConnectors>
+		</BlockGenus>
+
+		<BlockGenus name="me_ircontrol_a" kind="data" color="10 134 152" initlabel="bg.me_ircontrol_a">
+			<BlockConnectors>
+				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
+			</BlockConnectors>
+		</BlockGenus>
+
+		<BlockGenus name="me_ircontrol_b" kind="data" color="10 134 152" initlabel="bg.me_ircontrol_b">
+			<BlockConnectors>
+				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
+			</BlockConnectors>
+		</BlockGenus>
+
+		<BlockGenus name="me_ircontrol_c" kind="data" color="10 134 152" initlabel="bg.me_ircontrol_c">
+			<BlockConnectors>
+				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
+			</BlockConnectors>
+		</BlockGenus>
+
+		<BlockGenus name="me_ircontrol_d" kind="data" color="10 134 152" initlabel="bg.me_ircontrol_d">
+			<BlockConnectors>
+				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
+			</BlockConnectors>
+		</BlockGenus>
+
+		<BlockGenus name="me_ircontrol_e" kind="data" color="10 134 152" initlabel="bg.me_ircontrol_e">
+			<BlockConnectors>
+				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
+			</BlockConnectors>
+		</BlockGenus>
+
+		<BlockGenus name="me_ircontrol_f" kind="data" color="10 134 152" initlabel="bg.me_ircontrol_f">
+			<BlockConnectors>
+				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
+			</BlockConnectors>
+		</BlockGenus>
+
+		<BlockGenus name="me_ircontrol_0" kind="data" color="10 134 152" initlabel="bg.me_ircontrol_0">
+			<BlockConnectors>
+				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
+			</BlockConnectors>
+		</BlockGenus>
+
+		<BlockGenus name="me_ircontrol_1" kind="data" color="10 134 152" initlabel="bg.me_ircontrol_1">
+			<BlockConnectors>
+				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
+			</BlockConnectors>
+		</BlockGenus>
+
+		<BlockGenus name="me_ircontrol_2" kind="data" color="10 134 152" initlabel="bg.me_ircontrol_2">
+			<BlockConnectors>
+				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
+			</BlockConnectors>
+		</BlockGenus>
+
+		<BlockGenus name="me_ircontrol_3" kind="data" color="10 134 152" initlabel="bg.me_ircontrol_3">
+			<BlockConnectors>
+				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
+			</BlockConnectors>
+		</BlockGenus>
+
+		<BlockGenus name="me_ircontrol_4" kind="data" color="10 134 152" initlabel="bg.me_ircontrol_4">
+			<BlockConnectors>
+				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
+			</BlockConnectors>
+		</BlockGenus>
+
+		<BlockGenus name="me_ircontrol_5" kind="data" color="10 134 152" initlabel="bg.me_ircontrol_5">
+			<BlockConnectors>
+				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
+			</BlockConnectors>
+		</BlockGenus>
+
+		<BlockGenus name="me_ircontrol_6" kind="data" color="10 134 152" initlabel="bg.me_ircontrol_6">
+			<BlockConnectors>
+				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
+			</BlockConnectors>
+		</BlockGenus>
+
+		<BlockGenus name="me_ircontrol_7" kind="data" color="10 134 152" initlabel="bg.me_ircontrol_7">
+			<BlockConnectors>
+				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
+			</BlockConnectors>
+		</BlockGenus>
+
+		<BlockGenus name="me_ircontrol_8" kind="data" color="10 134 152" initlabel="bg.me_ircontrol_8">
+			<BlockConnectors>
+				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
+			</BlockConnectors>
+		</BlockGenus>
+
+		<BlockGenus name="me_ircontrol_9" kind="data" color="10 134 152" initlabel="bg.me_ircontrol_9">
+			<BlockConnectors>
+				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
+			</BlockConnectors>
+		</BlockGenus>
+
+		<BlockGenus name="me_ircontrol_up" kind="data" color="10 134 152" initlabel="bg.me_ircontrol_up">
+			<BlockConnectors>
+				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
+			</BlockConnectors>
+		</BlockGenus>
+
+		<BlockGenus name="me_ircontrol_down" kind="data" color="10 134 152" initlabel="bg.me_ircontrol_down">
+			<BlockConnectors>
+				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
+			</BlockConnectors>
+		</BlockGenus>
+
+		<BlockGenus name="me_ircontrol_left" kind="data" color="10 134 152" initlabel="bg.me_ircontrol_left">
+			<BlockConnectors>
+				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
+			</BlockConnectors>
+		</BlockGenus>
+
+		<BlockGenus name="me_ircontrol_right" kind="data" color="10 134 152" initlabel="bg.me_ircontrol_right">
+			<BlockConnectors>
+				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
+			</BlockConnectors>
+		</BlockGenus>
+
+		<BlockGenus name="me_ircontrol_ctrl" kind="data" color="10 134 152" initlabel="bg.me_ircontrol_ctrl">
+			<BlockConnectors>
+				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
+			</BlockConnectors>
+		</BlockGenus>
+
+		<BlockGenus name="me_mbot_move" kind="command" color="10 134 152" initlabel="bg.me_mbot_move">
+			<description> <text>Makeblock move mBot</text> </description>
+			<BlockConnectors>
+				<BlockConnector connector-type="number" connector-kind="socket" label="bc.me_moveTo_number">
+					<DefaultArg genus-name="me_moveforward_1" label="Forward" />
+				</BlockConnector>
+				<BlockConnector connector-type="number" connector-kind="socket" label="bc.me_speed_number">
+					<DefaultArg genus-name="number" label="100" />
+				</BlockConnector>
+			</BlockConnectors>
+		</BlockGenus>
+
+		<BlockGenus name="me_motordriver" kind="command" color="10 134 152" initlabel="bg.me_motordriver">
+			<description> <text>Makeblock DC Motor</text> </description>
+			<BlockConnectors>
+				<BlockConnector connector-type="number" connector-kind="socket" label="bc.me_motor_number">
+					<DefaultArg genus-name="me_motor_1" label="M1" />
+				</BlockConnector>
+				<BlockConnector connector-type="number" connector-kind="socket" label="bc.me_speed_number">
+					<DefaultArg genus-name="number" label="0" />
+				</BlockConnector>
+			</BlockConnectors>
+		</BlockGenus>
+
+		<BlockGenus name="me_led_rgb" kind="command" color="10 134 152" initlabel="bg.me_led_rgb">
+			<description> <text>Makeblock mCore leds RGB</text> </description>
+			<BlockConnectors>
+				<BlockConnector connector-type="number" connector-kind="socket" label="bc.me_led_num">
+					<DefaultArg genus-name="number" label="1" />
+				</BlockConnector>
+				<BlockConnector connector-type="number" connector-kind="socket" label="bc.me_led_red">
+					<DefaultArg genus-name="number" label="255" />
+				</BlockConnector>
+				<BlockConnector connector-type="number" connector-kind="socket" label="bc.me_led_green">
+					<DefaultArg genus-name="number" label="255" />
+				</BlockConnector>
+				<BlockConnector connector-type="number" connector-kind="socket" label="bc.me_led_blue">
+					<DefaultArg genus-name="number" label="255" />
+				</BlockConnector>
+			</BlockConnectors>
+		</BlockGenus>
+
+		<BlockGenus name="me_mbot_lightsensor" kind="data" color="10 134 152" initlabel="bg.me_mbot_lightsensor">
+			<description> <text>Makeblock mBot Light Sensor</text> </description>
+			<BlockConnectors>
+				<BlockConnector connector-type="number" connector-kind="plug" />
+			</BlockConnectors>
+		</BlockGenus>
+
+		<BlockGenus name="me_mbot_ir_getcode" kind="data" color="10 134 152" initlabel="bg.me_mbot_ir_getcode">
+			<description> <text>Makeblock mBot InfraRed Receiver</text> </description>
+			<BlockConnectors>
+				<BlockConnector connector-type="number" connector-kind="plug" />
+			</BlockConnectors>
+		</BlockGenus>
+
+		<BlockGenus name="me_mbot_ir_sendcode" kind="command" color="10 134 152" initlabel="bg.me_mbot_ir_sendcode">
+			<description> <text>mBot Send data to Infrared emitter</text> </description>
+			<BlockConnectors>
+				<BlockConnector connector-type="number" connector-kind="socket" label="bc.me_output_data">
+					<DefaultArg genus-name="number" label="60" />
+				</BlockConnector>
+			</BlockConnectors>
+		</BlockGenus>
+
+		<BlockGenus name="me_mbot_switch" kind="data" color="10 134 152" initlabel="bg.me_mbot_switch">
+			<description> <text>Makeblock mBot pushbutton switch</text> </description>
+			<BlockConnectors>
+				<BlockConnector connector-type="boolean" connector-kind="plug" />
+			</BlockConnectors>
+		</BlockGenus>
+
+		<BlockGenus name="me_mbot_tone" kind="command" color="10 134 152" initlabel="bg.me_mbot_tone">
+			<description> <text>Makeblock mBot buzzer tone</text> </description>
+			<BlockConnectors>
+				<BlockConnector connector-type="number" connector-kind="socket" label="bc.me_buzzer_freq">
+					<DefaultArg genus-name="number" label="440" />
+				</BlockConnector>
+				<BlockConnector connector-type="number" connector-kind="socket" label="bc.me_buzzer_time">
+					<DefaultArg genus-name="number" label="100" />
+				</BlockConnector>
+			</BlockConnectors>
+		</BlockGenus>
+
+		<BlockGenus name="me_mbot_tone_off" kind="command" color="10 134 152" initlabel="bg.me_mbot_tone_off">
+			<description> <text>Makeblock mBot buzzer off</text> </description>
+		</BlockGenus>
+
+		<BlockGenus name="me_ultrasonic_sensor" kind="data" color="10 134 152" initlabel="bg.me_ultrasonic_sensor">
+			<description> <text>Makeblock Ultrasonic Sensor</text> </description>
+			<BlockConnectors>
+				<BlockConnector connector-type="number" connector-kind="plug" />
+				<BlockConnector connector-type="number" connector-kind="socket" label="bc.me_port_number">
+					<DefaultArg genus-name="me_port_3" label="Port 3" />
+				</BlockConnector>
+			</BlockConnectors>
+		</BlockGenus>
+
+		<BlockGenus name="me_line_follower" kind="data" color="10 134 152" initlabel="bg.me_line_follower">
+			<description> <text>Makeblock LineFollower</text> </description>
+			<BlockConnectors>
+				<BlockConnector connector-type="number" connector-kind="plug" />
+				<BlockConnector connector-type="number" connector-kind="socket" label="bc.me_port_number">
+					<DefaultArg genus-name="me_port_2" label="Port 2" />
+				</BlockConnector>
+			</BlockConnectors>
+		</BlockGenus>
+
+		<BlockGenus name="me_limit_switch" kind="data" color="10 134 152" initlabel="bg.me_limit_switch">
+			<description> <text>Makeblock LimitSwitch</text> </description>
+			<BlockConnectors>
+				<BlockConnector connector-type="number" connector-kind="plug" />
+				<BlockConnector connector-type="number" connector-kind="socket" label="bc.me_port_number">
+					<DefaultArg genus-name="me_port_4" label="Port 4" />
+				</BlockConnector>
+			</BlockConnectors>
+		</BlockGenus>
+
+		<BlockGenus name="me_shutter" kind="command" color="10 134 152" initlabel="bg.me_shutter">
+			<description> <text>Makeblock Shutter For DSLR</text> </description>
+			<BlockConnectors>
+				<BlockConnector connector-type="number" connector-kind="socket" label="bc.me_port_number">
+					<DefaultArg genus-name="me_port_4" label="Port 4" />
+				</BlockConnector>
+				<BlockConnector connector-type="number" connector-kind="socket" label="bc.me_shutter_state">
+					<DefaultArg genus-name="me_shutter_1" label="Shot On'" />
+				</BlockConnector>
+			</BlockConnectors>
+		</BlockGenus>
+
+		<BlockGenus name="me_stepper_motor" kind="command" color="10 134 152" initlabel="bg.me_stepper_motor">
+			<description> <text>Makeblock Stepper Motor</text> </description>
+			<BlockConnectors>
+				<BlockConnector connector-type="number" connector-kind="socket" label="bc.me_port_number">
+					<DefaultArg genus-name="me_port_1" label="Port 1" />
+				</BlockConnector>
+				<BlockConnector connector-type="number" connector-kind="socket" label="bc.me_speed_number">
+					<DefaultArg genus-name="number" label="10000'" />
+				</BlockConnector>
+				<BlockConnector connector-type="number" connector-kind="socket" label="bc.me_acceleration_number">
+					<DefaultArg genus-name="number" label="2000'" />
+				</BlockConnector>
+				<BlockConnector connector-type="number" connector-kind="socket" label="bc.me_moveTo_number">
+					<DefaultArg genus-name="number" label="3000'" />
+				</BlockConnector>
+				<BlockConnector connector-type="cmd" connector-kind="socket" label="bc.me_stepper_finish" />
+			</BlockConnectors>
+		</BlockGenus>
+
+		<BlockGenus name="me_bluetooth_read" kind="command" color="10 134 152" initlabel="bg.me_bluetooth_read">
+			<description> <text>Makeblock Bluetooth Read</text> </description>
+			<BlockConnectors>
+				<BlockConnector connector-type="number" connector-kind="socket" label="bc.me_port_number">
+					<DefaultArg genus-name="me_port_3" label="Port 3" />
+				</BlockConnector>
+				<BlockConnector connector-type="number" connector-kind="socket" label="bc.me_input_data">
+					<DefaultArg genus-name="variable_number" label="btRead'" />
+				</BlockConnector>
+				<BlockConnector connector-type="cmd" connector-kind="socket" label="bc.then" />
+			</BlockConnectors>
+		</BlockGenus>
+
+		<BlockGenus name="me_bluetooth_write" kind="command" color="10 134 152" initlabel="bg.me_bluetooth_write">
+			<description> <text>Makeblock Bluetooth Write</text> </description>
+			<BlockConnectors>
+				<BlockConnector connector-type="number" connector-kind="socket" label="bc.me_port_number">
+					<DefaultArg genus-name="me_port_3" label="Port 3" />
+				</BlockConnector>
+				<BlockConnector connector-type="number" connector-kind="socket" label="bc.me_output_data">
+					<DefaultArg genus-name="variable_number" label="btRead'" />
+				</BlockConnector>
+			</BlockConnectors>
+		</BlockGenus>
+
+		<BlockGenus name="me_bluetooth_commands" kind="command" color="10 134 152" initlabel="bg.me_bluetooth_commands">
+			<description> <text>Makeblock Bluetooth Commands</text> </description>
+			<BlockConnectors>
+				<BlockConnector connector-type="number" connector-kind="socket" label="bc.me_port_number">
+					<DefaultArg genus-name="me_port_3" label="Port 3" />
+				</BlockConnector>
+				<BlockConnector connector-type="cmd" connector-kind="socket" label="bc.then" />
+			</BlockConnectors>
+		</BlockGenus>
+
+		<BlockGenus name="me_bluetooth_command" kind="data" color="10 134 152" initlabel="bg.me_bluetooth_command">
+			<description> <text>Makeblock Bluetooth Commands</text> </description>
+			<BlockConnectors>
+				<BlockConnector connector-type="number" connector-kind="plug" />
+				<BlockConnector connector-type="number" connector-kind="socket" label="bc.me_port_number">
+					<DefaultArg genus-name="me_port_3" label="Port 3" />
+				</BlockConnector>
+				<BlockConnector connector-type="poly" connector-kind="socket" label="bc.me_param_name">
+					<DefaultArg genus-name="char" label="Speed" />
+				</BlockConnector>
+			</BlockConnectors>
+		</BlockGenus>
+
+		<!-- End BlockGenus Makeblock -->
+
 	</BlockGenuses>
 
 
@@ -3216,6 +3656,59 @@
 		</BlockFamily>
 		<!-- End BlockFamily Picuino -->
 
+		<!-- BlockFamily Makeblock -->
+		<BlockFamily>
+			<FamilyMember>me_port_1</FamilyMember>
+			<FamilyMember>me_port_2</FamilyMember>
+			<FamilyMember>me_port_3</FamilyMember>
+			<FamilyMember>me_port_4</FamilyMember>
+			<FamilyMember>me_port_5</FamilyMember>
+			<FamilyMember>me_port_6</FamilyMember>
+			<FamilyMember>me_port_7</FamilyMember>
+			<FamilyMember>me_port_8</FamilyMember>
+		</BlockFamily>
+		<BlockFamily>
+			<FamilyMember>me_motor_1</FamilyMember>
+			<FamilyMember>me_motor_2</FamilyMember>
+		</BlockFamily>
+		<BlockFamily>
+			<FamilyMember>me_movestop_0</FamilyMember>
+			<FamilyMember>me_moveforward_1</FamilyMember>
+			<FamilyMember>me_movebackward_2</FamilyMember>
+			<FamilyMember>me_moveleft_3</FamilyMember>
+			<FamilyMember>me_moveright_4</FamilyMember>
+		</BlockFamily>
+		<BlockFamily>
+			<FamilyMember>me_shutter_1</FamilyMember>
+			<FamilyMember>me_shutter_2</FamilyMember>
+			<FamilyMember>me_shutter_3</FamilyMember>
+			<FamilyMember>me_shutter_4</FamilyMember>
+		</BlockFamily>
+		<BlockFamily>
+			<FamilyMember>me_ircontrol_a</FamilyMember>
+			<FamilyMember>me_ircontrol_b</FamilyMember>
+			<FamilyMember>me_ircontrol_c</FamilyMember>
+			<FamilyMember>me_ircontrol_d</FamilyMember>
+			<FamilyMember>me_ircontrol_e</FamilyMember>
+			<FamilyMember>me_ircontrol_f</FamilyMember>
+			<FamilyMember>me_ircontrol_0</FamilyMember>
+			<FamilyMember>me_ircontrol_1</FamilyMember>
+			<FamilyMember>me_ircontrol_2</FamilyMember>
+			<FamilyMember>me_ircontrol_3</FamilyMember>
+			<FamilyMember>me_ircontrol_4</FamilyMember>
+			<FamilyMember>me_ircontrol_5</FamilyMember>
+			<FamilyMember>me_ircontrol_6</FamilyMember>
+			<FamilyMember>me_ircontrol_7</FamilyMember>
+			<FamilyMember>me_ircontrol_8</FamilyMember>
+			<FamilyMember>me_ircontrol_9</FamilyMember>
+			<FamilyMember>me_ircontrol_up</FamilyMember>
+			<FamilyMember>me_ircontrol_down</FamilyMember>
+			<FamilyMember>me_ircontrol_left</FamilyMember>
+			<FamilyMember>me_ircontrol_right</FamilyMember>
+			<FamilyMember>me_ircontrol_ctrl</FamilyMember>
+		</BlockFamily>
+		<!-- End BlockFamily Makeblock -->
+
 	</BlockFamilies>
 
 
@@ -3392,6 +3885,31 @@
 				<BlockGenusMember>Do4</BlockGenusMember>
 			</BlockDrawer>
 			<!-- End BlockDrawer Picuino -->
+			<!-- BlockDrawer Makeblock -->
+			<BlockDrawer button-color="10 134 152" name="bd.Makeblock" type="factory">
+				<BlockGenusMember>me_mbot_move</BlockGenusMember>
+				<BlockGenusMember>me_led_rgb</BlockGenusMember>
+				<BlockGenusMember>me_mbot_tone</BlockGenusMember>
+				<BlockGenusMember>me_mbot_tone_off</BlockGenusMember>
+				<BlockGenusMember>me_mbot_switch</BlockGenusMember>
+				<BlockGenusMember>me_mbot_lightsensor</BlockGenusMember>
+				<BlockGenusMember>me_mbot_ir_sendcode</BlockGenusMember>
+				<BlockGenusMember>me_mbot_ir_getcode</BlockGenusMember>
+				<BlockGenusMember>me_ultrasonic_sensor</BlockGenusMember>
+				<BlockGenusMember>me_line_follower</BlockGenusMember>
+				<BlockGenusMember>me_motordriver</BlockGenusMember>
+				<BlockGenusMember>me_limit_switch</BlockGenusMember>
+				<BlockGenusMember>me_shutter</BlockGenusMember>
+				<BlockGenusMember>me_moveforward_1</BlockGenusMember>
+				<BlockGenusMember>me_motor_1</BlockGenusMember>
+				<BlockGenusMember>me_port_1</BlockGenusMember>
+				<BlockGenusMember>me_ircontrol_up</BlockGenusMember>
+				<BlockGenusMember>me_bluetooth_read</BlockGenusMember>
+				<BlockGenusMember>me_bluetooth_write</BlockGenusMember>
+				<BlockGenusMember>me_bluetooth_commands</BlockGenusMember>
+				<BlockGenusMember>me_bluetooth_command</BlockGenusMember>
+			</BlockDrawer>
+			<!-- End BlockDrawer Makeblock -->
 
 			<BlockDrawer button-color="128 128 128" name="bd.especial" type="factory">
 				<BlockGenusMember>code_head</BlockGenusMember>

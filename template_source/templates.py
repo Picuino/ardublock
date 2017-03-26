@@ -12,37 +12,52 @@ def main():
   """Generate Ardublock sourcecode from *.yaml databases"""
   sources = [
     'picuino.yaml',
-    #'makeblock.yaml',
+    'makeblock.yaml',
   ]
   source_tree = []
   for f in sources:
     print 'Read ' + f
     source_tree.append(read_yaml(f))
-  print
   render_code(source_tree)
 
 
 def render_code(source_tree):
-  # Render code
-  blocks, families, menus, properties, mapping = [], [], [], [], []
-
+  """Render all database to ardublock code"""
+  
   for source in source_tree:
-    print 'Process ' + source['Library']['name']
-    source['all_properties'] = extract_properties(source)
-    source['all_blocks'] = expand_blocks(source)
+    print '\nProcess ' + source['Library']['name']
+    source['all_properties'] = properties_extract(source)
+    source['all_blocks'] = blocks_expand(source)
+    menu_test(source)
     render_java(source)
 
+  print '\nProcess ardublock.xml'
   for filename in ['ardublock.xml',
                    'ardublock.properties',
                    'block-mapping.properties' ]:
-     print 'Process ' + filename
      template_string = read('templates/' + filename)
      tmpl = Template(template_string, trim_blocks=True, lstrip_blocks=True)
      code = tmpl.render(source=source_tree )
      write('build/' + filename, code)
 
 
-def expand_blocks(source):
+def menu_test(source):
+  """Test menu entries looking for errors"""
+  # Extract block names
+  block_names = [block['name'] for block in source['all_blocks']]
+
+  # Test if menu entries exists
+  for block_name in source['Library']['menu']:
+    if not block_name in block_names:
+      print '  Error: block in menu not defined, ' + block_name
+
+  # Test if blocks in menu
+  for block in source['Blocks']:
+    if not get_name(block) in source['Library']['menu']:
+      print '  Warning!: block definition not in menu, ' + get_name(block)
+
+
+def blocks_expand(source):
   blocks = []
   for block in source['Blocks']:
     if not 'kind' in block:
@@ -60,7 +75,7 @@ def expand_blocks(source):
   return  blocks
 
 
-def extract_properties(source, verbose=False):
+def properties_extract(source, verbose=False):
   # Extract common properties
   properties = []
   if 'Properties' in source:
@@ -80,6 +95,9 @@ def extract_properties(source, verbose=False):
       for name in block['name']:
         if property_index(properties, 'bg.' + name) < 0:
           property_append(properties, 'bg.' + name, name)
+    else:
+      if property_index(properties, 'bg.' + block['name']) < 0:
+        print '  Error: Undeclared property "bg.' + block['name']  + '"'
 
   # Print undefined properties
   if verbose:
@@ -110,13 +128,21 @@ def property_append(properties, _property, _description):
     properties.append([_property, _description])
 
 
+def get_name(block):
+  """Return string or first string of list"""
+  if isinstance(block['name'], list):
+    return block['name'][0]
+  return block['name']
+
+
 def render_java(source):
   java_template = read('templates/' + 'template.java')
   functions = []
   tmpl = Template(java_template, trim_blocks=True, lstrip_blocks=True)
   library_name = source['Library']['name'].lower()
   for block in source['Blocks']:
-    if not ('translator' in block and block['translator']):
+    if not 'translator' in block or not block['translator']:
+      print '  Error: block without code, ' + get_name(block)
       continue
     if not 'name' in block['translator']:
       continue

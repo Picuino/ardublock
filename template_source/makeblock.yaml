@@ -16,7 +16,7 @@ Library:
   - me_mbot_ir_sendcode
   - me_mbot_ir_getcode
   - me_ultrasonic_sensor
-  - me_linefollower
+  - me_line_follower
   - me_motordriver
   - me_limit_switch
   - me_shutter
@@ -40,7 +40,7 @@ Definitions:
 - me2: &MAKEBLOCK_MOTOR [ me_motor_1, me_motor_2 ]
 - me3: &MAKEBLOCK_MOVE  [ me_movestop_0, me_moveforward_1, me_movebackward_2,
                           me_moveleft_3, me_moveright_4 ]
-- me4: &MAKEBLOCK_SHUTTER [me_shutter_1, me_shutter_2, me_shutter_3, .
+- me4: &MAKEBLOCK_SHUTTER [me_shutter_1, me_shutter_2, me_shutter_3,
                            me_shutter_4 ]
 - me5: &MAKEBLOCK_IRCONTROL [ me_ircontrol_a, me_ircontrol_b, me_ircontrol_c,
                               me_ircontrol_d, me_ircontrol_e, me_ircontrol_f,
@@ -73,28 +73,28 @@ Blocks:
   parameter:
   return:  {type: number, position: mirror}
   translator:
-  <<: *MAKEBLOCK_CONST_CODE
+    <<: *MAKEBLOCK_CONST_CODE
 
 
 - name: *MAKEBLOCK_MOTOR
   parameter:
   return:  {type: number, position: mirror}
   translator:
-  <<: *MAKEBLOCK_CONST_CODE
+    <<: *MAKEBLOCK_CONST_CODE
 
 
 - name: *MAKEBLOCK_MOVE
   parameter:
   return:  {type: number, position: mirror}
   translator:
-  <<: *MAKEBLOCK_CONST_CODE
+    <<: *MAKEBLOCK_CONST_CODE
 
 
 - name: *MAKEBLOCK_SHUTTER
   parameter:
   return:  {type: number, position: mirror}
   translator:
-  <<: *MAKEBLOCK_CONST_CODE
+    <<: *MAKEBLOCK_CONST_CODE
 
 
 - name: *MAKEBLOCK_IRCONTROL
@@ -102,7 +102,7 @@ Blocks:
   return:  {type: number, position: mirror}
   translator:
     name: MeIRControl
-    headers: [ ]
+    headers:
     setup:
     code:
     - 'String genusName[] = this.getTranslator().getBlock(blockId).getGenusName().split("_");'
@@ -349,8 +349,8 @@ Blocks:
 - name: me_line_follower
   description: Makeblock LineFollower
   properties:
-    bg.me_linefollower: Line Follower
-    bg.me_linefollower.description: Line follower. Return 1=Right sensor, 2=Left Sensort, 3=Right + Left sensors.
+    bg.me_line_follower: Line Follower
+    bg.me_line_follower.description: Line follower. Return 1=Right sensor, 2=Left Sensort, 3=Right + Left sensors.
   parameter:
   - {type: number, label: bc.me_port_number,   default: [me_port_2, 'Port 2']}
   return: {type: number}
