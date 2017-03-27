@@ -29,18 +29,18 @@ public class MeIRControl extends TranslatorBlock {
 			"1", "12",
 			"2", "24",
 			"3", "94",
-			"4", "8",
+			"4",  "8",
 			"5", "28",
 			"6", "90",
 			"7", "66",
 			"8", "82",
 			"9", "74",
-			"up", "64",
+			"up",   "64",
 			"down", "25",
-			"left", "7",
+			"left",  "7",
 			"right", "9",
 			"ctrl", "21" };
-		for(int i=0; i<codes.lenght; i+=2)
+		for(int i=0; i<codes.length; i+=2)
 			if (ir_code.equals(codes[i]))
 				return codes[i+1];
 		return "0";

@@ -1,5 +1,15 @@
 TO DO
 =====
+* Modify sourcecode menu: 
+  delete 'Init'
+  rename 'Loop' -> 'Code'
+  Add 'Comment' command
+  Variable text like in subroutine
+* Subroutine:
+  Add subroutine with 2 parameters. 
+  Join call + declare subroutine
+  Minimize subroutine name.
+  Translate to Spanish
 * Error: try to save arduprog program and cancel
 * Error: expand options of a block and click over other point of the block
 * Make Templates for automatic code generation

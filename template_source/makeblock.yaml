@@ -20,14 +20,12 @@ Library:
   - me_motordriver
   - me_limit_switch
   - me_shutter
-  - me_moveforward_1
-  - me_motor_1
-  - me_port_1
   - me_ircontrol_up
-  - me_bluetooth_read
-  - me_bluetooth_write
-  - me_bluetooth_commands
-  - me_bluetooth_command
+  # - me_bluetooth_read
+  # - me_bluetooth_write
+  # - me_bluetooth_commands
+  # - me_bluetooth_command
+  - me_port_1
 
 
 ##########################################################################
@@ -98,6 +96,29 @@ Blocks:
 
 
 - name: *MAKEBLOCK_IRCONTROL
+  properties:
+    bg.me_mbot_move: Move mBot
+    bg.me_ircontrol_a: IR_A
+    bg.me_ircontrol_b: IR_B
+    bg.me_ircontrol_c: IR_C
+    bg.me_ircontrol_d: IR_D
+    bg.me_ircontrol_e: IR_E
+    bg.me_ircontrol_f: IR_F
+    bg.me_ircontrol_0: IR_0
+    bg.me_ircontrol_1: IR_1
+    bg.me_ircontrol_2: IR_2
+    bg.me_ircontrol_3: IR_3
+    bg.me_ircontrol_4: IR_4
+    bg.me_ircontrol_5: IR_5
+    bg.me_ircontrol_6: IR_6
+    bg.me_ircontrol_7: IR_7
+    bg.me_ircontrol_8: IR_8
+    bg.me_ircontrol_9: IR_9
+    bg.me_ircontrol_up: IR_UP
+    bg.me_ircontrol_down: IR_DOWN
+    bg.me_ircontrol_left: IR_LEFT
+    bg.me_ircontrol_right: IR_RIGHT
+    bg.me_ircontrol_ctrl: IR_CTRL
   parameter:
   return:  {type: number, position: mirror}
   translator:
@@ -118,18 +139,18 @@ Blocks:
     - '	"1", "12",'
     - '	"2", "24",'
     - '	"3", "94",'
-    - '	"4", "8",'
+    - '	"4",  "8",'
     - '	"5", "28",'
     - '	"6", "90",'
     - '	"7", "66",'
     - '	"8", "82",'
     - '	"9", "74",'
-    - '	"up", "64",'
+    - '	"up",   "64",'
     - '	"down", "25",'
-    - '	"left", "7",'
+    - '	"left",  "7",'
     - '	"right", "9",'
     - '	"ctrl", "21" };'
-    - 'for(int i=0; i<codes.lenght; i+=2)'
+    - 'for(int i=0; i<codes.length; i+=2)'
     - '	if (ir_code.equals(codes[i]))'
     - '		return codes[i+1];'
     - 'return "0";'
@@ -140,7 +161,7 @@ Blocks:
   properties:
     bg.me_mbot_move: Move mBot
   parameter:
-  - {type: number, label: bc.me_moveTo_number, default: [me_moveforward_1, Forward]}
+  - {type: number, label: bc.me_moveTo_number, default: [me_moveforward_1, 'Forward']}
   - {type: number, label: bc.me_speed_number,  default: [number, '100']}
   translator:
     name: MeMbotMove
@@ -268,7 +289,7 @@ Blocks:
     bg.me_mbot_ir_sendcode: Send IR
     bg.me_mbot_ir_sendcode.description: Send data, with NEC format, to Infrared emitter
   parameter:
-  - {type: number, label: bc.me_output_data,   default: [number, '60']}
+  - {type: number, label: bc.me_output_data,   default: [me_ircontrol_up, 'IR_UP']}
   translator:
     name: MeMbotIRSendcode
     headers: ['MeMCore.h' ]
@@ -382,10 +403,10 @@ Blocks:
   translator:
     name: MeLimitSwitch
     headers: ['MeMCore.h' ]
-    definitions: []
+    definitions: ['"MeLimitSwitch switch_" + arg1 + "(" + arg1 + ", 1);"']
     setup:
     code:
-    - 'return codePrefix + "switch" + arg1 + ".touched()" + codeSuffix;'
+    - 'return codePrefix + "switch_" + arg1 + ".touched()" + codeSuffix;'
 
 
 - name: me_shutter
@@ -395,7 +416,7 @@ Blocks:
     bg.me_shutter.description: It sends a signal to the DSLR Camera for shot and focus.
   parameter:
   - {type: number, label: bc.me_port_number,   default: [me_port_4, 'Port 4']}
-  - {type: number, label: bc.me_shutter_state,   default: [me_shutter_1, Shot On']}
+  - {type: number, label: bc.me_shutter_state, default: [me_shutter_1, 'Shot On']}
   translator:
     name: MeShutter
     headers: ['MeMCore.h' ]
@@ -417,10 +438,10 @@ Blocks:
     bg.me_stepper_motor: Stepper
     bg.me_stepper_motor.description: Mini stepper motor driver base on A4988. Compatible with 4 and 6 wire stepper motors.
   parameter:
-  - {type: number, label: bc.me_port_number,   default: [me_port_1, 'Port 1']}
-  - {type: number, label: bc.me_speed_number,   default: [number, 10000']}
-  - {type: number, label: bc.me_acceleration_number,   default: [number, 2000']}
-  - {type: number, label: bc.me_moveTo_number,   default: [number, 3000']}
+  - {type: number, label: bc.me_port_number,         default: [me_port_1, 'Port 1']}
+  - {type: number, label: bc.me_speed_number,        default: [number, '10000']}
+  - {type: number, label: bc.me_acceleration_number, default: [number, '2000']}
+  - {type: number, label: bc.me_moveTo_number,       default: [number, '3000']}
   - {type: cmd,    label: bc.me_stepper_finish }
   translator:
     name: MeStepperMotor
@@ -448,7 +469,7 @@ Blocks:
     bg.me_bluetooth_read.description: Bluetooth Read Byte Data
   parameter:
   - {type: number, label: bc.me_port_number,   default: [me_port_3, 'Port 3']}
-  - {type: number, label: bc.me_input_data,   default: [variable_number, btRead']}
+  - {type: number, label: bc.me_input_data,   default: [variable_number, 'btRead']}
   - {type: cmd,    label: bc.then }
   translator:
     name: MeBluetoothRead
@@ -472,7 +493,7 @@ Blocks:
     bg.me_bluetooth_write.description: Bluetooth Write Byte Data
   parameter:
   - {type: number, label: bc.me_port_number,   default: [me_port_3, 'Port 3']}
-  - {type: number, label: bc.me_output_data,   default: [variable_number, btRead']}
+  - {type: number, label: bc.me_output_data,   default: [variable_number, 'btRead']}
   translator:
     name: MeBluetoothWrite
     headers: ['MeMCore.h' ]
@@ -512,7 +533,7 @@ Blocks:
     bg.me_bluetooth_command.description: return (0:module,1:device ID,2:mode,3:port,4:value)
   parameter:
   - {type: number, label: bc.me_port_number, default: [me_port_3, 'Port 3']}
-  - {type: poly, label: bc.me_param_name,    default: [char, Speed]}
+  - {type: poly, label: bc.me_param_name,    default: [char, 'Speed']}
   return: {type: number}
   translator:
     name: MeBluetoothCommand

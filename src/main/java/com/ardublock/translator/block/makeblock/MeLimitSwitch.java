@@ -22,6 +22,8 @@ public class MeLimitSwitch extends TranslatorBlock {
 		translatorBlock = this.getRequiredTranslatorBlockAtSocket(0);
 		String arg1 = translatorBlock.toCode();
 
-		return codePrefix + "switch" + arg1 + ".touched()" + codeSuffix;
+		translator.addDefinitionCommand("MeLimitSwitch switch_" + arg1 + "(" + arg1 + ", 1);");
+
+		return codePrefix + "switch_" + arg1 + ".touched()" + codeSuffix;
 	}
 }

@@ -155,7 +155,7 @@ def render_java(source):
       block_name = block['name']
       if isinstance(block_name, list):
         block_name = '[' + block_name[0] + ', ...]'
-      print "  Warning!: Duplicated java function '%s' in block '%s'" % (filename, block_name)
+      print "  Warning!: Duplicated function '%s' in block '%s'" % (filename, block_name)
     
 
 ##################################################

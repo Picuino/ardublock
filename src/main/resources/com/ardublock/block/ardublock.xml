@@ -3254,7 +3254,7 @@
 			<description> <text>mBot Send data to Infrared emitter</text> </description>
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="socket" label="bc.me_output_data">
-					<DefaultArg genus-name="number" label="60" />
+					<DefaultArg genus-name="me_ircontrol_up" label="IR_UP" />
 				</BlockConnector>
 			</BlockConnectors>
 		</BlockGenus>
@@ -3319,7 +3319,7 @@
 					<DefaultArg genus-name="me_port_4" label="Port 4" />
 				</BlockConnector>
 				<BlockConnector connector-type="number" connector-kind="socket" label="bc.me_shutter_state">
-					<DefaultArg genus-name="me_shutter_1" label="Shot On'" />
+					<DefaultArg genus-name="me_shutter_1" label="Shot On" />
 				</BlockConnector>
 			</BlockConnectors>
 		</BlockGenus>
@@ -3331,13 +3331,13 @@
 					<DefaultArg genus-name="me_port_1" label="Port 1" />
 				</BlockConnector>
 				<BlockConnector connector-type="number" connector-kind="socket" label="bc.me_speed_number">
-					<DefaultArg genus-name="number" label="10000'" />
+					<DefaultArg genus-name="number" label="10000" />
 				</BlockConnector>
 				<BlockConnector connector-type="number" connector-kind="socket" label="bc.me_acceleration_number">
-					<DefaultArg genus-name="number" label="2000'" />
+					<DefaultArg genus-name="number" label="2000" />
 				</BlockConnector>
 				<BlockConnector connector-type="number" connector-kind="socket" label="bc.me_moveTo_number">
-					<DefaultArg genus-name="number" label="3000'" />
+					<DefaultArg genus-name="number" label="3000" />
 				</BlockConnector>
 				<BlockConnector connector-type="cmd" connector-kind="socket" label="bc.me_stepper_finish" />
 			</BlockConnectors>
@@ -3350,7 +3350,7 @@
 					<DefaultArg genus-name="me_port_3" label="Port 3" />
 				</BlockConnector>
 				<BlockConnector connector-type="number" connector-kind="socket" label="bc.me_input_data">
-					<DefaultArg genus-name="variable_number" label="btRead'" />
+					<DefaultArg genus-name="variable_number" label="btRead" />
 				</BlockConnector>
 				<BlockConnector connector-type="cmd" connector-kind="socket" label="bc.then" />
 			</BlockConnectors>
@@ -3363,7 +3363,7 @@
 					<DefaultArg genus-name="me_port_3" label="Port 3" />
 				</BlockConnector>
 				<BlockConnector connector-type="number" connector-kind="socket" label="bc.me_output_data">
-					<DefaultArg genus-name="variable_number" label="btRead'" />
+					<DefaultArg genus-name="variable_number" label="btRead" />
 				</BlockConnector>
 			</BlockConnectors>
 		</BlockGenus>
@@ -3900,14 +3900,8 @@
 				<BlockGenusMember>me_motordriver</BlockGenusMember>
 				<BlockGenusMember>me_limit_switch</BlockGenusMember>
 				<BlockGenusMember>me_shutter</BlockGenusMember>
-				<BlockGenusMember>me_moveforward_1</BlockGenusMember>
-				<BlockGenusMember>me_motor_1</BlockGenusMember>
-				<BlockGenusMember>me_port_1</BlockGenusMember>
 				<BlockGenusMember>me_ircontrol_up</BlockGenusMember>
-				<BlockGenusMember>me_bluetooth_read</BlockGenusMember>
-				<BlockGenusMember>me_bluetooth_write</BlockGenusMember>
-				<BlockGenusMember>me_bluetooth_commands</BlockGenusMember>
-				<BlockGenusMember>me_bluetooth_command</BlockGenusMember>
+				<BlockGenusMember>me_port_1</BlockGenusMember>
 			</BlockDrawer>
 			<!-- End BlockDrawer Makeblock -->
 
