@@ -27,6 +27,6 @@ public class PcKeyEvents extends TranslatorBlock {
 
 		translator.addSetupCommand("pc.begin();");
 
-		return "pc.keyEvents(" + arg1 + ", " + arg2 + ");";
+		return codePrefix + "pc.keyEvents(" + arg1 + ", " + arg2 + ")" + codeSuffix;
 	}
 }

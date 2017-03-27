@@ -28,6 +28,6 @@ public class MeBluetoothCommand extends TranslatorBlock {
 
 		translator.addSetupCommand("bluetooth" + arg1 + ".begin(9600);");
 
-		return "bluetooth" + arg1 + ".getParamValue(\"" + arg2.replace("\"", "") + "\")";
+		return codePrefix + "bluetooth" + arg1 + ".getParamValue(\"" + arg2.replace("\"", "") + "\")" + codeSuffix;
 	}
 }

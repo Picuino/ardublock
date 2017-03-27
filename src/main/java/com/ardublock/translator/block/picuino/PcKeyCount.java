@@ -25,6 +25,14 @@ public class PcKeyCount extends TranslatorBlock {
 
 		translator.addSetupCommand("pc.begin();");
 
-		return "pc.keyCount(" + arg1 + ");";
+		String functionName = this.getTranslator().getBlock(blockId).getGenusName();
+		String ret = "";
+		if (functionName.equals("pc_keyCount"))
+			ret = "pc.keyCount";
+		else if (functionName.equals("pc_keyTimeOn"))
+			ret = "pc.keyTimeOn";
+		else if (functionName.equals("pc_keyTimeOff"))
+			ret = "pc.keyTimeOff";
+		return codePrefix + ret + "(" + arg1 + ")" + codeSuffix;
 	}
 }

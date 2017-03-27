@@ -18,27 +18,31 @@ public class MeIRControl extends TranslatorBlock {
 
 		String genusName[] = this.getTranslator().getBlock(blockId).getGenusName().split("_");
 		String ir_code = genusName[genusName.length - 1];
-		if (ir_code == "a") return "69";
-		if (ir_code == "b") return "70";
-		if (ir_code == "c") return "71";
-		if (ir_code == "d") return "68";
-		if (ir_code == "e") return "67";
-		if (ir_code == "f") return "13";
-		if (ir_code == "0") return "22";
-		if (ir_code == "1") return "12";
-		if (ir_code == "2") return "24";
-		if (ir_code == "3") return "94";
-		if (ir_code == "4") return "8";
-		if (ir_code == "5") return "28";
-		if (ir_code == "6") return "90";
-		if (ir_code == "7") return "66";
-		if (ir_code == "8") return "82";
-		if (ir_code == "9") return "74";
-		if (ir_code == "up") return "64";
-		if (ir_code == "down") return "25";
-		if (ir_code == "left") return "7";
-		if (ir_code == "right") return "9";
-		if (ir_code == "ctrl") return "21";
+		String codes[] = {
+			"a", "69",
+			"b", "70",
+			"c", "71",
+			"d", "68",
+			"e", "67",
+			"f", "13",
+			"0", "22",
+			"1", "12",
+			"2", "24",
+			"3", "94",
+			"4", "8",
+			"5", "28",
+			"6", "90",
+			"7", "66",
+			"8", "82",
+			"9", "74",
+			"up", "64",
+			"down", "25",
+			"left", "7",
+			"right", "9",
+			"ctrl", "21" };
+		for(int i=0; i<codes.lenght; i+=2)
+			if (ir_code.equals(codes[i]))
+				return codes[i+1];
 		return "0";
 	}
 }

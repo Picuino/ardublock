@@ -5,6 +5,7 @@
 @set src_translate=../src/main/resources/com/ardublock/block
 @set target=../target/classes/com/ardublock/block
 
+
 %mingw%/cp -rf build/block/*   %java%
 %mingw%/cp -f  build/ardublock.xml            %src_translate%
 %mingw%/cp -f  build/ardublock.properties     %src_translate%

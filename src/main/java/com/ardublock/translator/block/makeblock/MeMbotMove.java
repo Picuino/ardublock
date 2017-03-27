@@ -31,19 +31,23 @@ public class MeMbotMove extends TranslatorBlock {
 		  "void _mBot_moveto(int dir, int speed) {\n" +
 		  "  speed = (speed > 255) ? 255 : ((speed < -255) ? -255 : speed);\n" +
 		  "  if (speed == 0) dir = 0;\n" +
-		  "  if (dir == 1) {        // Forward\n" +
+		  "  if (dir == 1) {      // Forward\n" +
 		  "    dcMotor1.run(-speed);\n" +
 		  "    dcMotor2.run(speed);\n" +
-		  "  } else if (dir == 2) { // Backward\n" +
+		  "  }" +
+		  "  else if (dir == 2) { // Backward\n" +
 		  "    dcMotor1.run(speed);\n" +
 		  "    dcMotor2.run(-speed);\n" +
-		  "  } else if (dir == 3) { // Left\n" +
+		  "  }" +
+		  "  else if (dir == 3) { // Left\n" +
 		  "    dcMotor1.run(speed);\n" +
 		  "    dcMotor2.run(speed);\n" +
-		  "  } else if (dir == 4) { // Right\n" +
+		  "  }" +
+		  "  else if (dir == 4) { // Right\n" +
 		  "    dcMotor1.run(-speed);\n" +
 		  "    dcMotor2.run(-speed);\n" +
-		  "  } else {               // Stop\n" +
+		  "  }" +
+		  "  else {               // Stop\n" +
 		  "    dcMotor1.stop();\n" +
 		  "    dcMotor2.stop();\n" +
 		  "  };\n" +

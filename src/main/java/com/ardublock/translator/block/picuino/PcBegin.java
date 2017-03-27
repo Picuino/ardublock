@@ -22,13 +22,13 @@ public class PcBegin extends TranslatorBlock {
 		translator.addSetupCommand("pc.begin();");
 
 		String functionName = this.getTranslator().getBlock(blockId).getGenusName();
-		if (functionName == "pc_keyBegin")
+		if (functionName.equals("pc_keyBegin"))
 			return "pc.keyBegin();";
-		else if (functionName == "pc_ledBegin")
+		else if (functionName.equals("pc_ledBegin"))
 			return "pc.ledBegin();";
-		else if (functionName == "pc_buzzBegin")
+		else if (functionName.equals("pc_buzzBegin"))
 			return "pc.buzzBegin();";
-		else if (functionName == "pc_dispBegin")
+		else if (functionName.equals("pc_dispBegin"))
 			return "pc.dispBegin();";
 		else
 			return "pc.begin();";

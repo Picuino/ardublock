@@ -67,11 +67,14 @@ Definitions:
 ##########################################################################
 
 Blocks:
+
+
 - name: *PICUINO_KEY_TIME
   parameter:
   return:  {type: number, position: mirror}
   translator:
     << : *PICUINO_LABEL_CODE
+
 
 - name: *PICUINO_KEYS
   parameter:
@@ -79,17 +82,20 @@ Blocks:
   translator:
     << : *PICUINO_LABEL_CODE
 
+
 - name: *PICUINO_DISPLAY
   parameter:
   return:  {type: number, position: mirror}
   translator:
     << : *PICUINO_LABEL_CODE
 
+
 - name: *PICUINO_TONES
   parameter:
   return:  {type: number, position: mirror}
   translator:
     << : *PICUINO_LABEL_CODE
+
 
 - name: pc_ledWrite
   properties:
@@ -104,6 +110,7 @@ Blocks:
     setup: ['"pc.begin();"']
     code:
     - 'return "pc.ledWrite(" + arg1 + ", " + arg2 + ");";'
+
 
 - name: pc_ledBlink
   properties:
@@ -122,7 +129,8 @@ Blocks:
     code:
     - 'return "pc.ledBlink(" + arg1 + ", " + arg2 + ", " + arg3 + ");";'
 
-- name: [ pc_keyPressed, pc_keyValue ]
+
+- name: [pc_keyPressed, pc_keyValue]
   properties:
     bg.pc_keyPressed: Key Pressed
     bg.pc_keyValue: Key Value
@@ -130,14 +138,42 @@ Blocks:
   - {type: number, label: bc.pc_key, default: [number, '1']}
   return: {type: boolean }
   translator:
-    name:  PcKeyPressed
+    name:  PcKeyValue
     headers: ['PC42.h', 'Wire.h']
     setup: ['"pc.begin();"']
     code:
     - 'String functionName = this.getTranslator().getBlock(blockId).getGenusName();'
-    - 'if (functionName == "pc_keyValue")'
-    - '	return "pc.keyValue(" + arg1 + ");";'
-    - 'return "pc.keyPressed(" + arg1 + ");";'
+    - 'String ret = "";'
+    - 'if (functionName.equals("pc_keyPressed"))'
+    - '	ret = "pc.keyPressed";'
+    - 'else if (functionName.equals("pc_keyValue"))'
+    - '	ret = "pc.keyValue";'
+    - 'return codePrefix + ret + "(" + arg1 + ")" + codeSuffix;'
+
+
+- name: [pc_keyCount, pc_keyTimeOn, pc_keyTimeOff]
+  properties:
+    bg.pc_keyCount: Key Count
+    bg.pc_keyTimeOn: Key Time On
+    bg.pc_keyTimeOff: Key Time Off
+  parameter:
+  - {type: number, label: bc.pc_key, default: [number, '1']}
+  return: {type: number }
+  translator:
+    name:  PcKeyCount
+    headers: ['PC42.h', 'Wire.h']
+    setup: ['"pc.begin();"']
+    code:
+    - 'String functionName = this.getTranslator().getBlock(blockId).getGenusName();'
+    - 'String ret = "";'
+    - 'if (functionName.equals("pc_keyCount"))'
+    - '	ret = "pc.keyCount";'
+    - 'else if (functionName.equals("pc_keyTimeOn"))'
+    - '	ret = "pc.keyTimeOn";'
+    - 'else if (functionName.equals("pc_keyTimeOff"))'
+    - '	ret = "pc.keyTimeOff";'
+    - 'return codePrefix + ret + "(" + arg1 + ")" + codeSuffix;'
+
 
 - name: pc_keyEvents
   properties:
@@ -151,37 +187,8 @@ Blocks:
     headers: ['PC42.h', 'Wire.h']
     setup: ['"pc.begin();"']
     code:
-    - 'return "pc.keyEvents(" + arg1 + ", " + arg2 + ");";'
+    - 'return codePrefix + "pc.keyEvents(" + arg1 + ", " + arg2 + ")" + codeSuffix;'
 
-- name: pc_keyCount
-  properties:
-    bg.pc_keyCount: Key Count
-  parameter:
-  - {type: number, label: bc.pc_key, default: [number, '1']}
-  return: {type: number }
-  translator:
-    name:  PcKeyCount
-    headers: ['PC42.h', 'Wire.h']
-    setup: ['"pc.begin();"']
-    code:
-    - 'return "pc.keyCount(" + arg1 + ");";'
-
-- name: [pc_keyTimeOn, pc_keyTimeOff]
-  properties:
-    bg.pc_keyTimeOn: Key Time On
-    bg.pc_keyTimeOff: Key Time Off    
-  parameter:
-  - {type: number, label: bc.pc_key, default: [number, '1']}
-  return: {type: number }
-  translator:
-    name:  PcKeyTime
-    headers: ['PC42.h', 'Wire.h']
-    setup: ['"pc.begin();"']
-    code:
-    - 'String functionName = this.getTranslator().getBlock(blockId).getGenusName();'
-    - 'if (functionName == "pc_keyTimeOn")'
-    - '	return "pc.keyTimeOn(" + arg1 + ");";'
-    - 'return "pc.keyTimeOff(" + arg1 + ");";'
 
 - name: pc_dispNum
   properties:
@@ -196,6 +203,7 @@ Blocks:
     code:
     - 'return "pc.dispNum(" + arg1 + ");";'
 
+
 - name: pc_dispWrite
   properties:
     bg.pc_dispWrite: Display Write
@@ -208,7 +216,8 @@ Blocks:
     headers: ['PC42.h', 'Wire.h']
     setup: ['"pc.begin();"']
     code:
-    - 'return "pc.dispWrite(" + arg1 + ");";'
+    - 'return "pc.dispWrite(" + arg1 + ", " + arg2 + ");";'
+
 
 - name: pc_dispWrite4
   properties:
@@ -224,8 +233,10 @@ Blocks:
     headers: ['PC42.h', 'Wire.h']
     setup: ['"pc.begin();"']
     code:
-    - 'return "pc.dispWrite4(" + arg1 + ", " + arg2 + ", " + arg3 + ", " + arg4 + ");";'
-    
+    - 'return "pc.dispWrite(" + arg1 + ", " + arg2 + ", " + arg3 + ", " + arg4 + ");";'
+
+
+
 - name: pc_buzzFreq
   properties:
     bg.pc_buzzFreq: Buzzer Frequency
@@ -238,7 +249,9 @@ Blocks:
     setup: ['"pc.begin();"']
     code:
     - 'return "pc.buzzFreq(" + arg1 + ");";'
-    
+
+
+
 - name: pc_buzzTone
   properties:
     bg.pc_buzzTone: Buzzer Tone
@@ -267,6 +280,7 @@ Blocks:
     code:
     - 'return "pc.buzzPlay(" + arg1 + ", " + arg2 + ");";'
 
+
 - name: pc_buzzPlayLen
   properties:
     bg.pc_buzzPlayLen: Buzzer Play Length
@@ -277,7 +291,8 @@ Blocks:
     headers: ['PC42.h', 'Wire.h']
     setup: ['"pc.begin();"']
     code:
-    - 'return "pc.buzzPlayLen();";'
+    - 'return codePrefix + "pc.buzzPlay()" + codeSuffix;'
+
 
 - name: [pc_buzzOn, pc_buzzOff]
   properties:
@@ -291,18 +306,19 @@ Blocks:
     setup: ['"pc.begin();"']
     code:
     - 'String functionName = this.getTranslator().getBlock(blockId).getGenusName();'
-    - 'if (functionName == "pc_buzzOn")'
+    - 'if (functionName.equals("pc_buzzOn"))'
     - '	return "pc.buzzOn();";'
     - 'return "pc.buzzOff();";'
 
 
 - name: *PICUINO_BEGIN
   properties:
+    name: PcBegin
     bg.pc_begin: Reset Panel
+    bg.pc_dispBegin: Reset Display
     bg.pc_keyBegin: Reset Keys
     bg.pc_ledBegin: Reset Leds
     bg.pc_buzzBegin: Reset Buzzer
-    bg.pc_dispBegin: Reset Display
   parameter:
   return:
   translator:
@@ -311,13 +327,13 @@ Blocks:
     setup: ['"pc.begin();"']
     code:
     - 'String functionName = this.getTranslator().getBlock(blockId).getGenusName();'
-    - 'if (functionName == "pc_keyBegin")'
+    - 'if (functionName.equals("pc_keyBegin"))'
     - '	return "pc.keyBegin();";'
-    - 'else if (functionName == "pc_ledBegin")'
+    - 'else if (functionName.equals("pc_ledBegin"))'
     - '	return "pc.ledBegin();";'
-    - 'else if (functionName == "pc_buzzBegin")'
+    - 'else if (functionName.equals("pc_buzzBegin"))'
     - '	return "pc.buzzBegin();";'
-    - 'else if (functionName == "pc_dispBegin")'
+    - 'else if (functionName.equals("pc_dispBegin"))'
     - '	return "pc.dispBegin();";'
     - 'else'
     - '	return "pc.begin();";'
@@ -340,7 +356,7 @@ Properties:
   bc.pc_tone: Tone
   bc.pc_time: Time
 
-  
+
 ##########################################################################
 #  Families
 ##########################################################################

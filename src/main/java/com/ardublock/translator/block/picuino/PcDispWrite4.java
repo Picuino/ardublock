@@ -31,6 +31,6 @@ public class PcDispWrite4 extends TranslatorBlock {
 
 		translator.addSetupCommand("pc.begin();");
 
-		return "pc.dispWrite4(" + arg1 + ", " + arg2 + ", " + arg3 + ", " + arg4 + ");";
+		return "pc.dispWrite(" + arg1 + ", " + arg2 + ", " + arg3 + ", " + arg4 + ");";
 	}
 }

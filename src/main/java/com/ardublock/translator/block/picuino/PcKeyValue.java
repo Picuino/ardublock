@@ -7,9 +7,9 @@ import com.ardublock.translator.block.exception.BlockException;
 import com.ardublock.translator.block.exception.SocketNullException;
 import com.ardublock.translator.block.exception.SubroutineNotDeclaredException;
 
-public class PcKeyTime extends TranslatorBlock {
+public class PcKeyValue extends TranslatorBlock {
 
-	public PcKeyTime(Long blockId, Translator translator, String codePrefix, String codeSuffix, String label) {
+	public PcKeyValue(Long blockId, Translator translator, String codePrefix, String codeSuffix, String label) {
 		super(blockId, translator, codePrefix, codeSuffix, label);
 	}
 
@@ -26,8 +26,11 @@ public class PcKeyTime extends TranslatorBlock {
 		translator.addSetupCommand("pc.begin();");
 
 		String functionName = this.getTranslator().getBlock(blockId).getGenusName();
-		if (functionName == "pc_keyTimeOn")
-			return "pc.keyTimeOn(" + arg1 + ");";
-		return "pc.keyTimeOff(" + arg1 + ");";
+		String ret = "";
+		if (functionName.equals("pc_keyPressed"))
+			ret = "pc.keyPressed";
+		else if (functionName.equals("pc_keyValue"))
+			ret = "pc.keyValue";
+		return codePrefix + ret + "(" + arg1 + ")" + codeSuffix;
 	}
 }

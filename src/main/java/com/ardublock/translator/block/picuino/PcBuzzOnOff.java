@@ -22,7 +22,7 @@ public class PcBuzzOnOff extends TranslatorBlock {
 		translator.addSetupCommand("pc.begin();");
 
 		String functionName = this.getTranslator().getBlock(blockId).getGenusName();
-		if (functionName == "pc_buzzOn")
+		if (functionName.equals("pc_buzzOn"))
 			return "pc.buzzOn();";
 		return "pc.buzzOff();";
 	}

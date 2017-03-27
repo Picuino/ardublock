@@ -2822,18 +2822,6 @@
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="pc_keyEvents" kind="data" color="160 0 0" initlabel="bg.pc_keyEvents">
-			<BlockConnectors>
-				<BlockConnector connector-type="boolean" connector-kind="plug" />
-				<BlockConnector connector-type="number" connector-kind="socket" label="bc.pc_key">
-					<DefaultArg genus-name="number" label="1" />
-				</BlockConnector>
-				<BlockConnector connector-type="number" connector-kind="socket" label="bc.pc_event">
-					<DefaultArg genus-name="KEY_PRESSED_TIME1" label="KEY_PRESSED_TIME1" />
-				</BlockConnector>
-			</BlockConnectors>
-		</BlockGenus>
-
 		<BlockGenus name="pc_keyCount" kind="data" color="160 0 0" initlabel="bg.pc_keyCount">
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="plug" />
@@ -2857,6 +2845,18 @@
 				<BlockConnector connector-type="number" connector-kind="plug" />
 				<BlockConnector connector-type="number" connector-kind="socket" label="bc.pc_key">
 					<DefaultArg genus-name="number" label="1" />
+				</BlockConnector>
+			</BlockConnectors>
+		</BlockGenus>
+
+		<BlockGenus name="pc_keyEvents" kind="data" color="160 0 0" initlabel="bg.pc_keyEvents">
+			<BlockConnectors>
+				<BlockConnector connector-type="boolean" connector-kind="plug" />
+				<BlockConnector connector-type="number" connector-kind="socket" label="bc.pc_key">
+					<DefaultArg genus-name="number" label="1" />
+				</BlockConnector>
+				<BlockConnector connector-type="number" connector-kind="socket" label="bc.pc_event">
+					<DefaultArg genus-name="KEY_PRESSED_TIME1" label="KEY_PRESSED_TIME1" />
 				</BlockConnector>
 			</BlockConnectors>
 		</BlockGenus>

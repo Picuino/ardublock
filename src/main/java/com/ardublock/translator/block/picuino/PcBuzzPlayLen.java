@@ -21,6 +21,6 @@ public class PcBuzzPlayLen extends TranslatorBlock {
 
 		translator.addSetupCommand("pc.begin();");
 
-		return "pc.buzzPlayLen();";
+		return codePrefix + "pc.buzzPlay()" + codeSuffix;
 	}
 }
