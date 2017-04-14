@@ -16,7 +16,7 @@ public class MeMbotIRGetcode extends TranslatorBlock {
 
 		translator.addDefinitionCommand("MeIR mBotIR;");
 
-		return "mBotIR.getCode()";
+		return codePrefix + "mBotIR.getCode()" + codeSuffix;
 	}
 
 }
