@@ -19,8 +19,9 @@ public class LabelBlock extends TranslatorBlock
 	public String toCode() throws SocketNullException {
 		translator.addHeaderFile("PC42.h");
 		translator.addHeaderFile("Wire.h");
-		
-		return codePrefix + label + codeSuffix;
+
+		String name = this.getTranslator().getBlock(blockId).getGenusName();
+		return codePrefix + name + codeSuffix;
 	}
 
 }
